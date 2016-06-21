@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.IO.Ports;
 
-namespace Fall_Detector
+namespace GUI
 {
     public partial class SerialSetup : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace Fall_Detector
+﻿namespace GUI
 {
     partial class SerialSetup
     {

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 
 
-namespace Fall_Detector
+namespace GUI
 {
     public partial class mainForm : Form
     {
@@ -18,8 +18,8 @@ namespace Fall_Detector
         private processedData data;
         public SerialSetup adruino_dialog;
         private bool isCollecting;
+        private bool isFullScreen = false;
         private Thread thread1;
-        private Stopwatch t1;
         private Dictionary<int,processedData> collectedPoints;
 
         public mainForm()
@@ -31,7 +31,12 @@ namespace Fall_Detector
         private void mainForm_Load(object sender, EventArgs e)
         {
             //Properties.Settings.Default.Reset();
-           
+            //this.TopMost = true;
+            //this.WindowState = FormWindowState.Maximized;
+            //this.FormBorderStyle = FormBorderStyle.None;
+
+            fullScreenToolStripMenuItem_Click(sender, e);
+
             collectedPoints = new Dictionary<int, processedData>();
             adruino_dialog = new SerialSetup();
             adruinoSerial = new SerialPort();
@@ -43,7 +48,23 @@ namespace Fall_Detector
             button1.Text = "START";
             currentpoint = 0;
             data = null;
-            t1 = new Stopwatch();
+        }
+       
+        private void fullScreenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!isFullScreen)  // FullScreenMode is an enum
+            {
+                this.WindowState = FormWindowState.Normal;
+                //this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+                isFullScreen = true;
+            }
+            else
+            {
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                this.WindowState = FormWindowState.Normal;
+                isFullScreen = false;
+            }
         }
 
 
@@ -118,24 +139,26 @@ namespace Fall_Detector
                 {
                     if (adruinoSerial.IsOpen)
                     {
-                        string buffer = adruinoSerial.ReadTo("\x03");
+                        string buffer = adruinoSerial.ReadTo("\n");
                         Console.WriteLine(buffer);
                         string[] bufferArray = buffer.Split(new string[] { "\x09" }, StringSplitOptions.RemoveEmptyEntries);
                         double[] dataArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
-
-                        if (collectedPoints.ContainsKey(5))
-                        {
-                            processedData d;
-                            double [,] prev = new double [5,3];
+                        
+                        processedData d  = new processedData();
+                        //if (collectedPoints.ContainsKey(5))
+                        //{   
+                        //    double [,] prev = new double [5,3];
                             
-                            for (int k = 0; k < 5; k++)
-                            {
-                                if (collectedPoints.TryGetValue(currentpoint - k, out d))
-                                {
-                                    prev[k,0] = d.getXCord();
-                                }
-                            }
-                        }
+                        //    for (int k = 0; k < 5; k++)
+                        //    {
+                        //        if (collectedPoints.TryGetValue(currentpoint - k, out d))
+                        //        {
+                        //            prev[k,0] = d.getXCord();
+                        //        }
+                        //    }
+                        //}
+                        
+                        d.setXCord(dataArray[0]);
 
 
                         using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Andrew Joseph\Desktop\Senior Design\\data.txt", true))
@@ -143,7 +166,7 @@ namespace Fall_Detector
                             file.WriteLine(dataArray[0]);
                         }
 
-                        Invoke((MethodInvoker)delegate { Update(); updateChart(data); Refresh(); Update(); });
+                        Invoke((MethodInvoker)delegate { Update(); updateChart(d); Refresh(); Update(); });
                         data = null;
                     }
                 }
@@ -160,7 +183,7 @@ namespace Fall_Detector
         {
             rawData.Update();
             
-            rawData.Series["Data"].Points.AddY(newData.getXCord());
+            rawData.Series["Reading"].Points.AddY(newData.getXCord());
            
 
             analyzedData.Series["Average"].Points.AddY(newData.getAvg());
@@ -195,11 +218,11 @@ namespace Fall_Detector
             }
 
 
-            double maxX = -111;
-            double maxA = -111;
+            double maxX = -300;
+            double maxA = -300;
 
-            double minX = 111;
-            double minA = 111;
+            double minX = 300;
+            double minA = 300;
 
             for (int k = Convert.ToInt32(rawData.ChartAreas[0].AxisX.Minimum); k < currentpoint; k++)
             {

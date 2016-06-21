@@ -1,4 +1,4 @@
-﻿namespace Fall_Detector
+﻿namespace GUI
 {
     partial class mainForm
     {
@@ -60,7 +60,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(751, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1355, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,7 +141,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Reading";
             this.rawData.Series.Add(series1);
-            this.rawData.Size = new System.Drawing.Size(728, 196);
+            this.rawData.Size = new System.Drawing.Size(1331, 196);
             this.rawData.TabIndex = 1;
             this.rawData.Text = "rawData";
             // 
@@ -149,7 +149,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(609, 27);
+            this.button1.Location = new System.Drawing.Point(1212, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 43);
             this.button1.TabIndex = 2;
@@ -173,7 +173,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Average";
             this.analyzedData.Series.Add(series2);
-            this.analyzedData.Size = new System.Drawing.Size(728, 196);
+            this.analyzedData.Size = new System.Drawing.Size(1331, 196);
             this.analyzedData.TabIndex = 3;
             this.analyzedData.Text = "analyzedData";
             // 
@@ -181,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 541);
+            this.ClientSize = new System.Drawing.Size(1355, 562);
             this.Controls.Add(this.analyzedData);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rawData);
@@ -189,6 +189,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1364, 600);
             this.Name = "mainForm";
             this.Text = "GUI v0.1";
             this.Load += new System.EventHandler(this.mainForm_Load);

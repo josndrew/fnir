@@ -1,5 +1,5 @@
 ﻿
-namespace Fall_Detector
+namespace GUI
 {
     class processedData
     {
