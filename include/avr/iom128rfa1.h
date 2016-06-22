@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom128rfa1.h 2477 2015-06-19 13:22:24Z pitchumani $ */
+/* $Id: iom128rfa1.h,v 1.1.2.10 2009/07/01 14:57:41 joerg_wunsch Exp $ */
 
 /* avr/iom128rfa1.h - definitions for ATmega128RFA1 */
 
@@ -1225,12 +1225,6 @@ struct __reg_PRR2 {
 #define PRRAM2                          2
 #define PRRAM3                          3
 
-#define __AVR_HAVE_PRR2	((1<<PRRAM0)|(1<<PRRAM1)|(1<<PRRAM2)|(1<<PRRAM3))
-#define __AVR_HAVE_PRR2_PRRAM0
-#define __AVR_HAVE_PRR2_PRRAM1
-#define __AVR_HAVE_PRR2_PRRAM2
-#define __AVR_HAVE_PRR2_PRRAM3
-
 /* Power Reduction Register0 */
 #define PRR0                            _SFR_MEM8(0x64)
 
@@ -1262,16 +1256,6 @@ struct __reg_PRR0 {
 #define PRTIM2                          6
 #define PRTWI                           7
 
-#define __AVR_HAVE_PRR0	((1<<PRADC)|(1<<PRUSART0)|(1<<PRSPI)|(1<<PRTIM1)|(1<<PRPGA)|(1<<PRTIM0)|(1<<PRTIM2)|(1<<PRTWI))
-#define __AVR_HAVE_PRR0_PRADC
-#define __AVR_HAVE_PRR0_PRUSART0
-#define __AVR_HAVE_PRR0_PRSPI
-#define __AVR_HAVE_PRR0_PRTIM1
-#define __AVR_HAVE_PRR0_PRPGA
-#define __AVR_HAVE_PRR0_PRTIM0
-#define __AVR_HAVE_PRR0_PRTIM2
-#define __AVR_HAVE_PRR0_PRTWI
-
 /* Power Reduction Register 1 */
 #define PRR1                            _SFR_MEM8(0x65)
 
@@ -1299,15 +1283,6 @@ struct __reg_PRR1 {
 #define PRTIM4                          4
 #define PRTIM5                          5
 #define PRTRX24                         6
-
-#define __AVR_HAVE_PRR1	((1<<PRUSART1)|(1<<PRUSART2)|(1<<PRUSART3)|(1<<PRTIM3)|(1<<PRTIM4)|(1<<PRTIM5)|(1<<PRTRX24))
-#define __AVR_HAVE_PRR1_PRUSART1
-#define __AVR_HAVE_PRR1_PRUSART2
-#define __AVR_HAVE_PRR1_PRUSART3
-#define __AVR_HAVE_PRR1_PRTIM3
-#define __AVR_HAVE_PRR1_PRTIM4
-#define __AVR_HAVE_PRR1_PRTIM5
-#define __AVR_HAVE_PRR1_PRTRX24
 
 /* Oscillator Calibration Value */
 #define OSCCAL                          _SFR_MEM8(0x66)
@@ -2508,15 +2483,12 @@ struct __reg_UCSR0B {
 struct __reg_UCSR0C {
         unsigned int ucpol0 : 1;	/* Clock Polarity */
         unsigned int ucsz0 : 2;	/* Character Size */
+        unsigned int ucpha0 : 1;	/* Clock Phase */
+        unsigned int udord0 : 1;	/* Data Order */
         unsigned int usbs0 : 1;	/* Stop Bit Select */
         unsigned int upm0 : 2;	/* Parity Mode */
         unsigned int umsel0 : 2;	/* USART Mode Select */
 };
-/* NOTE: UCSR0C in SPI mode have only lower three bits.
-  UCORD1 Data Order
-  UCPHA1 Clock Phase
-  UCPOL1 Clock Polarity
-*/
 
 #define UCSR0C_struct _SFR_MEM8_STRUCT(0xc2, struct __reg_UCSR0C)
 
@@ -2526,7 +2498,9 @@ struct __reg_UCSR0C {
 
 #define UCPOL0                          0
 #define UCPHA0                          1
+#define UCPHA0                          1
 #define UCSZ00                          1
+#define UDORD0                          2
 #define UDORD0                          2
 #define UCSZ01                          2
 #define USBS0                           3
@@ -2626,15 +2600,13 @@ struct __reg_UCSR1B {
 struct __reg_UCSR1C {
         unsigned int ucpol1 : 1;	/* Clock Polarity */
         unsigned int ucsz1 : 2;	/* Character Size */
+        unsigned int ucpha1 : 1;	/* Clock Phase */
+        unsigned int udord1 : 1;	/* Data Order */
         unsigned int usbs1 : 1;	/* Stop Bit Select */
         unsigned int upm1 : 2;	/* Parity Mode */
         unsigned int umsel1 : 2;	/* USART Mode Select */
 };
-/* NOTE: UCSR1C in SPI mode have only lower three bits.
-  UCORD1 Data Order
-  UCPHA1 Clock Phase
-  UCPOL1 Clock Polarity
-*/
+
 #define UCSR1C_struct _SFR_MEM8_STRUCT(0xca, struct __reg_UCSR1C)
 
 #endif /* __ASSEMBLER__ */
@@ -2643,7 +2615,9 @@ struct __reg_UCSR1C {
 
 #define UCPOL1                          0
 #define UCPHA1                          1
+#define UCPHA1                          1
 #define UCSZ10                          1
+#define UDORD1                          2
 #define UDORD1                          2
 #define UCSZ11                          2
 #define USBS1                           3
@@ -5250,7 +5224,29 @@ struct __reg_TST_RX_LENGTH {
 #define TIMER5_OVF_vect                 _VECTOR(50)
 #define TIMER5_OVF_vect_num             50
 
-/* Vectors 51 through 56 are reserved (unimplemented UARTs) */
+/* USART2, Rx Complete */
+#define USART2_RX_vect                  _VECTOR(51)
+#define USART2_RX_vect_num              51
+
+/* USART2 Data register Empty */
+#define USART2_UDRE_vect                _VECTOR(52)
+#define USART2_UDRE_vect_num            52
+
+/* USART2, Tx Complete */
+#define USART2_TX_vect                  _VECTOR(53)
+#define USART2_TX_vect_num              53
+
+/* USART3, Rx Complete */
+#define USART3_RX_vect                  _VECTOR(54)
+#define USART3_RX_vect_num              54
+
+/* USART3 Data register Empty */
+#define USART3_UDRE_vect                _VECTOR(55)
+#define USART3_UDRE_vect_num            55
+
+/* USART3, Tx Complete */
+#define USART3_TX_vect                  _VECTOR(56)
+#define USART3_TX_vect_num              56
 
 /* TRX24 - PLL lock interrupt */
 #define TRX24_PLL_LOCK_vect             _VECTOR(57)
@@ -5373,13 +5369,5 @@ struct __reg_TST_RX_LENGTH {
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0xA7
 #define SIGNATURE_2 0x01
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
-
 
 #endif /* _AVR_IOM128RFA1_H_ */

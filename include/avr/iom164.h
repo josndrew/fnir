@@ -30,7 +30,7 @@
 
 /* avr/iom164.h - definitions for ATmega164 */
 
-/* $Id: iom164.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: iom164.h,v 1.3.2.6 2009/04/25 21:01:29 arcanum Exp $ */
 
 #ifndef _AVR_IOM164_H_
 #define _AVR_IOM164_H_ 1
@@ -39,7 +39,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE    128
-#define RAMSTART        (0x100)
 #define RAMEND          0x04FF
 #define XRAMEND         RAMEND
 #define E2END           0x1FF
@@ -90,14 +89,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x94
 #define SIGNATURE_2 0x0A 
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
 
 
 #endif /* _AVR_IOM164_H_ */

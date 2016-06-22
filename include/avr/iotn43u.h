@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iotn43u.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iotn43u.h,v 1.4.2.6 2009/02/11 18:05:32 arcanum Exp $ */
 
 /* avr/iotn43u.h - definitions for ATtiny43U */
 
@@ -57,12 +57,6 @@
 #define PRTIM0 2
 #define PRTIM1 3
 
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRUSI)|(1<<PRTIM0)|(1<<PRTIM1))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRUSI
-#define __AVR_HAVE_PRR_PRTIM0
-#define __AVR_HAVE_PRR_PRTIM1
-
 #define DIDR0 _SFR_IO8(0x01)
 #define ADC0D  0
 #define ADC1D  1
@@ -80,10 +74,7 @@
 #define ADLAR  4
 #define ACME   6
 
-#ifndef __ASSEMBLER__
 #define ADC _SFR_IO16(0x04)
-#endif
-#define ADCW _SFR_IO16(0x04)
 
 #define ADCL _SFR_IO8(0x04)
 #define ADCL0  0
@@ -485,63 +476,48 @@
 /* Interrupt vector 0 is the reset vector. */
 
 /* External Interrupt Request 0 */
-#define INT0_vect_num       1
 #define INT0_vect           _VECTOR(1)
 
 /* Pin Change Interrupt Request 0 */
-#define PCINT0_vect_num     2
 #define PCINT0_vect         _VECTOR(2)
 
 /* Pin Change Interrupt Request 1 */
-#define PCINT1_vect_num     3
 #define PCINT1_vect         _VECTOR(3)
 
 /* Watchdog Time-out */
-#define WDT_vect_num        4
 #define WDT_vect            _VECTOR(4)
 
 /* Timer/Counter1 Compare Match A */
-#define TIM1_COMPA_vect_num 5
 #define TIM1_COMPA_vect     _VECTOR(5)
 
 /* Timer/Counter1 Compare Match B */
-#define TIM1_COMPB_vect_num 6
 #define TIM1_COMPB_vect     _VECTOR(6)
 
 /* Timer/Counter1 Overflow */
-#define TIM1_OVF_vect_num   7
 #define TIM1_OVF_vect       _VECTOR(7)
 
 /* Timer/Counter0 Compare Match A */
-#define TIM0_COMPA_vect_num 8
 #define TIM0_COMPA_vect     _VECTOR(8)
 
 /* Timer/Counter0 Compare Match B */
-#define TIM0_COMPB_vect_num 9
 #define TIM0_COMPB_vect     _VECTOR(9)
 
 /* Timer/Counter0 Overflow */
-#define TIM0_OVF_vect_num   10
 #define TIM0_OVF_vect       _VECTOR(10)
 
 /* Analog Comparator */
-#define ANA_COMP_vect_num   11
 #define ANA_COMP_vect       _VECTOR(11)
 
 /* ADC Conversion Complete */
-#define ADC_vect_num        12
 #define ADC_vect            _VECTOR(12)
 
 /* EEPROM Ready */
-#define EE_RDY_vect_num     13
 #define EE_RDY_vect         _VECTOR(13)
 
 /* USI START */
-#define USI_START_vect_num  14
 #define USI_START_vect      _VECTOR(14)
 
 /* USI Overflow */
-#define USI_OVF_vect_num    15
 #define USI_OVF_vect        _VECTOR(15)
 
 #define _VECTORS_SIZE 32
@@ -549,7 +525,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE   64
-#define RAMSTART       0x60
 #define RAMEND         0x15F
 #define XRAMEND        RAMEND
 #define E2END          0x3F
@@ -595,12 +570,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x92
 #define SIGNATURE_2 0x0C
-
-
-#define SLEEP_MODE_IDLE (0x00<<3)
-#define SLEEP_MODE_ADC (0x01<<3)
-#define SLEEP_MODE_PWR_DOWN (0x02<<3)
-#define SLEEP_MODE_STANDBY (0x03<<3)
 
 
 #endif /* _AVR_IOTN43U_H_ */

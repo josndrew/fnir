@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iotn84.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: iotn84.h,v 1.3.2.6 2009/02/11 18:05:33 arcanum Exp $ */
 
 /* avr/iotn84.h - definitions for ATtiny84 */
 
@@ -39,7 +39,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE 64
-#define RAMSTART     (0x60)
 #define RAMEND       0x25F
 #define XRAMEND      RAMEND
 #define E2END        0x1FF
@@ -70,7 +69,7 @@
 #define FUSE_SPIEN       (unsigned char)~_BV(5)
 #define FUSE_DWEN        (unsigned char)~_BV(6)
 #define FUSE_RSTDISBL    (unsigned char)~_BV(7)
-#define HFUSE_DEFAULT    (FUSE_SPIEN)
+#define FUSE_HFUSE_DEFAULT (FUSE_SPIEN)
 
 /* Extended Fuse Byte */
 #define FUSE_SELFPRGEN   (unsigned char)~_BV(0)
@@ -85,12 +84,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x93
 #define SIGNATURE_2 0x0C
-
-
-#define SLEEP_MODE_IDLE (0x00<<3)
-#define SLEEP_MODE_ADC (0x01<<3)
-#define SLEEP_MODE_PWR_DOWN (0x02<<3)
-#define SLEEP_MODE_STANDBY (0x03<<3)
 
 
 #endif /* _AVR_IOTN84_H_ */

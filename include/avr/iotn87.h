@@ -1,4 +1,4 @@
-/* Copyright (c) 2009-2010 Atmel Corporation
+/* Copyright (c) 2009 Atmel Corporation
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iotn87.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iotn87.h,v 1.1.2.2 2009/01/22 23:29:13 arcanum Exp $ */
 
 /* avr/iotn87.h - definitions for ATtiny87 */
 
@@ -297,8 +297,8 @@
 
 #define MCUCR _SFR_IO8(0x35)
 #define PUD 4
-#define BODSE 5
-#define BODS 6
+#define BODS 5
+#define BODSE 6
 
 #define SPMCSR _SFR_IO8(0x37)
 #define SPMEN 0
@@ -350,14 +350,6 @@
 #define PRTIM1 3
 #define PRSPI 4
 #define PRLIN 5
-
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRUSI)|(1<<PRTIM0)|(1<<PRTIM1)|(1<<PRSPI)|(1<<PRLIN))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRUSI
-#define __AVR_HAVE_PRR_PRTIM0
-#define __AVR_HAVE_PRR_PRTIM1
-#define __AVR_HAVE_PRR_PRSPI
-#define __AVR_HAVE_PRR_PRLIN
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -479,9 +471,9 @@
 #define ADC7D 7
 
 #define DIDR1 _SFR_MEM8(0x7F)
-#define ADC8D 4
-#define ADC9D 5
-#define ADC10D 6
+#define ADC8D 0
+#define ADC9D 1
+#define ADC10D 2
 
 #define TCCR1A _SFR_MEM8(0x80)
 #define WGM10 0
@@ -850,11 +842,6 @@
 #define SIGNATURE_1 0x93
 #define SIGNATURE_2 0x87
 
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
 
 #endif /* _AVR_ATtiny87_H_ */
 

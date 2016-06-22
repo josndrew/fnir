@@ -1,5 +1,4 @@
-/* Copyright (c) 2006 Anatoly Sokolov
-   Copyright (c) 2010 Atmel Corporation 
+/* Copyright (c) 2006 Anatoly Sokolov 
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -29,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iousb647.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: iousb647.h,v 1.2.2.4 2008/10/17 23:27:53 arcanum Exp $ */
 
 /* avr/iousb647.h - definitions for AT90USB647 */
 
@@ -40,7 +39,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE 256
-#define RAMSTART     0x100
 #define RAMEND       0x10FF
 #define XRAMEND      0xFFFF
 #define E2END        0x7FF
@@ -60,7 +58,7 @@
 #define FUSE_SUT1        (unsigned char)~_BV(5)
 #define FUSE_CKOUT       (unsigned char)~_BV(6)
 #define FUSE_CKDIV8      (unsigned char)~_BV(7)
-#define LFUSE_DEFAULT (FUSE_CKSEL0 & FUSE_CKSEL2 & FUSE_CKSEL3 & FUSE_SUT0 & FUSE_CKDIV8)
+#define LFUSE_DEFAULT (CKSEL0 & CKSEL2 & CKSEL3 & SUT0 & CKDIV8)
 
 /* High Fuse Byte */
 #define FUSE_BOOTRST     (unsigned char)~_BV(0)
@@ -71,14 +69,14 @@
 #define FUSE_SPIEN       (unsigned char)~_BV(5)
 #define FUSE_JTAGEN      (unsigned char)~_BV(6)
 #define FUSE_OCDEN       (unsigned char)~_BV(7)
-#define HFUSE_DEFAULT (FUSE_BOOTSZ0 & FUSE_BOOTSZ1 & FUSE_SPIEN & FUSE_JTAGEN)
+#define HFUSE_DEFAULT (BOOTSZ0 & BOOTSZ1 & SPIEN & JTAGEN)
 
 /* Extended Fuse Byte */
 #define FUSE_BODLEVEL0   (unsigned char)~_BV(0)
 #define FUSE_BODLEVEL1   (unsigned char)~_BV(1)
 #define FUSE_BODLEVEL2   (unsigned char)~_BV(2)
 #define FUSE_HWBE        (unsigned char)~_BV(3)
-#define EFUSE_DEFAULT (FUSE_BODLEVEL2 & FUSE_HWBE)
+#define EFUSE_DEFAULT (BODLEVEL2 & HWBE)
 
 
 /* Lock Bits */
@@ -91,14 +89,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x96
 #define SIGNATURE_2 0x82
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
 
 
 #endif /* _AVR_AT90USB647_H_ */

@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iotn88.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iotn88.h,v 1.2.2.11 2009/02/14 00:38:23 arcanum Exp $ */
 
 /* avr/iotn88.h - definitions for ATtiny88 */
 
@@ -375,13 +375,6 @@
 #define PRTIM0 5
 #define PRTWI 7
 
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRSPI)|(1<<PRTIM1)|(1<<PRTIM0)|(1<<PRTWI))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRSPI
-#define __AVR_HAVE_PRR_PRTIM1
-#define __AVR_HAVE_PRR_PRTIM0
-#define __AVR_HAVE_PRR_PRTWI
-
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
 #define CAL1 1
@@ -688,75 +681,37 @@
 /* Interrupt Vectors */
 /* Interrupt vector 0 is the reset vector. */
 
-#define INT0_vect_num     1
 #define INT0_vect         _VECTOR(1)
-
-#define INT1_vect_num     2
 #define INT1_vect         _VECTOR(2)
-
-#define PCINT0_vect_num   3
 #define PCINT0_vect       _VECTOR(3)
-
-#define PCINT1_vect_num   4
 #define PCINT1_vect       _VECTOR(4)
-
-#define PCINT2_vect_num   5
 #define PCINT2_vect       _VECTOR(5)
-
-#define PCINT3_vect_num   6
 #define PCINT3_vect       _VECTOR(6)
-
-#define WDT_vect_num      7
 #define WDT_vect          _VECTOR(7)
-
-#define TIMER1_CAPT_vect_num  8
 #define TIMER1_CAPT_vect  _VECTOR(8)
-
-#define TIMER1_COMPA_vect_num 9
 #define TIMER1_COMPA_vect _VECTOR(9)
-
-#define TIMER1_COMPB_vect_num 10
 #define TIMER1_COMPB_vect _VECTOR(10)
-
-#define TIMER1_OVF_vect_num   11
 #define TIMER1_OVF_vect   _VECTOR(11)
-
-#define TIMER0_COMPA_vect_num 12
 #define TIMER0_COMPA_vect _VECTOR(12)
-
-#define TIMER0_COMPB_vect_num 13
 #define TIMER0_COMPB_vect _VECTOR(13)
-
-#define TIMER0_OVF_vect_num   14
 #define TIMER0_OVF_vect   _VECTOR(14)
-
-#define SPI_STC_vect_num  15
 #define SPI_STC_vect      _VECTOR(15)
-
-#define ADC_vect_num      16
 #define ADC_vect          _VECTOR(16)
-
-#define EE_READY_vect_num 17
 #define EE_READY_vect     _VECTOR(17)
-
-#define ANALOG_COMP_vect_num  18
 #define ANALOG_COMP_vect  _VECTOR(18)
-
-#define TWI_vect_num      19
 #define TWI_vect          _VECTOR(19)
 
 #define _VECTORS_SIZE 40
 
 
 /* Constants */
-#define RAMEND       0x2FF
-#define RAMSTART     (0x100)
+#define RAMEND       0x1FF
 #define XRAMSIZE     0
 #define XRAMEND      RAMEND
 #define E2END        0x3F
 #define E2PAGESIZE   4
 #define FLASHEND     0x1FFF
-#define SPM_PAGESIZE 64
+#define SPM_PAGESIZE 32
 
 
 /* Fuse Information */
@@ -797,12 +752,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x93
 #define SIGNATURE_2 0x11
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
 
 
 #endif /* _AVR_IOTN88_H_ */

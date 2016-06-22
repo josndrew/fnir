@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iom88p.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iom88p.h,v 1.3.2.13 2009/02/11 18:05:31 arcanum Exp $ */
 
 /* avr/iom88p.h - definitions for ATmega88P. */
 
@@ -339,12 +339,10 @@
 
 #define SPMCSR _SFR_IO8(0x37)
 #define SELFPRGEN 0
-#define SPMEN 0
 #define PGERS 1
 #define PGWRT 2
 #define BLBSET 3
 #define RWWSRE 4
-#define SIGRD 5
 #define RWWSB 6
 #define SPMIE 7
 
@@ -373,15 +371,6 @@
 #define PRTIM0 5
 #define PRTIM2 6
 #define PRTWI 7
-
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRUSART0)|(1<<PRSPI)|(1<<PRTIM1)|(1<<PRTIM0)|(1<<PRTIM2)|(1<<PRTWI))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRUSART0
-#define __AVR_HAVE_PRR_PRSPI
-#define __AVR_HAVE_PRR_PRTIM1
-#define __AVR_HAVE_PRR_PRTIM0
-#define __AVR_HAVE_PRR_PRTIM2
-#define __AVR_HAVE_PRR_PRTWI
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -796,79 +785,30 @@
 
 /* Interrupt Vectors */
 /* Interrupt Vector 0 is the reset vector. */
-#define INT0_vect_num     1
 #define INT0_vect         _VECTOR(1)   /* External Interrupt Request 0 */
-
-#define INT1_vect_num     2
 #define INT1_vect         _VECTOR(2)   /* External Interrupt Request 1 */
-
-#define PCINT0_vect_num   3
 #define PCINT0_vect       _VECTOR(3)   /* Pin Change Interrupt Request 0 */
-
-#define PCINT1_vect_num   4
 #define PCINT1_vect       _VECTOR(4)   /* Pin Change Interrupt Request 0 */
-
-#define PCINT2_vect_num   5
 #define PCINT2_vect       _VECTOR(5)   /* Pin Change Interrupt Request 1 */
-
-#define WDT_vect_num      6
 #define WDT_vect          _VECTOR(6)   /* Watchdog Time-out Interrupt */
-
-#define TIMER2_COMPA_vect_num 7
 #define TIMER2_COMPA_vect _VECTOR(7)   /* Timer/Counter2 Compare Match A */
-
-#define TIMER2_COMPB_vect_num 8
 #define TIMER2_COMPB_vect _VECTOR(8)   /* Timer/Counter2 Compare Match A */
-
-#define TIMER2_OVF_vect_num   9
 #define TIMER2_OVF_vect   _VECTOR(9)   /* Timer/Counter2 Overflow */
-
-#define TIMER1_CAPT_vect_num  10
 #define TIMER1_CAPT_vect  _VECTOR(10)  /* Timer/Counter1 Capture Event */
-
-#define TIMER1_COMPA_vect_num 11
 #define TIMER1_COMPA_vect _VECTOR(11)  /* Timer/Counter1 Compare Match A */
-
-#define TIMER1_COMPB_vect_num 12
 #define TIMER1_COMPB_vect _VECTOR(12)  /* Timer/Counter1 Compare Match B */ 
-
-#define TIMER1_OVF_vect_num   13
 #define TIMER1_OVF_vect   _VECTOR(13)  /* Timer/Counter1 Overflow */
-
-#define TIMER0_COMPA_vect_num 14
 #define TIMER0_COMPA_vect _VECTOR(14)  /* TimerCounter0 Compare Match A */
-
-#define TIMER0_COMPB_vect_num 15
 #define TIMER0_COMPB_vect _VECTOR(15)  /* TimerCounter0 Compare Match B */
-
-#define TIMER0_OVF_vect_num   16
 #define TIMER0_OVF_vect   _VECTOR(16)  /* Timer/Couner0 Overflow */
-
-#define SPI_STC_vect_num  17
 #define SPI_STC_vect      _VECTOR(17)  /* SPI Serial Transfer Complete */
-
-#define USART_RX_vect_num 18
 #define USART_RX_vect     _VECTOR(18)  /* USART Rx Complete */
-
-#define USART_UDRE_vect_num   19
 #define USART_UDRE_vect   _VECTOR(19)  /* USART, Data Register Empty */
-
-#define USART_TX_vect_num 20
 #define USART_TX_vect     _VECTOR(20)  /* USART Tx Complete */
-
-#define ADC_vect_num      21
 #define ADC_vect          _VECTOR(21)  /* ADC Conversion Complete */
-
-#define EE_READY_vect_num 22
 #define EE_READY_vect     _VECTOR(22)  /* EEPROM Ready */
-
-#define ANALOG_COMP_vect_num  23
 #define ANALOG_COMP_vect  _VECTOR(23)  /* Analog Comparator */
-
-#define TWI_vect_num      24
 #define TWI_vect          _VECTOR(24)  /* Two-wire Serial Interface */
-
-#define SPM_READY_vect_num    25
 #define SPM_READY_vect    _VECTOR(25)  /* Store Program Memory Read */
 
 #define _VECTORS_SIZE (26 * 2)
@@ -877,7 +817,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE 64
-#define RAMSTART     (0x100)
 #define RAMEND       0x4FF     /* Last On-Chip SRAM Location */
 #define XRAMSIZE     0
 #define XRAMEND      RAMEND
@@ -930,14 +869,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x93
 #define SIGNATURE_2 0x0F
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
 
 
 #endif  /* _AVR_IOM88P_H_ */

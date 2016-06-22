@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom16u4.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iom16u4.h,v 1.1.2.2 2009/02/19 21:10:54 arcanum Exp $ */
 
 /* avr/iom16u4.h - definitions for ATmega16U4 */
 
@@ -446,24 +446,10 @@
 #define PRTIM2 6
 #define PRTWI 7
 
-#define __AVR_HAVE_PRR0	((1<<PRADC)|(1<<PRUSART0)|(1<<PRSPI)|(1<<PRTIM1)|(1<<PRTIM0)|(1<<PRTIM2)|(1<<PRTWI))
-#define __AVR_HAVE_PRR0_PRADC
-#define __AVR_HAVE_PRR0_PRUSART0
-#define __AVR_HAVE_PRR0_PRSPI
-#define __AVR_HAVE_PRR0_PRTIM1
-#define __AVR_HAVE_PRR0_PRTIM0
-#define __AVR_HAVE_PRR0_PRTIM2
-#define __AVR_HAVE_PRR0_PRTWI
-
 #define PRR1 _SFR_MEM8(0x65)
 #define PRUSART1 0
 #define PRTIM3 3
 #define PRUSB 7
-
-#define __AVR_HAVE_PRR1	((1<<PRUSART1)|(1<<PRTIM3)|(1<<PRUSB))
-#define __AVR_HAVE_PRR1_PRUSART1
-#define __AVR_HAVE_PRR1_PRTIM3
-#define __AVR_HAVE_PRR1_PRUSB
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -575,7 +561,7 @@
 #define ADTS0 0
 #define ADTS1 1
 #define ADTS2 2
-#define ADTS3 3
+#define ADTS3 4
 #define MUX5 5
 #define ACME 6
 #define ADHSM 7
@@ -880,47 +866,6 @@
 #define OCR3CH6 6
 #define OCR3CH7 7
 
-#define TWBR    _SFR_MEM8(0xB8)
-
-#define TWSR    _SFR_MEM8(0xB9)
-#define TWPS0   0
-#define TWPS1   1
-#define TWS3    3
-#define TWS4    4
-#define TWS5    5
-#define TWS6    6
-#define TWS7    7
-
-#define TWAR    _SFR_MEM8(0xBA)
-#define TWGCE   0
-#define TWA0    1
-#define TWA1    2
-#define TWA2    3
-#define TWA3    4
-#define TWA4    5
-#define TWA5    6
-#define TWA6    7
-
-#define TWDR    _SFR_MEM8(0xBB)
-
-#define TWCR    _SFR_MEM8(0xBC)
-#define TWIE    0
-#define TWEN    2
-#define TWWC    3
-#define TWSTO   4
-#define TWSTA   5
-#define TWEA    6
-#define TWINT   7
-
-#define TWAMR   _SFR_MEM8(0xBD)
-#define TWAM0   1
-#define TWAM1   2
-#define TWAM2   3
-#define TWAM3   4
-#define TWAM4   5
-#define TWAM5   6
-#define TWAM6   7
-
 #define TCNT4 _SFR_MEM8(0xBE)
 #define TC40 0
 #define TC41 1
@@ -1038,10 +983,6 @@
 #define UPM11 5
 #define UMSEL10 6
 #define UMSEL11 7
-
-#define UCSR1D _SFR_MEM8(0xCB)
-#define RTSEN 0
-#define CTSEN 1
 
 #define UBRR1 _SFR_MEM16(0xCC)
 
@@ -1411,14 +1352,6 @@
 #define SIGNATURE_1 0x94
 #define SIGNATURE_2 0x88
 
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
 
 #endif /* _AVR_ATmega16U4_H_ */
 

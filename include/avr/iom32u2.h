@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom32u2.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iom32u2.h,v 1.1.2.2 2009/07/17 17:09:31 arcanum Exp $ */
 
 /* avr/iom32u2.h - definitions for ATmega32U2 */
 
@@ -404,18 +404,9 @@
 #define PRTIM1 3
 #define PRTIM0 5
 
-#define __AVR_HAVE_PRR0	((1<<PRSPI)|(1<<PRTIM1)|(1<<PRTIM0))
-#define __AVR_HAVE_PRR0_PRSPI
-#define __AVR_HAVE_PRR0_PRTIM1
-#define __AVR_HAVE_PRR0_PRTIM0
-
 #define PRR1 _SFR_MEM8(0x65)
 #define PRUSART1 0
 #define PRUSB 7
-
-#define __AVR_HAVE_PRR1	((1<<PRUSART1)|(1<<PRUSB))
-#define __AVR_HAVE_PRR1_PRUSART1
-#define __AVR_HAVE_PRR1_PRUSB
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -483,12 +474,6 @@
 #define DIDR1 _SFR_MEM8(0x7F)
 #define AIN0D 0
 #define AIN1D 1
-#define AIN2D 2
-#define AIN3D 3
-#define AIN4D 4
-#define AIN5D 5
-#define AIN6D 6
-#define AIN7D 7
 
 #define TCCR1A _SFR_MEM8(0x80)
 #define WGM10 0
@@ -929,7 +914,7 @@
 #define TIMER1_OVF_vect      _VECTOR(18)  /* Timer/Counter1 Overflow */
 
 #define _VECTOR_SIZE 4 /* Size of individual vector. */
-#define _VECTORS_SIZE (29 * _VECTOR_SIZE)
+#define _VECTORS_SIZE (38 * _VECTOR_SIZE)
 
 
 /* Constants */
@@ -991,12 +976,5 @@
 
 
 /* Device Pin Definitions */
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
-
 #endif /* _AVR_ATmega32U2_H_ */
 

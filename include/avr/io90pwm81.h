@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io90pwm81.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: io90pwm81.h,v 1.1.2.2 2009/02/01 12:50:25 arcanum Exp $ */
 
 /* avr/io90pwm81.h - definitions for AT90PWM81 */
 
@@ -854,15 +854,8 @@
 #define PRADC 0
 #define PRSPI 2
 #define PRTIM1 4
-#define PRPSCR 5
+#define PRPSC0 5
 #define PRPSC2 7
-
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRSPI)|(1<<PRTIM1)|(1<<PRPSCR)|(1<<PRPSC2))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRSPI
-#define __AVR_HAVE_PRR_PRTIM1
-#define __AVR_HAVE_PRR_PRPSCR
-#define __AVR_HAVE_PRR_PRPSC2
 
 #define PLLCSR _SFR_MEM8(0x87)
 #define PLOCK 0
@@ -1027,12 +1020,6 @@
 #define SIGNATURE_1 0x93
 #define SIGNATURE_2 0x88
 
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
 
 #endif /* _AVR_AT90PWM81_H_ */
 

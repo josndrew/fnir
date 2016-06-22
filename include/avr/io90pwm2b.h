@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: io90pwm2b.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: io90pwm2b.h,v 1.3.2.13 2009/04/25 20:41:17 arcanum Exp $ */
 
 /* avr/io90pwm2b.h - definitions for AT90PWM2B */
 
@@ -408,16 +408,6 @@
 #define PRPSC0 5
 #define PRPSC1 6
 #define PRPSC2 7
-
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRUSART0)|(1<<PRSPI)|(1<<PRTIM0)|(1<<PRTIM1)|(1<<PRPSC0)|(1<<PRPSC1)|(1<<PRPSC2))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRUSART0
-#define __AVR_HAVE_PRR_PRSPI
-#define __AVR_HAVE_PRR_PRTIM0
-#define __AVR_HAVE_PRR_PRTIM1
-#define __AVR_HAVE_PRR_PRPSC0
-#define __AVR_HAVE_PRR_PRPSC1
-#define __AVR_HAVE_PRR_PRPSC2
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -1301,95 +1291,36 @@
 
 /* Interrupt Vectors */
 /* Interrupt vector 0 is the reset vector. */
-
-#define PSC2_CAPT_vect_num  1
 #define PSC2_CAPT_vect      _VECTOR(1)   /* PSC2 Capture Event */
-
-#define PSC2_EC_vect_num    2
 #define PSC2_EC_vect        _VECTOR(2)   /* PSC2 End Cycle */
-
-#define PSC1_CAPT_vect_num  3
 #define PSC1_CAPT_vect      _VECTOR(3)   /* PSC1 Capture Event */
-
-#define PSC1_EC_vect_num    4
 #define PSC1_EC_vect        _VECTOR(4)   /* PSC1 End Cycle */
-
-#define PSC0_CAPT_vect_num  5
 #define PSC0_CAPT_vect      _VECTOR(5)   /* PSC0 Capture Event */
-
-#define PSC0_EC_vect_num    6
 #define PSC0_EC_vect        _VECTOR(6)   /* PSC0 End Cycle */
-
-#define ANALOG_COMP_0_vect_num  7
 #define ANALOG_COMP_0_vect  _VECTOR(7)   /* Analog Comparator 0 */
-
-#define ANALOG_COMP_1_vect_num  8
 #define ANALOG_COMP_1_vect  _VECTOR(8)   /* Analog Comparator 1 */
-
-#define ANALOG_COMP_2_vect_num 9
 #define ANALOG_COMP_2_vect  _VECTOR(9)   /* Analog Comparator 2 */
-
-#define INT0_vect_num       10
 #define INT0_vect           _VECTOR(10)  /* External Interrupt Request 0 */
-
-#define TIMER1_CAPT_vect_num 11
 #define TIMER1_CAPT_vect    _VECTOR(11)  /* Timer/Counter1 Capture Event */
-
-#define TIMER1_COMPA_vect_num 12
 #define TIMER1_COMPA_vect   _VECTOR(12)  /* Timer/Counter1 Compare Match A */
-
-#define TIMER1_COMPB_vect_num 13
 #define TIMER1_COMPB_vect   _VECTOR(13)  /* Timer/Counter Compare Match B */
-
 /* Vector 14, Reserved */
-
-#define TIMER1_OVF_vect_num 15
 #define TIMER1_OVF_vect     _VECTOR(15)  /* Timer/Counter1 Overflow */
-
-#define TIMER0_COMPA_vect_num 16
 #define TIMER0_COMPA_vect   _VECTOR(16)  /* Timer/Counter0 Compare Match A */
-
-#define TIMER0_OVF_vect_num 17
 #define TIMER0_OVF_vect     _VECTOR(17)  /* Timer/Counter0 Overflow */
-
-#define ADC_vect_num        18
 #define ADC_vect            _VECTOR(18)  /* ADC Conversion Complete */
-
-#define INT1_vect_num       19
 #define INT1_vect           _VECTOR(19)  /* External Interrupt Request 1 */
-
-#define SPI_STC_vect_num    20
 #define SPI_STC_vect        _VECTOR(20)  /* SPI Serial Transfer Complete */
-
-#define USART_RX_vect_num   21
 #define USART_RX_vect       _VECTOR(21)  /* USART, Rx Complete */
-
-#define USART_UDRE_vect_num  22
 #define USART_UDRE_vect     _VECTOR(22)  /* USART Data Register Empty */
-
-#define USART_TX_vect_num   23
 #define USART_TX_vect       _VECTOR(23)  /* USART, Tx Complete */
-
-#define INT2_vect_num       24
 #define INT2_vect           _VECTOR(24)  /* External Interrupt Request 2 */
-
-#define WDT_vect_num        25
 #define WDT_vect            _VECTOR(25)  /* Watchdog Timeout Interrupt */
-
-#define EE_READY_vect_num   26
 #define EE_READY_vect       _VECTOR(26)  /* EEPROM Ready */
-
-#define TIMER0_COMPB_vect_num 27
 #define TIMER0_COMPB_vect   _VECTOR(27)  /* Timer Counter 0 Compare Match B */
-
-#define INT3_vect_num       28
 #define INT3_vect           _VECTOR(28)  /* External Interrupt Request 3 */
-
 /* Vector 29, Reserved */
-
 /* Vector 30, Reserved */
-
-#define SPM_READY_vect_num  31
 #define SPM_READY_vect      _VECTOR(31)  /* Store Program Memory Read */
 
 #define _VECTORS_SIZE 64
@@ -1397,14 +1328,13 @@
 
 
 /* Memory Sizes */
-#define RAMSTART       0x100
 #define RAMEND         0x2FF
 #define XRAMSIZE       0
 #define XRAMEND        RAMEND
 #define E2END          0x1FF
 #define E2PAGESIZE     4
 #define FLASHEND       0x1FFF
-#define SPM_PAGESIZE   64
+#define SPM_PAGESIZE   32
 
 
 
@@ -1419,7 +1349,7 @@
 #define FUSE_CKSEL3  (unsigned char)~_BV(3)  /* Select Clock Source */
 #define FUSE_SUT0    (unsigned char)~_BV(4)  /* Select start-up time */
 #define FUSE_SUT1    (unsigned char)~_BV(5)  /* Select start-up time */
-#define FUSE_CKOUT   (unsigned char)~_BV(6)  /* Oscillator output option */
+#define FUSE_CKOUT   (unsigned char)~_BV(6) /* Oscillator output option */
 #define FUSE_CKDIV8  (unsigned char)~_BV(7)  /* Divide clock by 8 */
 #define LFUSE_DEFAULT (FUSE_CKSEL0 & FUSE_CKSEL2 & FUSE_CKSEL3 & FUSE_SUT0 & FUSE_CKDIV8)
 
@@ -1457,12 +1387,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x93
 #define SIGNATURE_2 0x83
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
 
 
 #endif /* _AVR_IO90PWM2B_H_ */

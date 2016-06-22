@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iotn45.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: iotn45.h,v 1.3.2.6 2009/02/11 18:05:33 arcanum Exp $ */
 
 /* avr/iotn45.h - definitions for ATtiny45 */
 
@@ -39,7 +39,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE 64
-#define RAMSTART     (0x60)
 #define RAMEND       0x15F
 #define XRAMEND      RAMEND
 #define E2END        0xFF
@@ -85,11 +84,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x92
 #define SIGNATURE_2 0x06
-
-
-#define SLEEP_MODE_IDLE (0x00<<3)
-#define SLEEP_MODE_ADC (0x01<<3)
-#define SLEEP_MODE_PWR_DOWN (0x02<<3)
 
 
 #endif /* _AVR_IOTN45_H_ */

@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iom32u4.h 2479 2015-07-22 05:32:39Z pitchumani $ */
+/* $Id: iom32u4.h,v 1.1.2.11 2009/02/11 18:05:28 arcanum Exp $ */
 
 /* avr/iom32u4.h - definitions for ATmega32U4. */
 
@@ -171,6 +171,11 @@
 #define OCF1B 2
 #define OCF1C 3
 #define ICF1 5
+
+#define TIFR2 _SFR_IO8(0x17)
+#define TOV2 0
+#define OCF2A 1
+#define OCF2B 2
 
 #define TIFR3 _SFR_IO8(0x18)
 #define TOV3 0
@@ -439,8 +444,6 @@
 #define CLKPS3 3
 #define CLKPCE 7
 
-/* Reserved [0x62..0x63] */
-
 #define PRR0 _SFR_MEM8(0x64)
 #define PRADC 0
 #define PRUSART0 1
@@ -450,24 +453,10 @@
 #define PRTIM2 6
 #define PRTWI 7
 
-#define __AVR_HAVE_PRR0	((1<<PRADC)|(1<<PRUSART0)|(1<<PRSPI)|(1<<PRTIM1)|(1<<PRTIM0)|(1<<PRTIM2)|(1<<PRTWI))
-#define __AVR_HAVE_PRR0_PRADC
-#define __AVR_HAVE_PRR0_PRUSART0
-#define __AVR_HAVE_PRR0_PRSPI
-#define __AVR_HAVE_PRR0_PRTIM1
-#define __AVR_HAVE_PRR0_PRTIM0
-#define __AVR_HAVE_PRR0_PRTIM2
-#define __AVR_HAVE_PRR0_PRTWI
-
 #define PRR1 _SFR_MEM8(0x65)
 #define PRUSART1 0
 #define PRTIM3 3
 #define PRUSB 7
-
-#define __AVR_HAVE_PRR1	((1<<PRUSART1)|(1<<PRTIM3)|(1<<PRUSB))
-#define __AVR_HAVE_PRR1_PRUSART1
-#define __AVR_HAVE_PRR1_PRTIM3
-#define __AVR_HAVE_PRR1_PRUSB
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -515,7 +504,9 @@
 #define PCINT6 6
 #define PCINT7 7
 
-/* Reserved [0x6C..0x6D] */
+#define PCMSK1 _SFR_MEM8(0x6C)
+
+#define PCMSK2 _SFR_MEM8(0x6D)
 
 #define TIMSK0 _SFR_MEM8(0x6E)
 #define TOIE0 0
@@ -529,7 +520,10 @@
 #define OCIE1C 3
 #define ICIE1 5
 
-/* Reserved [0x70] */
+#define TIMSK2 _SFR_MEM8(0x70)
+#define TOIE2 0
+#define OCIE2A 1
+#define OCIE2B 2
 
 #define TIMSK3 _SFR_MEM8(0x71)
 #define TOIE3 0
@@ -544,12 +538,9 @@
 #define OCIE4A 6
 #define OCIE4D 7
 
-/* Reserved [0x73..0x77] */
+#define TIMSK5 _SFR_MEM8(0x73)
 
-#ifndef __ASSEMBLER__
 #define ADC _SFR_MEM16(0x78)
-#endif
-#define ADCW _SFR_MEM16(0x78)
 
 #define ADCL _SFR_MEM8(0x78)
 #define ADCL0 0
@@ -585,7 +576,7 @@
 #define ADTS0 0
 #define ADTS1 1
 #define ADTS2 2
-#define ADTS3 3
+#define ADTS3 4
 #define MUX5 5
 #define ACME 6
 #define ADHSM 7
@@ -645,8 +636,6 @@
 #define FOC1C 5 
 #define FOC1B 6 
 #define FOC1A 7 
-
-/* Reserved [0x83] */
 
 #define TCNT1 _SFR_MEM16(0x84)
 
@@ -758,8 +747,6 @@
 #define OCR1CH6 6
 #define OCR1CH7 7
 
-/* Reserved [0x8E..0x8F] */
-
 #define TCCR3A _SFR_MEM8(0x90)
 #define WGM30 0
 #define WGM31 1
@@ -783,8 +770,6 @@
 #define FOC3C 5
 #define FOC3B 6
 #define FOC3A 7
-
-/* Reserved [0x93] */
 
 #define TCNT3 _SFR_MEM16(0x94)
 
@@ -896,7 +881,89 @@
 #define OCR3CH6 6
 #define OCR3CH7 7
 
-/* Reserved [0x9E..0xB7] */
+#define UHCON _SFR_MEM8(0x9E)
+
+#define UHINT _SFR_MEM8(0x9F)
+
+#define UHIEN _SFR_MEM8(0xA0)
+
+#define UHADDR _SFR_MEM8(0xA1)
+
+#define UHFNUM _SFR_MEM16(0xA2)
+
+#define UHFNUML _SFR_MEM8(0xA2)
+
+#define UHFNUMH _SFR_MEM8(0xA3)
+
+#define UHFLEN _SFR_MEM8(0xA4)
+
+#define UPINRQX _SFR_MEM8(0xA5)
+
+#define UPINTX _SFR_MEM8(0xA6)
+
+#define UPNUM _SFR_MEM8(0xA7)
+
+#define UPRST _SFR_MEM8(0xA8)
+
+#define UPCONX _SFR_MEM8(0xA9)
+
+#define UPCFG0X _SFR_MEM8(0xAA)
+
+#define UPCFG1X _SFR_MEM8(0xAB)
+
+#define UPSTAX _SFR_MEM8(0xAC)
+
+#define UPCFG2X _SFR_MEM8(0xAD)
+
+#define UPIENX _SFR_MEM8(0xAE)
+
+#define UPDATX _SFR_MEM8(0xAF)
+
+#define TCCR2A _SFR_MEM8(0xB0)
+#define WGM20 0
+#define WGM21 1
+#define COM2B0 4
+#define COM2B1 5
+#define COM2A0 6
+#define COM2A1 7
+
+#define TCCR2B _SFR_MEM8(0xB1)
+#define CS20 0
+#define CS21 1
+#define CS22 2
+#define WGM22 3
+#define FOC2B 6
+#define FOC2A 7
+
+#define TCNT2 _SFR_MEM8(0xB2)
+#define TCNT2_0 0
+#define TCNT2_1 1
+#define TCNT2_2 2
+#define TCNT2_3 3
+#define TCNT2_4 4
+#define TCNT2_5 5
+#define TCNT2_6 6
+#define TCNT2_7 7
+
+#define OCR2A _SFR_MEM8(0xB3)
+#define OCR2_0 0
+#define OCR2_1 1
+#define OCR2_2 2
+#define OCR2_3 3
+#define OCR2_4 4
+#define OCR2_5 5
+#define OCR2_6 6
+#define OCR2_7 7
+
+#define OCR2B _SFR_MEM8(0xB4)
+#define OCR2_0 0
+#define OCR2_1 1
+#define OCR2_2 2
+#define OCR2_3 3
+#define OCR2_4 4
+#define OCR2_5 5
+#define OCR2_6 6
+#define OCR2_7 7
 
 #define TWBR _SFR_MEM8(0xB8)
 #define TWBR0 0
@@ -1076,10 +1143,6 @@
 #define UMSEL10 6
 #define UMSEL11 7
 
-#define UCSR1D _SFR_MEM8(0xCB)
-#define RTSEN 0
-#define CTSEN 1
-
 #define UBRR1 _SFR_MEM16(0xCC)
 
 #define UBRR1L _SFR_MEM8(0xCC)
@@ -1136,8 +1199,6 @@
 #define OCR4D6 6
 #define OCR4D7 7
 
-/* Reserved [0xD3] */
-
 #define DT4 _SFR_MEM8(0xD4)
 #define DT4L0 0
 #define DT4L1 1
@@ -1148,25 +1209,27 @@
 #define DT4L6 6
 #define DT4L7 7
 
-/* Reserved [0xD5..0xD6] */
+#define UHWCON _SFR_MEM8(0xD7)
+#define UVREGE 0
 
-#define UHWCON  _SFR_MEM8(0xD7)
-#define UVREGE  0
-
-#define USBCON  _SFR_MEM8(0xD8)
-#define VBUSTE  0
+#define USBCON _SFR_MEM8(0xD8)
+#define VBUSTE 0
 #define OTGPADE 4
-#define FRZCLK  5
-#define USBE    7
+#define FRZCLK 5
+#define USBE 7
 
-#define USBSTA  _SFR_MEM8(0xD9)
-#define VBUS    0
-#define SPEED   3
+#define USBSTA _SFR_MEM8(0xD9)
+#define VBUS 0
+#define SPEED 3
 
-#define USBINT  _SFR_MEM8(0xDA)
-#define VBUSTI  0
+#define USBINT _SFR_MEM8(0xDA)
+#define VBUSTI 0
 
-/* Reserved [0xDB..0xDF] */
+#define OTGCON _SFR_MEM8(0xDD)
+
+#define OTGIEN _SFR_MEM8(0xDE)
+
+#define OTGINT _SFR_MEM8(0xDF)
 
 #define UDCON _SFR_MEM8(0xE0)
 #define DETACH 0
@@ -1220,7 +1283,7 @@
 #define UDMFN _SFR_MEM8(0xE6)
 #define FNCERR 4
 
-/* Reserved [0xE7] */
+#define UDTST _SFR_MEM8(0xE7)
 
 #define UEINTX _SFR_MEM8(0xE8)
 #define TXINI 0
@@ -1321,118 +1384,55 @@
 #define EPINT5 5
 #define EPINT6 6
 
+#define UPERRX _SFR_MEM8(0xF5)
+
+#define UPBCLX _SFR_MEM8(0xF6)
+
+#define UPBCHX _SFR_MEM8(0xF7)
+
+#define UPINT _SFR_MEM8(0xF8)
+
+#define OTGTCON _SFR_MEM8(0xF9)
 
 
 
 /* Interrupt Vectors */
 /* Interrupt Vector 0 is the reset vector. */
-
-#define INT0_vect_num       1
 #define INT0_vect           _VECTOR(1)  /* External Interrupt Request 0 */
-
-#define INT1_vect_num       2
 #define INT1_vect           _VECTOR(2)  /* External Interrupt Request 1 */
-
-#define INT2_vect_num       3
 #define INT2_vect           _VECTOR(3)  /* External Interrupt Request 2 */
-
-#define INT3_vect_num       4
 #define INT3_vect           _VECTOR(4)  /* External Interrupt Request 3 */
-
-#define INT6_vect_num       7
 #define INT6_vect           _VECTOR(7)  /* External Interrupt Request 6 */
-
-#define PCINT0_vect_num     9
 #define PCINT0_vect         _VECTOR(9)  /* Pin Change Interrupt Request 0 */
-
-#define USB_GEN_vect_num    10
 #define USB_GEN_vect        _VECTOR(10)  /* USB General Interrupt Request */
-
-#define USB_COM_vect_num    11
 #define USB_COM_vect        _VECTOR(11)  /* USB Endpoint/Pipe Interrupt Communication Request */
-
-#define WDT_vect_num        12
 #define WDT_vect            _VECTOR(12)  /* Watchdog Time-out Interrupt */
-
-#define TIMER1_CAPT_vect_num  16
 #define TIMER1_CAPT_vect    _VECTOR(16)  /* Timer/Counter1 Capture Event */
-
-#define TIMER1_COMPA_vect_num  17
 #define TIMER1_COMPA_vect   _VECTOR(17)  /* Timer/Counter1 Compare Match A */
-
-#define TIMER1_COMPB_vect_num   18
 #define TIMER1_COMPB_vect   _VECTOR(18)  /* Timer/Counter1 Compare Match B */
-
-#define TIMER1_COMPC_vect_num   19
 #define TIMER1_COMPC_vect   _VECTOR(19)  /* Timer/Counter1 Compare Match C */
-
-#define TIMER1_OVF_vect_num 20
 #define TIMER1_OVF_vect     _VECTOR(20)  /* Timer/Counter1 Overflow */
-
-#define TIMER0_COMPA_vect_num   21
 #define TIMER0_COMPA_vect   _VECTOR(21)  /* Timer/Counter0 Compare Match A */
-
-#define TIMER0_COMPB_vect_num   22
 #define TIMER0_COMPB_vect   _VECTOR(22)  /* Timer/Counter0 Compare Match B */
-
-#define TIMER0_OVF_vect_num 23
 #define TIMER0_OVF_vect     _VECTOR(23)  /* Timer/Counter0 Overflow */
-
-#define SPI_STC_vect_num    24
 #define SPI_STC_vect        _VECTOR(24)  /* SPI Serial Transfer Complete */
-
-#define USART1_RX_vect_num  25
 #define USART1_RX_vect      _VECTOR(25)  /* USART1, Rx Complete */
-
-#define USART1_UDRE_vect_num 26
 #define USART1_UDRE_vect    _VECTOR(26)  /* USART1 Data register Empty */
-
-#define USART1_TX_vect_num  27
 #define USART1_TX_vect      _VECTOR(27)  /* USART1, Tx Complete */
-
-#define ANALOG_COMP_vect_num 28
 #define ANALOG_COMP_vect    _VECTOR(28)  /* Analog Comparator */
-
-#define ADC_vect_num        29
 #define ADC_vect            _VECTOR(29)  /* ADC Conversion Complete */
-
-#define EE_READY_vect_num   30
 #define EE_READY_vect       _VECTOR(30)  /* EEPROM Ready */
-
-#define TIMER3_CAPT_vect_num 31
 #define TIMER3_CAPT_vect    _VECTOR(31)  /* Timer/Counter3 Capture Event */
-
-#define TIMER3_COMPA_vect_num 32
 #define TIMER3_COMPA_vect   _VECTOR(32)  /* Timer/Counter3 Compare Match A */
-
-#define TIMER3_COMPB_vect_num 33
 #define TIMER3_COMPB_vect   _VECTOR(33)  /* Timer/Counter3 Compare Match B */
-
-#define TIMER3_COMPC_vect_num 34
 #define TIMER3_COMPC_vect   _VECTOR(34)  /* Timer/Counter3 Compare Match C */
-
-#define TIMER3_OVF_vect_num 35
 #define TIMER3_OVF_vect     _VECTOR(35)  /* Timer/Counter3 Overflow */
-
-#define TWI_vect_num        36
 #define TWI_vect            _VECTOR(36)  /* 2-wire Serial Interface         */
-
-#define SPM_READY_vect_num  37
 #define SPM_READY_vect      _VECTOR(37)  /* Store Program Memory Read */
-
-#define TIMER4_COMPA_vect_num 38
 #define TIMER4_COMPA_vect   _VECTOR(38)  /* Timer/Counter4 Compare Match A */
-
-#define TIMER4_COMPB_vect_num 39
 #define TIMER4_COMPB_vect   _VECTOR(39)  /* Timer/Counter4 Compare Match B */
-
-#define TIMER4_COMPD_vect_num 40
 #define TIMER4_COMPD_vect   _VECTOR(40)  /* Timer/Counter4 Compare Match D */
-
-#define TIMER4_OVF_vect_num 41
 #define TIMER4_OVF_vect     _VECTOR(41)  /* Timer/Counter4 Overflow */
-
-#define TIMER4_FPF_vect_num 42
 #define TIMER4_FPF_vect     _VECTOR(42)  /* Timer/Counter4 Fault Protection Interrupt */
 
 #define _VECTORS_SIZE (43 * 4)
@@ -1499,14 +1499,6 @@
 #define SIGNATURE_1 0x95
 #define SIGNATURE_2 0x87
 
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
 
 
 #endif  /* _AVR_IOM32U4_H_ */

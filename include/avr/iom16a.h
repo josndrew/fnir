@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom16a.h 2483 2015-08-06 09:16:30Z pitchumani $ */
+/* $Id: iom16a.h,v 1.1.2.2 2009/11/02 02:44:17 arcanum Exp $ */
 
 /* avr/iom16a.h - definitions for ATmega16A */
 
@@ -676,28 +676,14 @@
 #define TIMER1_OVF_vect      _VECTOR(8)  /* Timer/Counter1 Overflow */
 #define TIMER0_OVF_vect_num  9
 #define TIMER0_OVF_vect      _VECTOR(9)  /* Timer/Counter0 Overflow */
-#define SPI_STC_vect_num  10
-#define SPI_STC_vect      _VECTOR(10)  /* Serial Transfer Complete */
 #define SPISTC_vect_num  10
-#define SPISTC_vect      _VECTOR(10)  /* Keep for backward-compatibility */
-
-/* The following vectors use an inconsistent (to the ATmega16 etc.)
-   naming scheme.  The inconsistent names are preserved here for softwares
-   that already use them: */
+#define SPISTC_vect      _VECTOR(10)  /* Serial Transfer Complete */
 #define USARTRXC_vect_num  11
 #define USARTRXC_vect      _VECTOR(11)  /* USART, Rx Complete */
 #define USARTUDRE_vect_num  12
 #define USARTUDRE_vect      _VECTOR(12)  /* USART Data Register Empty */
 #define USARTTXC_vect_num  13
 #define USARTTXC_vect      _VECTOR(13)  /* USART, Tx Complete */
-/* The "classic" designators: */
-#define USART_RXC_vect_num  11
-#define USART_RXC_vect      _VECTOR(11)  /* USART, Rx Complete */
-#define USART_UDRE_vect_num  12
-#define USART_UDRE_vect      _VECTOR(12)  /* USART Data Register Empty */
-#define USART_TXC_vect_num  13
-#define USART_TXC_vect      _VECTOR(13)  /* USART, Tx Complete */
-
 #define ADC_vect_num  14
 #define ADC_vect      _VECTOR(14)  /* ADC Conversion Complete */
 #define EE_RDY_vect_num  15
@@ -913,14 +899,6 @@
 #define SS_PORT  PORTB
 #define SS_PIN   PINB
 #define SS_BIT   4
-
-
-#define SLEEP_MODE_IDLE (0x00<<4)
-#define SLEEP_MODE_ADC (0x01<<4)
-#define SLEEP_MODE_PWR_DOWN (0x02<<4)
-#define SLEEP_MODE_PWR_SAVE (0x03<<4)
-#define SLEEP_MODE_STANDBY (0x0A<<4)
-#define SLEEP_MODE_EXT_STANDBY (0x0B<<4)
 
 #endif /* _AVR_ATmega16A_H_ */
 

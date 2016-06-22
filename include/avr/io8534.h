@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io8534.h 2434 2014-08-05 06:57:11Z pitchumani $ */
+/* $Id: io8534.h,v 1.7.4.1 2009/02/11 18:05:23 arcanum Exp $ */
 
 /* avr/io8534.h - definitions for AT90C8534 */
 
@@ -208,7 +208,6 @@
 #define EERE    0
 
 /* Last memory addresses */
-#define RAMSTART    0x60
 #define RAMEND		0x15F
 #define XRAMEND		RAMEND
 #define E2END		0x1FF

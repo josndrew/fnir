@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io2343.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: io2343.h,v 1.9.2.4 2009/02/11 18:05:22 arcanum Exp $ */
 
 /* avr/io2343.h - definitions for AT90S2343 */
 
@@ -102,12 +102,10 @@
 /* Interrupt vectors */
 
 /* External Interrupt 0 */
-#define INT0_vect_num		1
 #define INT0_vect			_VECTOR(1)
 #define SIG_INTERRUPT0			_VECTOR(1)
 
 /* Timer/Counter0 Overflow */
-#define TIMER0_OVF0_vect_num	2
 #define TIMER0_OVF0_vect		_VECTOR(2)
 #define SIG_OVERFLOW0			_VECTOR(2)
 
@@ -182,7 +180,6 @@
 #define    EERE    0
 
 /* Constants */
-#define RAMSTART   0x60
 #define RAMEND     0xDF
 #define XRAMEND    RAMEND
 #define E2END      0x7F
@@ -207,10 +204,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x91
 #define SIGNATURE_2 0x03
-
-
-#define SLEEP_MODE_IDLE         0
-#define SLEEP_MODE_PWR_DOWN     _BV(SM)
 
 
 #endif /* _AVR_IO2343_H_ */

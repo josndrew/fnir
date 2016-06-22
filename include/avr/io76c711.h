@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io76c711.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: io76c711.h,v 1.5.6.1 2009/02/11 18:05:23 arcanum Exp $ */
 
 /* avr/io76c711.h - definitions for AT76C711 */
 
@@ -471,7 +471,6 @@
 #define USB_DMA_EN	0x10A
 
 /* Last memory addresses */
-#define RAMSTART    0x60
 #define RAMEND		0x07FF
 #define XRAMEND		RAMEND
 #define E2END		0
@@ -490,12 +489,5 @@
    0x3000 - 0x37FF - DPRAM
    0x8000 - 0xBFFF - program SRAM (read/write), would be nice if other
                      AVR devices did that as well (no need to use LPM!)
-
  */
-
-#define SLEEP_MODE_IDLE         0
-#define SLEEP_MODE_ADC          _BV(SM0)
-#define SLEEP_MODE_PWR_DOWN     _BV(SM1)
-#define SLEEP_MODE_PWR_SAVE     (_BV(SM0) | _BV(SM1))
-
 #endif /* _AVR_IO76C711_H_ */

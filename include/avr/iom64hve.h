@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom64hve.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iom64hve.h,v 1.1.2.2 2009/12/15 03:24:16 arcanum Exp $ */
 
 /* avr/iom64hve.h - definitions for ATmega64HVE */
 
@@ -330,12 +330,6 @@
 #define PRTIM1 1
 #define PRSPI 2
 #define PRLIN 3
-
-#define __AVR_HAVE_PRR0	((1<<PRTIM0)|(1<<PRTIM1)|(1<<PRSPI)|(1<<PRLIN))
-#define __AVR_HAVE_PRR0_PRTIM0
-#define __AVR_HAVE_PRR0_PRTIM1
-#define __AVR_HAVE_PRR0_PRSPI
-#define __AVR_HAVE_PRR0_PRLIN
 
 #define SOSCCALA _SFR_MEM8(0x66)
 #define SCALA0 0
@@ -1021,14 +1015,6 @@
 #define OC_PORT  PORTOC
 #define OC_PIN   PINOC
 #define OC_BIT   OC
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
 
 #endif /* _AVR_ATmega64HVE_H_ */
 

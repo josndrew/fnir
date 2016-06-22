@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom32c1.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iom32c1.h,v 1.1.2.9 2009/08/07 01:25:49 arcanum Exp $ */
 
 /* avr/iom32c1.h - definitions for ATmega32C1 */
 
@@ -396,15 +396,6 @@
 #define PRTIM1 4
 #define PRPSC 5
 #define PRCAN 6
-
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRLIN)|(1<<PRSPI)|(1<<PRTIM0)|(1<<PRTIM1)|(1<<PRPSC)|(1<<PRCAN))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRLIN
-#define __AVR_HAVE_PRR_PRSPI
-#define __AVR_HAVE_PRR_PRTIM0
-#define __AVR_HAVE_PRR_PRTIM1
-#define __AVR_HAVE_PRR_PRPSC
-#define __AVR_HAVE_PRR_PRCAN
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -915,9 +906,6 @@
 
 #define CANIE1 _SFR_MEM8(0xDF)
 
-/* RegDef:  CAN Status Interrupt MOb Register*/
-#define CANSIT _SFR_MEM16(0xE0)
-
 #define CANSIT2 _SFR_MEM8(0xE0)
 #define SIT0 0
 #define SIT1 1
@@ -1066,9 +1054,6 @@
 #define CONMOB0 6
 #define CONMOB1 7
 
-/* RegDef:  CAN Identifier Tag Registers*/
-#define CANIDT  _SFR_MEM32(0xF0)
-
 #define CANIDT4 _SFR_MEM8(0xF0)
 #define RB0TAG 0
 #define RB1TAG 1
@@ -1108,9 +1093,6 @@
 #define IDT26 5
 #define IDT27 6
 #define IDT28 7
-
-/* RegDef:  CAN Identifier Mask Registers */
-#define CANIDM  _SFR_MEM32(0xF4)
 
 #define CANIDM4 _SFR_MEM8(0xF4)
 #define IDEMSK 0
@@ -1310,12 +1292,6 @@
 #define SIGNATURE_1 0x95
 #define SIGNATURE_2 0x86
 
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
 
 #endif /* _AVR_ATmega32C1_H_ */
 

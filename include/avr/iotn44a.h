@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iotn44a.h 2494 2015-11-26 08:08:43Z pitchumani $ */
+/* $Id: iotn44a.h,v 1.1.2.2 2009/11/02 02:44:17 arcanum Exp $ */
 
 /* avr/iotn44a.h - definitions for ATtiny44A */
 
@@ -56,12 +56,6 @@
 #define PRUSI 1
 #define PRTIM0 2
 #define PRTIM1 3
-
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRUSI)|(1<<PRTIM0)|(1<<PRTIM1))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRUSI
-#define __AVR_HAVE_PRR_PRTIM0
-#define __AVR_HAVE_PRR_PRTIM1
 
 #define DIDR0 _SFR_IO8(0x01)
 #define ADC0D 0
@@ -492,12 +486,10 @@
 #define MCUCR _SFR_IO8(0x35)
 #define ISC00 0
 #define ISC01 1
-#define BODSE 2
 #define SM0 3
 #define SM1 4
 #define SE 5
 #define PUD 6
-#define BODS 7
 
 #define OCR0A _SFR_IO8(0x36)
 #define OCR0A_0 0
@@ -611,7 +603,7 @@
 #define FUSE_SUT1  (unsigned char)~_BV(5)  /* Select start-up time */
 #define FUSE_CKOUT  (unsigned char)~_BV(6)  /* Clock Output Enable */
 #define FUSE_CKDIV8  (unsigned char)~_BV(7)  /* Divide clock by 8 */
-#define LFUSE_DEFAULT (FUSE_CKSEL0 & FUSE_CKSEL2 & FUSE_CKSEL3 & FUSE_SUT0 & FUSE_CKDIV8)
+#define LFUSE_DEFAULT (FUSE_CKSEL0 & FUSE_CKSEL2 & FUSE_SUT0 & FUSE_CKDIV8)
 
 /* High Fuse Byte */
 #define FUSE_BODLEVEL0  (unsigned char)~_BV(0)  /* Brown-out Detector trigger level */
@@ -834,12 +826,6 @@
 #define PCINT5_PORT  PORTA
 #define PCINT5_PIN   PINA
 #define PCINT5_BIT   5
-
-
-#define SLEEP_MODE_IDLE (0x00<<3)
-#define SLEEP_MODE_ADC (0x01<<3)
-#define SLEEP_MODE_PWR_DOWN (0x02<<3)
-#define SLEEP_MODE_STANDBY (0x03<<3)
 
 #endif /* _AVR_ATtiny44A_H_ */
 

@@ -29,7 +29,7 @@
   POSSIBILITY OF SUCH DAMAGE. 
 */
 
-/* $Id: iom1284p.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iom1284p.h,v 1.2.2.13 2009/02/11 18:05:25 arcanum Exp $ */
 
 /* avr/iom1284p.h - definitions for ATmega1284P. */
 
@@ -433,21 +433,8 @@
 #define PRTIM2 6
 #define PRTWI 7
 
-#define __AVR_HAVE_PRR0	((1<<PRADC)|(1<<PRSPI)|(1<<PRTIM1)|(1<<PRUSART0)|(1<<PRUSART1)|(1<<PRTIM0)|(1<<PRTIM2)|(1<<PRTWI))
-#define __AVR_HAVE_PRR0_PRADC
-#define __AVR_HAVE_PRR0_PRSPI
-#define __AVR_HAVE_PRR0_PRTIM1
-#define __AVR_HAVE_PRR0_PRUSART0
-#define __AVR_HAVE_PRR0_PRUSART1
-#define __AVR_HAVE_PRR0_PRTIM0
-#define __AVR_HAVE_PRR0_PRTIM2
-#define __AVR_HAVE_PRR0_PRTWI
-
 #define PRR1 _SFR_MEM8(0x65)
 #define PRTIM3 0
-
-#define __AVR_HAVE_PRR1	(1<<PRTIM3)
-#define __AVR_HAVE_PRR1_PRTIM3
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -1050,106 +1037,39 @@
 /* Interrupt Vectors */
 /* Interrupt Vector 0 is the reset vector. */
 
-#define INT0_vect_num     1
 #define INT0_vect         _VECTOR(1)  /* External Interrupt Request 0 */
-
-#define INT1_vect_num     2
 #define INT1_vect         _VECTOR(2)  /* External Interrupt Request 1 */
-
-#define INT2_vect_num     3
 #define INT2_vect         _VECTOR(3)  /* External Interrupt Request 2 */
-
-#define PCINT0_vect_num   4
 #define PCINT0_vect       _VECTOR(4)  /* Pin Change Interrupt Request 0 */
-
-#define PCINT1_vect_num   5
 #define PCINT1_vect       _VECTOR(5)  /* Pin Change Interrupt Request 1 */
-
-#define PCINT2_vect_num   6
 #define PCINT2_vect       _VECTOR(6)  /* Pin Change Interrupt Request 2 */
-
-#define PCINT3_vect_num   7
 #define PCINT3_vect       _VECTOR(7)  /* Pin Change Interrupt Request 3 */
-
-#define WDT_vect_num      8
 #define WDT_vect          _VECTOR(8)  /* Watchdog Time-out Interrupt */
-
-#define TIMER2_COMPA_vect_num  9
 #define TIMER2_COMPA_vect _VECTOR(9)  /* Timer/Counter2 Compare Match A */
-
-#define TIMER2_COMPB_vect_num  10
 #define TIMER2_COMPB_vect _VECTOR(10)  /* Timer/Counter2 Compare Match B */
-
-#define TIMER2_OVF_vect_num  11
 #define TIMER2_OVF_vect   _VECTOR(11)  /* Timer/Counter2 Overflow */
-
-#define TIMER1_CAPT_vect_num  12
 #define TIMER1_CAPT_vect  _VECTOR(12)  /* Timer/Counter1 Capture Event */
-
-#define TIMER1_COMPA_vect_num  13
 #define TIMER1_COMPA_vect _VECTOR(13)  /* Timer/Counter1 Compare Match A */
-
-#define TIMER1_COMPB_vect_num  14
 #define TIMER1_COMPB_vect _VECTOR(14)  /* Timer/Counter1 Compare Match B */
-
-#define TIMER1_OVF_vect_num  15
 #define TIMER1_OVF_vect   _VECTOR(15)  /* Timer/Counter1 Overflow */
-
-#define TIMER0_COMPA_vect_num  16
 #define TIMER0_COMPA_vect _VECTOR(16)  /* Timer/Counter0 Compare Match A */
-
-#define TIMER0_COMPB_vect_num  17
 #define TIMER0_COMPB_vect _VECTOR(17)  /* Timer/Counter0 Compare Match B */
-
-#define TIMER0_OVF_vect_num  18
 #define TIMER0_OVF_vect   _VECTOR(18)  /* Timer/Counter0 Overflow */
-
-#define SPI_STC_vect_num  19
 #define SPI_STC_vect      _VECTOR(19)  /* SPI Serial Transfer Complete */
-
-#define USART0_RX_vect_num  20
 #define USART0_RX_vect    _VECTOR(20)  /* USART0, Rx Complete */
-
-#define USART0_UDRE_vect_num  21
 #define USART0_UDRE_vect  _VECTOR(21)  /* USART0 Data register Empty */
-
-#define USART0_TX_vect_num  22
 #define USART0_TX_vect    _VECTOR(22)  /* USART0, Tx Complete */
-
-#define ANALOG_COMP_vect_num  23
 #define ANALOG_COMP_vect  _VECTOR(23)  /* Analog Comparator */
-
-#define ADC_vect_num      24
 #define ADC_vect          _VECTOR(24)  /* ADC Conversion Complete */
-
-#define EE_READY_vect_num 25
 #define EE_READY_vect     _VECTOR(25)  /* EEPROM Ready */
-
-#define TWI_vect_num      26
 #define TWI_vect          _VECTOR(26)  /* 2-wire Serial Interface */
-
-#define SPM_READY_vect_num  27
 #define SPM_READY_vect    _VECTOR(27)  /* Store Program Memory Read */
-
-#define USART1_RX_vect_num  28
 #define USART1_RX_vect    _VECTOR(28)  /* USART1 RX complete */
-
-#define USART1_UDRE_vect_num  29
 #define USART1_UDRE_vect  _VECTOR(29)  /* USART1 Data Register Empty */
-
-#define USART1_TX_vect_num  30
 #define USART1_TX_vect    _VECTOR(30)  /* USART1 TX complete */
-
-#define TIMER3_CAPT_vect_num  31
 #define TIMER3_CAPT_vect  _VECTOR(31)  /* Timer/Counter3 Capture Event */
-
-#define TIMER3_COMPA_vect_num  32
 #define TIMER3_COMPA_vect _VECTOR(32)  /* Timer/Counter3 Compare Match A */
-
-#define TIMER3_COMPB_vect_num  33
 #define TIMER3_COMPB_vect _VECTOR(33)  /* Timer/Counter3 Compare Match B */
-
-#define TIMER3_OVF_vect_num  34
 #define TIMER3_OVF_vect   _VECTOR(34)  /* Timer/Counter3 Overflow */
 
 #define _VECTORS_SIZE (35 * 4)
@@ -1157,7 +1077,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE 256
-#define RAMSTART     (0x100)
 #define RAMEND       0x40FF    /* Last On-Chip SRAM Location */
 #define XRAMSIZE     0
 #define XRAMEND      RAMEND
@@ -1208,14 +1127,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x97
 #define SIGNATURE_2 0x05
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
 
 
 #endif  /* _AVR_IOM1284P_H_ */

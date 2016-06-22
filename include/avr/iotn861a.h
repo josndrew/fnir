@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iotn861a.h 2483 2015-08-06 09:16:30Z pitchumani $ */
+/* $Id: iotn861a.h,v 1.1.2.2 2009/11/18 22:06:28 arcanum Exp $ */
 
 /* avr/iotn861a.h - definitions for ATtiny861A */
 
@@ -496,7 +496,6 @@
 #define DTPS10 4
 #define DTPS11 5
 #define PSR1 6
-#define PWM1X 7
 
 #define TCCR1A _SFR_IO8(0x30)
 #define PWM1B 0
@@ -556,12 +555,6 @@
 #define PRUSI 1
 #define PRTIM0 2
 #define PRTIM1 3
-
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRUSI)|(1<<PRTIM0)|(1<<PRTIM1))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRUSI
-#define __AVR_HAVE_PRR_PRTIM0
-#define __AVR_HAVE_PRR_PRTIM1
 
 #define SPMCSR _SFR_IO8(0x37)
 #define SPMEN 0
@@ -978,11 +971,6 @@
 #define PA0_PORT  PORTADC
 #define PA0_PIN   PINADC
 #define PA0_BIT   ADC0
-
-#define SLEEP_MODE_IDLE (0x00<<3)
-#define SLEEP_MODE_ADC (0x01<<3)
-#define SLEEP_MODE_PWR_DOWN (0x02<<3)
-#define SLEEP_MODE_STANDBY (0x03<<3)
 
 #endif /* _AVR_ATtiny861A_H_ */
 

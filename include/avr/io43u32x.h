@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io43u32x.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: io43u32x.h,v 1.5.4.1 2009/02/11 18:05:23 arcanum Exp $ */
 
 /* avr/io43u32x.h - definitions for AT43USB32x */
 
@@ -425,7 +425,6 @@
 #define    TXB8         0
 
 /* Constants */
-#define    RAMSTART 0x60
 #define    RAMEND   0x025F     /*Last On-Chip SRAM Location*/
 #define    XRAMEND  RAMEND
 #define    E2END    0x0000
@@ -433,9 +432,5 @@
 /* FIXME: should be 0x1FFFF for max 128K (64K*16) external program memory,
    but no RAMPZ causes gcrt1.S build to fail, so assume 64K for now...  */
 #define    FLASHEND 0x0FFFF
-
-#define SLEEP_MODE_IDLE         0
-#define SLEEP_MODE_PWR_DOWN     _BV(SM)
-
 
 #endif /* _AVR_43USB32X_H_ */

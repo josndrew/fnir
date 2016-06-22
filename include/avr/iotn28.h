@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iotn28.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: iotn28.h,v 1.9.2.5 2008/10/17 23:27:52 arcanum Exp $ */
 
 /* avr/iotn28.h - definitions for ATtiny28 */
 
@@ -92,27 +92,22 @@
 /* Interrupt vectors */
 
 /* External Interrupt 0 */
-#define INT0_vect_num			1
-#define INT0_vect	    		_VECTOR(1)
+#define INT0_vect			_VECTOR(1)
 #define SIG_INTERRUPT0			_VECTOR(1)
 
 /* External Interrupt 1 */
-#define INT1_vect_num			2
-#define INT1_vect	    		_VECTOR(2)
+#define INT1_vect			_VECTOR(2)
 #define SIG_INTERRUPT1			_VECTOR(2)
 
 /* Low-level Input on Port B */
-#define LOWLEVEL_IO_PINS_vect_num  3
-#define LOWLEVEL_IO_PINS_vect	_VECTOR(3)
-#define SIG_PIN				    _VECTOR(3)
+#define LOWLEVEL_IO_PINS_vect		_VECTOR(3)
+#define SIG_PIN				_VECTOR(3)
 
 /* Timer/Counter0 Overflow */
-#define TIMER0_OVF_vect_num		4
 #define TIMER0_OVF_vect			_VECTOR(4)
 #define SIG_OVERFLOW0			_VECTOR(4)
 
 /* Analog Comparator */
-#define ANA_COMP_vect_num		5
 #define ANA_COMP_vect			_VECTOR(5)
 #define SIG_COMPARATOR			_VECTOR(5)
 
@@ -246,7 +241,6 @@
 #define ACIS1	1
 #define ACIS0	0
 
-#define RAMSTART    0x60
 /* Last memory addresses */
 #define RAMEND		0x1F
 #define XRAMEND		0x0
@@ -276,24 +270,6 @@
 #define SIGNATURE_0 0x1E
 #define SIGNATURE_1 0x91
 #define SIGNATURE_2 0x07
-
-
-/* Deprecated items */
-#if !defined(__AVR_LIBC_DEPRECATED_ENABLE__)
-
-#pragma GCC system_header
-
-#pragma GCC poison SIG_INTERRUPT0
-#pragma GCC poison SIG_INTERRUPT1
-#pragma GCC poison SIG_PIN
-#pragma GCC poison SIG_OVERFLOW0
-#pragma GCC poison SIG_COMPARATOR
-
-#endif  /* !defined(__AVR_LIBC_DEPRECATED_ENABLE__) */
-
-
-#define SLEEP_MODE_IDLE (0x00<<4)
-#define SLEEP_MODE_PWR_DOWN (0x01<<4)
 
 
 #endif /* _AVR_IOTN28_H_ */

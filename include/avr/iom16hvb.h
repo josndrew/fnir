@@ -1,4 +1,4 @@
-/* Copyright (c) 2011 Atmel Corporation
+/* Copyright (c) 2009 Atmel Corporation
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom16hvb.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iom16hvb.h,v 1.1.2.2 2009/12/15 03:24:15 arcanum Exp $ */
 
 /* avr/iom16hvb.h - definitions for ATmega16HVB */
 
@@ -348,14 +348,6 @@
 #define PRSPI 3
 #define PRVRM 5
 #define PRTWI 6
-
-#define __AVR_HAVE_PRR0	((1<<PRVADC)|(1<<PRTIM0)|(1<<PRTIM1)|(1<<PRSPI)|(1<<PRVRM)|(1<<PRTWI))
-#define __AVR_HAVE_PRR0_PRVADC
-#define __AVR_HAVE_PRR0_PRTIM0
-#define __AVR_HAVE_PRR0_PRTIM1
-#define __AVR_HAVE_PRR0_PRSPI
-#define __AVR_HAVE_PRR0_PRVRM
-#define __AVR_HAVE_PRR0_PRTWI
 
 #define FOSCCAL _SFR_MEM8(0x66)
 #define FCAL0 0
@@ -911,8 +903,8 @@
 #define FUSE_BOOTSZ0  (unsigned char)~_BV(1)  /* Select Boot Size */
 #define FUSE_BOOTSZ1  (unsigned char)~_BV(2)  /* Select Boot Size */
 #define FUSE_DWEN  (unsigned char)~_BV(3)  /* Enable debugWire */
-#define FUSE_CKDIV  (unsigned char)~_BV(4)  /* Clock Divide Register */
-#define HFUSE_DEFAULT (FUSE_CKDIV & FUSE_BOOTSZ1 & FUSE_BOOTSZ0)
+#define FUSE_DUVRDINIT  (unsigned char)~_BV(4)  /* Reset Value of DUVRDRegister */
+#define HFUSE_DEFAULT (FUSE_DUVRDINIT & FUSE_BOOTSZ1 & FUSE_BOOTSZ0)
 
 
 /* Lock Bits */
@@ -1042,12 +1034,6 @@
 #define OC_PORT  PORTOC
 #define OC_PIN   PINOC
 #define OC_BIT   OC
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_PWR_OFF (0x04<<1)
 
 #endif /* _AVR_ATmega16HVB_H_ */
 

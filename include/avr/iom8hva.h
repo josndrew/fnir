@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom8hva.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: iom8hva.h,v 1.2.2.5 2009/02/11 18:05:31 arcanum Exp $ */
 
 /* iom8hva.h - definitions for ATmega8HVA.  */
 
@@ -39,7 +39,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE 128
-#define RAMSTART    0x100
 #define RAMEND      0x2FF
 #define XRAMEND     RAMEND
 #define E2END       0xFF
@@ -66,12 +65,6 @@
 /* Lock Bits */
 #define __LOCK_BITS_EXIST
 
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_PWR_OFF (0x04<<1)
 
 #endif /* _AVR_IOM8HVA_H_ */
 

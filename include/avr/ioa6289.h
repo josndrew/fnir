@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: ioa6289.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: ioa6289.h,v 1.1.2.3 2009/02/11 18:05:25 arcanum Exp $ */
 
 /* avr/ioa6289.h - definitions for ATA6289 */
 
@@ -839,11 +839,6 @@
 #define SIGNATURE_1 0x93
 #define SIGNATURE_2 0x82
 
-
-
-#define SLEEP_MODE_IDLE                     (0)
-#define SLEEP_MODE_SENSOR_NOISE_REDUCTION   (_BV(SM0))
-#define SLEEP_MODE_PWR_DOWN                 (_BV(SM1))
 
 #endif /* _AVR_ATA6289_H_ */
 

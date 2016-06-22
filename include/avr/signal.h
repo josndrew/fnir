@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: signal.h 1059 2006-02-02 19:42:12Z aesok $ */
+/* $Id: signal.h,v 1.12 2006/02/02 19:37:16 aesok Exp $ */
 
 #ifndef _AVR_SIGNAL_H_
 #define _AVR_SIGNAL_H_

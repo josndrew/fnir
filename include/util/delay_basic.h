@@ -29,17 +29,12 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: delay_basic.h 2453 2014-10-19 08:18:11Z saaadhu $ */
+/* $Id: delay_basic.h,v 1.1 2007/05/13 21:23:20 joerg_wunsch Exp $ */
 
 #ifndef _UTIL_DELAY_BASIC_H_
 #define _UTIL_DELAY_BASIC_H_ 1
 
 #include <inttypes.h>
-
-#if !defined(__DOXYGEN__)
-static __inline__ void _delay_loop_1(uint8_t __count) __attribute__((__always_inline__));
-static __inline__ void _delay_loop_2(uint16_t __count) __attribute__((__always_inline__));
-#endif
 
 /** \file */
 /** \defgroup util_delay_basic <util/delay_basic.h>: Basic busy-wait delay loops
@@ -65,6 +60,11 @@ static __inline__ void _delay_loop_2(uint16_t __count) __attribute__((__always_i
     Two inline functions are provided for the actual delay algorithms.
 
 */
+
+#if !defined(__DOXYGEN__)
+static inline void _delay_loop_1(uint8_t __count) __attribute__((always_inline));
+static inline void _delay_loop_2(uint16_t __count) __attribute__((always_inline));
+#endif
 
 /** \ingroup util_delay_basic
 

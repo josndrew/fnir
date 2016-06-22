@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom649p.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iom649p.h,v 1.1.2.2 2009/12/15 03:24:15 arcanum Exp $ */
 
 /* avr/iom649p.h - definitions for ATmega649 */
 
@@ -472,13 +472,6 @@
 #define PRSPI 2
 #define PRTIM1 3
 #define PRLCD 4
-
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRUSART0)|(1<<PRSPI)|(1<<PRTIM1)|(1<<PRLCD))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRUSART0
-#define __AVR_HAVE_PRR_PRSPI
-#define __AVR_HAVE_PRR_PRTIM1
-#define __AVR_HAVE_PRR_PRLCD
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -1300,15 +1293,15 @@
 #define SEG23_PIN   PING
 #define SEG23_BIT   4
 
-#define SEG22_DDR   DDRD
-#define SEG22_PORT  PORTD
-#define SEG22_PIN   PIND
-#define SEG22_BIT   0
+#define ICP/SEG22_DDR   DDRD
+#define ICP/SEG22_PORT  PORTD
+#define ICP/SEG22_PIN   PIND
+#define ICP/SEG22_BIT   0
 
-#define SEG21_DDR   DDRD
-#define SEG21_PORT  PORTD
-#define SEG21_PIN   PIND
-#define SEG21_BIT   1
+#define INT0/SEG21_DDR   DDRD
+#define INT0/SEG21_PORT  PORTD
+#define INT0/SEG21_PIN   PIND
+#define INT0/SEG21_BIT   1
 
 #define SEG20_DDR   DDRD
 #define SEG20_PORT  PORTD
@@ -1479,13 +1472,6 @@
 #define ADC0_PORT  PORTF
 #define ADC0_PIN   PINF
 #define ADC0_BIT   0
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_ADC (0x01<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
 
 #endif /* _AVR_ATmega649_H_ */
 

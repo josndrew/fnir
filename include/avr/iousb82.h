@@ -1,5 +1,4 @@
-/* Copyright (c) 2007 Anatoly Sokolov
-   Copyright (c) 2010 Atmel Corporation
+/* Copyright (c) 2007 Anatoly Sokolov 
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -29,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iousb82.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: iousb82.h,v 1.2.2.4 2009/02/11 18:05:34 arcanum Exp $ */
 
 /* avr/iousb82.h - definitions for AT90USB82 */
 
@@ -40,7 +39,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE 128
-#define RAMSTART     0x100
 #define RAMEND       0x2FF
 #define XRAMEND      RAMEND
 #define E2END        0x1FF
@@ -60,7 +58,7 @@
 #define FUSE_SUT1        (unsigned char)~_BV(5)
 #define FUSE_CKOUT       (unsigned char)~_BV(6)
 #define FUSE_CKDIV8      (unsigned char)~_BV(7)
-#define LFUSE_DEFAULT (FUSE_CKSEL0 & FUSE_SUT1 & FUSE_CKDIV8)
+#define LFUSE_DEFAULT (CKSEL0 & SUT1 & CKDIV8)
 
 /* High Fuse Byte */
 #define FUSE_BOOTRST     (unsigned char)~_BV(0)
@@ -71,27 +69,20 @@
 #define FUSE_SPIEN       (unsigned char)~_BV(5)
 #define FUSE_RSTDSBL     (unsigned char)~_BV(6)
 #define FUSE_DWEN        (unsigned char)~_BV(7)
-#define HFUSE_DEFAULT (FUSE_BOOTSZ0 & FUSE_BOOTSZ1 & FUSE_SPIEN)
+#define HFUSE_DEFAULT (BOOTSZ0 & BOOTSZ1 & SPIEN)
 
 /* Extended Fuse Byte */
 #define FUSE_BODLEVEL0   (unsigned char)~_BV(0)
 #define FUSE_BODLEVEL1   (unsigned char)~_BV(1)
 #define FUSE_BODLEVEL2   (unsigned char)~_BV(2)
 #define FUSE_HWBE        (unsigned char)~_BV(3)
-#define EFUSE_DEFAULT (FUSE_BODLEVEL0 & FUSE_BODLEVEL1 & FUSE_HWBE)
+#define EFUSE_DEFAULT (BODLEVEL0 & BODLEVEL1 & HWBE)
 
 
 /* Lock Bits */
 #define __LOCK_BITS_EXIST
 #define __BOOT_LOCK_BITS_0_EXIST
 #define __BOOT_LOCK_BITS_1_EXIST 
-
-
-#define SLEEP_MODE_IDLE (0x00<<1)
-#define SLEEP_MODE_PWR_DOWN (0x02<<1)
-#define SLEEP_MODE_PWR_SAVE (0x03<<1)
-#define SLEEP_MODE_STANDBY (0x06<<1)
-#define SLEEP_MODE_EXT_STANDBY (0x07<<1)
 
 
 #endif /* _AVR_AT90USB82_H_ */

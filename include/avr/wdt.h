@@ -29,7 +29,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: wdt.h 2503 2016-02-07 22:59:47Z joerg_wunsch $ */
+/* $Id: wdt.h,v 1.44.2.33 2009/12/03 18:38:59 arcanum Exp $ */
 
 /*
    avr/wdt.h - macros for AVR watchdog timer
@@ -98,7 +98,6 @@
 
 #define wdt_reset() __asm__ __volatile__ ("wdr")
 
-#ifndef __DOXYGEN__
 
 #if defined(WDP3)
 # define _WD_PS3_MASK       _BV(WDP3)
@@ -108,10 +107,8 @@
 
 #if defined(WDTCSR)
 #  define _WD_CONTROL_REG     WDTCSR
-#elif defined(WDTCR)
-#  define _WD_CONTROL_REG     WDTCR
 #else
-#  define _WD_CONTROL_REG     WDT
+#  define _WD_CONTROL_REG     WDTCR
 #endif
 
 #if defined(WDTOE)
@@ -119,8 +116,6 @@
 #else
 #define _WD_CHANGE_BIT      WDCE
 #endif
-
-#endif	/* !__DOXYGEN__ */
 
 
 /**
@@ -135,356 +130,214 @@
 */
 
 
-#if defined(__AVR_XMEGA__)
+#if defined(__AVR_ATxmega16A4__) \
+|| defined(__AVR_ATxmega16D4__) \
+|| defined(__AVR_ATxmega32A4__) \
+|| defined(__AVR_ATxmega32D4__) \
+|| defined(__AVR_ATxmega64A1__) \
+|| defined(__AVR_ATxmega64A3__) \
+|| defined(__AVR_ATxmega64D3__) \
+|| defined(__AVR_ATxmega128A1__) \
+|| defined(__AVR_ATxmega128A3__) \
+|| defined(__AVR_ATxmega128D3__) \
+|| defined(__AVR_ATxmega192A3__) \
+|| defined(__AVR_ATxmega192D3__) \
+|| defined(__AVR_ATxmega256A3__) \
+|| defined(__AVR_ATxmega256D3__) \
+|| defined(__AVR_ATxmega256A3B__)
 
 /*
-   wdt_enable(timeout) for xmega devices
-** write signature (CCP_IOREG_gc) that enables change of protected I/O
-   registers to the CCP register
-** At the same time,
-   1) set WDT change enable (WDT_CEN_bm)
-   2) enable WDT (WDT_ENABLE_bm)
-   3) set timeout (timeout)
-** Synchronization starts when ENABLE bit of WDT is set. So, wait till it
-   finishes (SYNCBUSY of STATUS register is automatically cleared after the
-   sync is finished).
+    wdt_enable(WDT_PER_8KCLK_gc);
 */
-#define wdt_enable(timeout) \
-do { \
-uint8_t temp; \
-__asm__ __volatile__ (         \
-    "in __tmp_reg__, %[rampd]"              "\n\t" \
-    "out %[rampd], __zero_reg__"            "\n\t" \
-    "out %[ccp_reg], %[ioreg_cen_mask]"     "\n\t" \
-    "sts %[wdt_reg], %[wdt_enable_timeout]" "\n\t" \
-    "1:lds %[tmp], %[wdt_status_reg]"       "\n\t" \
-    "sbrc %[tmp], %[wdt_syncbusy_bit]"      "\n\t" \
-    "rjmp 1b"                               "\n\t" \
-    "out %[rampd], __tmp_reg__"             "\n\t" \
-    : [tmp]                "=r" (temp) \
-    : [rampd]              "I" (_SFR_IO_ADDR(RAMPD)),      \
-      [ccp_reg]            "I" (_SFR_IO_ADDR(CCP)),        \
-      [ioreg_cen_mask]     "r" ((uint8_t)CCP_IOREG_gc),     \
-      [wdt_reg]            "n" (_SFR_MEM_ADDR(WDT_CTRL)),   \
-      [wdt_enable_timeout] "r" ((uint8_t)(WDT_CEN_bm | WDT_ENABLE_bm | timeout)), \
-      [wdt_status_reg]     "n" (_SFR_MEM_ADDR(WDT_STATUS)), \
-      [wdt_syncbusy_bit]   "I" (WDT_SYNCBUSY_bm)            \
-    : "r0" \
-); \
-} while(0)
-
-#define wdt_disable() \
-__asm__ __volatile__ (  \
-    "in __tmp_reg__, %[rampd]"          "\n\t" \
-    "out %[rampd], __zero_reg__"        "\n\t" \
-    "out %[ccp_reg], %[ioreg_cen_mask]" "\n\t" \
-    "sts %[wdt_reg], %[disable_mask]"   "\n\t" \
-    "out %[rampd], __tmp_reg__"         "\n\t" \
-    : \
-    : [rampd]             "I" (_SFR_IO_ADDR(RAMPD)),    \
-      [ccp_reg]           "I" (_SFR_IO_ADDR(CCP)),      \
-      [ioreg_cen_mask]    "r" ((uint8_t)CCP_IOREG_gc),   \
-      [wdt_reg]           "n" (_SFR_MEM_ADDR(WDT_CTRL)), \
-      [disable_mask]      "r" ((uint8_t)((~WDT_ENABLE_bm) | WDT_CEN_bm)) \
-    : "r0" \
-);
-
-#elif defined(__AVR_TINY__)
-
 #define wdt_enable(value) \
 __asm__ __volatile__ ( \
-    "in __tmp_reg__,__SREG__" "\n\t"  \
-    "cli" "\n\t"  \
-    "wdr" "\n\t"  \
-    "out %[CCPADDRESS],%[SIGNATURE]" "\n\t"  \
-    "out %[WDTREG],%[WDVALUE]" "\n\t"  \
-    "out __SREG__,__tmp_reg__" "\n\t"  \
+    "in __tmp_reg__, %0"  "\n\t" \
+    "out %1, %3"          "\n\t" \
+    "sts %2, %4"          "\n\t" \
+    "wdr"                 "\n\t" \
+    "out %0, __tmp_reg__" "\n\t" \
+    : \
+    : "M" (_SFR_MEM_ADDR(RAMPD)), \
+      "M" (_SFR_MEM_ADDR(CCP)), \
+      "M" (_SFR_MEM_ADDR(WDT_CTRL)), \
+      "r" ((uint8_t)0xD8), \
+      "r" ((uint8_t)(WDT_CEN_bm | WDT_ENABLE_bm | value)) \
+    : "r0" \
+)
+
+
+#elif defined(__AVR_AT90CAN32__) \
+|| defined(__AVR_AT90CAN64__) \
+|| defined(__AVR_AT90CAN128__) \
+|| defined(__AVR_AT90PWM1__) \
+|| defined(__AVR_AT90PWM2__) \
+|| defined(__AVR_AT90PWM216__) \
+|| defined(__AVR_AT90PWM2B__) \
+|| defined(__AVR_AT90PWM3__) \
+|| defined(__AVR_AT90PWM316__) \
+|| defined(__AVR_AT90PWM3B__) \
+|| defined(__AVR_AT90PWM81__) \
+|| defined(__AVR_AT90USB1286__) \
+|| defined(__AVR_AT90USB1287__) \
+|| defined(__AVR_AT90USB162__) \
+|| defined(__AVR_AT90USB646__) \
+|| defined(__AVR_AT90USB647__) \
+|| defined(__AVR_AT90USB82__) \
+|| defined(__AVR_ATmega1280__) \
+|| defined(__AVR_ATmega1281__) \
+|| defined(__AVR_ATmega1284P__) \
+|| defined(__AVR_ATmega128RFA1__) \
+|| defined(__AVR_ATmega164__) \
+|| defined(__AVR_ATmega164A__) \
+|| defined(__AVR_ATmega164P__) \
+|| defined(__AVR_ATmega165__) \
+|| defined(__AVR_ATmega165A__) \
+|| defined(__AVR_ATmega165P__) \
+|| defined(__AVR_ATmega168__) \
+|| defined(__AVR_ATmega168A__) \
+|| defined(__AVR_ATmega168P__) \
+|| defined(__AVR_ATmega169__) \
+|| defined(__AVR_ATmega169A__) \
+|| defined(__AVR_ATmega169P__) \
+|| defined(__AVR_ATmega169PA__) \
+|| defined(__AVR_ATmega16HVA__) \
+|| defined(__AVR_ATmega16HVA2__) \
+|| defined(__AVR_ATmega16HVB__) \
+|| defined(__AVR_ATmega16M1__) \
+|| defined(__AVR_ATmega16U2__) \
+|| defined(__AVR_ATmega16U4__) \
+|| defined(__AVR_ATmega2560__) \
+|| defined(__AVR_ATmega2561__) \
+|| defined(__AVR_ATmega324__) \
+|| defined(__AVR_ATmega324A__) \
+|| defined(__AVR_ATmega324P__) \
+|| defined(__AVR_ATmega324PA__) \
+|| defined(__AVR_ATmega325__) \
+|| defined(__AVR_ATmega3250__) \
+|| defined(__AVR_ATmega328__) \
+|| defined(__AVR_ATmega328P__) \
+|| defined(__AVR_ATmega329__) \
+|| defined(__AVR_ATmega329P__) \
+|| defined(__AVR_ATmega329PA__) \
+|| defined(__AVR_ATmega3290__) \
+|| defined(__AVR_ATmega3290P__) \
+|| defined(__AVR_ATmega32C1__) \
+|| defined(__AVR_ATmega32HVB__) \
+|| defined(__AVR_ATmega32M1__) \
+|| defined(__AVR_ATmega32U2__) \
+|| defined(__AVR_ATmega32U4__) \
+|| defined(__AVR_ATmega32U6__) \
+|| defined(__AVR_ATmega406__) \
+|| defined(__AVR_ATmega48__) \
+|| defined(__AVR_ATmega48A__) \
+|| defined(__AVR_ATmega48P__) \
+|| defined(__AVR_ATmega640__) \
+|| defined(__AVR_ATmega644__) \
+|| defined(__AVR_ATmega644A__) \
+|| defined(__AVR_ATmega644P__) \
+|| defined(__AVR_ATmega644PA__) \
+|| defined(__AVR_ATmega645__) \
+|| defined(__AVR_ATmega645A__) \
+|| defined(__AVR_ATmega645P__) \
+|| defined(__AVR_ATmega6450__) \
+|| defined(__AVR_ATmega6450A__) \
+|| defined(__AVR_ATmega6450P__) \
+|| defined(__AVR_ATmega649__) \
+|| defined(__AVR_ATmega649A__) \
+|| defined(__AVR_ATmega6490__) \
+|| defined(__AVR_ATmega6490A__) \
+|| defined(__AVR_ATmega6490P__) \
+|| defined(__AVR_ATmega649P__) \
+|| defined(__AVR_ATmega64C1__) \
+|| defined(__AVR_ATmega64HVE__) \
+|| defined(__AVR_ATmega64M1__) \
+|| defined(__AVR_ATmega88__) \
+|| defined(__AVR_ATmega88A__) \
+|| defined(__AVR_ATmega88P__) \
+|| defined(__AVR_ATmega88PA__) \
+|| defined(__AVR_ATmega8HVA__) \
+|| defined(__AVR_ATmega8U2__) \
+|| defined(__AVR_ATtiny48__) \
+|| defined(__AVR_ATtiny88__) \
+|| defined(__AVR_ATtiny87__) \
+|| defined(__AVR_ATtiny167__) \
+|| defined(__AVR_AT90SCR100__) \
+|| defined(__AVR_ATA6289__)
+
+/* Use STS instruction. */
+ 
+#define wdt_enable(value)   \
+__asm__ __volatile__ (  \
+    "in __tmp_reg__,__SREG__" "\n\t"    \
+    "cli" "\n\t"    \
+    "wdr" "\n\t"    \
+    "sts %0,%1" "\n\t"  \
+    "out __SREG__,__tmp_reg__" "\n\t"   \
+    "sts %0,%2" "\n\t" \
     : /* no outputs */  \
-    : [CCPADDRESS] "I" (_SFR_IO_ADDR(CCP)),  \
-      [SIGNATURE] "r" ((uint8_t)0xD8), \
-      [WDTREG] "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)), \
-      [WDVALUE] "r" ((uint8_t)((value & 0x08 ? _WD_PS3_MASK : 0x00) \
-      | _BV(WDE) | (value & 0x07) )) \
-    : "r16" \
+    : "M" (_SFR_MEM_ADDR(_WD_CONTROL_REG)), \
+    "r" (_BV(_WD_CHANGE_BIT) | _BV(WDE)), \
+    "r" ((uint8_t) ((value & 0x08 ? _WD_PS3_MASK : 0x00) | \
+        _BV(WDE) | (value & 0x07)) ) \
+    : "r0"  \
 )
 
 #define wdt_disable() \
-do { \
-uint8_t temp_wd; \
-__asm__ __volatile__ ( \
-    "in __tmp_reg__,__SREG__" "\n\t"  \
-    "cli" "\n\t"  \
-    "wdr" "\n\t"  \
-    "out %[CCPADDRESS],%[SIGNATURE]" "\n\t"  \
-    "in  %[TEMP_WD],%[WDTREG]" "\n\t" \
-    "cbr %[TEMP_WD],%[WDVALUE]" "\n\t" \
-    "out %[WDTREG],%[TEMP_WD]" "\n\t" \
+__asm__ __volatile__ (  \
+    "in __tmp_reg__, __SREG__" "\n\t" \
+    "cli" "\n\t" \
+    "sts %0, %1" "\n\t" \
+    "sts %0, __zero_reg__" "\n\t" \
     "out __SREG__,__tmp_reg__" "\n\t" \
-    : /*no output */ \
-    : [CCPADDRESS] "I" (_SFR_IO_ADDR(CCP)), \
-      [SIGNATURE] "r" ((uint8_t)0xD8), \
-      [WDTREG] "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)), \
-      [TEMP_WD] "d" (temp_wd), \
-      [WDVALUE] "n" (1 << WDE) \
-    : "r16" \
-); \
-}while(0)
+    : /* no outputs */ \
+    : "M" (_SFR_MEM_ADDR(_WD_CONTROL_REG)), \
+    "r" ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE))) \
+    : "r0" \
+)
 
-#elif defined(CCP)
 
-static __inline__
-__attribute__ ((__always_inline__))
-void wdt_enable (const uint8_t value)
-{
-	if (!_SFR_IO_REG_P (CCP) && !_SFR_IO_REG_P (_WD_CONTROL_REG))
-	{
-		__asm__ __volatile__ (
-			"in __tmp_reg__,__SREG__" "\n\t"
-			"cli" "\n\t"
-			"wdr" "\n\t"
-			"sts %[CCPADDRESS],%[SIGNATURE]" "\n\t"
-			"sts %[WDTREG],%[WDVALUE]" "\n\t"
-			"out __SREG__,__tmp_reg__" "\n\t"
-			: /* no outputs */
-			: [CCPADDRESS] "n" (_SFR_MEM_ADDR(CCP)),
-			[SIGNATURE] "r" ((uint8_t)0xD8),
-			[WDTREG] "n" (_SFR_MEM_ADDR(_WD_CONTROL_REG)),
-			[WDVALUE] "r" ((uint8_t)((value & 0x08 ? _WD_PS3_MASK : 0x00)
-				| _BV(WDE) | (value & 0x07) ))
-			: "r0"
-			);
-	}
-	else if (!_SFR_IO_REG_P (CCP) && _SFR_IO_REG_P (_WD_CONTROL_REG))
-	{
-		__asm__ __volatile__ (
-			"in __tmp_reg__,__SREG__" "\n\t"
-			"cli" "\n\t"
-			"wdr" "\n\t"
-			"sts %[CCPADDRESS],%[SIGNATURE]" "\n\t"
-			"out %[WDTREG],%[WDVALUE]" "\n\t"
-			"out __SREG__,__tmp_reg__" "\n\t"
-			: /* no outputs */
-			: [CCPADDRESS] "n" (_SFR_MEM_ADDR(CCP)),
-			[SIGNATURE] "r" ((uint8_t)0xD8),
-			[WDTREG] "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)),
-			[WDVALUE] "r" ((uint8_t)((value & 0x08 ? _WD_PS3_MASK : 0x00)
-				| _BV(WDE) | (value & 0x07) ))
-			: "r0"
-			);
-	}
-	else if (_SFR_IO_REG_P (CCP) && !_SFR_IO_REG_P (_WD_CONTROL_REG))
-	{
-		__asm__ __volatile__ (
-			"in __tmp_reg__,__SREG__" "\n\t"
-			"cli" "\n\t"
-			"wdr" "\n\t"
-			"out %[CCPADDRESS],%[SIGNATURE]" "\n\t"
-			"sts %[WDTREG],%[WDVALUE]" "\n\t"
-			"out __SREG__,__tmp_reg__" "\n\t"
-			: /* no outputs */
-			: [CCPADDRESS] "I" (_SFR_IO_ADDR(CCP)),
-			[SIGNATURE] "r" ((uint8_t)0xD8),
-			[WDTREG] "n" (_SFR_MEM_ADDR(_WD_CONTROL_REG)),
-			[WDVALUE] "r" ((uint8_t)((value & 0x08 ? _WD_PS3_MASK : 0x00)
-				| _BV(WDE) | (value & 0x07) ))
-			: "r0"
-			);
-	}
-	else
- 	{
-		__asm__ __volatile__ (
-			"in __tmp_reg__,__SREG__" "\n\t"
-			"cli" "\n\t"
-			"wdr" "\n\t"
-			"out %[CCPADDRESS],%[SIGNATURE]" "\n\t"
-			"out %[WDTREG],%[WDVALUE]" "\n\t"
-			"out __SREG__,__tmp_reg__" "\n\t"
-			: /* no outputs */
-			: [CCPADDRESS] "I" (_SFR_IO_ADDR(CCP)),
-			[SIGNATURE] "r" ((uint8_t)0xD8),
-			[WDTREG] "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)),
-			[WDVALUE] "r" ((uint8_t)((value & 0x08 ? _WD_PS3_MASK : 0x00)
-				| _BV(WDE) | (value & 0x07) ))
-			: "r0"
-			);
-	}
-}
+    
+#else  
 
-static __inline__
-__attribute__ ((__always_inline__))
-void wdt_disable (void)
-{
-	if (!_SFR_IO_REG_P (CCP) && !_SFR_IO_REG_P(_WD_CONTROL_REG))
-	{
-        uint8_t temp_wd;
-        __asm__ __volatile__ (
-				"in __tmp_reg__,__SREG__" "\n\t"
-				"cli" "\n\t"
-				"wdr" "\n\t"
-				"sts %[CCPADDRESS],%[SIGNATURE]" "\n\t"
-				"lds %[TEMP_WD],%[WDTREG]" "\n\t"
-				"cbr %[TEMP_WD],%[WDVALUE]" "\n\t"
-				"sts %[WDTREG],%[TEMP_WD]" "\n\t"
-				"out __SREG__,__tmp_reg__" "\n\t"
-				: /*no output */
-				: [CCPADDRESS] "n" (_SFR_MEM_ADDR(CCP)),
-				[SIGNATURE] "r" ((uint8_t)0xD8),
-				[WDTREG] "n" (_SFR_MEM_ADDR(_WD_CONTROL_REG)),
-				[TEMP_WD] "d" (temp_wd),
-				[WDVALUE] "n" (1 << WDE)
-				: "r0"
-				);
-	}
-	else if (!_SFR_IO_REG_P (CCP) && _SFR_IO_REG_P(_WD_CONTROL_REG))
-	{
-        uint8_t temp_wd;
-        __asm__ __volatile__ (
-				"in __tmp_reg__,__SREG__" "\n\t"
-				"cli" "\n\t"
-				"wdr" "\n\t"
-				"sts %[CCPADDRESS],%[SIGNATURE]" "\n\t"
-				"in %[TEMP_WD],%[WDTREG]" "\n\t"
-				"cbr %[TEMP_WD],%[WDVALUE]" "\n\t"
-				"out %[WDTREG],%[TEMP_WD]" "\n\t"
-				"out __SREG__,__tmp_reg__" "\n\t"
-				: /*no output */
-				: [CCPADDRESS] "n" (_SFR_MEM_ADDR(CCP)),
-				[SIGNATURE] "r" ((uint8_t)0xD8),
-				[WDTREG] "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)),
-				[TEMP_WD] "d" (temp_wd),
-				[WDVALUE] "n" (1 << WDE)
-				: "r0"
-				);
-	}
-	else if (_SFR_IO_REG_P (CCP) && !_SFR_IO_REG_P(_WD_CONTROL_REG))
-	{
-        uint8_t temp_wd;
-        __asm__ __volatile__ (
-				"in __tmp_reg__,__SREG__" "\n\t"
-				"cli" "\n\t"
-				"wdr" "\n\t"
-				"out %[CCPADDRESS],%[SIGNATURE]" "\n\t"
-				"lds %[TEMP_WD],%[WDTREG]" "\n\t"
-				"cbr %[TEMP_WD],%[WDVALUE]" "\n\t"
-				"sts %[WDTREG],%[TEMP_WD]" "\n\t"
-				"out __SREG__,__tmp_reg__" "\n\t"
-				: /*no output */
-				: [CCPADDRESS] "I" (_SFR_IO_ADDR(CCP)),
-				[SIGNATURE] "r" ((uint8_t)0xD8),
-				[WDTREG] "n" (_SFR_MEM_ADDR(_WD_CONTROL_REG)),
-				[TEMP_WD] "d" (temp_wd),
-				[WDVALUE] "n" (1 << WDE)
-				: "r0"
-				);
-	}
-	else
-	{
-        uint8_t temp_wd;
-        __asm__ __volatile__ (
-				"in __tmp_reg__,__SREG__" "\n\t"
-				"cli" "\n\t"
-				"wdr" "\n\t"
-				"out %[CCPADDRESS],%[SIGNATURE]" "\n\t"
-				"in %[TEMP_WD],%[WDTREG]" "\n\t"
-				"cbr %[TEMP_WD],%[WDVALUE]" "\n\t"
-				"out %[WDTREG],%[TEMP_WD]" "\n\t"
-				"out __SREG__,__tmp_reg__" "\n\t"
-				: /*no output */
-				: [CCPADDRESS] "I" (_SFR_IO_ADDR(CCP)),
-				[SIGNATURE] "r" ((uint8_t)0xD8),
-				[WDTREG] "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)),
-				[TEMP_WD] "d" (temp_wd),
-				[WDVALUE] "n" (1 << WDE)
-				: "r0"
-				);
-	}
-}
+/* Use OUT instruction. */
 
-#else
+#define wdt_enable(value)   \
+    __asm__ __volatile__ (  \
+        "in __tmp_reg__,__SREG__" "\n\t"    \
+        "cli" "\n\t"    \
+        "wdr" "\n\t"    \
+        "out %0,%1" "\n\t"  \
+        "out __SREG__,__tmp_reg__" "\n\t"   \
+        "out %0,%2" \
+        : /* no outputs */  \
+        : "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)), \
+        "r" (_BV(_WD_CHANGE_BIT) | _BV(WDE)),   \
+        "r" ((uint8_t) ((value & 0x08 ? _WD_PS3_MASK : 0x00) | \
+            _BV(WDE) | (value & 0x07)) ) \
+        : "r0"  \
+    )
 
-static __inline__
-__attribute__ ((__always_inline__))
-void wdt_enable (const uint8_t value)
-{
-	if (_SFR_IO_REG_P (_WD_CONTROL_REG))
-	{
-		__asm__ __volatile__ (
-				"in __tmp_reg__,__SREG__" "\n\t"
-				"cli" "\n\t"
-				"wdr" "\n\t"
-				"out %0, %1" "\n\t"
-				"out __SREG__,__tmp_reg__" "\n\t"
-				"out %0, %2" "\n \t"
-				: /* no outputs */
-				: "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)),
-				"r" ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE))),
-				"r" ((uint8_t) ((value & 0x08 ? _WD_PS3_MASK : 0x00) |
-						_BV(WDE) | (value & 0x07)) )
-				: "r0"
-		);
-	}
-	else
-	{
-		__asm__ __volatile__ (
-				"in __tmp_reg__,__SREG__" "\n\t"
-				"cli" "\n\t"
-				"wdr" "\n\t"
-				"sts %0, %1" "\n\t"
-				"out __SREG__,__tmp_reg__" "\n\t"
-				"sts %0, %2" "\n \t"
-				: /* no outputs */
-				: "n" (_SFR_MEM_ADDR(_WD_CONTROL_REG)),
-				"r" ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE))),
-				"r" ((uint8_t) ((value & 0x08 ? _WD_PS3_MASK : 0x00) |
-						_BV(WDE) | (value & 0x07)) )
-				: "r0"
-		);
-	}
-}
-
-static __inline__
-__attribute__ ((__always_inline__))
-void wdt_disable (void)
-{
-	if (_SFR_IO_REG_P (_WD_CONTROL_REG))
-	{
-        uint8_t register temp_reg;
-		__asm__ __volatile__ (
-				"in __tmp_reg__,__SREG__"    "\n\t"
-				"cli"                        "\n\t"
-				"wdr"                        "\n\t"
-				"in  %[TEMPREG],%[WDTREG]"   "\n\t"
-				"ori %[TEMPREG],%[WDCE_WDE]" "\n\t"
-				"out %[WDTREG],%[TEMPREG]"   "\n\t"
-				"out %[WDTREG],__zero_reg__" "\n\t"
-				"out __SREG__,__tmp_reg__"   "\n\t"
-				: [TEMPREG] "=d" (temp_reg)
-				: [WDTREG]  "I"  (_SFR_IO_ADDR(_WD_CONTROL_REG)),
-				[WDCE_WDE]  "n"  ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE)))
-				: "r0"
-		);
-	}
-	else
-	{
-        uint8_t register temp_reg;
-		__asm__ __volatile__ (
-				"in __tmp_reg__,__SREG__"    "\n\t"
-				"cli"                        "\n\t"
-				"wdr"                        "\n\t"
-				"lds %[TEMPREG],%[WDTREG]"   "\n\t"
-				"ori %[TEMPREG],%[WDCE_WDE]" "\n\t"
-				"sts %[WDTREG],%[TEMPREG]"   "\n\t"
-				"sts %[WDTREG],__zero_reg__" "\n\t"
-				"out __SREG__,__tmp_reg__"   "\n\t"
-				: [TEMPREG] "=d" (temp_reg)
-				: [WDTREG]  "n"  (_SFR_MEM_ADDR(_WD_CONTROL_REG)),
-				[WDCE_WDE]  "n"  ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE)))
-				: "r0"
-		);
-	}
-}
+/**
+   \ingroup avr_watchdog
+   Disable the watchdog timer, if possible.  This attempts to turn off the 
+   Enable bit in the watchdog control register. See the datasheet for 
+   details.
+*/
+#define wdt_disable() \
+__asm__ __volatile__ (  \
+    "in __tmp_reg__, __SREG__" "\n\t" \
+     "cli" "\n\t" \
+    "out %0, %1" "\n\t" \
+    "out %0, __zero_reg__" "\n\t" \
+    "out __SREG__,__tmp_reg__" "\n\t" \
+    : /* no outputs */ \
+    : "I" (_SFR_IO_ADDR(_WD_CONTROL_REG)), \
+    "r" ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE))) \
+    : "r0" \
+)
 
 #endif
+
 
 
 /**
@@ -511,40 +364,40 @@ void wdt_disable (void)
 #define WDTO_15MS   0
 
 /** \ingroup avr_watchdog
-    See \c WDTO_15MS */
+    See \c WDT0_15MS */
 #define WDTO_30MS   1
 
-/** \ingroup avr_watchdog
-    See \c WDTO_15MS */
+/** \ingroup avr_watchdog See
+    \c WDT0_15MS */
 #define WDTO_60MS   2
 
 /** \ingroup avr_watchdog
-    See \c WDTO_15MS */
+    See \c WDT0_15MS */
 #define WDTO_120MS  3
 
 /** \ingroup avr_watchdog
-    See \c WDTO_15MS */
+    See \c WDT0_15MS */
 #define WDTO_250MS  4
 
 /** \ingroup avr_watchdog
-    See \c WDTO_15MS */
+    See \c WDT0_15MS */
 #define WDTO_500MS  5
 
 /** \ingroup avr_watchdog
-    See \c WDTO_15MS */
+    See \c WDT0_15MS */
 #define WDTO_1S     6
 
 /** \ingroup avr_watchdog
-    See \c WDTO_15MS */
+    See \c WDT0_15MS */
 #define WDTO_2S     7
 
 #if defined(__DOXYGEN__) || defined(WDP3)
 
 /** \ingroup avr_watchdog
-    See \c WDTO_15MS
+    See \c WDT0_15MS
     Note: This is only available on the 
     ATtiny2313, 
-    ATtiny24, ATtiny44, ATtiny84, ATtiny84A,
+    ATtiny24, ATtiny44, ATtiny84, 
     ATtiny25, ATtiny45, ATtiny85, 
     ATtiny261, ATtiny461, ATtiny861, 
     ATmega48, ATmega88, ATmega168,
@@ -554,7 +407,7 @@ void wdt_disable (void)
     ATmega8HVA, ATmega16HVA, ATmega32HVB,
     ATmega406, ATmega1284P,
     AT90PWM1, AT90PWM2, AT90PWM2B, AT90PWM3, AT90PWM3B, AT90PWM216, AT90PWM316,
-    AT90PWM81, AT90PWM161,
+    AT90PWM81,
     AT90USB82, AT90USB162,
     AT90USB646, AT90USB647, AT90USB1286, AT90USB1287,
     ATtiny48, ATtiny88.
@@ -562,27 +415,23 @@ void wdt_disable (void)
 #define WDTO_4S     8
 
 /** \ingroup avr_watchdog
-    See \c WDTO_15MS
+    See \c WDT0_15MS
     Note: This is only available on the 
     ATtiny2313, 
-    ATtiny24, ATtiny44, ATtiny84, ATtiny84A,
+    ATtiny24, ATtiny44, ATtiny84, 
     ATtiny25, ATtiny45, ATtiny85, 
     ATtiny261, ATtiny461, ATtiny861, 
-    ATmega48, ATmega48A, ATmega48PA, ATmega88, ATmega168,
+    ATmega48, ATmega88, ATmega168,
     ATmega48P, ATmega88P, ATmega168P, ATmega328P,
     ATmega164P, ATmega324P, ATmega644P, ATmega644,
     ATmega640, ATmega1280, ATmega1281, ATmega2560, ATmega2561,
     ATmega8HVA, ATmega16HVA, ATmega32HVB,
     ATmega406, ATmega1284P,
-    ATmega2564RFR2, ATmega256RFR2, ATmega1284RFR2, ATmega128RFR2, ATmega644RFR2, ATmega64RFR2
     AT90PWM1, AT90PWM2, AT90PWM2B, AT90PWM3, AT90PWM3B, AT90PWM216, AT90PWM316,
-    AT90PWM81, AT90PWM161,
+    AT90PWM81,
     AT90USB82, AT90USB162,
     AT90USB646, AT90USB647, AT90USB1286, AT90USB1287,
-    ATtiny48, ATtiny88,
-    ATxmega16a4u, ATxmega32a4u,
-    ATxmega16c4, ATxmega32c4,
-    ATxmega128c3, ATxmega192c3, ATxmega256c3.
+    ATtiny48, ATtiny88.
     */
 #define WDTO_8S     9
 

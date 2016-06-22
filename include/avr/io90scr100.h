@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io90scr100.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: io90scr100.h,v 1.1.2.6 2009/03/04 17:45:30 arcanum Exp $ */
 
 /* avr/io90scr100.h - definitions for AT90SCR100 */
 
@@ -460,14 +460,6 @@
 #define PRTIM2 6
 #define PRTWI 7
 
-#define __AVR_HAVE_PRR0 ((1<<PRUSART0)|(1<<PRSPI)|(1<<PRTIM1)|(1<<PRTIM0)|(1<<PRTIM2)|(1<<PRTWI))
-#define __AVR_HAVE_PRR0_PRUSART0
-#define __AVR_HAVE_PRR0_PRSPI
-#define __AVR_HAVE_PRR0_PRTIM1
-#define __AVR_HAVE_PRR0_PRTIM0
-#define __AVR_HAVE_PRR0_PRTIM2
-#define __AVR_HAVE_PRR0_PRTWI
-
 #define PRR1 _SFR_MEM8(0x65)
 #define PRUSBH 0
 #define PRUSB 1
@@ -475,14 +467,6 @@
 #define PRSCI 3
 #define PRAES 4
 #define PRKB 5
-
-#define __AVR_HAVE_PRR1 ((1<<PRUSBH)|(1<<PRUSB)|(1<<PRHSSPI)|(1<<PRSCI)|(1<<PRAES)|(1<<PRKB))
-#define __AVR_HAVE_PRR1_PRUSBH
-#define __AVR_HAVE_PRR1_PRUSB
-#define __AVR_HAVE_PRR1_PRHSSPI
-#define __AVR_HAVE_PRR1_PRSCI
-#define __AVR_HAVE_PRR1_PRAES
-#define __AVR_HAVE_PRR1_PRKB
 
 #define OSCCAL _SFR_MEM8(0x66)
 #define CAL0 0
@@ -1709,13 +1693,6 @@
 #define SIGNATURE_1 0x96
 #define SIGNATURE_2 0xC1
 
-
-
-#define SLEEP_MODE_IDLE         (0)
-#define SLEEP_MODE_PWR_DOWN     _BV(SM1)
-#define SLEEP_MODE_PWR_SAVE     (_BV(SM0) | _BV(SM1))
-#define SLEEP_MODE_STANDBY      (_BV(SM1) | _BV(SM2))
-#define SLEEP_MODE_EXT_STANDBY  (_BV(SM0) | _BV(SM1) | _BV(SM2))
 
 #endif /* _AVR_AT90SCR100_H_ */
 

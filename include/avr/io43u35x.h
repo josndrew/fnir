@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io43u35x.h 2456 2014-11-19 09:57:29Z saaadhu $ */
+/* $Id: io43u35x.h,v 1.7.4.1 2009/02/11 18:05:23 arcanum Exp $ */
 
 /* avr/io43u35x.h - definitions for AT43USB35x */
 
@@ -420,14 +420,9 @@
 #define    ADPS0    0  
 
 /* Constants */
-#define    RAMSTART 0x60
 #define    RAMEND   0x045F     /*Last On-Chip SRAM Location*/
 #define    XRAMEND  RAMEND
 #define    E2END    0x0000
 #define    FLASHEND 0x5FFF
-
-#define SLEEP_MODE_IDLE         0
-#define SLEEP_MODE_PWR_DOWN     _BV(SM)
-
 
 #endif /* _AVR_43USB355_H_ */

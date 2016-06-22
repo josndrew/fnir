@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iotn13a.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iotn13a.h,v 1.1.2.8 2009/04/28 08:51:16 arcanum Exp $ */
 
 /* avr/iotn13a.h - definitions for ATtiny13 */
 
@@ -150,9 +150,7 @@
 #define EECR _SFR_IO8(0x1C)
 #define EERE 0
 #define EEWE 1
-#define EEPE EEWE
 #define EEMWE 2
-#define EEMPE EEMWE
 #define EERIE 3
 #define EEPM0 4
 #define EEPM1 5
@@ -190,10 +188,6 @@
 #define PRR _SFR_IO8(0x25)
 #define PRADC 0
 #define PRTIM0 1
-
-#define __AVR_HAVE_PRR	((1<<PRADC)|(1<<PRTIM0))
-#define __AVR_HAVE_PRR_PRADC
-#define __AVR_HAVE_PRR_PRTIM0
 
 #define CLKPR _SFR_IO8(0x26)
 #define CLKPS0 0
@@ -235,8 +229,8 @@
 #define COM0A1 7
 
 #define BODCR _SFR_IO8(0x30)
-#define BODSE 0
-#define BODS 1
+#define BPDSE 0
+#define BPDS 1
 
 #define OSCCAL _SFR_IO8(0x31)
 #define CAL0 0
@@ -385,11 +379,6 @@
 #define SIGNATURE_1 0x90
 #define SIGNATURE_2 0x07
 
-
-
-#define SLEEP_MODE_IDLE (0x00<<3)
-#define SLEEP_MODE_ADC (0x01<<3)
-#define SLEEP_MODE_PWR_DOWN (0x02<<3)
 
 #endif /* _AVR_ATTINY13A_H_ */
 
