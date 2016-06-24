@@ -1,7 +1,5 @@
 Archive member included because of file (symbol)
 
-c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
-                              ./test.o (__divmodhi4)
 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                               c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o (exit)
 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
@@ -22,8 +20,6 @@ c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si
                               c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o) (__fixsfsi)
 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
                               c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o) (__thenan_sf)
-c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                              c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o) (__udivmodhi4)
 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
                               c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o) (__prologue_saves__)
 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
@@ -158,7 +154,7 @@ LOAD c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1482
+.text           0x00000000     0x1450
  *(.vectors)
  .vectors       0x00000000       0x68 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -240,7 +236,6 @@ LOAD c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000092                __vector_20
  .text          0x00000096        0x0 ./serial.o
  .text          0x00000096        0x0 ./test.o
- .text          0x00000096        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
  .text          0x00000096        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .text          0x00000096        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
  .text          0x00000096       0x58 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
@@ -259,7 +254,6 @@ LOAD c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text          0x00000756       0xa8 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
                 0x00000756                __fixsfsi
  .text          0x000007fe        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .text          0x000007fe        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  .text          0x000007fe        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
  .text          0x000007fe        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
  .text          0x000007fe      0x1aa c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
@@ -276,56 +270,51 @@ LOAD c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text          0x00000b4a        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
                 0x00000b4a                . = ALIGN (0x2)
  *(.text.*)
- .text.USART_init
-                0x00000b4a       0x2c ./serial.o
-                0x00000b4a                USART_init
  .text.USART_receive
-                0x00000b76       0x1e ./serial.o
-                0x00000b76                USART_receive
+                0x00000b4a       0x1e ./serial.o
+                0x00000b4a                USART_receive
  .text.USART_send
-                0x00000b94       0x2e ./serial.o
-                0x00000b94                USART_send
+                0x00000b68       0x2e ./serial.o
+                0x00000b68                USART_send
  .text.USART_putstring
-                0x00000bc2       0x38 ./serial.o
-                0x00000bc2                USART_putstring
- .text.main     0x00000bfa      0x270 ./test.o
+                0x00000b96       0x38 ./serial.o
+                0x00000b96                USART_putstring
+ .text.USART_init
+                0x00000bce       0x2c ./test.o
+                0x00000bce                USART_init
+ .text.main     0x00000bfa      0x28c ./test.o
                 0x00000bfa                main
- .text.ioinit   0x00000e6a       0x16 ./test.o
-                0x00000e6a                ioinit
- .text.libgcc   0x00000e80       0x26 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
-                0x00000e80                __divmodhi4
-                0x00000e80                _div
- .text.libgcc   0x00000ea6        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000ea6        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000ea6       0x28 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x00000ea6                __udivmodhi4
- .text.libgcc   0x00000ece       0x38 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00000ece                __prologue_saves__
- .text.libgcc   0x00000f06       0x36 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00000f06                __epilogue_restores__
+ .text.ioinit   0x00000e86       0x16 ./test.o
+                0x00000e86                ioinit
+ .text.libgcc   0x00000e9c        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000e9c        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000e9c       0x38 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00000e9c                __prologue_saves__
+ .text.libgcc   0x00000ed4       0x36 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00000ed4                __epilogue_restores__
  .text.avr-libc
-                0x00000f3c       0x48 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                0x00000f3c                sprintf
+                0x00000f0a       0x48 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x00000f0a                sprintf
  .text.avr-libc
-                0x00000f84      0x3ba c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00000f84                vfprintf
+                0x00000f52      0x3ba c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x00000f52                vfprintf
  .text.avr-libc
-                0x0000133e       0x16 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x0000133e                strnlen_P
+                0x0000130c       0x16 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x0000130c                strnlen_P
  .text.avr-libc
-                0x00001354       0x16 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00001354                strnlen
+                0x00001322       0x16 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x00001322                strnlen
  .text.avr-libc
-                0x0000136a       0x58 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x0000136a                fputc
+                0x00001338       0x58 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00001338                fputc
  .text.avr-libc
-                0x000013c2       0xbc c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x000013c2                __ultoa_invert
-                0x0000147e                . = ALIGN (0x2)
+                0x00001390       0xbc c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00001390                __ultoa_invert
+                0x0000144c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000147e        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000147e                exit
-                0x0000147e                _exit
+ .fini9         0x0000144c        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000144c                exit
+                0x0000144c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -344,17 +333,16 @@ LOAD c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000147e        0x4 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000144c        0x4 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001482                _etext = .
+                0x00001450                _etext = .
 
-.data           0x00800100       0x10 load address 0x00001482
+.data           0x00800100       0x12 load address 0x00001450
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
  .data          0x00800100        0x0 ./serial.o
  .data          0x00800100        0x7 ./test.o
- .data          0x00800107        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
  .data          0x00800107        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .data          0x00800107        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
  .data          0x00800107        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
@@ -366,7 +354,6 @@ LOAD c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .data          0x00800107        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
  .data          0x00800107        0x8 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
                 0x00800107                __thenan_sf
- .data          0x0080010f        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  .data          0x0080010f        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
  .data          0x0080010f        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
  .data          0x0080010f        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
@@ -379,55 +366,56 @@ LOAD c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .data          0x0080010f        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
  .data          0x0080010f        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
  *(.data*)
+ .data.is_running_flag
+                0x0080010f        0x2 ./test.o
+                0x0080010f                is_running_flag
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800110                . = ALIGN (0x2)
- *fill*         0x0080010f        0x1 00
-                0x00800110                _edata = .
-                0x00800110                PROVIDE (__data_end, .)
+                0x00800112                . = ALIGN (0x2)
+ *fill*         0x00800111        0x1 00
+                0x00800112                _edata = .
+                0x00800112                PROVIDE (__data_end, .)
 
-.bss            0x00800110        0x0
-                0x00800110                PROVIDE (__bss_start, .)
+.bss            0x00800112        0x0
+                0x00800112                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
- .bss           0x00800110        0x0 ./serial.o
- .bss           0x00800110        0x0 ./test.o
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
- .bss           0x00800110        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x00800112        0x0 ./serial.o
+ .bss           0x00800112        0x0 ./test.o
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .bss           0x00800112        0x0 c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
  *(.bss*)
  *(COMMON)
-                0x00800110                PROVIDE (__bss_end, .)
-                0x00001482                __data_load_start = LOADADDR (.data)
-                0x00001492                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800112                PROVIDE (__bss_end, .)
+                0x00001450                __data_load_start = LOADADDR (.data)
+                0x00001462                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800110        0x0
-                0x00800110                PROVIDE (__noinit_start, .)
+.noinit         0x00800112        0x0
+                0x00800112                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800110                PROVIDE (__noinit_end, .)
-                0x00800110                _end = .
-                0x00800110                PROVIDE (__heap_start, .)
+                0x00800112                PROVIDE (__noinit_end, .)
+                0x00800112                _end = .
+                0x00800112                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -445,15 +433,15 @@ LOAD c:/users/andrew joseph/.eclipse/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000      0x7e0
+.stab           0x00000000      0x828
  *(.stab)
- .stab          0x00000000      0x3fc ./serial.o
- .stab          0x000003fc      0x3e4 ./test.o
-                                0x5a0 (size before relaxing)
+ .stab          0x00000000      0x3a8 ./serial.o
+ .stab          0x000003a8      0x480 ./test.o
+                                0x63c (size before relaxing)
 
-.stabstr        0x00000000      0xa14
+.stabstr        0x00000000      0xa2b
  *(.stabstr)
- .stabstr       0x00000000      0xa14 ./serial.o
+ .stabstr       0x00000000      0xa2b ./serial.o
 
 .stab.excl
  *(.stab.excl)
