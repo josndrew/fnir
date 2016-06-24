@@ -1,4 +1,4 @@
-test.o test.o: ../test.c \
+serial.o serial.o: ../serial.c \
   C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/io.h \
   C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/sfr_defs.h \
   C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/inttypes.h \
@@ -8,13 +8,7 @@ test.o test.o: ../test.c \
   C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/common.h \
   C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/version.h \
   C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/fuse.h \
-  C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/lock.h \
-  C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/util/delay.h \
-  C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/util/delay_basic.h \
-  C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/stdio.h \
-  C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/stdarg.h \
-  C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/stddef.h \
-  C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/micro/serial.h
+  C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/lock.h
 
 C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/io.h:
 
@@ -35,15 +29,3 @@ C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/version.h:
 C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/fuse.h:
 
 C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/avr/lock.h:
-
-C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/util/delay.h:
-
-C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/util/delay_basic.h:
-
-C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/stdio.h:
-
-C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/stdarg.h:
-
-C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/stddef.h:
-
-C:\Users\Andrew\ Joseph\Desktop\Senior\ Design\trunk\include/micro/serial.h:

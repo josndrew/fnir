@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../serial.c \
 ../test.c 
 
 C_DEPS += \
+./serial.d \
 ./test.d 
 
 OBJS += \
+./serial.o \
 ./test.o 
 
 
