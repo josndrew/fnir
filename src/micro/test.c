@@ -47,7 +47,7 @@ int main(void){
 			is_running_flag = 0;
 		}
 
-		sprintf(String, "Hello\n", count);
+		sprintf(String, "%d\x09%d\n", count, count%3);
 		count++;
 
 		USART_putstring(String);

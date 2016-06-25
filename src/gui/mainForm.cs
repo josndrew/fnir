@@ -55,7 +55,6 @@ namespace GUI
             if (!isFullScreen)  // FullScreenMode is an enum
             {
                 this.WindowState = FormWindowState.Normal;
-                //this.FormBorderStyle = FormBorderStyle.None;
                 this.WindowState = FormWindowState.Maximized;
                 isFullScreen = true;
             }
@@ -70,6 +69,7 @@ namespace GUI
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Environment.Exit(Environment.ExitCode);
             Close();
         }
 
@@ -159,7 +159,7 @@ namespace GUI
                         //}
                         
                         d.setXCord(dataArray[0]);
-
+                        d.setAvg(dataArray[1]);
 
                         using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Andrew Joseph\Desktop\Senior Design\\data.txt", true))
                         {
@@ -184,6 +184,7 @@ namespace GUI
             rawData.Update();
             
             rawData.Series["Reading"].Points.AddY(newData.getXCord());
+            label1.Text = (newData.getXCord()).ToString();
            
 
             analyzedData.Series["Average"].Points.AddY(newData.getAvg());
@@ -192,7 +193,7 @@ namespace GUI
             rawData.ChartAreas[0].AxisY.Title = "mV";
 
             analyzedData.ChartAreas[0].AxisX.Title = "# of Data Points";
-            analyzedData.ChartAreas[0].AxisY.Title = "Acceleration-g";
+            analyzedData.ChartAreas[0].AxisY.Title = "mV";
 
             currentpoint++;
 
@@ -295,6 +296,13 @@ namespace GUI
                     startToolStripMenuItem.Enabled = true;
                     stopToolStripMenuItem.Enabled = false;
                     button1.Enabled = true;
+
+                    GUI.Properties.Settings.Default.PortName = adruinoSerial.PortName;
+                    GUI.Properties.Settings.Default.BaudRate = adruinoSerial.BaudRate;
+                    GUI.Properties.Settings.Default.Parity = adruinoSerial.Parity;
+                    GUI.Properties.Settings.Default.DataBits = adruinoSerial.DataBits;
+                    GUI.Properties.Settings.Default.StopBits = adruinoSerial.StopBits;
+                    GUI.Properties.Settings.Default.Handshake =adruinoSerial.Handshake;
                 }
 
                 catch (Exception err)
@@ -338,6 +346,8 @@ namespace GUI
                 }
             }
         }
+
+
 
 
 
