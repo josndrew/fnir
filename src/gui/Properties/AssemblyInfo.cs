@@ -7,11 +7,11 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GUI")]
-[assembly: AssemblyDescription("This Software interfaces with an accelerometer and processes the data to determine if a fall has occured.")]
+[assembly: AssemblyDescription("This Software measures the Metabolic Activity in the Brain.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("BMES 638 Group 4")]
-[assembly: AssemblyProduct("Fall Detector")]
-[assembly: AssemblyCopyright("Copyright © Drexel 2015")]
+[assembly: AssemblyCompany("Senior Design")]
+[assembly: AssemblyProduct("FNIR")]
+[assembly: AssemblyCopyright("Copyright © Drexel 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

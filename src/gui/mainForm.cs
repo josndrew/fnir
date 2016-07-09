@@ -9,18 +9,20 @@ using System.Diagnostics;
 
 namespace GUI
 {
+   
     public partial class mainForm : Form
     {
         //Variables
         private AboutBox1 aboutInfo;
         private int currentpoint;
         private SerialPort adruinoSerial;
-        private processedData data;
         public SerialSetup adruino_dialog;
         private bool isCollecting;
+        private bool isFrozen = false;
         private bool isFullScreen = false;
         private Thread thread1;
         private Dictionary<int,processedData> collectedPoints;
+        int INTERVAL;
 
         public mainForm()
         {
@@ -31,10 +33,7 @@ namespace GUI
         private void mainForm_Load(object sender, EventArgs e)
         {
             //Properties.Settings.Default.Reset();
-            //this.TopMost = true;
-            //this.WindowState = FormWindowState.Maximized;
-            //this.FormBorderStyle = FormBorderStyle.None;
-
+            
             fullScreenToolStripMenuItem_Click(sender, e);
 
             collectedPoints = new Dictionary<int, processedData>();
@@ -46,10 +45,18 @@ namespace GUI
             button1.Enabled = false;
             isCollecting = false;
             button1.Text = "START";
+            button2.Text = "Freeze";
+            button2.Enabled = false;
+            button3.Text = "<";
+            button3.Enabled = false;
+            button4.Text = ">";
+            button4.Enabled = false;
             currentpoint = 0;
-            data = null;
+
+            setUpInterval();
+            changeInterval();
         }
-       
+
         private void fullScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!isFullScreen)  // FullScreenMode is an enum
@@ -104,6 +111,7 @@ namespace GUI
                     startToolStripMenuItem.Enabled = false;
                     stopToolStripMenuItem.Enabled = true;
                     button1.Text = "STOP";
+                    button2.Enabled = true;
                     try 
                     {
                         if (!thread1.IsAlive)
@@ -118,7 +126,6 @@ namespace GUI
                         thread1.Start();
                     }
                     
-                    
                     break;
 
                 case "STOP":
@@ -126,8 +133,96 @@ namespace GUI
                     startToolStripMenuItem.Enabled = true;
                     stopToolStripMenuItem.Enabled = false;
                     button1.Text = "START";
+                    button2.Enabled = false;
                     break;
             }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            changeGraphUpdateStatus();
+        }
+
+
+        private void changeGraphUpdateStatus()
+        {
+            string status = button2.Text;
+
+            switch (status)
+            {
+                case "Freeze":
+                    isFrozen = true;
+                    button3.Enabled = true;
+                    button4.Enabled = true;
+                    label1.Visible = false;
+                    label2.Visible = false;
+                    button2.Text = "UnFreeze";
+                    break;
+
+                case "UnFreeze":
+                    isFrozen = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                    label1.Visible = true;
+                    label2.Visible = true;
+                    button2.Text = "Freeze";
+                    break;
+            }
+        }
+
+        private void setUpInterval()
+        {
+            comboBox1.Items.Add("15 sec");
+            comboBox1.Items.Add("30 sec");
+            comboBox1.Items.Add("1 min");
+            comboBox1.Items.Add("5 min");
+            comboBox1.SelectedIndex = 0;
+        }
+
+        private void changeInterval()
+        {
+            if (comboBox1.SelectedItem.Equals("15 sec"))
+                INTERVAL = 15;
+            else if (comboBox1.SelectedItem.Equals("30 sec"))
+                INTERVAL = 30;
+            else if (comboBox1.SelectedItem.Equals("1 min"))
+                INTERVAL = 60;
+            else if (comboBox1.SelectedItem.Equals("5 min"))
+                INTERVAL = 300;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeInterval();
+        }
+
+        
+        private void button3_Click(object sender, EventArgs e)
+        { 
+            double newBegin = rawData.ChartAreas[0].AxisX.Minimum - INTERVAL;
+            double newEnd = rawData.ChartAreas[0].AxisX.Maximum -INTERVAL;
+            if (newBegin < 1)
+            {
+                newBegin = 1;
+                newEnd = INTERVAL;
+                button3.Enabled = false;
+            }
+            button4.Enabled = true;
+            updateXAxis(newBegin, newEnd);
+            updateYAxis(newBegin, newEnd);
+        }
+        
+        private void button4_Click(object sender, EventArgs e)
+        {
+            double newBegin = rawData.ChartAreas[0].AxisX.Minimum + INTERVAL;
+            double newEnd = rawData.ChartAreas[0].AxisX.Maximum + INTERVAL;
+            if (newEnd > currentpoint)
+            {
+                newBegin = currentpoint - INTERVAL;
+                newEnd = currentpoint;
+            }
+            button3.Enabled = true;
+            updateXAxis(newBegin, newEnd);
+            updateYAxis(newBegin, newEnd);
         }
 
         private void get_processData()
@@ -145,19 +240,7 @@ namespace GUI
                         double[] dataArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
                         
                         processedData d  = new processedData();
-                        //if (collectedPoints.ContainsKey(5))
-                        //{   
-                        //    double [,] prev = new double [5,3];
-                            
-                        //    for (int k = 0; k < 5; k++)
-                        //    {
-                        //        if (collectedPoints.TryGetValue(currentpoint - k, out d))
-                        //        {
-                        //            prev[k,0] = d.getXCord();
-                        //        }
-                        //    }
-                        //}
-                        
+                                                
                         d.setXCord(dataArray[0]);
                         d.setAvg(dataArray[1]);
 
@@ -167,7 +250,7 @@ namespace GUI
                         }
 
                         Invoke((MethodInvoker)delegate { Update(); updateChart(d); Refresh(); Update(); });
-                        data = null;
+                        //data = null;
                     }
                 }
                 adruinoSerial.Close();
@@ -178,56 +261,31 @@ namespace GUI
             }     
         }
 
-
-        private void updateChart(processedData newData)
+        private void updateXAxis(double begin, double end)
         {
-            rawData.Update();
-            
-            rawData.Series["Reading"].Points.AddY(newData.getXCord());
-            label1.Text = (newData.getXCord()).ToString();
-           
+            rawData.ChartAreas[0].AxisX.Minimum = begin;
+            rawData.ChartAreas[0].AxisX.Maximum = end;
 
-            analyzedData.Series["Average"].Points.AddY(newData.getAvg());
+            analyzedData.ChartAreas[0].AxisX.Minimum = begin;
+            analyzedData.ChartAreas[0].AxisX.Maximum = end;
+        }
 
-            rawData.ChartAreas[0].AxisX.Title = "# of Data Points";
-            rawData.ChartAreas[0].AxisY.Title = "mV";
+        private void updateYAxis(double begin, double end)
+        {
+            double maxX = -3000;
+            double maxA = -3000;
 
-            analyzedData.ChartAreas[0].AxisX.Title = "# of Data Points";
-            analyzedData.ChartAreas[0].AxisY.Title = "mV";
+            double minX = 3000;
+            double minA = 3000;
 
-            currentpoint++;
-
-            collectedPoints.Add(currentpoint, newData); 
-            
-
-            if (currentpoint > 15)
+            if (currentpoint < end)
             {
-                rawData.ChartAreas[0].AxisX.Minimum = currentpoint - 15;
-                rawData.ChartAreas[0].AxisX.Maximum = currentpoint;
-
-                analyzedData.ChartAreas[0].AxisX.Minimum = currentpoint - 15;
-                analyzedData.ChartAreas[0].AxisX.Maximum = currentpoint;
-
+                end = currentpoint;
             }
-            else
+        
+            for (int k = Convert.ToInt32(begin); k < Convert.ToInt32(end); k++)
             {
-                rawData.ChartAreas[0].AxisX.Minimum = 1;
-                rawData.ChartAreas[0].AxisX.Maximum = 15;
 
-                analyzedData.ChartAreas[0].AxisX.Minimum = 1;
-                analyzedData.ChartAreas[0].AxisX.Maximum = 15;
-            }
-
-
-            double maxX = -300;
-            double maxA = -300;
-
-            double minX = 300;
-            double minA = 300;
-
-            for (int k = Convert.ToInt32(rawData.ChartAreas[0].AxisX.Minimum); k < currentpoint; k++)
-            {
-                
                 double xx = collectedPoints[k].getXCord();
                 double aa = collectedPoints[k].getAvg();
 
@@ -240,7 +298,7 @@ namespace GUI
                 {
                     minX = xx;
                 }
-                
+
                 if (aa > maxA)
                 {
                     maxA = aa;
@@ -252,10 +310,10 @@ namespace GUI
                 }
             }
 
-            double[] limits = { maxX, minX};
+            double[] limits = { maxX, minX };
 
-            rawData.ChartAreas[0].AxisY.Maximum = Math.Round(limits.Max(), 1, MidpointRounding.AwayFromZero) + .2;
-            rawData.ChartAreas[0].AxisY.Minimum = Math.Round(limits.Min(), 1, MidpointRounding.AwayFromZero) - .2;
+            rawData.ChartAreas[0].AxisY.Maximum = Math.Round(limits.Max(), 1, MidpointRounding.AwayFromZero) + 2;
+            rawData.ChartAreas[0].AxisY.Minimum = Math.Round(limits.Min(), 1, MidpointRounding.AwayFromZero) - .5;
 
             rawData.ChartAreas[0].AxisX.MajorGrid.Interval = 2;
             rawData.ChartAreas[0].AxisX.MajorTickMark.Interval = 2;
@@ -270,8 +328,8 @@ namespace GUI
 
             double[] limits2 = { maxA, minA };
 
-            analyzedData.ChartAreas[0].AxisY.Maximum = Math.Round(limits2.Max(), 1, MidpointRounding.AwayFromZero) + .2;
-            analyzedData.ChartAreas[0].AxisY.Minimum = Math.Round(limits2.Min(), 1, MidpointRounding.AwayFromZero) - .2;
+            analyzedData.ChartAreas[0].AxisY.Maximum = Math.Round(limits2.Max(), 1, MidpointRounding.AwayFromZero) + 2;
+            analyzedData.ChartAreas[0].AxisY.Minimum = Math.Round(limits2.Min(), 1, MidpointRounding.AwayFromZero) - .5;
 
             analyzedData.ChartAreas[0].AxisX.MajorGrid.Interval = 2;
             analyzedData.ChartAreas[0].AxisX.MajorTickMark.Interval = 2;
@@ -280,6 +338,42 @@ namespace GUI
 
             analyzedData.ChartAreas[0].AxisY.MajorGrid.Interval = interval2;
             analyzedData.ChartAreas[0].AxisY.MajorTickMark.Interval = interval2;
+        }
+
+        private void updateChart(processedData newData)
+        {
+            rawData.Update();
+            
+            rawData.Series["Reading"].Points.AddY(newData.getXCord());
+           
+
+            analyzedData.Series["Average"].Points.AddY(newData.getAvg());
+
+            rawData.ChartAreas[0].AxisX.Title = "# of Data Points";
+            rawData.ChartAreas[0].AxisY.Title = "mV";
+
+            analyzedData.ChartAreas[0].AxisX.Title = "# of Data Points";
+            analyzedData.ChartAreas[0].AxisY.Title = "mV";
+
+            currentpoint++;
+
+            collectedPoints.Add(currentpoint, newData);
+
+            if (!isFrozen)
+            {
+                label1.Text = (newData.getXCord()).ToString();
+                label2.Text = (newData.getAvg()).ToString();
+                if (currentpoint > INTERVAL)
+                {
+                    updateXAxis(currentpoint - INTERVAL, currentpoint);
+                    updateYAxis(currentpoint - INTERVAL, currentpoint);
+                }
+                else
+                {
+                    updateXAxis(1, INTERVAL);
+                    updateYAxis(1, INTERVAL);
+                }
+            }
 
             analyzedData.Update();
         }
@@ -296,13 +390,15 @@ namespace GUI
                     startToolStripMenuItem.Enabled = true;
                     stopToolStripMenuItem.Enabled = false;
                     button1.Enabled = true;
+                    button2.Enabled = true;
 
                     GUI.Properties.Settings.Default.PortName = adruinoSerial.PortName;
                     GUI.Properties.Settings.Default.BaudRate = adruinoSerial.BaudRate;
                     GUI.Properties.Settings.Default.Parity = adruinoSerial.Parity;
                     GUI.Properties.Settings.Default.DataBits = adruinoSerial.DataBits;
                     GUI.Properties.Settings.Default.StopBits = adruinoSerial.StopBits;
-                    GUI.Properties.Settings.Default.Handshake =adruinoSerial.Handshake;
+                    GUI.Properties.Settings.Default.Handshake = adruinoSerial.Handshake;
+                    Properties.Settings.Default.Save();
                 }
 
                 catch (Exception err)
@@ -338,6 +434,7 @@ namespace GUI
                     startToolStripMenuItem.Enabled = true;
                     stopToolStripMenuItem.Enabled = false;
                     button1.Enabled = true;
+                    button2.Enabled = true;
                 }
 
                 catch
@@ -348,6 +445,11 @@ namespace GUI
         }
 
 
+
+
+        
+
+        
 
 
 
