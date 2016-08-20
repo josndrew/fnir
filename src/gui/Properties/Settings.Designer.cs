@@ -94,5 +94,17 @@ namespace GUI.Properties {
                 this["Handshake"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#NOT_SET")]
+        public string workingDirectory {
+            get {
+                return ((string)(this["workingDirectory"]));
+            }
+            set {
+                this["workingDirectory"] = value;
+            }
+        }
     }
 }

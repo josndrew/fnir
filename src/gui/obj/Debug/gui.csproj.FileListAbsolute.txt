@@ -11,3 +11,5 @@ C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\gui.csproj.
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\GUI.exe
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\GUI.pdb
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\gui.csprojResolveAssemblyReference.cache
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Debug\InTheHand.Net.Personal.dll
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Debug\InTheHand.Net.Personal.xml

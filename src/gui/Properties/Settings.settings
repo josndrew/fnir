@@ -20,5 +20,8 @@
     <Setting Name="Handshake" Type="System.IO.Ports.Handshake" Scope="User">
       <Value Profile="(Default)">None</Value>
     </Setting>
+    <Setting Name="workingDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#NOT_SET</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

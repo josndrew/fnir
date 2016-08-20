@@ -75,6 +75,10 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.uploadDataFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workingDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.channel1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -101,6 +105,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectWithAdruinoToolStripMenuItem,
+            this.uploadDataFileToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -123,6 +128,7 @@
             // dataToolStripMenuItem
             // 
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.workingDirectoryToolStripMenuItem,
             this.startToolStripMenuItem,
             this.stopToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
@@ -217,6 +223,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(12, 69);
             this.tabControl1.Name = "tabControl1";
@@ -497,6 +504,29 @@
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1323, 608);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "About";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // uploadDataFileToolStripMenuItem
+            // 
+            this.uploadDataFileToolStripMenuItem.Name = "uploadDataFileToolStripMenuItem";
+            this.uploadDataFileToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.uploadDataFileToolStripMenuItem.Text = "Upload Data File";
+            // 
+            // workingDirectoryToolStripMenuItem
+            // 
+            this.workingDirectoryToolStripMenuItem.Name = "workingDirectoryToolStripMenuItem";
+            this.workingDirectoryToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.workingDirectoryToolStripMenuItem.Text = "Working Directory";
+            this.workingDirectoryToolStripMenuItem.Click += new System.EventHandler(this.workingDirectoryToolStripMenuItem_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -566,6 +596,10 @@
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem uploadDataFileToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ToolStripMenuItem workingDirectoryToolStripMenuItem;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
 
     }
 }

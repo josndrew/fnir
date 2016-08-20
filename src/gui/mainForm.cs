@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing;
+using InTheHand.Net;
+using InTheHand.Net.Bluetooth;
+using InTheHand.Net.Sockets;
+using InTheHand.Windows.Forms;
 
 namespace GUI
 {
@@ -38,6 +42,7 @@ namespace GUI
         private Label[] labels;
         int INTERVAL;
         int[] yLoc = new int[NUM_CHANNELS] { 29, 171, 313, 455};
+        BluetoothClient cli = new BluetoothClient();
  
         public mainForm()
         {
@@ -47,7 +52,7 @@ namespace GUI
         private void mainForm_Load(object sender, EventArgs e)
         {
             //Properties.Settings.Default.Reset();
-            
+            folderBrowserDialog1.SelectedPath = GUI.Properties.Settings.Default.workingDirectory;
             fullScreenToolStripMenuItem_Click(sender, e);
 
             collectedPoints_1 = new Dictionary<int, processedData>();
@@ -116,6 +121,13 @@ namespace GUI
         {
             aboutInfo.ShowDialog();
         }
+        
+        private void workingDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.ShowDialog();
+            GUI.Properties.Settings.Default.workingDirectory = folderBrowserDialog1.SelectedPath;
+
+        }
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -161,6 +173,7 @@ namespace GUI
                     serialDialogOpen();
                 }
             }
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -260,6 +273,7 @@ namespace GUI
             label4.Visible = !label4.Visible;
             updateNumDisplays();
         }
+
 /**************************************************************************************************************************
  * 
  * Helper Functions
@@ -357,11 +371,11 @@ namespace GUI
                     if (adruinoSerial.IsOpen)
                     {
                         string buffer = adruinoSerial.ReadTo("\n");
-                        Console.WriteLine(buffer);
+                        //Console.WriteLine(buffer);
                         string[] bufferArray = buffer.Split(new string[] { "\x09" }, StringSplitOptions.RemoveEmptyEntries);
                         double[] dataArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
                         
-                        processedData d1  = new processedData();
+                        processedData d1 = new processedData();
                         processedData d2 = new processedData();
                         processedData d3 = new processedData();
                         processedData d4 = new processedData();
@@ -541,18 +555,22 @@ namespace GUI
                 {
                     channels[k].Location = new Point(6, yLoc[numDisp]);
                     labels[k].Location = new Point(1189, yLoc[numDisp]);
-                    
 
                     numDisp++;
                 }
 
-
-
             }
-
-
+              
+            //for(int k = 0; k < NUM_CHANNELS; k++)
+            //{
+            //    if (channels[k].Visible)
+            //    {
+            //        channels[k].Size = new Size(1184, 139 * (4.0/numDisp));
+            //    }
+            //}
+            
         }
-        
+
 
 
 
