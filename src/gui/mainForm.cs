@@ -43,6 +43,8 @@ namespace GUI
         int INTERVAL;
         int[] yLoc = new int[NUM_CHANNELS] { 29, 171, 313, 455};
         BluetoothClient cli = new BluetoothClient();
+        Stopwatch stopWatch = new Stopwatch();
+        int freq = (int) 1000 / (200);
  
         public mainForm()
         {
@@ -249,6 +251,7 @@ namespace GUI
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             channel1.Visible = !channel1.Visible;
+            channel1_P.Visible = !channel1_P.Visible;
             label1.Visible = !label1.Visible;
             updateNumDisplays();
         }
@@ -256,6 +259,7 @@ namespace GUI
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             channel2.Visible = !channel2.Visible;
+            channel2_P.Visible = !channel2_P.Visible;
             label2.Visible = !label2.Visible;
             updateNumDisplays();
         }
@@ -263,6 +267,7 @@ namespace GUI
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             channel3.Visible = !channel3.Visible;
+            channel3_P.Visible = !channel3_P.Visible;
             label3.Visible = !label3.Visible;
             updateNumDisplays();
         }
@@ -270,6 +275,7 @@ namespace GUI
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
             channel4.Visible = !channel4.Visible;
+            channel4_P.Visible = !channel4_P.Visible;
             label4.Visible = !label4.Visible;
             updateNumDisplays();
         }
@@ -292,17 +298,19 @@ namespace GUI
                     stopToolStripMenuItem.Enabled = true;
                     button1.Text = "STOP";
                     button2.Enabled = true;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
                     try 
                     {
                         if (!thread1.IsAlive)
                         {
-                            thread1 = new Thread(new ThreadStart(get_processData));
+                            thread1 = new Thread(new ThreadStart(get_bufferData));
                             thread1.Start();
                         }
                     }
                     catch
                     {
-                        thread1 = new Thread(new ThreadStart(get_processData));
+                        thread1 = new Thread(new ThreadStart(get_bufferData));
                         thread1.Start();
                     }
                     
@@ -314,6 +322,8 @@ namespace GUI
                     stopToolStripMenuItem.Enabled = false;
                     button1.Text = "START";
                     button2.Enabled = false;
+                    button3.Enabled = true;
+                    button4.Enabled = true;
                     break;
             }
         }
@@ -342,6 +352,7 @@ namespace GUI
 
         private void setUpInterval()
         {
+            comboBox1.Items.Add("5 sec");
             comboBox1.Items.Add("15 sec");
             comboBox1.Items.Add("30 sec");
             comboBox1.Items.Add("1 min");
@@ -351,46 +362,58 @@ namespace GUI
 
         private void changeInterval()
         {
+            if (comboBox1.SelectedItem.Equals("5 sec"))
+                INTERVAL = 5 * freq;
             if (comboBox1.SelectedItem.Equals("15 sec"))
-                INTERVAL = 15;
+                INTERVAL = 15 * freq;
             else if (comboBox1.SelectedItem.Equals("30 sec"))
-                INTERVAL = 30;
+                INTERVAL = 30 * freq;
             else if (comboBox1.SelectedItem.Equals("1 min"))
-                INTERVAL = 60;
+                INTERVAL = 60 * freq;
             else if (comboBox1.SelectedItem.Equals("5 min"))
-                INTERVAL = 300;
+                INTERVAL = 300 * freq;
         }
         
-        private void get_processData()
+        private void get_bufferData()
         {
             try
             {
                 adruinoSerial.Open();
+                stopWatch.Start();
                 while (isCollecting)
                 {
                     if (adruinoSerial.IsOpen)
                     {
+                        adruinoSerial.DtrEnable = true;
                         string buffer = adruinoSerial.ReadTo("\n");
+                        adruinoSerial.DtrEnable = false;
                         //Console.WriteLine(buffer);
                         string[] bufferArray = buffer.Split(new string[] { "\x09" }, StringSplitOptions.RemoveEmptyEntries);
                         double[] dataArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
-                        
+
+                        TimeSpan ts = stopWatch.Elapsed;
+                        double timeStamp = Math.Round(ts.TotalSeconds, 1);
+
                         processedData d1 = new processedData();
                         processedData d2 = new processedData();
                         processedData d3 = new processedData();
                         processedData d4 = new processedData();
-                                                
-                        d1.setXCord(dataArray[0]);
-                        d1.setAvg(dataArray[1]);
 
-                        d2.setXCord(dataArray[0]*2);
-                        d2.setAvg(dataArray[1]*2);
+                        d1.setXCord(timeStamp);
+                        d1.setYCord1(dataArray[0]);
+                        d1.setYCord2(dataArray[1]);
 
-                        d3.setXCord(0);
-                        d3.setAvg(0);
+                        d2.setXCord(timeStamp);
+                        d2.setYCord1(dataArray[2]);
+                        d2.setYCord2(dataArray[3]);
 
-                        d3.setXCord(dataArray[0] / 3);
-                        d3.setAvg(dataArray[1] / 3);
+                        d3.setXCord(timeStamp);
+                        d3.setYCord1(dataArray[4]);
+                        d3.setYCord2(dataArray[5]);
+
+                        d4.setXCord(timeStamp);
+                        d4.setYCord1(dataArray[6]);
+                        d4.setYCord2(dataArray[7]);
 
                         //using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Andrew Joseph\Desktop\Senior Design\\data.txt", true))
                         //{
@@ -415,11 +438,11 @@ namespace GUI
 
         private void updateXAxis(double begin, double end, Chart chart)
         {
-            chart.ChartAreas[0].AxisX.Minimum = begin;
-            chart.ChartAreas[0].AxisX.Maximum = end;
+            chart.ChartAreas[0].AxisX.Minimum = begin/freq;
+            chart.ChartAreas[0].AxisX.Maximum = end/freq;
 
-            chart.ChartAreas[0].AxisX.Minimum = begin;
-            chart.ChartAreas[0].AxisX.Maximum = end;
+            chart.ChartAreas[0].AxisX.Minimum = begin/freq;
+            chart.ChartAreas[0].AxisX.Maximum = end/freq;
         }
 
         private void updateYAxis(double begin, double end, Chart chart, int index)
@@ -434,12 +457,17 @@ namespace GUI
             {
                 end = currentpoint;
             }
+
+            if (begin < 1)
+            {
+                begin = 1;
+            }
         
             for (int k = Convert.ToInt32(begin); k < Convert.ToInt32(end); k++)
             {
                 Dictionary<int, processedData> collectedPoints = MASTER_DICT[index];
-                double xx = collectedPoints[k].getXCord();
-                double aa = collectedPoints[k].getAvg();
+                double xx = collectedPoints[k].getYCord1();
+                double aa = collectedPoints[k].getYCord2();
 
                 if (xx > maxX) {maxX = xx;}
 
@@ -472,6 +500,7 @@ namespace GUI
 
             chart.ChartAreas[0].AxisY2.MajorGrid.Interval = interval2;
             chart.ChartAreas[0].AxisY2.MajorTickMark.Interval = interval2;
+         
             chart.Update();
         }
 
@@ -479,19 +508,27 @@ namespace GUI
         {
             chart.Update();
             
-            chart.Series["Reading"].Points.AddY(newData.getXCord());
-            chart.Series["Average"].Points.AddY(newData.getAvg());
+            chart.Series["HbO2"].Points.AddXY(newData.getXCord(), newData.getYCord1());
+            chart.Series["HbR"].Points.AddXY(newData.getXCord(), newData.getYCord2());
 
+            
 
             chart.Series[0].YAxisType = AxisType.Primary;
             chart.Series[1].YAxisType = AxisType.Secondary;
+            chart.Series[0].IsXValueIndexed = true;
+            chart.Series[1].IsXValueIndexed = true;
+            
+            chart.Series[0].MarkerSize = 7/(comboBox1.SelectedIndex + 1);
+            chart.Series[1].MarkerSize = 5 / (comboBox1.SelectedIndex + 1);
+            
+            
             chart.ChartAreas[0].AxisY2.MajorGrid.Enabled = false;
             chart.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
             
 
-            chart.ChartAreas[0].AxisX.Title = "# of Data Points";
+            chart.ChartAreas[0].AxisX.Title = "Time (s)";
             chart.ChartAreas[0].AxisY.Title = "mV";
-            chart.ChartAreas[0].AxisY2.Title = "Avg. mV";
+            chart.ChartAreas[0].AxisY2.Title = "mV";
 
             
             Dictionary<int, processedData> collectedPoints = MASTER_DICT[index];
@@ -499,7 +536,7 @@ namespace GUI
 
             if (!isFrozen)
             {
-                labels[index].Text = (newData.getXCord()).ToString();
+                labels[index].Text = (newData.getYCord1()).ToString();
                 if (currentpoint > INTERVAL)
                 {
                     updateXAxis(currentpoint - INTERVAL, currentpoint, chart);

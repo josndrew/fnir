@@ -4,7 +4,8 @@ namespace GUI
     class processedData
     {
         private double xCord;
-        private double avg;
+        private double yCord1;
+        private double yCord2;
 
         public processedData() { }
 
@@ -13,9 +14,14 @@ namespace GUI
             return xCord;
         }
 
-        public double getAvg()
+        public double getYCord1()
         {
-            return avg;
+            return yCord1;
+        }
+
+        public double getYCord2()
+        {
+            return yCord2;
         }
 
         public void setXCord(double alpha)
@@ -23,9 +29,14 @@ namespace GUI
             xCord = alpha;
         }
 
-        public void setAvg(double alpha)
+        public void setYCord1(double alpha)
         {
-            avg = alpha;
+            yCord1 = alpha;
+        }
+        
+        public void setYCord2(double alpha)
+        {
+            yCord2 = alpha;
         }
     }
 }

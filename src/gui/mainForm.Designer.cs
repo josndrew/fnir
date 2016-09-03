@@ -44,12 +44,30 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectWithAdruinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadDataFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workingDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,8 +76,8 @@
             this.channel1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.channel4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,18 +93,33 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.uploadDataFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.workingDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.channel4_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label6 = new System.Windows.Forms.Label();
+            this.channel3_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label7 = new System.Windows.Forms.Label();
+            this.channel2_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label8 = new System.Windows.Forms.Label();
+            this.channel1_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.channel1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel4_P)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel3_P)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel2_P)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel1_P)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -118,6 +151,12 @@
             this.connectWithAdruinoToolStripMenuItem.Text = "Connect with Adruino";
             this.connectWithAdruinoToolStripMenuItem.Click += new System.EventHandler(this.connectWithAdruinoToolStripMenuItem_Click);
             // 
+            // uploadDataFileToolStripMenuItem
+            // 
+            this.uploadDataFileToolStripMenuItem.Name = "uploadDataFileToolStripMenuItem";
+            this.uploadDataFileToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.uploadDataFileToolStripMenuItem.Text = "Upload Data File";
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -134,6 +173,13 @@
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.dataToolStripMenuItem.Text = "Data";
+            // 
+            // workingDirectoryToolStripMenuItem
+            // 
+            this.workingDirectoryToolStripMenuItem.Name = "workingDirectoryToolStripMenuItem";
+            this.workingDirectoryToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.workingDirectoryToolStripMenuItem.Text = "Working Directory";
+            this.workingDirectoryToolStripMenuItem.Click += new System.EventHandler(this.workingDirectoryToolStripMenuItem_Click);
             // 
             // startToolStripMenuItem
             // 
@@ -194,7 +240,7 @@
             series1.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
             series1.MarkerSize = 7;
             series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series1.Name = "Reading";
+            series1.Name = "HbO2";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -202,7 +248,7 @@
             series2.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series2.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series2.Name = "Average";
+            series2.Name = "HbR";
             this.channel1.Series.Add(series1);
             this.channel1.Series.Add(series2);
             this.channel1.Size = new System.Drawing.Size(1184, 139);
@@ -223,13 +269,25 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 69);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1331, 634);
             this.tabControl1.TabIndex = 4;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1323, 608);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "About";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -249,15 +307,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources.Legend;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(190, 29);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
             // 
             // label4
             // 
@@ -293,7 +342,7 @@
             series3.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
             series3.MarkerSize = 7;
             series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series3.Name = "Reading";
+            series3.Name = "HbO2";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -301,7 +350,7 @@
             series4.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series4.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series4.Name = "Average";
+            series4.Name = "HbR";
             this.channel4.Series.Add(series3);
             this.channel4.Series.Add(series4);
             this.channel4.Size = new System.Drawing.Size(1184, 139);
@@ -342,7 +391,7 @@
             series5.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
             series5.MarkerSize = 7;
             series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series5.Name = "Reading";
+            series5.Name = "HbO2";
             series6.ChartArea = "ChartArea1";
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -350,7 +399,7 @@
             series6.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series6.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series6.Name = "Average";
+            series6.Name = "HbR";
             this.channel3.Series.Add(series5);
             this.channel3.Series.Add(series6);
             this.channel3.Size = new System.Drawing.Size(1184, 139);
@@ -391,7 +440,7 @@
             series7.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
             series7.MarkerSize = 7;
             series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series7.Name = "Reading";
+            series7.Name = "HbO2";
             series8.ChartArea = "ChartArea1";
             series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -399,7 +448,7 @@
             series8.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series8.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series8.Name = "Average";
+            series8.Name = "HbR";
             this.channel2.Series.Add(series7);
             this.channel2.Series.Add(series8);
             this.channel2.Size = new System.Drawing.Size(1184, 139);
@@ -504,28 +553,248 @@
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
-            // tabPage2
+            // pictureBox1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1323, 608);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "About";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.Legend;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(146, 29);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
-            // uploadDataFileToolStripMenuItem
+            // tabPage3
             // 
-            this.uploadDataFileToolStripMenuItem.Name = "uploadDataFileToolStripMenuItem";
-            this.uploadDataFileToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.uploadDataFileToolStripMenuItem.Text = "Upload Data File";
+            this.tabPage3.Controls.Add(this.pictureBox2);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.channel4_P);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.channel3_P);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.channel2_P);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.channel1_P);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1323, 608);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Processed Data";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // workingDirectoryToolStripMenuItem
+            // pictureBox2
             // 
-            this.workingDirectoryToolStripMenuItem.Name = "workingDirectoryToolStripMenuItem";
-            this.workingDirectoryToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.workingDirectoryToolStripMenuItem.Text = "Working Directory";
-            this.workingDirectoryToolStripMenuItem.Click += new System.EventHandler(this.workingDirectoryToolStripMenuItem_Click);
+            this.pictureBox2.Image = global::GUI.Properties.Resources.Legend;
+            this.pictureBox2.Location = new System.Drawing.Point(7, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(146, 29);
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(1189, 455);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 139);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "--";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // channel4_P
+            // 
+            this.channel4_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel4_P.BorderlineColor = System.Drawing.Color.Black;
+            this.channel4_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea5.Name = "ChartArea1";
+            this.channel4_P.ChartAreas.Add(chartArea5);
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.channel4_P.Legends.Add(legend5);
+            this.channel4_P.Location = new System.Drawing.Point(6, 455);
+            this.channel4_P.Name = "channel4_P";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Color = System.Drawing.Color.Red;
+            series9.Legend = "Legend1";
+            series9.MarkerBorderColor = System.Drawing.Color.Red;
+            series9.MarkerColor = System.Drawing.Color.Red;
+            series9.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series9.MarkerSize = 7;
+            series9.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series9.Name = "HbO2";
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series10.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series10.Legend = "Legend1";
+            series10.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series10.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series10.Name = "HbR";
+            this.channel4_P.Series.Add(series9);
+            this.channel4_P.Series.Add(series10);
+            this.channel4_P.Size = new System.Drawing.Size(1184, 139);
+            this.channel4_P.TabIndex = 7;
+            this.channel4_P.Text = "chart1";
+            // 
+            // label6
+            // 
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(1189, 313);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(127, 139);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "--";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // channel3_P
+            // 
+            this.channel3_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel3_P.BorderlineColor = System.Drawing.Color.Black;
+            this.channel3_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea6.Name = "ChartArea1";
+            this.channel3_P.ChartAreas.Add(chartArea6);
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.channel3_P.Legends.Add(legend6);
+            this.channel3_P.Location = new System.Drawing.Point(6, 313);
+            this.channel3_P.Name = "channel3_P";
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series11.Color = System.Drawing.Color.Red;
+            series11.Legend = "Legend1";
+            series11.MarkerBorderColor = System.Drawing.Color.Red;
+            series11.MarkerColor = System.Drawing.Color.Red;
+            series11.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series11.MarkerSize = 7;
+            series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series11.Name = "HbO2";
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series12.Legend = "Legend1";
+            series12.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series12.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series12.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series12.Name = "HbR";
+            this.channel3_P.Series.Add(series11);
+            this.channel3_P.Series.Add(series12);
+            this.channel3_P.Size = new System.Drawing.Size(1184, 139);
+            this.channel3_P.TabIndex = 5;
+            this.channel3_P.Text = "chart2";
+            // 
+            // label7
+            // 
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(1189, 171);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 139);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "--";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // channel2_P
+            // 
+            this.channel2_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel2_P.BorderlineColor = System.Drawing.Color.Black;
+            this.channel2_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea7.Name = "ChartArea1";
+            this.channel2_P.ChartAreas.Add(chartArea7);
+            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend7.Enabled = false;
+            legend7.Name = "Legend1";
+            this.channel2_P.Legends.Add(legend7);
+            this.channel2_P.Location = new System.Drawing.Point(6, 171);
+            this.channel2_P.Name = "channel2_P";
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Color = System.Drawing.Color.Red;
+            series13.Legend = "Legend1";
+            series13.MarkerBorderColor = System.Drawing.Color.Red;
+            series13.MarkerColor = System.Drawing.Color.Red;
+            series13.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series13.MarkerSize = 7;
+            series13.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series13.Name = "HbO2";
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series14.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series14.Legend = "Legend1";
+            series14.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series14.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series14.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series14.Name = "HbR";
+            this.channel2_P.Series.Add(series13);
+            this.channel2_P.Series.Add(series14);
+            this.channel2_P.Size = new System.Drawing.Size(1184, 139);
+            this.channel2_P.TabIndex = 3;
+            this.channel2_P.Text = "chart3";
+            // 
+            // label8
+            // 
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(1189, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(127, 139);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "--";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // channel1_P
+            // 
+            this.channel1_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel1_P.BorderlineColor = System.Drawing.Color.Black;
+            this.channel1_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea8.Name = "ChartArea1";
+            this.channel1_P.ChartAreas.Add(chartArea8);
+            legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend8.Enabled = false;
+            legend8.Name = "Legend1";
+            this.channel1_P.Legends.Add(legend8);
+            this.channel1_P.Location = new System.Drawing.Point(6, 29);
+            this.channel1_P.Name = "channel1_P";
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series15.Color = System.Drawing.Color.Red;
+            series15.Legend = "Legend1";
+            series15.MarkerBorderColor = System.Drawing.Color.Red;
+            series15.MarkerColor = System.Drawing.Color.Red;
+            series15.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series15.MarkerSize = 7;
+            series15.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series15.Name = "HbO2";
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series16.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series16.Legend = "Legend1";
+            series16.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series16.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series16.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series16.Name = "HbR";
+            this.channel1_P.Series.Add(series15);
+            this.channel1_P.Series.Add(series16);
+            this.channel1_P.Size = new System.Drawing.Size(1184, 139);
+            this.channel1_P.TabIndex = 1;
+            this.channel1_P.Text = "chart4";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1323, 608);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Sessions";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // mainForm
             // 
@@ -555,10 +824,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.channel1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel4_P)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel3_P)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel2_P)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel1_P)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,11 +870,22 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem uploadDataFileToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ToolStripMenuItem workingDirectoryToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel4_P;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel3_P;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel2_P;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel1_P;
+        private System.Windows.Forms.TabPage tabPage4;
 
     }
 }
