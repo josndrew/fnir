@@ -1,53 +1,47 @@
-﻿using InTheHand.Net.Sockets;
-using System;
+﻿using System;
 using System.Data;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Threading;
+using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using LumenWorks.Framework.IO.Csv;
+
 
 namespace GUI
 {
     public partial class mainForm : Form
     {
-
-        /**************************************************************************************************************************
-         * 
-         * Initializing Elements & Variables
-         * 
-         **************************************************************************************************************************/
+        #region Initializing Elements & Variables
 
         //Variables
+        private Stopwatch stopWatch = new Stopwatch();
         private AboutBox1 aboutInfo;
-        private int currentpoint;
         private SerialPort adruinoSerial;
         public SerialSetup adruino_dialog;
+        private SettingsSetup settings_dialog;
+        private Thread thread1;
+        private Chart[] channels;
+        private Label[] labels;
+        private DataTable foundSessions;
         private bool isCollecting;
         private bool isFrozen = false;
         private bool isFullScreen = false;
-        private Thread thread1;
-        const int NUM_CHANNELS = 4;
-        private Dictionary<int, processedData> collectedPoints_1;
-        private Dictionary<int, processedData> collectedPoints_2;
-        private Dictionary<int, processedData> collectedPoints_3;
-        private Dictionary<int, processedData> collectedPoints_4;
-        private Chart[] channels;
-        private Dictionary<int, processedData>[] MASTER_DICT;
-        private Label[] labels;
-        private DataTable foundSessions;
         private int sessionsFound = 0;
+        private int currentpoint;
+        private int progressValue = 0;
+        private int INTERVAL;
+        private static int delay = GUI.Properties.Settings.Default.delay;
+        private int freq = GUI.Properties.Settings.Default.frequency;
+        const int NUM_CHANNELS = 4;
         private string sessionPath;
-        int INTERVAL;
 
-        BluetoothClient cli = new BluetoothClient();
-        Stopwatch stopWatch = new Stopwatch();
-        int freq = (int)1000 / (200);
-
+        static BackgroundWorker _bw;
         public mainForm()
         {
             InitializeComponent();
@@ -59,11 +53,6 @@ namespace GUI
             //Properties.Settings.Default.Reset();
             fullScreenToolStripMenuItem_Click(sender, e);
 
-            collectedPoints_1 = new Dictionary<int, processedData>();
-            collectedPoints_2 = new Dictionary<int, processedData>();
-            collectedPoints_3 = new Dictionary<int, processedData>();
-            collectedPoints_4 = new Dictionary<int, processedData>();
-            adruino_dialog = new SerialSetup();
             adruinoSerial = new SerialPort();
             aboutInfo = new AboutBox1();
             startToolStripMenuItem.Enabled = false;
@@ -79,21 +68,35 @@ namespace GUI
             button4.Enabled = false;
             currentpoint = 0;
             channels = new Chart[NUM_CHANNELS * 2] { channel1, channel2, channel3, channel4, channel1_P, channel2_P, channel3_P, channel4_P };
-            MASTER_DICT = new Dictionary<int, processedData>[NUM_CHANNELS] { collectedPoints_1, collectedPoints_2, collectedPoints_3, collectedPoints_4 };
             labels = new Label[NUM_CHANNELS * 2] { label1, label2, label3, label4, label5, label6, label7, label8 };
 
-            for (int j = 0; j < NUM_CHANNELS; j++)
+            for (int j = 0; j < NUM_CHANNELS * 2; j++)
             {
                 channels[j].Visible = false;
-                channels[j + NUM_CHANNELS].Visible = false;
+                channels[j].Series[0].YAxisType = AxisType.Primary;
+                channels[j].Series[1].YAxisType = AxisType.Secondary;
+                channels[j].Series[0].IsXValueIndexed = true;
+                channels[j].Series[1].IsXValueIndexed = true;
+                channels[j].ChartAreas[0].AxisX.Title = "Time (s)";
+
+                if (j > 3)
+                {
+                    channels[j].ChartAreas[0].AxisY.Title = "%";
+                    channels[j].ChartAreas[0].AxisY2.Title = "%";
+                }
+                else
+                {
+                    channels[j].ChartAreas[0].AxisY.Title = "mV";
+                    channels[j].ChartAreas[0].AxisY2.Title = "mV";
+                }
+
                 labels[j].Visible = false;
-                labels[j + NUM_CHANNELS].Visible = false;
             }
 
             setUpInterval();
             changeInterval();
 
-            
+
             foundSessions = new DataTable();
             foundSessions.Columns.Add("Session ID:", typeof(int));
             foundSessions.Columns.Add("Session Name:", typeof(string));
@@ -101,22 +104,28 @@ namespace GUI
             foundSessions.Columns.Add("Date of Session:", typeof(DateTime));
             foundSessions.Columns.Add("Session Duration:", typeof(TimeSpan));
             foundSessions.Columns.Add("File Path:", typeof(string));
-            
+
             dataGridView1.DataSource = foundSessions;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             folderBrowserDialog1.SelectedPath = GUI.Properties.Settings.Default.workingDirectory;
             ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
             sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".drexel";
             if (File.Exists(sessionPath))
             {
-                File.Delete(sessionPath);
+                //File.Delete(sessionPath);
             }
-        }
 
-        /**************************************************************************************************************************
-         * 
-         * Action Events (Clicks on Buttons and Menu Items)
-         * 
-         **************************************************************************************************************************/
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 100;
+            Point pt = progressBar1.PointToScreen(new Point(0, 0));
+            progressBar1.Parent = this;
+            progressBar1.Location = this.PointToClient(pt);
+            progressBar1.BringToFront();
+            progressBar1.Visible = false;
+        }
+        #endregion
+
+        #region Action Events (Clicks on Buttons and Menu Items)
 
         private void fullScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -145,18 +154,35 @@ namespace GUI
             aboutInfo.ShowDialog();
         }
 
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            settings_dialog = new SettingsSetup();
+            settings_dialog.ShowDialog();
+            if (settings_dialog.btnPressed())
+            {
+                delay = GUI.Properties.Settings.Default.delay;
+                freq = GUI.Properties.Settings.Default.frequency;
+                changeInterval();
+                Console.Out.WriteLine(delay + " " + freq);
+            }
+        }
+
         private void workingDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sessionsFound = 0;
-            folderBrowserDialog1.ShowDialog();
-            GUI.Properties.Settings.Default.workingDirectory = folderBrowserDialog1.SelectedPath;
-            Properties.Settings.Default.Save();
-            ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
-            
-            sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".drexel";
-            if (File.Exists(sessionPath))
+            DialogResult foundDir = folderBrowserDialog1.ShowDialog();
+            if (foundDir == DialogResult.OK)
             {
-                File.Delete(sessionPath);
+                sessionsFound = 0;
+                foundSessions.Rows.Clear();
+                GUI.Properties.Settings.Default.workingDirectory = folderBrowserDialog1.SelectedPath;
+                Properties.Settings.Default.Save();
+                ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
+
+                sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".drexel";
+                if (File.Exists(sessionPath))
+                {
+                    //File.Delete(sessionPath);
+                }
             }
         }
 
@@ -207,6 +233,17 @@ namespace GUI
 
         }
 
+        private void uploadDataFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chageReadFileStatus();
+        }
+
+        private void exportDataToCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string newSessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".csv";
+            File.Copy(sessionPath, newSessionPath);
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             changeInterval();
@@ -214,29 +251,27 @@ namespace GUI
             for (int i = 0; i < NUM_CHANNELS * 2; i++)
             {
                 Chart chart = channels[i];
+
+                chart.Series[0].MarkerSize = 7 / (comboBox1.SelectedIndex + 1);
+                chart.Series[1].MarkerSize = 5 / (comboBox1.SelectedIndex + 1);
+
                 double newBegin = chart.ChartAreas[0].AxisX.Minimum;
                 double newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
-                bool procData = false;
-                if (i/4 == 1)
-                {
-                    procData = true;
-                }
 
                 if (newEnd > currentpoint)
                 {
                     newBegin = currentpoint - INTERVAL;
-                    if (newBegin < 1)
+                    if (newBegin < 0)
                     {
-                        newBegin = 1;
+                        newBegin = 0;
                     }
                     newEnd = currentpoint;
                 }
-                if ((newBegin > 0) && (newEnd > 0))
+                if ((newBegin >= 0) && (newEnd > 0))
                 {
                     updateXAxis(newBegin, newEnd, chart);
-                    updateYAxis(newBegin, newEnd, chart, i%4, procData);
+                    updateYAxis(newBegin, newEnd, chart);
                 }
-
             }
         }
 
@@ -257,21 +292,16 @@ namespace GUI
                 Chart chart = channels[i];
                 double newBegin = chart.ChartAreas[0].AxisX.Minimum - INTERVAL;
                 double newEnd = chart.ChartAreas[0].AxisX.Maximum - INTERVAL;
-                bool procData = false;
-                if (i / 4 == 1)
-                {
-                    procData = true;
-                }
 
-                if (newBegin < 1)
+                if (newBegin < 0)
                 {
-                    newBegin = 1;
+                    newBegin = 0;
                     newEnd = INTERVAL;
                     button3.Enabled = false;
                 }
                 button4.Enabled = true;
                 updateXAxis(newBegin, newEnd, chart);
-                updateYAxis(newBegin, newEnd, chart, i, procData);
+                updateYAxis(newBegin, newEnd, chart);
             }
         }
 
@@ -282,11 +312,6 @@ namespace GUI
                 Chart chart = channels[i];
                 double newBegin = chart.ChartAreas[0].AxisX.Minimum + INTERVAL;
                 double newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
-                bool procData = false;
-                if (i / 4 == 1)
-                {
-                    procData = true;
-                }
 
                 if (newEnd > currentpoint)
                 {
@@ -295,7 +320,7 @@ namespace GUI
                 }
                 button3.Enabled = true;
                 updateXAxis(newBegin, newEnd, chart);
-                updateYAxis(newBegin, newEnd, chart, i, procData);
+                updateYAxis(newBegin, newEnd, chart);
             }
         }
 
@@ -385,13 +410,18 @@ namespace GUI
             {
                 updateNumDisplays();
             }
+            else if (tabControl1.SelectedTab == tabPage4)
+            {
+                dataGridView1.DataSource = foundSessions;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                foundSessions.Rows.Clear();
+                sessionsFound = 0;
+                ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
+            }
         }
+        #endregion
 
-        /**************************************************************************************************************************
-         * 
-         * Helper Functions
-         * 
-         **************************************************************************************************************************/
+        #region Helper Functions
 
         private void changeCollectingStatus()
         {
@@ -435,6 +465,38 @@ namespace GUI
             }
         }
 
+        private void chageReadFileStatus()
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                sessionPath = openFileDialog1.FileName;
+
+                progressBar1.Visible = true;
+                button2.Enabled = true;
+                checkBox1.Checked = true;
+                checkBox2.Checked = true;
+                checkBox3.Checked = true;
+                checkBox4.Checked = true;
+            }
+            else
+            {
+                return;
+            }
+
+            _bw = new BackgroundWorker
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true
+            };
+
+            _bw.DoWork += get_fileData;
+            _bw.ProgressChanged += bw_ProgressChanged;
+            _bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+
+            _bw.RunWorkerAsync("Hello to worker");
+        }
+
         private void changeGraphUpdateStatus()
         {
             string status = button2.Text;
@@ -464,6 +526,8 @@ namespace GUI
             comboBox1.Items.Add("30 sec");
             comboBox1.Items.Add("1 min");
             comboBox1.Items.Add("5 min");
+            comboBox1.Items.Add("15 min");
+            comboBox1.Items.Add("30 min");
             comboBox1.SelectedIndex = 0;
         }
 
@@ -479,6 +543,85 @@ namespace GUI
                 INTERVAL = 60 * freq;
             else if (comboBox1.SelectedItem.Equals("5 min"))
                 INTERVAL = 300 * freq;
+            else if (comboBox1.SelectedItem.Equals("15 min"))
+                INTERVAL = 900 * freq;
+            else if (comboBox1.SelectedItem.Equals("30 min"))
+                INTERVAL = 1800 * freq;
+        }
+
+        private void get_fileData(object sender, DoWorkEventArgs e)
+        {
+            TimeSpan ts = stopWatch.Elapsed;
+            double totalTime = Math.Round(ts.TotalSeconds, 1);
+
+            try
+            {
+                StreamReader sr;
+                stopWatch.Start();
+
+                using (sr = new StreamReader(sessionPath))
+                {
+                    using (CachedCsvReader csv = new CachedCsvReader(sr, false))
+                    {
+                        int fieldCount = csv.FieldCount;
+                        while (csv.ReadNextRecord())
+                        {
+                            if (_bw.CancellationPending)
+                            {
+                                e.Cancel = true; return;
+                            }
+
+                            double[] fieldArray = new double[17];
+                            Parallel.For(0, fieldCount, i =>
+                            {
+                                fieldArray[i] = Convert.ToDouble(csv[i]);
+                            });
+
+                            double[] dataArray = new double[16] { fieldArray[1], fieldArray[2], fieldArray[5], fieldArray[6], 
+                                                                         fieldArray[9], fieldArray[10], fieldArray[13], fieldArray[14],
+                                                                         fieldArray[3], fieldArray[4], fieldArray[7], fieldArray[8],
+                                                                         fieldArray[11], fieldArray[12], fieldArray[15], fieldArray[16]};
+
+                            int progress = (int)(((double)sr.BaseStream.Position / (double)sr.BaseStream.Length) * 100);
+                            _bw.ReportProgress(progress);
+                            displayData(fieldArray[0], dataArray, false);
+
+                            ts = stopWatch.Elapsed;
+                            totalTime = Math.Round(ts.TotalSeconds, 1);
+                            Console.WriteLine("Current Time: " +  totalTime + "Proccessed Time: " + fieldArray[0] + "  " + progress);
+                        }
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+
+            ts = stopWatch.Elapsed;
+            totalTime = Math.Round(ts.TotalSeconds, 1);
+            Console.WriteLine("TOTAL TIME: " + totalTime);
+            e.Result = 123;
+        }
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+                Console.WriteLine("You canceled!");
+            else if (e.Error != null)
+                Console.WriteLine("Worker exception: " + e.Error.ToString());
+            else
+                Console.WriteLine("Complete: " + e.Result);      // from DoWork
+        }
+
+        private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage != progressValue)
+            {
+                progressValue = e.ProgressPercentage;
+                BeginInvoke((MethodInvoker)delegate { progressBar1.Value = progressValue; });
+                Console.WriteLine("Reached " + e.ProgressPercentage + "%");
+            }
         }
 
         private void get_bufferData()
@@ -493,7 +636,7 @@ namespace GUI
                     {
                         TimeSpan ts = stopWatch.Elapsed;
 
-                        if (ts.TotalHours < 5.0)
+                        if (ts.TotalHours < 24.0)
                         {
                             double timeStamp = Math.Round(ts.TotalSeconds, 1);
 
@@ -503,16 +646,21 @@ namespace GUI
                             string[] bufferArray = buffer.Split(new string[] { "\x09" }, StringSplitOptions.RemoveEmptyEntries);
                             double[] dataArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
 
+                            Array.Resize<double>(ref dataArray, 16);
+                            for (int i = 8; i < 16; i++)
+                            {
+                                dataArray[i] = 0;
+                            }
 
-                            displayData(timeStamp, dataArray);
-
-                            
+                            Console.WriteLine(timeStamp);
+                            displayData(timeStamp, dataArray, true);
                         }
                         else
                         {
                             Invoke((MethodInvoker)delegate { changeCollectingStatus(); Refresh(); Update(); });
                         }
                     }
+                    Thread.Sleep(delay);
                 }
             }
             catch (Exception err)
@@ -522,47 +670,41 @@ namespace GUI
             adruinoSerial.Close();
         }
 
-        private void displayData(double timeStamp, double [] dataArray)
+        private void displayData(double timeStamp, double[] dataArray, bool fromDevice)
         {
-            processedData d1 = new processedData();
-            processedData d2 = new processedData();
-            processedData d3 = new processedData();
-            processedData d4 = new processedData();
 
-            d1.setXCord(timeStamp);
-            d1.setYCord1(dataArray[0]);
-            d1.setYCord2(dataArray[1]);
-
-            d2.setXCord(timeStamp);
-            d2.setYCord1(dataArray[2]);
-            d2.setYCord2(dataArray[3]);
-
-            d3.setXCord(timeStamp);
-            d3.setYCord1(dataArray[4]);
-            d3.setYCord2(dataArray[5]);
-
-            d4.setXCord(timeStamp);
-            d4.setYCord1(dataArray[6]);
-            d4.setYCord2(dataArray[7]);
+            if (fromDevice)
+            {
+                calcPerData(dataArray[0], dataArray[1], out dataArray[8], out dataArray[9]);
+                calcPerData(dataArray[2], dataArray[3], out dataArray[10], out dataArray[11]);
+                calcPerData(dataArray[4], dataArray[5], out dataArray[12], out dataArray[13]);
+                calcPerData(dataArray[6], dataArray[7], out dataArray[14], out dataArray[15]);
+            }
 
             currentpoint++;
-            Invoke((MethodInvoker)delegate { Update(); updateChart(d1, channel1, 0, false); Refresh(); Update(); });
-            Invoke((MethodInvoker)delegate { Update(); updateChart(d2, channel2, 1, false); Refresh(); Update(); });
-            Invoke((MethodInvoker)delegate { Update(); updateChart(d3, channel3, 2, false); Refresh(); Update(); });
-            Invoke((MethodInvoker)delegate { Update(); updateChart(d4, channel4, 3, false); Refresh(); Update(); });
-            
-            Invoke((MethodInvoker)delegate { Update(); updateChart(d1, channel1_P, 0, true); Refresh(); Update(); });
-            Invoke((MethodInvoker)delegate { Update(); updateChart(d2, channel2_P, 1, true); Refresh(); Update(); });
-            Invoke((MethodInvoker)delegate { Update(); updateChart(d3, channel3_P, 2, true); Refresh(); Update(); });
-            Invoke((MethodInvoker)delegate { Update(); updateChart(d4, channel4_P, 3, true); Refresh(); Update(); });
 
+            Parallel.Invoke(() =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], dataArray[1], channel1, 0, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], dataArray[3], channel2, 1, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[4], dataArray[5], channel3, 2, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[6], dataArray[7], channel4, 3, false, fromDevice); }); }, () =>
+                  
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[8], dataArray[9], channel1_P, 0, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[10], dataArray[11], channel2_P, 1, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[12], dataArray[13], channel3_P, 2, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[14], dataArray[15], channel4_P, 3, true, fromDevice); }); }, () =>
+                { BeginInvoke((MethodInvoker)delegate { Update(); Refresh(); }); }
+            );
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
+            if (fromDevice)
             {
-                file.WriteLine(timeStamp + "," + d1.getYCord1() + "," + d1.getYCord2() + "," + d1.getYCord1_P() + "," + d1.getYCord2_P()
-                                         + "," + d2.getYCord1() + "," + d2.getYCord2() + "," + d2.getYCord1_P() + "," + d2.getYCord2_P()
-                                         + "," + d3.getYCord1() + "," + d3.getYCord2() + "," + d3.getYCord1_P() + "," + d3.getYCord2_P()
-                                         + "," + d4.getYCord1() + "," + d4.getYCord2() + "," + d4.getYCord1_P() + "," + d4.getYCord2_P());
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
+                {
+                    file.WriteLine(timeStamp + "," + dataArray[0] + "," + dataArray[1] + "," + dataArray[8] + "," + dataArray[9]
+                                             + "," + dataArray[2] + "," + dataArray[3] + "," + dataArray[10] + "," + dataArray[11]
+                                             + "," + dataArray[4] + "," + dataArray[5] + "," + dataArray[12] + "," + dataArray[13]
+                                             + "," + dataArray[6] + "," + dataArray[7] + "," + dataArray[14] + "," + dataArray[15]);
+                }
             }
         }
 
@@ -570,12 +712,9 @@ namespace GUI
         {
             chart.ChartAreas[0].AxisX.Minimum = begin;
             chart.ChartAreas[0].AxisX.Maximum = end;
-
-            chart.ChartAreas[0].AxisX.Minimum = begin;
-            chart.ChartAreas[0].AxisX.Maximum = end;
         }
 
-        private void updateYAxis(double begin, double end, Chart chart, int index, bool procData)
+        private void updateYAxis(double begin, double end, Chart chart)
         {
             double maxX = -3000;
             double maxA = -3000;
@@ -588,26 +727,22 @@ namespace GUI
                 end = currentpoint;
             }
 
+            if (end > chart.Series["HbO2"].Points.Count)
+            {
+                end = chart.Series["HbO2"].Points.Count;
+            }
+
             if (begin < 1)
             {
                 begin = 1;
             }
 
-            for (int k = Convert.ToInt32(begin); k < Convert.ToInt32(end); k++)
+            Parallel.For(Convert.ToInt32(begin), Convert.ToInt32(end), k =>
             {
-                Dictionary<int, processedData> collectedPoints = MASTER_DICT[index];
                 double xx, aa;
-                if (procData)
-                {
-                    xx = collectedPoints[k].getYCord1_P();
-                    aa = collectedPoints[k].getYCord2_P();
-                }
-                else
-                {
-                    xx = collectedPoints[k].getYCord1();
-                    aa = collectedPoints[k].getYCord2();
-                }
-                
+
+                xx = chart.Series["HbO2"].Points[k].YValues[0];
+                aa = chart.Series["HbR"].Points[k].YValues[0];
 
                 if (xx > maxX) { maxX = xx; }
 
@@ -616,7 +751,7 @@ namespace GUI
                 if (aa > maxA) { maxA = aa; }
 
                 if (aa < minA) { minA = aa; }
-            }
+            });
 
             double[] limits = { maxX, minX };
 
@@ -647,83 +782,52 @@ namespace GUI
             if (comboBox1.SelectedIndex > 2)
             {
                 chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-                chart.ChartAreas[0].AxisX.MajorTickMark.Enabled = false;    
+                chart.ChartAreas[0].AxisX.MajorTickMark.Enabled = false;
             }
             else
             {
                 chart.ChartAreas[0].AxisX.MajorGrid.Enabled = true;
-                chart.ChartAreas[0].AxisX.MajorTickMark.Enabled = true;                                    
+                chart.ChartAreas[0].AxisX.MajorTickMark.Enabled = true;
             }
 
             chart.Update();
         }
 
-        private void updateChart(processedData newData, Chart chart, int index, bool procData)
+        private void updateChart(double x, double y1, double y2, Chart chart, int index, bool procData, bool fromDevice)
         {
-            chart.Update();
-
-            if (procData)
-            {
-                chart.Series["HbO2"].Points.AddXY(newData.getXCord(), newData.getYCord1_P());
-                chart.Series["HbR"].Points.AddXY(newData.getXCord(), newData.getYCord2_P());
-            }
-            else
-            {
-                chart.Series["HbO2"].Points.AddXY(newData.getXCord(), newData.getYCord1());
-                chart.Series["HbR"].Points.AddXY(newData.getXCord(), newData.getYCord2());
-            }
-
-
-            chart.Series[0].YAxisType = AxisType.Primary;
-            chart.Series[1].YAxisType = AxisType.Secondary;
-            chart.Series[0].IsXValueIndexed = true;
-            chart.Series[1].IsXValueIndexed = true;
-
-            chart.Series[0].MarkerSize = 7 / (comboBox1.SelectedIndex + 1);
-            chart.Series[1].MarkerSize = 5 / (comboBox1.SelectedIndex + 1);
-
-
-            chart.ChartAreas[0].AxisX.Title = "Time (s)";
-
-            if (procData)
-            {
-                chart.ChartAreas[0].AxisY.Title = "%";
-                chart.ChartAreas[0].AxisY2.Title = "%";
-            }
-            else
-            {
-                chart.ChartAreas[0].AxisY.Title = "mV";
-                chart.ChartAreas[0].AxisY2.Title = "mV";
-            }
-            
-
-            Dictionary<int, processedData> collectedPoints = MASTER_DICT[index];
-            if (!procData)
-            {
-                collectedPoints.Add(currentpoint, newData);
-            }
-            
+            chart.Series["HbO2"].Points.AddXY(x, y1);
+            chart.Series["HbR"].Points.AddXY(x, y2);
 
             if (!isFrozen)
             {
-                labels[index].Text = (newData.getYCord1()).ToString();
-                if (currentpoint > INTERVAL)
-                {
-                    updateXAxis(currentpoint - INTERVAL, currentpoint, chart);
-                    updateYAxis(currentpoint - INTERVAL, currentpoint, chart, index, procData);
-                }
-                else
-                {
-                    updateXAxis(1, INTERVAL, chart);
-                    updateYAxis(1, INTERVAL, chart, index, procData);
-                }
-            }
+                double newBegin = chart.ChartAreas[0].AxisX.Minimum;
+                double newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
 
-            chart.Update();
+                if (newEnd > currentpoint)
+                {
+                    newBegin = currentpoint - INTERVAL;
+                    if (newBegin < 0)
+                    {
+                        newBegin = 0;
+                    }
+                    newEnd = currentpoint;
+                }
+                if ((newBegin >= 0) && (newEnd > 0))
+                {
+                    updateXAxis(newBegin, newEnd, chart);
+                    if (chart.Visible)
+                    {
+                        updateYAxis(newBegin, newEnd, chart);
+                        chart.Update();
+                    }
+                }
+                
+            }
         }
 
         private void serialDialogOpen()
         {
+            adruino_dialog = new SerialSetup();
             adruino_dialog.ShowDialog();
 
             if (adruino_dialog.btnPressed())
@@ -752,6 +856,11 @@ namespace GUI
             }
         }
 
+        private void calcPerData(double yCord1, double yCord2, out double yCord1_P, out double yCord2_P)
+        {
+            yCord1_P = (yCord1 + yCord2) / 2 * .4;
+            yCord2_P = (yCord1 + yCord2) / 3 * 1.6;
+        }
 
         private void updateNumDisplays()
         {
@@ -807,12 +916,6 @@ namespace GUI
             }
         }
 
-
-
-
-
-        // Process all files in the directory passed in, recurse on any directories 
-        // that are found, and process the files they contain.
         private void ProcessDirectory(string targetDirectory)
         {
             // Process the list of files found in the directory.
@@ -826,7 +929,6 @@ namespace GUI
                 ProcessDirectory(subdirectory);
         }
 
-        // Insert logic for processing found files here.
         private void ProcessFile(string path)
         {
             FileInfo f = new FileInfo(path);
@@ -834,7 +936,9 @@ namespace GUI
             sessionsFound++;
         }
 
+        #endregion
 
 
     }
+
 }

@@ -109,7 +109,7 @@
             this.Controls.Add(this.cmbPort);
             this.Controls.Add(this.cmbBitRate);
             this.Name = "SerialSetup";
-            this.Text = "Adruino Setup";
+            this.Text = "Device Setup";
             this.Load += new System.EventHandler(this.SerialSetup_Load);
             this.ResumeLayout(false);
 
