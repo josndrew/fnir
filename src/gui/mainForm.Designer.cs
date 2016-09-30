@@ -32,34 +32,50 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series28 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,27 +94,19 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.channel4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label3 = new System.Windows.Forms.Label();
-            this.channel3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label2 = new System.Windows.Forms.Label();
-            this.channel2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.channel4_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label7 = new System.Windows.Forms.Label();
-            this.channel3_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label6 = new System.Windows.Forms.Label();
-            this.channel2_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label5 = new System.Windows.Forms.Label();
-            this.channel1_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -111,6 +119,13 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.channel2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.channel3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.channel4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.channel1_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.channel2_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.channel3_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.channel4_P = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.channel1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -118,15 +133,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel2)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel4_P)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel3_P)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel2_P)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel1_P)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel2_P)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel3_P)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel4_P)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -223,14 +238,14 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -259,15 +274,35 @@
             series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
             series1.Name = "HbO2";
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series2.Legend = "Legend1";
             series2.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series2.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
             series2.Name = "HbR";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Red;
+            series3.Legend = "Legend1";
+            series3.MarkerBorderColor = System.Drawing.Color.Red;
+            series3.MarkerColor = System.Drawing.Color.Red;
+            series3.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series3.MarkerSize = 7;
+            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series3.Name = "HbO2_Freeze";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series4.Legend = "Legend1";
+            series4.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series4.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series4.Name = "HbR_Freeze";
             this.channel1.Series.Add(series1);
             this.channel1.Series.Add(series2);
+            this.channel1.Series.Add(series3);
+            this.channel1.Series.Add(series4);
             this.channel1.Size = new System.Drawing.Size(1184, 139);
             this.channel1.TabIndex = 1;
             this.channel1.Text = "channel1";
@@ -298,7 +333,6 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.progressBar1);
             this.tabPage4.Controls.Add(this.dataGridView1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -307,13 +341,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Sessions";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(0, 599);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1320, 10);
-            this.progressBar1.TabIndex = 13;
             // 
             // dataGridView1
             // 
@@ -325,13 +352,13 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.channel4);
+            this.tabPage1.Controls.Add(this.channel3);
+            this.tabPage1.Controls.Add(this.channel2);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.channel4);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.channel3);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.channel2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.channel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -362,44 +389,6 @@
             this.label4.Text = "--";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // channel4
-            // 
-            this.channel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.channel4.BorderlineColor = System.Drawing.Color.Black;
-            this.channel4.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea2.Name = "ChartArea1";
-            this.channel4.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.channel4.Legends.Add(legend2);
-            this.channel4.Location = new System.Drawing.Point(6, 455);
-            this.channel4.Name = "channel4";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Color = System.Drawing.Color.Red;
-            series3.Legend = "Legend1";
-            series3.MarkerBorderColor = System.Drawing.Color.Red;
-            series3.MarkerColor = System.Drawing.Color.Red;
-            series3.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
-            series3.MarkerSize = 7;
-            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series3.Name = "HbO2";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series4.Legend = "Legend1";
-            series4.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series4.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series4.Name = "HbR";
-            this.channel4.Series.Add(series3);
-            this.channel4.Series.Add(series4);
-            this.channel4.Size = new System.Drawing.Size(1184, 139);
-            this.channel4.TabIndex = 7;
-            this.channel4.Text = "channel4";
-            // 
             // label3
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -411,44 +400,6 @@
             this.label3.Text = "--";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // channel3
-            // 
-            this.channel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.channel3.BorderlineColor = System.Drawing.Color.Black;
-            this.channel3.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea3.Name = "ChartArea1";
-            this.channel3.ChartAreas.Add(chartArea3);
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.channel3.Legends.Add(legend3);
-            this.channel3.Location = new System.Drawing.Point(6, 313);
-            this.channel3.Name = "channel3";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.Red;
-            series5.Legend = "Legend1";
-            series5.MarkerBorderColor = System.Drawing.Color.Red;
-            series5.MarkerColor = System.Drawing.Color.Red;
-            series5.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
-            series5.MarkerSize = 7;
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series5.Name = "HbO2";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series6.Legend = "Legend1";
-            series6.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series6.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series6.Name = "HbR";
-            this.channel3.Series.Add(series5);
-            this.channel3.Series.Add(series6);
-            this.channel3.Size = new System.Drawing.Size(1184, 139);
-            this.channel3.TabIndex = 5;
-            this.channel3.Text = "channel3";
-            // 
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -459,44 +410,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "--";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // channel2
-            // 
-            this.channel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.channel2.BorderlineColor = System.Drawing.Color.Black;
-            this.channel2.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea4.Name = "ChartArea1";
-            this.channel2.ChartAreas.Add(chartArea4);
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend4.Enabled = false;
-            legend4.Name = "Legend1";
-            this.channel2.Legends.Add(legend4);
-            this.channel2.Location = new System.Drawing.Point(6, 171);
-            this.channel2.Name = "channel2";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Color = System.Drawing.Color.Red;
-            series7.Legend = "Legend1";
-            series7.MarkerBorderColor = System.Drawing.Color.Red;
-            series7.MarkerColor = System.Drawing.Color.Red;
-            series7.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
-            series7.MarkerSize = 7;
-            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series7.Name = "HbO2";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series8.Legend = "Legend1";
-            series8.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series8.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series8.Name = "HbR";
-            this.channel2.Series.Add(series7);
-            this.channel2.Series.Add(series8);
-            this.channel2.Size = new System.Drawing.Size(1184, 139);
-            this.channel2.TabIndex = 3;
-            this.channel2.Text = "channel2";
             // 
             // label1
             // 
@@ -511,15 +424,15 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.channel4_P);
+            this.tabPage3.Controls.Add(this.channel3_P);
+            this.tabPage3.Controls.Add(this.channel2_P);
+            this.tabPage3.Controls.Add(this.channel1_P);
             this.tabPage3.Controls.Add(this.pictureBox2);
             this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.channel4_P);
             this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.Controls.Add(this.channel3_P);
             this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.channel2_P);
             this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Controls.Add(this.channel1_P);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -548,44 +461,6 @@
             this.label8.Text = "--";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // channel4_P
-            // 
-            this.channel4_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.channel4_P.BorderlineColor = System.Drawing.Color.Black;
-            this.channel4_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea5.Name = "ChartArea1";
-            this.channel4_P.ChartAreas.Add(chartArea5);
-            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.channel4_P.Legends.Add(legend5);
-            this.channel4_P.Location = new System.Drawing.Point(6, 455);
-            this.channel4_P.Name = "channel4_P";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Color = System.Drawing.Color.Red;
-            series9.Legend = "Legend1";
-            series9.MarkerBorderColor = System.Drawing.Color.Red;
-            series9.MarkerColor = System.Drawing.Color.Red;
-            series9.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
-            series9.MarkerSize = 7;
-            series9.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series9.Name = "HbO2";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series10.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series10.Legend = "Legend1";
-            series10.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series10.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series10.Name = "HbR";
-            this.channel4_P.Series.Add(series9);
-            this.channel4_P.Series.Add(series10);
-            this.channel4_P.Size = new System.Drawing.Size(1184, 139);
-            this.channel4_P.TabIndex = 7;
-            this.channel4_P.Text = "chart1";
-            // 
             // label7
             // 
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -596,44 +471,6 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "--";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // channel3_P
-            // 
-            this.channel3_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.channel3_P.BorderlineColor = System.Drawing.Color.Black;
-            this.channel3_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea6.Name = "ChartArea1";
-            this.channel3_P.ChartAreas.Add(chartArea6);
-            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            this.channel3_P.Legends.Add(legend6);
-            this.channel3_P.Location = new System.Drawing.Point(6, 313);
-            this.channel3_P.Name = "channel3_P";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Color = System.Drawing.Color.Red;
-            series11.Legend = "Legend1";
-            series11.MarkerBorderColor = System.Drawing.Color.Red;
-            series11.MarkerColor = System.Drawing.Color.Red;
-            series11.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
-            series11.MarkerSize = 7;
-            series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series11.Name = "HbO2";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series12.Legend = "Legend1";
-            series12.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series12.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series12.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series12.Name = "HbR";
-            this.channel3_P.Series.Add(series11);
-            this.channel3_P.Series.Add(series12);
-            this.channel3_P.Size = new System.Drawing.Size(1184, 139);
-            this.channel3_P.TabIndex = 5;
-            this.channel3_P.Text = "chart2";
             // 
             // label6
             // 
@@ -646,44 +483,6 @@
             this.label6.Text = "--";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // channel2_P
-            // 
-            this.channel2_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.channel2_P.BorderlineColor = System.Drawing.Color.Black;
-            this.channel2_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea7.Name = "ChartArea1";
-            this.channel2_P.ChartAreas.Add(chartArea7);
-            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend7.Enabled = false;
-            legend7.Name = "Legend1";
-            this.channel2_P.Legends.Add(legend7);
-            this.channel2_P.Location = new System.Drawing.Point(6, 171);
-            this.channel2_P.Name = "channel2_P";
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series13.Color = System.Drawing.Color.Red;
-            series13.Legend = "Legend1";
-            series13.MarkerBorderColor = System.Drawing.Color.Red;
-            series13.MarkerColor = System.Drawing.Color.Red;
-            series13.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
-            series13.MarkerSize = 7;
-            series13.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series13.Name = "HbO2";
-            series14.ChartArea = "ChartArea1";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series14.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series14.Legend = "Legend1";
-            series14.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series14.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series14.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series14.Name = "HbR";
-            this.channel2_P.Series.Add(series13);
-            this.channel2_P.Series.Add(series14);
-            this.channel2_P.Size = new System.Drawing.Size(1184, 139);
-            this.channel2_P.TabIndex = 3;
-            this.channel2_P.Text = "chart3";
-            // 
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -694,44 +493,6 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "--";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // channel1_P
-            // 
-            this.channel1_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.channel1_P.BorderlineColor = System.Drawing.Color.Black;
-            this.channel1_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea8.Name = "ChartArea1";
-            this.channel1_P.ChartAreas.Add(chartArea8);
-            legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend8.Enabled = false;
-            legend8.Name = "Legend1";
-            this.channel1_P.Legends.Add(legend8);
-            this.channel1_P.Location = new System.Drawing.Point(6, 29);
-            this.channel1_P.Name = "channel1_P";
-            series15.ChartArea = "ChartArea1";
-            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series15.Color = System.Drawing.Color.Red;
-            series15.Legend = "Legend1";
-            series15.MarkerBorderColor = System.Drawing.Color.Red;
-            series15.MarkerColor = System.Drawing.Color.Red;
-            series15.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
-            series15.MarkerSize = 7;
-            series15.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series15.Name = "HbO2";
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series16.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series16.Legend = "Legend1";
-            series16.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series16.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series16.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series16.Name = "HbR";
-            this.channel1_P.Series.Add(series15);
-            this.channel1_P.Series.Add(series16);
-            this.channel1_P.Size = new System.Drawing.Size(1184, 139);
-            this.channel1_P.TabIndex = 1;
-            this.channel1_P.Text = "chart4";
             // 
             // tabPage2
             // 
@@ -834,6 +595,412 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // channel2
+            // 
+            this.channel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel2.BorderlineColor = System.Drawing.Color.Black;
+            this.channel2.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea4.Name = "ChartArea1";
+            this.channel2.ChartAreas.Add(chartArea4);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.channel2.Legends.Add(legend4);
+            this.channel2.Location = new System.Drawing.Point(7, 171);
+            this.channel2.Name = "channel2";
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Color = System.Drawing.Color.Red;
+            series13.Legend = "Legend1";
+            series13.MarkerBorderColor = System.Drawing.Color.Red;
+            series13.MarkerColor = System.Drawing.Color.Red;
+            series13.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series13.MarkerSize = 7;
+            series13.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series13.Name = "HbO2";
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series14.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series14.Legend = "Legend1";
+            series14.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series14.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series14.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series14.Name = "HbR";
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series15.Color = System.Drawing.Color.Red;
+            series15.Legend = "Legend1";
+            series15.MarkerBorderColor = System.Drawing.Color.Red;
+            series15.MarkerColor = System.Drawing.Color.Red;
+            series15.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series15.MarkerSize = 7;
+            series15.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series15.Name = "HbO2_Freeze";
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series16.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series16.Legend = "Legend1";
+            series16.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series16.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series16.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series16.Name = "HbR_Freeze";
+            this.channel2.Series.Add(series13);
+            this.channel2.Series.Add(series14);
+            this.channel2.Series.Add(series15);
+            this.channel2.Series.Add(series16);
+            this.channel2.Size = new System.Drawing.Size(1184, 139);
+            this.channel2.TabIndex = 10;
+            this.channel2.Text = "channel2";
+            // 
+            // channel3
+            // 
+            this.channel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel3.BorderlineColor = System.Drawing.Color.Black;
+            this.channel3.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea3.Name = "ChartArea1";
+            this.channel3.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.channel3.Legends.Add(legend3);
+            this.channel3.Location = new System.Drawing.Point(7, 313);
+            this.channel3.Name = "channel3";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Color = System.Drawing.Color.Red;
+            series9.Legend = "Legend1";
+            series9.MarkerBorderColor = System.Drawing.Color.Red;
+            series9.MarkerColor = System.Drawing.Color.Red;
+            series9.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series9.MarkerSize = 7;
+            series9.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series9.Name = "HbO2";
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series10.Legend = "Legend1";
+            series10.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series10.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series10.Name = "HbR";
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series11.Color = System.Drawing.Color.Red;
+            series11.Legend = "Legend1";
+            series11.MarkerBorderColor = System.Drawing.Color.Red;
+            series11.MarkerColor = System.Drawing.Color.Red;
+            series11.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series11.MarkerSize = 7;
+            series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series11.Name = "HbO2_Freeze";
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series12.Legend = "Legend1";
+            series12.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series12.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series12.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series12.Name = "HbR_Freeze";
+            this.channel3.Series.Add(series9);
+            this.channel3.Series.Add(series10);
+            this.channel3.Series.Add(series11);
+            this.channel3.Series.Add(series12);
+            this.channel3.Size = new System.Drawing.Size(1184, 139);
+            this.channel3.TabIndex = 11;
+            this.channel3.Text = "channel3";
+            // 
+            // channel4
+            // 
+            this.channel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel4.BorderlineColor = System.Drawing.Color.Black;
+            this.channel4.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea2.Name = "ChartArea1";
+            this.channel4.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.channel4.Legends.Add(legend2);
+            this.channel4.Location = new System.Drawing.Point(7, 455);
+            this.channel4.Name = "channel4";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.Red;
+            series5.Legend = "Legend1";
+            series5.MarkerBorderColor = System.Drawing.Color.Red;
+            series5.MarkerColor = System.Drawing.Color.Red;
+            series5.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series5.MarkerSize = 7;
+            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series5.Name = "HbO2";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series6.Legend = "Legend1";
+            series6.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series6.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series6.Name = "HbR";
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Color = System.Drawing.Color.Red;
+            series7.Legend = "Legend1";
+            series7.MarkerBorderColor = System.Drawing.Color.Red;
+            series7.MarkerColor = System.Drawing.Color.Red;
+            series7.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series7.MarkerSize = 7;
+            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series7.Name = "HbO2_Freeze";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series8.Legend = "Legend1";
+            series8.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series8.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series8.Name = "HbR_Freeze";
+            this.channel4.Series.Add(series5);
+            this.channel4.Series.Add(series6);
+            this.channel4.Series.Add(series7);
+            this.channel4.Series.Add(series8);
+            this.channel4.Size = new System.Drawing.Size(1184, 139);
+            this.channel4.TabIndex = 12;
+            this.channel4.Text = "channel4";
+            // 
+            // channel1_P
+            // 
+            this.channel1_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel1_P.BorderlineColor = System.Drawing.Color.Black;
+            this.channel1_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea8.Name = "ChartArea1";
+            this.channel1_P.ChartAreas.Add(chartArea8);
+            legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend8.Enabled = false;
+            legend8.Name = "Legend1";
+            this.channel1_P.Legends.Add(legend8);
+            this.channel1_P.Location = new System.Drawing.Point(7, 29);
+            this.channel1_P.Name = "channel1_P";
+            series29.ChartArea = "ChartArea1";
+            series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series29.Color = System.Drawing.Color.Red;
+            series29.Legend = "Legend1";
+            series29.MarkerBorderColor = System.Drawing.Color.Red;
+            series29.MarkerColor = System.Drawing.Color.Red;
+            series29.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series29.MarkerSize = 7;
+            series29.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series29.Name = "HbO2";
+            series30.ChartArea = "ChartArea1";
+            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series30.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series30.Legend = "Legend1";
+            series30.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series30.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series30.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series30.Name = "HbR";
+            series31.ChartArea = "ChartArea1";
+            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series31.Color = System.Drawing.Color.Red;
+            series31.Legend = "Legend1";
+            series31.MarkerBorderColor = System.Drawing.Color.Red;
+            series31.MarkerColor = System.Drawing.Color.Red;
+            series31.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series31.MarkerSize = 7;
+            series31.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series31.Name = "HbO2_Freeze";
+            series32.ChartArea = "ChartArea1";
+            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series32.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series32.Legend = "Legend1";
+            series32.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series32.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series32.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series32.Name = "HbR_Freeze";
+            this.channel1_P.Series.Add(series29);
+            this.channel1_P.Series.Add(series30);
+            this.channel1_P.Series.Add(series31);
+            this.channel1_P.Series.Add(series32);
+            this.channel1_P.Size = new System.Drawing.Size(1184, 139);
+            this.channel1_P.TabIndex = 13;
+            this.channel1_P.Text = "channel1_P";
+            // 
+            // channel2_P
+            // 
+            this.channel2_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel2_P.BorderlineColor = System.Drawing.Color.Black;
+            this.channel2_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea7.Name = "ChartArea1";
+            this.channel2_P.ChartAreas.Add(chartArea7);
+            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend7.Enabled = false;
+            legend7.Name = "Legend1";
+            this.channel2_P.Legends.Add(legend7);
+            this.channel2_P.Location = new System.Drawing.Point(7, 171);
+            this.channel2_P.Name = "channel2_P";
+            series25.ChartArea = "ChartArea1";
+            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series25.Color = System.Drawing.Color.Red;
+            series25.Legend = "Legend1";
+            series25.MarkerBorderColor = System.Drawing.Color.Red;
+            series25.MarkerColor = System.Drawing.Color.Red;
+            series25.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series25.MarkerSize = 7;
+            series25.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series25.Name = "HbO2";
+            series26.ChartArea = "ChartArea1";
+            series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series26.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series26.Legend = "Legend1";
+            series26.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series26.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series26.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series26.Name = "HbR";
+            series27.ChartArea = "ChartArea1";
+            series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series27.Color = System.Drawing.Color.Red;
+            series27.Legend = "Legend1";
+            series27.MarkerBorderColor = System.Drawing.Color.Red;
+            series27.MarkerColor = System.Drawing.Color.Red;
+            series27.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series27.MarkerSize = 7;
+            series27.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series27.Name = "HbO2_Freeze";
+            series28.ChartArea = "ChartArea1";
+            series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series28.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series28.Legend = "Legend1";
+            series28.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series28.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series28.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series28.Name = "HbR_Freeze";
+            this.channel2_P.Series.Add(series25);
+            this.channel2_P.Series.Add(series26);
+            this.channel2_P.Series.Add(series27);
+            this.channel2_P.Series.Add(series28);
+            this.channel2_P.Size = new System.Drawing.Size(1184, 139);
+            this.channel2_P.TabIndex = 14;
+            this.channel2_P.Text = "channel2_P";
+            // 
+            // channel3_P
+            // 
+            this.channel3_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel3_P.BorderlineColor = System.Drawing.Color.Black;
+            this.channel3_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea6.Name = "ChartArea1";
+            this.channel3_P.ChartAreas.Add(chartArea6);
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.channel3_P.Legends.Add(legend6);
+            this.channel3_P.Location = new System.Drawing.Point(7, 313);
+            this.channel3_P.Name = "channel3_P";
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series21.Color = System.Drawing.Color.Red;
+            series21.Legend = "Legend1";
+            series21.MarkerBorderColor = System.Drawing.Color.Red;
+            series21.MarkerColor = System.Drawing.Color.Red;
+            series21.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series21.MarkerSize = 7;
+            series21.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series21.Name = "HbO2";
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series22.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series22.Legend = "Legend1";
+            series22.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series22.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series22.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series22.Name = "HbR";
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series23.Color = System.Drawing.Color.Red;
+            series23.Legend = "Legend1";
+            series23.MarkerBorderColor = System.Drawing.Color.Red;
+            series23.MarkerColor = System.Drawing.Color.Red;
+            series23.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series23.MarkerSize = 7;
+            series23.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series23.Name = "HbO2_Freeze";
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series24.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series24.Legend = "Legend1";
+            series24.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series24.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series24.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series24.Name = "HbR_Freeze";
+            this.channel3_P.Series.Add(series21);
+            this.channel3_P.Series.Add(series22);
+            this.channel3_P.Series.Add(series23);
+            this.channel3_P.Series.Add(series24);
+            this.channel3_P.Size = new System.Drawing.Size(1184, 139);
+            this.channel3_P.TabIndex = 15;
+            this.channel3_P.Text = "channel3_P";
+            // 
+            // channel4_P
+            // 
+            this.channel4_P.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.channel4_P.BorderlineColor = System.Drawing.Color.Black;
+            this.channel4_P.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea5.Name = "ChartArea1";
+            this.channel4_P.ChartAreas.Add(chartArea5);
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.channel4_P.Legends.Add(legend5);
+            this.channel4_P.Location = new System.Drawing.Point(7, 455);
+            this.channel4_P.Name = "channel4_P";
+            series17.ChartArea = "ChartArea1";
+            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series17.Color = System.Drawing.Color.Red;
+            series17.Legend = "Legend1";
+            series17.MarkerBorderColor = System.Drawing.Color.Red;
+            series17.MarkerColor = System.Drawing.Color.Red;
+            series17.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series17.MarkerSize = 7;
+            series17.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series17.Name = "HbO2";
+            series18.ChartArea = "ChartArea1";
+            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series18.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series18.Legend = "Legend1";
+            series18.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series18.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series18.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series18.Name = "HbR";
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series19.Color = System.Drawing.Color.Red;
+            series19.Legend = "Legend1";
+            series19.MarkerBorderColor = System.Drawing.Color.Red;
+            series19.MarkerColor = System.Drawing.Color.Red;
+            series19.MarkerImageTransparentColor = System.Drawing.Color.Transparent;
+            series19.MarkerSize = 7;
+            series19.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series19.Name = "HbO2_Freeze";
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series20.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series20.Legend = "Legend1";
+            series20.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series20.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series20.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series20.Name = "HbR_Freeze";
+            this.channel4_P.Series.Add(series17);
+            this.channel4_P.Series.Add(series18);
+            this.channel4_P.Series.Add(series19);
+            this.channel4_P.Series.Add(series20);
+            this.channel4_P.Size = new System.Drawing.Size(1184, 139);
+            this.channel4_P.TabIndex = 16;
+            this.channel4_P.Text = "channel4_P";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -865,15 +1032,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel4_P)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel3_P)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.channel2_P)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel1_P)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel2_P)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel3_P)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channel4_P)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -901,11 +1068,8 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataVisualization.Charting.Chart channel4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart channel3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart channel2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox4;
@@ -918,19 +1082,21 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataVisualization.Charting.Chart channel4_P;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataVisualization.Charting.Chart channel3_P;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataVisualization.Charting.Chart channel2_P;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataVisualization.Charting.Chart channel1_P;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripMenuItem exportDataToCSVToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel4_P;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel3_P;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel2_P;
+        private System.Windows.Forms.DataVisualization.Charting.Chart channel1_P;
 
     }
 }
