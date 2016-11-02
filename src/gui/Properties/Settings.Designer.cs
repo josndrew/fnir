@@ -109,30 +109,6 @@ namespace GUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("200")]
-        public int delay {
-            get {
-                return ((int)(this["delay"]));
-            }
-            set {
-                this["delay"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public int frequency {
-            get {
-                return ((int)(this["frequency"]));
-            }
-            set {
-                this["frequency"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double I0_1 {
             get {
@@ -212,6 +188,30 @@ namespace GUI.Properties {
             }
             set {
                 this["DPF_2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double c_3 {
+            get {
+                return ((double)(this["c_3"]));
+            }
+            set {
+                this["c_3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double c_4 {
+            get {
+                return ((double)(this["c_4"]));
+            }
+            set {
+                this["c_4"] = value;
             }
         }
     }

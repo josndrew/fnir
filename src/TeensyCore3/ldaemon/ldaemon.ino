@@ -25,36 +25,37 @@ double sumReading = -10000.0;
 /******************************************************/
 void ldaemon(void)
 {
-  if (indexNum < PINS - 1) {
-    indexNum += 1;
-  }
-  else {
-    indexNum = 0;
-  }
-
-  for (int k = 0; k < 2; k++)
-  {
-    if (indexNum < 2) {
-      lindex = 0;
+  if (USBSERIAL.dtr()) {
+    if (indexNum < PINS - 1) {
+      indexNum += 1;
     }
     else {
-      lindex = 2;
-    }
-    sumReading = 0;
-    analogWrite(led_pins[lindex + k], 120);
-    delay(INTERVAL/10);
-
-    for (int j = 0; j < NUM_ITER; j++) {
-      int value = analogRead(adc_pins[indexNum]); // read a new value, will return ADC_ERROR_VALUE if the comparison is false.
-      //double newReading = map(value, 0, 1023, 0, 255); //value * 3.3 / 1024;
-      double newReading = value;
-      sumReading += newReading;
+      indexNum = 0;
     }
 
-    values[indexNum +(k*PINS)] = sumReading / (NUM_ITER*1000);
-    analogWrite(led_pins[lindex + k], 0);
+    for (int k = 0; k < 2; k++)
+    {
+      if (indexNum < 2) {
+        lindex = 0;
+      }
+      else {
+        lindex = 2;
+      }
+      sumReading = 0;
+      analogWrite(led_pins[lindex + k], 120);
+      delay(INTERVAL / 10);
+
+      for (int j = 0; j < NUM_ITER; j++) {
+        int value = analogRead(adc_pins[indexNum]); // read a new value, will return ADC_ERROR_VALUE if the comparison is false.
+        //double newReading = map(value, 0, 1023, 0, 255); //value * 3.3 / 1024;
+        double newReading = value;
+        sumReading += newReading;
+      }
+
+      values[indexNum + (k * PINS)] = sumReading / (NUM_ITER * 1000);
+      analogWrite(led_pins[lindex + k], 0);
+    }
   }
-  
 }
 /******************************************************/
 
@@ -139,6 +140,5 @@ void loop()
     Serial.print("ADC sampling rate (t "); Serial.print(.05); Serial.print(") = ");
     Serial.print(PINS * 2 * AVG * NUM_ITER * 1 / (.05)); Serial.println("SPS");
   }
-
 
 }

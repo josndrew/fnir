@@ -10,6 +10,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Timers;
+using MathNet.Numerics;
+using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Double;
+
 
 
 namespace GUI
@@ -19,7 +24,6 @@ namespace GUI
         #region Initializing Elements & Variables
 
         //Variables
-        private Stopwatch stopWatch = new Stopwatch();
         private AboutBox1 aboutInfo;
         private SerialPort adruinoSerial;
         public SerialSetup adruino_dialog;
@@ -31,11 +35,11 @@ namespace GUI
         private bool isCollecting;
         private bool isFrozen = false;
         private bool isFullScreen = false;
+        private bool justStarted = false;
         private int sessionsFound = 0;
         private int currentpoint, currentpoint_Read;
         private int INTERVAL;
-        private static int delay = GUI.Properties.Settings.Default.delay;
-        private int freq = GUI.Properties.Settings.Default.frequency;
+        private int freq = 15;
         const int NUM_CHANNELS = 4;
         private string sessionPath, logPath;
 
@@ -118,9 +122,9 @@ namespace GUI
             ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
             sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".drexel";
             logPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "log.csv";
-            if (File.Exists(sessionPath))
+            if (File.Exists(logPath))
             {
-                //File.Delete(sessionPath);
+                File.Delete(logPath);
             }
         }
         #endregion
@@ -160,10 +164,7 @@ namespace GUI
             settings_dialog.ShowDialog();
             if (settings_dialog.btnPressed())
             {
-                delay = GUI.Properties.Settings.Default.delay;
-                freq = GUI.Properties.Settings.Default.frequency;
-                changeInterval();
-                Console.Out.WriteLine(delay + " " + freq);
+                changeInterval();   
             }
         }
 
@@ -198,39 +199,29 @@ namespace GUI
 
         private void connectWithAdruinoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string tPort = GUI.Properties.Settings.Default.PortName;
+            //serialDialogOpen();
+            try
+            {
+                adruinoSerial.PortName = GUI.Properties.Settings.Default.PortName;
+                adruinoSerial.BaudRate = GUI.Properties.Settings.Default.BaudRate;
+                adruinoSerial.Parity = GUI.Properties.Settings.Default.Parity;
+                adruinoSerial.DataBits = GUI.Properties.Settings.Default.DataBits;
+                adruinoSerial.StopBits = GUI.Properties.Settings.Default.StopBits;
+                adruinoSerial.Handshake = GUI.Properties.Settings.Default.Handshake;
 
-            if (tPort.Equals("#NOT_SET"))
+                adruinoSerial.Open();
+                adruinoSerial.Close();
+
+                startToolStripMenuItem.Enabled = true;
+                stopToolStripMenuItem.Enabled = false;
+                button1.Enabled = true;
+                button2.Enabled = true;
+            }
+
+            catch
             {
                 serialDialogOpen();
             }
-
-            else
-            {
-                try
-                {
-                    adruinoSerial.PortName = GUI.Properties.Settings.Default.PortName;
-                    adruinoSerial.BaudRate = GUI.Properties.Settings.Default.BaudRate;
-                    adruinoSerial.Parity = GUI.Properties.Settings.Default.Parity;
-                    adruinoSerial.DataBits = GUI.Properties.Settings.Default.DataBits;
-                    adruinoSerial.StopBits = GUI.Properties.Settings.Default.StopBits;
-                    adruinoSerial.Handshake = GUI.Properties.Settings.Default.Handshake;
-
-                    adruinoSerial.Open();
-                    adruinoSerial.Close();
-
-                    startToolStripMenuItem.Enabled = true;
-                    stopToolStripMenuItem.Enabled = false;
-                    button1.Enabled = true;
-                    button2.Enabled = true;
-                }
-
-                catch
-                {
-                    serialDialogOpen();
-                }
-            }
-
         }
 
         private void uploadDataFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -471,6 +462,8 @@ namespace GUI
                     button2.Enabled = true;
                     button3.Enabled = false;
                     button4.Enabled = false;
+                    adruinoSerial.Open();
+
                     try
                     {
                         if (!thread1.IsAlive)
@@ -495,6 +488,9 @@ namespace GUI
                     button2.Enabled = false;
                     button3.Enabled = true;
                     button4.Enabled = true;
+                    adruinoSerial.DtrEnable = false;
+                    adruinoSerial.Close();
+                    
                     break;
             }
         }
@@ -550,7 +546,7 @@ namespace GUI
                     button3.Enabled = true;
                     button4.Enabled = true;
                     button2.Text = "UnFreeze";
-                    
+
                     newBegin = 0;
                     newEnd = INTERVAL;
 
@@ -611,13 +607,9 @@ namespace GUI
 
         private void get_fileData()
         {
-            TimeSpan ts = stopWatch.Elapsed;
-            double totalTime = Math.Round(ts.TotalSeconds, 1);
-
             try
             {
                 StreamReader sr;
-                stopWatch.Start();
 
                 using (FileStream file = new FileStream(sessionPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
@@ -636,10 +628,10 @@ namespace GUI
 
                                 if (fieldArray[0] >= newBegin / freq)
                                 {
-                                    double[] dataArray = new double[16] {fieldArray[1] , fieldArray[5] , fieldArray[9] , fieldArray[13], 
-                                                                 fieldArray[2] , fieldArray[6] , fieldArray[10], fieldArray[14],
-                                                                 fieldArray[3] , fieldArray[4] , fieldArray[7] , fieldArray[8] ,
-                                                                 fieldArray[11], fieldArray[12], fieldArray[15], fieldArray[16] 
+                                    double[] dataArray = new double[16] {fieldArray[1] , fieldArray[2] , fieldArray[3] , fieldArray[4], 
+                                                                 fieldArray[5] , fieldArray[6] , fieldArray[7], fieldArray[8],
+                                                                 fieldArray[9] , fieldArray[10] , fieldArray[11] , fieldArray[12],
+                                                                 fieldArray[13], fieldArray[14], fieldArray[15], fieldArray[16] 
                                                                 };
 
                                     int progress = (int)(((double)sr.BaseStream.Position / (double)sr.BaseStream.Length) * 100);
@@ -667,64 +659,64 @@ namespace GUI
         {
             try
             {
-                adruinoSerial.Open();
-                stopWatch.Start();
+                adruinoSerial.DiscardInBuffer();
+                adruinoSerial.Write("s"); //Reset Micro
+                justStarted = true;
+                adruinoSerial.DiscardInBuffer();
+                adruinoSerial.DiscardInBuffer();
+                adruinoSerial.DtrEnable = true;
+                string buffer = null;
+
                 while (isCollecting)
                 {
                     if (adruinoSerial.IsOpen)
                     {
-                        TimeSpan ts = stopWatch.Elapsed;
+                        adruinoSerial.Write("r"); //Get Data
+                        buffer = adruinoSerial.ReadTo("\n");
 
-                        if (ts.TotalHours < 24.0)
+                        try
                         {
-                            double timeStamp = Math.Round(ts.TotalSeconds, 1);
-
-                            adruinoSerial.DtrEnable = true;
-                            string buffer = adruinoSerial.ReadTo("\n");
-                            adruinoSerial.DtrEnable = false;
-                            string[] bufferArray = buffer.Split(new string[] { "\x09" }, StringSplitOptions.RemoveEmptyEntries);
-                            double[] dataArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
-
-                            Array.Resize<double>(ref dataArray, 16);
-                            for (int i = 8; i < 16; i++)
+                            string[] bufferArray = buffer.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                            double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
+                            
+                            if ((justStarted) && (fieldArray[0] > 0))
                             {
-                                dataArray[i] = 0;
+                                continue;
                             }
-
-                            displayData(timeStamp, dataArray, true);
-                            buffer = null;
-                            adruinoSerial.DiscardInBuffer();
+                            justStarted = false;
 
 
-                            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@logPath, true))
-                            {
-                                file.WriteLine(currentpoint + "," + timeStamp);
-                                Console.WriteLine(currentpoint + "," + timeStamp);
-                            }
+                            double[] dataArray = new double[16] {fieldArray[1] , fieldArray[2] , fieldArray[3] , fieldArray[4], 
+                                                                 fieldArray[5] , fieldArray[6] , fieldArray[7], fieldArray[8],
+                                                                 0 , 0 , 0 , 0, 0, 0, 0, 0};
+                            displayData(fieldArray[0], dataArray, true);
                         }
-                        else
+                        catch (Exception err)
                         {
-                            Invoke((MethodInvoker)delegate { changeCollectingStatus(); Refresh(); Update(); });
+                            //MessageBox.Show(err.ToString());
                         }
                     }
-                    Thread.Sleep(delay - 133);
                 }
+                adruinoSerial.DtrEnable = false;
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.ToString());
             }
-            adruinoSerial.Close();
         }
 
+        
         private void displayData(double timeStamp, double[] dataArray, bool fromDevice)
         {
             if (fromDevice)
             {
-                calcPerData(dataArray[0], dataArray[4], out dataArray[8], out dataArray[9]);
-                calcPerData(dataArray[1], dataArray[5], out dataArray[10], out dataArray[11]);
-                calcPerData(dataArray[2], dataArray[6], out dataArray[12], out dataArray[13]);
-                calcPerData(dataArray[3], dataArray[7], out dataArray[14], out dataArray[15]);
+                Parallel.Invoke(() =>
+                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[0], dataArray[4], out dataArray[8], out dataArray[12]); }); }, () =>
+                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[1], dataArray[5], out dataArray[9], out dataArray[13]); }); }, () =>
+                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[2], dataArray[6], out dataArray[10], out dataArray[14]); }); }, () =>
+                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[3], dataArray[7], out dataArray[11], out dataArray[15]); }); }
+                );
+
                 currentpoint++;
             }
             else
@@ -738,10 +730,10 @@ namespace GUI
                 { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], dataArray[6], channel3, 2, false, fromDevice); }); }, () =>
                 { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[3], dataArray[7], channel4, 3, false, fromDevice); }); }, () =>
 
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[8], dataArray[9], channel1_P, 0, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[10], dataArray[11], channel2_P, 1, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[12], dataArray[13], channel3_P, 2, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[14], dataArray[15], channel4_P, 3, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[8], dataArray[12], channel1_P, 0, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[9], dataArray[13], channel2_P, 1, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[10], dataArray[14], channel3_P, 2, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[11], dataArray[15], channel4_P, 3, true, fromDevice); }); }, () =>
                 { BeginInvoke((MethodInvoker)delegate { Update(); Refresh(); }); }
             );
 
@@ -749,20 +741,30 @@ namespace GUI
             {
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
                 {
-                    file.WriteLine(timeStamp + "," + dataArray[0] + "," + dataArray[4] + "," + dataArray[8] + "," + dataArray[9]
-                                             + "," + dataArray[1] + "," + dataArray[5] + "," + dataArray[10] + "," + dataArray[11]
-                                             + "," + dataArray[2] + "," + dataArray[6] + "," + dataArray[12] + "," + dataArray[13]
-                                             + "," + dataArray[3] + "," + dataArray[7] + "," + dataArray[14] + "," + dataArray[15]);
+                    file.WriteLine(timeStamp + "," + dataArray[0] + "," + dataArray[1] + "," + dataArray[2] + "," + dataArray[3]
+                                             + "," + dataArray[4] + "," + dataArray[5] + "," + dataArray[6] + "," + dataArray[7]
+                                             + "," + dataArray[8] + "," + dataArray[9] + "," + dataArray[10] + "," + dataArray[11]
+                                             + "," + dataArray[12] + "," + dataArray[13] + "," + dataArray[14] + "," + dataArray[15]);
                 }
             }
         }
 
         private void updateChart(double x, double y1, double y2, Chart chart, int index, bool procData, bool fromDevice)
         {
+            double beg = chart.ChartAreas[0].AxisX.Minimum;
+            double end = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
+
             if (fromDevice)
             {
                 chart.Series["HbO2"].Points.AddXY(x, y1);
                 chart.Series["HbR"].Points.AddXY(x, y2);
+
+                if (chart.Series["HbO2"].Points.Count > 3650)
+                {
+                    chart.Series["HbO2"].Points.RemoveAt(0);
+                    chart.Series["HbR"].Points.RemoveAt(0);
+                    end = chart.ChartAreas[0].AxisX.Maximum;
+                }
             }
             else
             {
@@ -779,10 +781,6 @@ namespace GUI
                 chart.Series["HbR_Freeze"].Enabled = false;
                 chart.Series["HbR_Freeze"].Points.Clear();
                 currentpoint_Read = 0;
-
-
-                double beg = chart.ChartAreas[0].AxisX.Minimum;
-                double end = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
 
 
                 if (end > currentpoint)
@@ -813,11 +811,6 @@ namespace GUI
                 chart.Series["HbO2_Freeze"].Enabled = true;
                 chart.Series["HbR_Freeze"].Enabled = true;
 
-
-                double beg = chart.ChartAreas[0].AxisX.Minimum;
-                double end = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
-
-
                 if (end > currentpoint_Read)
                 {
                     beg = currentpoint_Read - INTERVAL;
@@ -840,7 +833,7 @@ namespace GUI
 
             }
         }
-        
+
         private void updateXAxis(double begin, double end, Chart chart)
         {
             chart.ChartAreas[0].AxisX.Minimum = begin;
@@ -906,7 +899,7 @@ namespace GUI
             chart.ChartAreas[0].AxisY.Maximum = Math.Round(limits.Max(), 1, MidpointRounding.AwayFromZero) + .7;
             chart.ChartAreas[0].AxisY.Minimum = Math.Round(limits.Min(), 1, MidpointRounding.AwayFromZero) - .7;
 
-            double interval = Math.Round((chart.ChartAreas[0].AxisY.Maximum - chart.ChartAreas[0].AxisY.Minimum) / 3, 1, MidpointRounding.AwayFromZero);
+            double interval = Math.Round((chart.ChartAreas[0].AxisY.Maximum - chart.ChartAreas[0].AxisY.Minimum) / 2, 1, MidpointRounding.AwayFromZero);
 
             chart.ChartAreas[0].AxisY.MajorGrid.Interval = interval;
             chart.ChartAreas[0].AxisY.MajorTickMark.Interval = interval;
@@ -916,7 +909,7 @@ namespace GUI
             chart.ChartAreas[0].AxisY2.Maximum = Math.Round(limits2.Max(), 1, MidpointRounding.AwayFromZero) + .7;
             chart.ChartAreas[0].AxisY2.Minimum = Math.Round(limits2.Min(), 1, MidpointRounding.AwayFromZero) - .7;
 
-            double interval2 = Math.Round((chart.ChartAreas[0].AxisY2.Maximum - chart.ChartAreas[0].AxisY2.Minimum) / 3, 1, MidpointRounding.AwayFromZero);
+            double interval2 = Math.Round((chart.ChartAreas[0].AxisY2.Maximum - chart.ChartAreas[0].AxisY2.Minimum) / 2, 1, MidpointRounding.AwayFromZero);
 
             chart.ChartAreas[0].AxisY2.MajorGrid.Enabled = false;
             chart.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
@@ -943,8 +936,21 @@ namespace GUI
 
         private void calcPerData(double yCord1, double yCord2, out double yCord1_P, out double yCord2_P)
         {
+            Matrix<double> C = DenseMatrix.OfArray(new double[,] {{ GUI.Properties.Settings.Default.c_1, GUI.Properties.Settings.Default.c_2 },
+                                                                  { GUI.Properties.Settings.Default.c_3, GUI.Properties.Settings.Default.c_4 }});
+
+            Matrix<double> A = DenseMatrix.OfArray(new double[,] {{ Math.Log10(GUI.Properties.Settings.Default.I0_1/yCord1) },
+                                                                  { Math.Log10(GUI.Properties.Settings.Default.I0_2/yCord2) }});
+
+            Matrix<double> temp = (GUI.Properties.Settings.Default.dist * GUI.Properties.Settings.Default.DPF_1) * C;
+            Matrix<double> sol = temp.Solve(A);
+
+            Console.WriteLine(sol);
+
             yCord1_P = (yCord1 + yCord2) / 2 * .4;
             yCord2_P = (yCord1 + yCord2) / 3 * 1.6;
+
+
         }
 
         private void updateNumDisplays()
@@ -1031,7 +1037,6 @@ namespace GUI
                 }
             }
         }
-
 
         private void ProcessDirectory(string targetDirectory)
         {
