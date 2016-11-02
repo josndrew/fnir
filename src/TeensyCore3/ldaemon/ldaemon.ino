@@ -1,57 +1,144 @@
-double sensorValue1;
-double sensorValue2;
-double sensorValue3;
-double sensorValue4;
+#include <TimedAction.h>
 
-String data1;
-String data2;
-String data3;
-String data4;
-      
-void setup()   {                
-  Serial.begin(38400);
-  randomSeed(analogRead(0));
-}
+#define USBSERIAL Serial      // Arduino Leonardo, Teensy, Fubarino
+#define RES  12
+#define AVG  32 // change HARDWARE AVG to 1, 2, 4, 8, 16, 32
+#define PINS 4
+#define NUM_ITER 100
+#define INTERVAL 50
 
-double convertToVolts(int value)
+/*************************************************************************/
+const int led = 13;
+uint8_t adc_pins[] = {A3, A2, A1, A0};
+uint8_t led_pins[] = {A9, A8, A7, A6};
+bool led_on = false;
+double timestamp = 0;
+int t = 0;
+int indexNum = -1;
+int lindex = -1;
+volatile double values[] = {0, 0, 0, 0, 0, 0, 0, 0};
+double sumReading = -10000.0;
+
+/*************************************************************************/
+
+
+/******************************************************/
+void ldaemon(void)
 {
-    return 3.3*value/1024;
-    //return value;
-}
-
-void ldaemon()
-{
-    sensorValue1 = convertToVolts(analogRead(A9));
-    sensorValue2 = convertToVolts(analogRead(A8));
-    sensorValue3 = convertToVolts(analogRead(A7));
-    sensorValue4 = convertToVolts(analogRead(A6));
-    
-    data1 = String(sensorValue1);
-    data2 = String(sensorValue2);
-    data3 = String(sensorValue3);
-    data4 = String(sensorValue3);
-    
-    Serial.print(data1);
-    Serial.print('\x09');
-    Serial.print(data2);
-    Serial.print('\x09');
-    Serial.print(data3);
-    Serial.print('\x09');
-    Serial.print(data4);
-}
-
-void loop()                     
-{
-  if (Serial.dtr()) {
-
-    /* Turn on 1st Wavelenght Led HERE */
-    
-    ldaemon();
-    Serial.print('\x09');
-    
-    /* Turn on 2nd Wavelenght Led HERE */
-
-    ldaemon();
-    Serial.print('\n');
+  if (indexNum < PINS - 1) {
+    indexNum += 1;
   }
+  else {
+    indexNum = 0;
+  }
+
+  for (int k = 0; k < 2; k++)
+  {
+    if (indexNum < 2) {
+      lindex = 0;
+    }
+    else {
+      lindex = 2;
+    }
+    sumReading = 0;
+    analogWrite(led_pins[lindex + k], 120);
+    delay(INTERVAL/10);
+
+    for (int j = 0; j < NUM_ITER; j++) {
+      int value = analogRead(adc_pins[indexNum]); // read a new value, will return ADC_ERROR_VALUE if the comparison is false.
+      //double newReading = map(value, 0, 1023, 0, 255); //value * 3.3 / 1024;
+      double newReading = value;
+      sumReading += newReading;
+    }
+
+    values[indexNum +(k*PINS)] = sumReading / (NUM_ITER*1000);
+    analogWrite(led_pins[lindex + k], 0);
+  }
+  
+}
+/******************************************************/
+
+TimedAction timedAction = TimedAction(INTERVAL, ldaemon);
+
+void setup()
+{
+  // initialize the digital pin as an output.
+  pinMode(led, OUTPUT);
+
+  for (int i = 0; i < PINS; i++) {
+    pinMode(adc_pins[i], INPUT);
+  }
+
+  USBSERIAL.begin(115200);
+  USBSERIAL.setTimeout(0);
+  analogReadResolution(RES);
+  analogReadAveraging(AVG);
+
+}
+
+void loop()
+{
+  bool recievedCmd = false;
+  bool debug = false;
+
+  if (led_on)
+  {
+    digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+    led_on = false;
+  }
+
+  do {
+    timedAction.check();
+    char incomingByte = Serial.read();
+    if (incomingByte == 's')
+    {
+      timestamp = 0;
+      t = millis();
+      USBSERIAL.flush();
+      digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+      led_on = true;
+      recievedCmd = true;
+    }
+    else if (incomingByte == 'r')
+    {
+      digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+      led_on = true;
+      recievedCmd = true;
+    }
+    else if (incomingByte == 'd')
+    {
+      timestamp = 0;
+      USBSERIAL.flush();
+      digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+      led_on = true;
+      recievedCmd = true;
+      debug = true;
+    }
+  } while (!recievedCmd);
+
+  timedAction.check();
+
+  timestamp = ((millis() - t) / (1000.0));
+  USBSERIAL.print(timestamp);
+
+  for (int i = 0; i < PINS * 2; i++)
+  {
+    USBSERIAL.print(',');
+    USBSERIAL.print(values[i], 3);
+  }
+
+  USBSERIAL.print('\n');
+
+
+  /* SAMPLE OUTPUT LINE: "2166,1.109,0.944,0.956,1.132,1.145,0.738,0.784,1.054\n" */
+
+
+  /* FOR DEBUG ONLY */
+  if (debug)
+  {
+    Serial.print("ADC sampling rate (t "); Serial.print(.05); Serial.print(") = ");
+    Serial.print(PINS * 2 * AVG * NUM_ITER * 1 / (.05)); Serial.println("SPS");
+  }
+
+
 }
