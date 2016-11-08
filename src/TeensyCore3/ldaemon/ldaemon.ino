@@ -4,8 +4,9 @@
 #define RES  12
 #define AVG  32 // change HARDWARE AVG to 1, 2, 4, 8, 16, 32
 #define PINS 4
-#define NUM_ITER 100
-#define INTERVAL 50
+#define INTERVAL 200 // __ 1000 = 1 sec
+#define NUM_ITER INTERVAL/2.5
+
 
 /*************************************************************************/
 const int led = 13;
@@ -16,6 +17,7 @@ double timestamp = 0;
 int t = 0;
 int indexNum = -1;
 int lindex = -1;
+int lightSource = -1;
 volatile double values[] = {0, 0, 0, 0, 0, 0, 0, 0};
 double sumReading = -10000.0;
 
@@ -33,6 +35,7 @@ void ldaemon(void)
       indexNum = 0;
     }
 
+
     for (int k = 0; k < 2; k++)
     {
       if (indexNum < 2) {
@@ -42,18 +45,22 @@ void ldaemon(void)
         lindex = 2;
       }
       sumReading = 0;
-      analogWrite(led_pins[lindex + k], 120);
-      delay(INTERVAL / 10);
+      lightSource = lindex + k;
+      analogWrite(led_pins[lightSource], 120);
+
+      delay(INTERVAL / 5);
 
       for (int j = 0; j < NUM_ITER; j++) {
         int value = analogRead(adc_pins[indexNum]); // read a new value, will return ADC_ERROR_VALUE if the comparison is false.
         //double newReading = map(value, 0, 1023, 0, 255); //value * 3.3 / 1024;
         double newReading = value;
+
         sumReading += newReading;
       }
 
       values[indexNum + (k * PINS)] = sumReading / (NUM_ITER * 1000);
-      analogWrite(led_pins[lindex + k], 0);
+      analogWrite(led_pins[lightSource], 0);
+      delay(INTERVAL / 5);
     }
   }
 }
@@ -120,13 +127,16 @@ void loop()
   timedAction.check();
 
   timestamp = ((millis() - t) / (1000.0));
-  USBSERIAL.print(timestamp);
+  USBSERIAL.print(timestamp, 4);
 
   for (int i = 0; i < PINS * 2; i++)
   {
     USBSERIAL.print(',');
     USBSERIAL.print(values[i], 3);
   }
+
+  USBSERIAL.print(',');
+  USBSERIAL.print(lightSource);
 
   USBSERIAL.print('\n');
 
