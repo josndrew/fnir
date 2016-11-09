@@ -4,20 +4,18 @@
 #define RES  12
 #define AVG  32 // change HARDWARE AVG to 1, 2, 4, 8, 16, 32
 #define PINS 4
-#define INTERVAL 200 // __ 1000 = 1 sec
+#define INTERVAL 300 // __ 1000 = 1 sec
 #define NUM_ITER INTERVAL/2.5
 
 
 /*************************************************************************/
 const int led = 13;
-uint8_t adc_pins[] = {A3, A2, A1, A0};
-uint8_t led_pins[] = {A9, A8, A7, A6};
+uint8_t adc_pins[] = {A3, A3, A2, A2, A1, A1, A0, A0};
+uint8_t led_pins[] = {A9, A8, A9, A8, A7, A6, A7, A6};
 bool led_on = false;
 double timestamp = 0;
 int t = 0;
 int indexNum = -1;
-int lindex = -1;
-int lightSource = -1;
 volatile double values[] = {0, 0, 0, 0, 0, 0, 0, 0};
 double sumReading = -10000.0;
 
@@ -27,53 +25,47 @@ double sumReading = -10000.0;
 /******************************************************/
 void ldaemon(void)
 {
-  if (USBSERIAL.dtr()) {
-    if (indexNum < PINS - 1) {
+  if (USBSERIAL.dtr())
+  {
+    analogWrite(led_pins[indexNum], 0);
+    if (indexNum < (PINS * 2) - 1) {
       indexNum += 1;
     }
     else {
       indexNum = 0;
     }
+    analogWrite(led_pins[indexNum], 120);
+    sumReading = 0;
 
-
-    for (int k = 0; k < 2; k++)
+    for (int j = 0; j < NUM_ITER; j++)
     {
-      if (indexNum < 2) {
-        lindex = 0;
-      }
-      else {
-        lindex = 2;
-      }
-      sumReading = 0;
-      lightSource = lindex + k;
-      analogWrite(led_pins[lightSource], 120);
+      int value = analogRead(adc_pins[indexNum]); // read a new value, will return ADC_ERROR_VALUE if the comparison is false.
+      //double newReading = map(value, 0, 1023, 0, 255); //value * 3.3 / 1024;
+      double newReading = value;
 
-      delay(INTERVAL / 5);
-
-      for (int j = 0; j < NUM_ITER; j++) {
-        int value = analogRead(adc_pins[indexNum]); // read a new value, will return ADC_ERROR_VALUE if the comparison is false.
-        //double newReading = map(value, 0, 1023, 0, 255); //value * 3.3 / 1024;
-        double newReading = value;
-
-        sumReading += newReading;
-      }
-
-      values[indexNum + (k * PINS)] = sumReading / (NUM_ITER * 1000);
-      analogWrite(led_pins[lightSource], 0);
-      delay(INTERVAL / 5);
+      sumReading += newReading;
     }
+
+    values[indexNum] = sumReading / (NUM_ITER * 1000);
   }
+  else
+  {
+    analogWrite(led_pins[indexNum], 0);
+  }
+
 }
+
 /******************************************************/
 
-TimedAction timedAction = TimedAction(INTERVAL, ldaemon);
+TimedAction readSensorAction = TimedAction(INTERVAL / 2, ldaemon);
+
 
 void setup()
 {
   // initialize the digital pin as an output.
   pinMode(led, OUTPUT);
 
-  for (int i = 0; i < PINS; i++) {
+  for (int i = 0; i < (PINS * 2) - 1; i++) {
     pinMode(adc_pins[i], INPUT);
   }
 
@@ -96,7 +88,7 @@ void loop()
   }
 
   do {
-    timedAction.check();
+    readSensorAction.check();
     char incomingByte = Serial.read();
     if (incomingByte == 's')
     {
@@ -124,7 +116,7 @@ void loop()
     }
   } while (!recievedCmd);
 
-  timedAction.check();
+  readSensorAction.check();
 
   timestamp = ((millis() - t) / (1000.0));
   USBSERIAL.print(timestamp, 4);
@@ -136,14 +128,14 @@ void loop()
   }
 
   USBSERIAL.print(',');
-  USBSERIAL.print(lightSource);
+  USBSERIAL.print(indexNum);
 
   USBSERIAL.print('\n');
 
+  /* SAMPLE OUTPUT LINE: "time   ,S1Red,S1Gre,S2Red,S2Gre,S3Red,S3Gre,S4Red,S4Gre,LED" */
+  /* SAMPLE OUTPUT LINE: "23.9100,1.696,1.775,1.984,1.750,1.972,1.702,1.780,1.760,0" */
 
-  /* SAMPLE OUTPUT LINE: "2166,1.109,0.944,0.956,1.132,1.145,0.738,0.784,1.054\n" */
-
-
+  readSensorAction.check();
   /* FOR DEBUG ONLY */
   if (debug)
   {

@@ -620,7 +620,7 @@ namespace GUI
                             int fieldCount = csv.FieldCount;
                             while (csv.ReadNextRecord())
                             {
-                                double[] fieldArray = new double[17];
+                                double[] fieldArray = new double[18];
                                 Parallel.For(0, fieldCount, i =>
                                 {
                                     fieldArray[i] = Convert.ToDouble(csv[i]);
@@ -635,7 +635,7 @@ namespace GUI
                                                                 };
 
                                     int progress = (int)(((double)sr.BaseStream.Position / (double)sr.BaseStream.Length) * 100);
-                                    displayData(fieldArray[0], dataArray, false);
+                                    displayData(fieldArray[0], dataArray, fieldArray[17], false);
 
                                 }
                                 if (fieldArray[0] > newEnd / freq)
@@ -689,7 +689,7 @@ namespace GUI
                             double[] dataArray = new double[16] {fieldArray[1] , fieldArray[2] , fieldArray[3] , fieldArray[4], 
                                                                  fieldArray[5] , fieldArray[6] , fieldArray[7], fieldArray[8],
                                                                  0 , 0 , 0 , 0, 0, 0, 0, 0};
-                            displayData(fieldArray[0], dataArray, true);
+                            displayData(fieldArray[0], dataArray, fieldArray[9], true);
                         }
                         catch (Exception err)
                         {
@@ -706,15 +706,15 @@ namespace GUI
         }
 
         
-        private void displayData(double timeStamp, double[] dataArray, bool fromDevice)
+        private void displayData(double timeStamp, double[] dataArray, double ledIndex, bool fromDevice)
         {
             if (fromDevice)
             {
                 Parallel.Invoke(() =>
-                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[0], dataArray[4], out dataArray[8], out dataArray[12]); }); }, () =>
-                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[1], dataArray[5], out dataArray[9], out dataArray[13]); }); }, () =>
-                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[2], dataArray[6], out dataArray[10], out dataArray[14]); }); }, () =>
-                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[3], dataArray[7], out dataArray[11], out dataArray[15]); }); }
+                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[0], dataArray[1], out dataArray[8], out dataArray[9]); }); }, () =>
+                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[2], dataArray[3], out dataArray[10], out dataArray[11]); }); }, () =>
+                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[4], dataArray[5], out dataArray[12], out dataArray[13]); }); }, () =>
+                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[6], dataArray[7], out dataArray[14], out dataArray[15]); }); }
                 );
 
                 currentpoint++;
@@ -725,15 +725,16 @@ namespace GUI
             }
 
             Parallel.Invoke(() =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], dataArray[4], channel1, 0, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[1], dataArray[5], channel2, 1, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], dataArray[6], channel3, 2, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[3], dataArray[7], channel4, 3, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], dataArray[1], channel1, 0, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], dataArray[3], channel2, 1, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[4], dataArray[5], channel3, 2, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[6], dataArray[7], channel4, 3, false, fromDevice); }); }, () =>
 
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[8], dataArray[12], channel1_P, 0, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[9], dataArray[13], channel2_P, 1, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[10], dataArray[14], channel3_P, 2, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[11], dataArray[15], channel4_P, 3, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[8], dataArray[9], channel1_P, 0, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[10], dataArray[11], channel2_P, 1, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[12], dataArray[13], channel3_P, 2, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[14], dataArray[15], channel4_P, 3, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateLED(ledIndex); }); }, () =>
                 { BeginInvoke((MethodInvoker)delegate { Update(); Refresh(); }); }
             );
 
@@ -744,8 +745,50 @@ namespace GUI
                     file.WriteLine(timeStamp + "," + dataArray[0] + "," + dataArray[1] + "," + dataArray[2] + "," + dataArray[3]
                                              + "," + dataArray[4] + "," + dataArray[5] + "," + dataArray[6] + "," + dataArray[7]
                                              + "," + dataArray[8] + "," + dataArray[9] + "," + dataArray[10] + "," + dataArray[11]
-                                             + "," + dataArray[12] + "," + dataArray[13] + "," + dataArray[14] + "," + dataArray[15]);
+                                             + "," + dataArray[12] + "," + dataArray[13] + "," + dataArray[14] + "," + dataArray[15]
+                                             + "," + ledIndex);
                 }
+            }
+        }
+
+        private void updateLED (double index)
+        {
+            for (int k = 0; k < NUM_CHANNELS; k++)
+            {
+                labels[k].BackColor = Color.Transparent;
+                labels[k + NUM_CHANNELS].BackColor = Color.Transparent;
+            }
+
+            Color ledColor;
+            if ((index % 2) == 0)
+            {
+                ledColor = Color.Red;
+            }
+            else
+            {
+                ledColor = Color.Green;
+            }
+
+            if ((index == 0) || (index == 1))
+            {
+                label1.BackColor = ledColor;
+                label5.BackColor = ledColor;
+            }
+            else if ((index == 2) || (index == 3))
+            {
+                label2.BackColor = ledColor;
+                label6.BackColor = ledColor;
+            }
+            
+            else if ((index == 4) || (index == 5))
+            {
+                label3.BackColor = ledColor;
+                label7.BackColor = ledColor;
+            }
+            else if ((index == 6) || (index == 7))
+            {
+                label4.BackColor = ledColor;
+                label8.BackColor = ledColor;
             }
         }
 
@@ -896,20 +939,20 @@ namespace GUI
 
             double[] limits = { maxX, minX };
 
-            chart.ChartAreas[0].AxisY.Maximum = Math.Round(limits.Max(), 1, MidpointRounding.AwayFromZero) + .7;
-            chart.ChartAreas[0].AxisY.Minimum = Math.Round(limits.Min(), 1, MidpointRounding.AwayFromZero) - .7;
+            chart.ChartAreas[0].AxisY.Maximum = Math.Round(limits.Max(), 1, MidpointRounding.AwayFromZero) + .1;
+            chart.ChartAreas[0].AxisY.Minimum = Math.Round(limits.Min(), 1, MidpointRounding.AwayFromZero) - .1;
 
-            double interval = Math.Round((chart.ChartAreas[0].AxisY.Maximum - chart.ChartAreas[0].AxisY.Minimum) / 2, 1, MidpointRounding.AwayFromZero);
+            double interval = Math.Round((chart.ChartAreas[0].AxisY.Maximum - chart.ChartAreas[0].AxisY.Minimum) / 1, 1, MidpointRounding.AwayFromZero);
 
             chart.ChartAreas[0].AxisY.MajorGrid.Interval = interval;
             chart.ChartAreas[0].AxisY.MajorTickMark.Interval = interval;
 
             double[] limits2 = { maxA, minA };
 
-            chart.ChartAreas[0].AxisY2.Maximum = Math.Round(limits2.Max(), 1, MidpointRounding.AwayFromZero) + .7;
-            chart.ChartAreas[0].AxisY2.Minimum = Math.Round(limits2.Min(), 1, MidpointRounding.AwayFromZero) - .7;
+            chart.ChartAreas[0].AxisY2.Maximum = Math.Round(limits2.Max(), 1, MidpointRounding.AwayFromZero) + .1;
+            chart.ChartAreas[0].AxisY2.Minimum = Math.Round(limits2.Min(), 1, MidpointRounding.AwayFromZero) - .1;
 
-            double interval2 = Math.Round((chart.ChartAreas[0].AxisY2.Maximum - chart.ChartAreas[0].AxisY2.Minimum) / 2, 1, MidpointRounding.AwayFromZero);
+            double interval2 = Math.Round((chart.ChartAreas[0].AxisY2.Maximum - chart.ChartAreas[0].AxisY2.Minimum) / 1, 1, MidpointRounding.AwayFromZero);
 
             chart.ChartAreas[0].AxisY2.MajorGrid.Enabled = false;
             chart.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
@@ -920,7 +963,7 @@ namespace GUI
             chart.ChartAreas[0].AxisX.MajorGrid.Interval = 2;
             chart.ChartAreas[0].AxisX.MajorTickMark.Interval = 2;
 
-            if (comboBox1.SelectedIndex > 2)
+            if (comboBox1.SelectedIndex > 1)
             {
                 chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
                 chart.ChartAreas[0].AxisX.MajorTickMark.Enabled = false;
