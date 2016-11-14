@@ -4,7 +4,7 @@
 #define RES  12
 #define AVG  32 // change HARDWARE AVG to 1, 2, 4, 8, 16, 32
 #define PINS 4
-#define INTERVAL 300 // __ 1000 = 1 sec
+#define INTERVAL 400 // __ 1000 = 1 sec
 #define NUM_ITER INTERVAL/2.5
 
 
