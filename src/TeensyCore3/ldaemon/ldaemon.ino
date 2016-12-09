@@ -38,64 +38,61 @@ void setup()
 
 void loop()
 {
-  USBSERIAL.flush();
 
-  if (USBSERIAL.available() == 0)
-  {
-    bool recievedCmd = false;
-    digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+  bool recievedCmd = false;
+  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
 
-    do {
-      char incomingByte = USBSERIAL.read();
+  do {
+    char incomingByte = USBSERIAL.read();
 
-      if (incomingByte == 's') // RESTART CMD
-      {
-        timestamp = 0;
-        t = millis();
-        recievedCmd = true;
-      }
-
-      else if (incomingByte == 'r') // SEND DATA CMD
-      {
-        recievedCmd = true;
-      }
-
-    } while (!recievedCmd);
-
-    digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
-
-
-    for (int j = 0; j < PINS; j++)
+    if (incomingByte == 's') // RESTART CMD
     {
-      analogWrite(led_pins[j], 120);
-
-      timestamp = ((millis() - t) / (1000.0));
-      USBSERIAL.print(timestamp, 4);
-
-      for (int i = 0; i < PINS-1; i++)
-      {
-        USBSERIAL.print(',');
-        double sumReading = 0;
-        for (int j = 0; j < NUM_ITER; j++)
-        {
-          int value = analogRead(adc_pins[i]); // read a new value, will return ADC_ERROR_VALUE if the comparison is false.
-          double newReading = value;
-          sumReading += newReading;
-        }
-        double value = sumReading / (NUM_ITER * 1000);
-        USBSERIAL.print(value, 3);
-      }
-
-      USBSERIAL.print(',');
-      USBSERIAL.print(j);
-      USBSERIAL.print('\n');
-
-      analogWrite(led_pins[j], 0);
+      timestamp = 0;
+      t = millis();
+      recievedCmd = true;
     }
 
+    else if (incomingByte == 'r') // SEND DATA CMD
+    {
+      recievedCmd = true;
+    }
 
-    /* SAMPLE OUTPUT LINE: "time,S1,S2,S3,S4,LED" */
-    /* SAMPLE OUTPUT LINE: "80.9220,0.702,2.864,3.086,2.704,3" */
+  } while (!recievedCmd);
 
+  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+
+
+  for (int j = 0; j < PINS; j++)
+  {
+    analogWrite(led_pins[j], 120);
+
+    timestamp = ((millis() - t) / (1000.0));
+    USBSERIAL.print(timestamp, 4);
+
+    for (int i = 0; i < PINS - 1; i++)
+    {
+      USBSERIAL.print(',');
+      double sumReading = 0;
+      for (int j = 0; j < NUM_ITER; j++)
+      {
+        int value = analogRead(adc_pins[i]); // read a new value, will return ADC_ERROR_VALUE if the comparison is false.
+        double newReading = value;
+        sumReading += newReading;
+      }
+      double value = sumReading / (NUM_ITER * 1000);
+      USBSERIAL.print(value, 3);
+    }
+
+    USBSERIAL.print(',');
+    USBSERIAL.print(j);
+    USBSERIAL.print('\n');
+
+    analogWrite(led_pins[j], 0);
   }
+
+
+  /* SAMPLE OUTPUT LINE: "time,S1,S2,S3,S4,LED" */
+  /* SAMPLE OUTPUT LINE: "80.9220,0.702,2.864,3.086,2.704,3" */
+
+
 }

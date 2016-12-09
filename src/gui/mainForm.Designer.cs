@@ -99,7 +99,6 @@
             this.channel4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.channel3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.channel2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -126,6 +125,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.channel1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -135,7 +135,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.channel4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.channel4_P)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel3_P)).BeginInit();
@@ -355,7 +354,6 @@
             this.tabPage1.Controls.Add(this.channel4);
             this.tabPage1.Controls.Add(this.channel3);
             this.tabPage1.Controls.Add(this.channel2);
-            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
@@ -542,15 +540,6 @@
             this.channel2.Size = new System.Drawing.Size(1184, 139);
             this.channel2.TabIndex = 10;
             this.channel2.Text = "channel2";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources.Legend;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 29);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
             // 
             // label4
             // 
@@ -1002,11 +991,23 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(314, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(686, 42);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "STROKE ALERT - POSSIBLE DEATH!!!";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1355, 720);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox3);
@@ -1035,7 +1036,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.channel4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.channel4_P)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.channel3_P)).EndInit();
@@ -1079,7 +1079,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ToolStripMenuItem workingDirectoryToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
@@ -1098,6 +1097,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart channel3_P;
         private System.Windows.Forms.DataVisualization.Charting.Chart channel2_P;
         private System.Windows.Forms.DataVisualization.Charting.Chart channel1_P;
+        private System.Windows.Forms.Label label9;
 
     }
 }

@@ -1,7 +1,6 @@
 ﻿using LumenWorks.Framework.IO.Csv;
 using System;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
@@ -10,8 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Timers;
-using MathNet.Numerics;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
 
@@ -35,12 +32,13 @@ namespace GUI
         private bool isCollecting;
         private bool isFrozen = false;
         private bool isFullScreen = false;
-        private bool justStarted = false;
         private int sessionsFound = 0;
         private int currentpoint, currentpoint_Read;
         private int INTERVAL;
         private int freq = 15;
         const int NUM_CHANNELS = 4;
+        private double[] values;
+        private bool S1 = false, S2 = false, S3 = false, S4 = false;
         private string sessionPath, logPath;
 
         private double newBegin, newEnd;
@@ -73,18 +71,14 @@ namespace GUI
             currentpoint_Read = 0;
             channels = new Chart[NUM_CHANNELS * 2] { channel1, channel2, channel3, channel4, channel1_P, channel2_P, channel3_P, channel4_P };
             labels = new Label[NUM_CHANNELS * 2] { label1, label2, label3, label4, label5, label6, label7, label8 };
+            values = new double[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
 
             for (int j = 0; j < NUM_CHANNELS * 2; j++)
             {
                 channels[j].Visible = false;
 
-                channels[j].Series[0].YAxisType = AxisType.Primary;
-                channels[j].Series[1].YAxisType = AxisType.Secondary;
                 channels[j].Series[0].IsXValueIndexed = true;
                 channels[j].Series[1].IsXValueIndexed = true;
-
-                channels[j].Series[2].YAxisType = AxisType.Primary;
-                channels[j].Series[3].YAxisType = AxisType.Secondary;
                 channels[j].Series[2].IsXValueIndexed = true;
                 channels[j].Series[3].IsXValueIndexed = true;
 
@@ -93,16 +87,15 @@ namespace GUI
                 if (j > 3)
                 {
                     channels[j].ChartAreas[0].AxisY.Title = "%";
-                    channels[j].ChartAreas[0].AxisY2.Title = "%";
                 }
                 else
                 {
-                    channels[j].ChartAreas[0].AxisY.Title = "mV";
-                    channels[j].ChartAreas[0].AxisY2.Title = "mV";
+                    channels[j].ChartAreas[0].AxisY.Title = "V";
                 }
 
                 labels[j].Visible = false;
             }
+            label9.Visible = false;
 
             setUpInterval();
             changeInterval();
@@ -210,7 +203,7 @@ namespace GUI
                 adruinoSerial.Handshake = GUI.Properties.Settings.Default.Handshake;
 
                 adruinoSerial.Open();
-                adruinoSerial.Close();
+                
 
                 startToolStripMenuItem.Enabled = true;
                 stopToolStripMenuItem.Enabled = false;
@@ -462,7 +455,6 @@ namespace GUI
                     button2.Enabled = true;
                     button3.Enabled = false;
                     button4.Enabled = false;
-                    adruinoSerial.Open();
 
                     try
                     {
@@ -488,8 +480,11 @@ namespace GUI
                     button2.Enabled = false;
                     button3.Enabled = true;
                     button4.Enabled = true;
-                    adruinoSerial.DtrEnable = false;
-                    adruinoSerial.Close();
+                    for (int k = 0; k < NUM_CHANNELS; k++)
+                    {
+                        labels[k].BackColor = Color.Transparent;
+                        labels[k + NUM_CHANNELS].BackColor = Color.Transparent;
+                    }
                     
                     break;
             }
@@ -502,7 +497,6 @@ namespace GUI
             {
                 sessionPath = openFileDialog1.FileName;
 
-                //progressBar1.Visible = true;
                 //button2.Enabled = true;
                 isFrozen = true;
                 button3.Enabled = true;
@@ -661,35 +655,39 @@ namespace GUI
             {
                 adruinoSerial.DiscardInBuffer();
                 adruinoSerial.Write("s"); //Reset Micro
-                justStarted = true;
                 adruinoSerial.DiscardInBuffer();
+                adruinoSerial.DiscardOutBuffer();
                 adruinoSerial.DiscardInBuffer();
-                adruinoSerial.DtrEnable = true;
+                adruinoSerial.DiscardOutBuffer();
                 string buffer = null;
 
                 while (isCollecting)
                 {
                     if (adruinoSerial.IsOpen)
                     {
-                        adruinoSerial.Write("r"); //Get Data
-                        buffer = adruinoSerial.ReadTo("\n");
+                        
+                        adruinoSerial.Write("rr"); //Get Data
+                        Thread.Sleep(350);
+                        buffer = adruinoSerial.ReadExisting();
+                        using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
+                        {
+                            file.WriteLine(buffer);
+                        }
 
                         try
                         {
-                            string[] bufferArray = buffer.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
-                            
-                            if ((justStarted) && (fieldArray[0] > 0))
+                            string[] bufferList = buffer.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+                            if (bufferList.Length == 10)
                             {
-                                continue;
+                                Parallel.For(0, bufferList.Length, i =>
+                                {
+                                    string[] bufferArray = bufferList[i].Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                                    double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
+                                    displayData(fieldArray[0], new double[4] { fieldArray[1], fieldArray[2], fieldArray[3], fieldArray[4] }, fieldArray[5], true);           
+                                });
                             }
-                            justStarted = false;
-
-
-                            double[] dataArray = new double[16] {fieldArray[1] , fieldArray[2] , fieldArray[3] , fieldArray[4], 
-                                                                 fieldArray[5] , fieldArray[6] , fieldArray[7], fieldArray[8],
-                                                                 0 , 0 , 0 , 0, 0, 0, 0, 0};
-                            displayData(fieldArray[0], dataArray, fieldArray[9], true);
+                            
                         }
                         catch (Exception err)
                         {
@@ -697,7 +695,6 @@ namespace GUI
                         }
                     }
                 }
-                adruinoSerial.DtrEnable = false;
             }
             catch (Exception err)
             {
@@ -708,14 +705,25 @@ namespace GUI
         
         private void displayData(double timeStamp, double[] dataArray, double ledIndex, bool fromDevice)
         {
+            bool updateProcessed = false;
             if (fromDevice)
             {
-                Parallel.Invoke(() =>
-                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[0], dataArray[1], out dataArray[8], out dataArray[9]); }); }, () =>
-                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[2], dataArray[3], out dataArray[10], out dataArray[11]); }); }, () =>
-                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[4], dataArray[5], out dataArray[12], out dataArray[13]); }); }, () =>
-                { Invoke((MethodInvoker)delegate { calcPerData(dataArray[6], dataArray[7], out dataArray[14], out dataArray[15]); }); }
-                );
+                if ((ledIndex == 0) || (ledIndex == 2))
+                {
+                    values[0] = dataArray[0];
+                    values[2] = dataArray[1];
+                    values[4] = dataArray[2];
+                    values[6] = dataArray[3];
+                    S1 = true;
+                }
+                else if ((ledIndex == 1) || (ledIndex == 3))
+                {
+                    values[1] = dataArray[0];
+                    values[3] = dataArray[1];
+                    values[5] = dataArray[2];
+                    values[7] = dataArray[3];
+                    S2 = true;
+                }
 
                 currentpoint++;
             }
@@ -724,31 +732,42 @@ namespace GUI
                 currentpoint_Read++;
             }
 
-            Parallel.Invoke(() =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], dataArray[1], channel1, 0, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], dataArray[3], channel2, 1, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[4], dataArray[5], channel3, 2, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[6], dataArray[7], channel4, 3, false, fromDevice); }); }, () =>
+            if (S1 && S2)
+            {
+                double yp1 = 0, yp2 = 0;
+                Parallel.Invoke(() =>
+                { Invoke((MethodInvoker)delegate { calcPerData(values[0], values[1], out yp1, out yp2); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, yp1, yp2, channel1_P, 0, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { calcPerData(values[2], values[3], out yp1, out yp2); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, yp1, yp2, channel2_P, 0, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { calcPerData(values[4], values[5], out yp1, out yp2); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, yp1, yp2, channel3_P, 0, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { calcPerData(values[6], values[7], out yp1, out yp2); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, yp1, yp2, channel4_P, 0, true, fromDevice); }); 
+                });
+                S1 = false;
+                S2 = false;
+                updateProcessed = true;
+            }
+            
+            if (!updateProcessed)
+            {
+                Parallel.Invoke(() =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, 0, 0, channel1_P, 0, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, 0, 0, channel2_P, 0, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, 0, 0, channel3_P, 0, true, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, 0, 0, channel4_P, 0, true, fromDevice); }); }
+               );
+            }
 
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[8], dataArray[9], channel1_P, 0, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[10], dataArray[11], channel2_P, 1, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[12], dataArray[13], channel3_P, 2, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[14], dataArray[15], channel4_P, 3, true, fromDevice); }); }, () =>
+            Parallel.Invoke(() =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], 0, channel1, 0, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[1], 0, channel2, 1, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], 0, channel3, 2, false, fromDevice); }); }, () =>
+                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[3], 0, channel4, 3, false, fromDevice); }); }, () =>
                 { Invoke((MethodInvoker)delegate { updateLED(ledIndex); }); }, () =>
                 { BeginInvoke((MethodInvoker)delegate { Update(); Refresh(); }); }
             );
-
-            if (fromDevice)
-            {
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
-                {
-                    file.WriteLine(timeStamp + "," + dataArray[0] + "," + dataArray[1] + "," + dataArray[2] + "," + dataArray[3]
-                                             + "," + dataArray[4] + "," + dataArray[5] + "," + dataArray[6] + "," + dataArray[7]
-                                             + "," + dataArray[8] + "," + dataArray[9] + "," + dataArray[10] + "," + dataArray[11]
-                                             + "," + dataArray[12] + "," + dataArray[13] + "," + dataArray[14] + "," + dataArray[15]
-                                             + "," + ledIndex);
-                }
-            }
         }
 
         private void updateLED (double index)
@@ -773,20 +792,14 @@ namespace GUI
             {
                 label1.BackColor = ledColor;
                 label5.BackColor = ledColor;
-            }
-            else if ((index == 2) || (index == 3))
-            {
                 label2.BackColor = ledColor;
                 label6.BackColor = ledColor;
             }
             
-            else if ((index == 4) || (index == 5))
+            else if ((index == 2) || (index == 3))
             {
                 label3.BackColor = ledColor;
                 label7.BackColor = ledColor;
-            }
-            else if ((index == 6) || (index == 7))
-            {
                 label4.BackColor = ledColor;
                 label8.BackColor = ledColor;
             }
@@ -801,13 +814,20 @@ namespace GUI
             {
                 chart.Series["HbO2"].Points.AddXY(x, y1);
                 chart.Series["HbR"].Points.AddXY(x, y2);
-
+                
                 if (chart.Series["HbO2"].Points.Count > 3650)
                 {
                     chart.Series["HbO2"].Points.RemoveAt(0);
                     chart.Series["HbR"].Points.RemoveAt(0);
                     end = chart.ChartAreas[0].AxisX.Maximum;
                 }
+                labels[index].Text = ((Math.Abs(y1) + Math.Abs(y2))).ToString("N2");
+
+                if ((Math.Abs(y1) > 70 ) || (Math.Abs(y2) > 70))
+                {
+                    label9.Visible = true;
+                }
+
             }
             else
             {
@@ -818,7 +838,15 @@ namespace GUI
             if (!isFrozen)
             {
                 chart.Series["HbO2"].Enabled = true;
-                chart.Series["HbR"].Enabled = true;
+                if ((chart == channel1) || (chart == channel2) || (chart == channel3) || (chart == channel4))
+                {
+                    chart.Series["HbR"].Enabled = false;
+                }
+                else
+                {
+                    chart.Series["HbR"].Enabled = true;
+                }
+                
                 chart.Series["HbO2_Freeze"].Enabled = false;
                 chart.Series["HbO2_Freeze"].Points.Clear();
                 chart.Series["HbR_Freeze"].Enabled = false;
@@ -937,7 +965,7 @@ namespace GUI
                 if (aa < minA) { minA = aa; }
             });
 
-            double[] limits = { maxX, minX };
+            double[] limits = { maxX, minX, maxA, minA};
 
             chart.ChartAreas[0].AxisY.Maximum = Math.Round(limits.Max(), 1, MidpointRounding.AwayFromZero) + .1;
             chart.ChartAreas[0].AxisY.Minimum = Math.Round(limits.Min(), 1, MidpointRounding.AwayFromZero) - .1;
@@ -947,18 +975,6 @@ namespace GUI
             chart.ChartAreas[0].AxisY.MajorGrid.Interval = interval;
             chart.ChartAreas[0].AxisY.MajorTickMark.Interval = interval;
 
-            double[] limits2 = { maxA, minA };
-
-            chart.ChartAreas[0].AxisY2.Maximum = Math.Round(limits2.Max(), 1, MidpointRounding.AwayFromZero) + .1;
-            chart.ChartAreas[0].AxisY2.Minimum = Math.Round(limits2.Min(), 1, MidpointRounding.AwayFromZero) - .1;
-
-            double interval2 = Math.Round((chart.ChartAreas[0].AxisY2.Maximum - chart.ChartAreas[0].AxisY2.Minimum) / 1, 1, MidpointRounding.AwayFromZero);
-
-            chart.ChartAreas[0].AxisY2.MajorGrid.Enabled = false;
-            chart.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
-
-            chart.ChartAreas[0].AxisY2.MajorGrid.Interval = interval2;
-            chart.ChartAreas[0].AxisY2.MajorTickMark.Interval = interval2;
 
             chart.ChartAreas[0].AxisX.MajorGrid.Interval = 2;
             chart.ChartAreas[0].AxisX.MajorTickMark.Interval = 2;
@@ -985,15 +1001,15 @@ namespace GUI
             Matrix<double> A = DenseMatrix.OfArray(new double[,] {{ Math.Log10(GUI.Properties.Settings.Default.I0_1/yCord1) },
                                                                   { Math.Log10(GUI.Properties.Settings.Default.I0_2/yCord2) }});
 
-            Matrix<double> temp = (GUI.Properties.Settings.Default.dist * GUI.Properties.Settings.Default.DPF_1) * C;
-            Matrix<double> sol = temp.Solve(A);
+            Matrix<double> DPF = DenseMatrix.OfArray(new double[,] {{ GUI.Properties.Settings.Default.DPF_1, GUI.Properties.Settings.Default.DPF_2 },
+                                                                    { GUI.Properties.Settings.Default.DPF_1, GUI.Properties.Settings.Default.DPF_2 }});
 
-            Console.WriteLine(sol);
+            Matrix<double> temp = DPF.Multiply(GUI.Properties.Settings.Default.dist);
+            Matrix<double> eqn = C.PointwiseMultiply(temp);
+            Matrix<double> sol = eqn.Solve(A);
 
-            yCord1_P = (yCord1 + yCord2) / 2 * .4;
-            yCord2_P = (yCord1 + yCord2) / 3 * 1.6;
-
-
+            yCord1_P = sol[0,0] * 100;
+            yCord2_P = sol[1,0] * 100;
         }
 
         private void updateNumDisplays()
@@ -1102,6 +1118,11 @@ namespace GUI
         }
 
         #endregion
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            label9.Visible = false;
+        }
 
     }
 
