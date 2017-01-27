@@ -1,0 +1,4 @@
+--------------- Build Started: 01/04/2017 08:13:38 Project: UART_to_BLE_central, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\michs_000\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p D:\Cypress\PSoC-4-BLE-master\100_Projects_in_100_Days\Day020_BLE_UART\UART_to_BLE_central\UART_to_BLE_central.cydsn\UART_to_BLE_central.cyprj -d CY8C4247LQI-BL483 -s D:\Cypress\PSoC-4-BLE-master\100_Projects_in_100_Days\Day020_BLE_UART\UART_to_BLE_central\UART_to_BLE_central.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+--------------- Build Canceled: 01/04/2017 08:13:41 ---------------

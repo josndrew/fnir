@@ -1,0 +1,2081 @@
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"app_UART.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.HandleUartRxTraffic,"ax",%progbits
+  18              		.align	2
+  19              		.global	HandleUartRxTraffic
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	HandleUartRxTraffic, %function
+  23              	HandleUartRxTraffic:
+  24              	.LFB37:
+  25              		.file 1 "app_UART.c"
+   1:app_UART.c    **** /*******************************************************************************
+   2:app_UART.c    **** * File Name: app_UART.c
+   3:app_UART.c    **** *
+   4:app_UART.c    **** * Description:
+   5:app_UART.c    **** *  Common BLE application code for client devices.
+   6:app_UART.c    **** *
+   7:app_UART.c    **** *******************************************************************************
+   8:app_UART.c    **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+   9:app_UART.c    **** * You may use this file only in accordance with the license, terms, conditions,
+  10:app_UART.c    **** * disclaimers, and limitations in the end user license agreement accompanying
+  11:app_UART.c    **** * the software package with which this file was provided.
+  12:app_UART.c    **** *******************************************************************************/
+  13:app_UART.c    **** 
+  14:app_UART.c    **** #include "app_UART.h"
+  15:app_UART.c    **** 
+  16:app_UART.c    **** /*******************************************************************************
+  17:app_UART.c    **** * Function Name: HandleUartRxTraffic
+  18:app_UART.c    **** ********************************************************************************
+  19:app_UART.c    **** *
+  20:app_UART.c    **** * Summary:
+  21:app_UART.c    **** *  This function takes data from received notfications and pushes it to the 
+  22:app_UART.c    **** *  UART TX buffer. 
+  23:app_UART.c    **** *
+  24:app_UART.c    **** * Parameters:
+  25:app_UART.c    **** *  CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T * - the notification parameter as  
+  26:app_UART.c    **** *                                           recieved by the BLE stack
+  27:app_UART.c    **** *
+  28:app_UART.c    **** * Return:
+  29:app_UART.c    **** *   None.
+  30:app_UART.c    **** *
+  31:app_UART.c    **** *******************************************************************************/
+  32:app_UART.c    **** void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotification)
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 2
+
+
+  33:app_UART.c    **** {
+  26              		.loc 1 33 0
+  27              		.cfi_startproc
+  28 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  29              		.cfi_def_cfa_offset 20
+  30              		.cfi_offset 4, -20
+  31              		.cfi_offset 5, -16
+  32              		.cfi_offset 6, -12
+  33              		.cfi_offset 7, -8
+  34              		.cfi_offset 14, -4
+  35 0002 95B0     		sub	sp, sp, #84
+  36              		.cfi_def_cfa_offset 104
+  37 0004 00AF     		add	r7, sp, #0
+  38              		.cfi_def_cfa_register 7
+  39 0006 7861     		str	r0, [r7, #20]
+  40 0008 6846     		mov	r0, sp
+  41 000a 3861     		str	r0, [r7, #16]
+  34:app_UART.c    ****     
+  35:app_UART.c    ****     //if(uartRxDataNotification->handleValPair.attrHandle == txCharHandle)
+  36:app_UART.c    ****     //{
+  37:app_UART.c    ****     //    UART_SpiUartPutArray(uartRxDataNotification->handleValPair.value.val, \
+  38:app_UART.c    ****     //        (uint32) uartRxDataNotification->handleValPair.value.len);
+  39:app_UART.c    ****     //}
+  40:app_UART.c    ****     // Change to send data back
+  41:app_UART.c    ****     
+  42:app_UART.c    ****     uint8   index;
+  43:app_UART.c    ****     uint8   uartTxData[mtuSize - 3];
+  42              		.loc 1 43 0
+  43 000c 8048     		ldr	r0, .L4
+  44 000e 0088     		ldrh	r0, [r0]
+  45 0010 0338     		sub	r0, r0, #3
+  46 0012 431E     		sub	r3, r0, #1
+  47 0014 9C46     		mov	ip, r3
+  48 0016 6346     		mov	r3, ip
+  49 0018 FB64     		str	r3, [r7, #76]
+  50 001a 031C     		mov	r3, r0
+  51 001c BB60     		str	r3, [r7, #8]
+  52 001e 0023     		mov	r3, #0
+  53 0020 FB60     		str	r3, [r7, #12]
+  54 0022 BB68     		ldr	r3, [r7, #8]
+  55 0024 5B0F     		lsr	r3, r3, #29
+  56 0026 9C46     		mov	ip, r3
+  57 0028 FB68     		ldr	r3, [r7, #12]
+  58 002a DA00     		lsl	r2, r3, #3
+  59 002c 6346     		mov	r3, ip
+  60 002e 1A43     		orr	r2, r3
+  61 0030 BB68     		ldr	r3, [r7, #8]
+  62 0032 D900     		lsl	r1, r3, #3
+  63 0034 021C     		mov	r2, r0
+  64 0036 151C     		mov	r5, r2
+  65 0038 0022     		mov	r2, #0
+  66 003a 161C     		mov	r6, r2
+  67 003c 6A0F     		lsr	r2, r5, #29
+  68 003e F300     		lsl	r3, r6, #3
+  69 0040 7B60     		str	r3, [r7, #4]
+  70 0042 7B68     		ldr	r3, [r7, #4]
+  71 0044 1343     		orr	r3, r2
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 3
+
+
+  72 0046 7B60     		str	r3, [r7, #4]
+  73 0048 EB00     		lsl	r3, r5, #3
+  74 004a 3B60     		str	r3, [r7]
+  75 004c 031C     		mov	r3, r0
+  76 004e 0733     		add	r3, r3, #7
+  77 0050 DB08     		lsr	r3, r3, #3
+  78 0052 DB00     		lsl	r3, r3, #3
+  79 0054 6A46     		mov	r2, sp
+  80 0056 D31A     		sub	r3, r2, r3
+  81 0058 9D46     		mov	sp, r3
+  82 005a 6B46     		mov	r3, sp
+  83 005c 0033     		add	r3, r3, #0
+  84 005e BB64     		str	r3, [r7, #72]
+  44:app_UART.c    ****     uint16  uartTxDataLength;
+  45:app_UART.c    ****     
+  46:app_UART.c    ****     
+  47:app_UART.c    ****     
+  48:app_UART.c    ****     static uint16 uartIdleCount = UART_IDLE_TIMEOUT;
+  49:app_UART.c    ****     
+  50:app_UART.c    ****     CYBLE_API_RESULT_T              bleApiResult;
+  51:app_UART.c    ****     CYBLE_GATTC_WRITE_CMD_REQ_T     uartTxDataWriteCmd;
+  52:app_UART.c    ****     
+  53:app_UART.c    ****     
+  54:app_UART.c    **** 
+  55:app_UART.c    ****             uint8   a[20]={'1',  uartTxDataLength, '3', '4', 0x0D, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x
+  85              		.loc 1 55 0
+  86 0060 0C23     		mov	r3, #12
+  87 0062 1022     		mov	r2, #16
+  88 0064 9446     		mov	ip, r2
+  89 0066 BC44     		add	ip, ip, r7
+  90 0068 6344     		add	r3, r3, ip
+  91 006a 3122     		mov	r2, #49
+  92 006c 1A70     		strb	r2, [r3]
+  93 006e 3623     		mov	r3, #54
+  94 0070 1022     		mov	r2, #16
+  95 0072 9446     		mov	ip, r2
+  96 0074 BC44     		add	ip, ip, r7
+  97 0076 6344     		add	r3, r3, ip
+  98 0078 1B88     		ldrh	r3, [r3]
+  99 007a DAB2     		uxtb	r2, r3
+ 100 007c 0C23     		mov	r3, #12
+ 101 007e 1021     		mov	r1, #16
+ 102 0080 8C46     		mov	ip, r1
+ 103 0082 BC44     		add	ip, ip, r7
+ 104 0084 6344     		add	r3, r3, ip
+ 105 0086 5A70     		strb	r2, [r3, #1]
+ 106 0088 0C23     		mov	r3, #12
+ 107 008a 1022     		mov	r2, #16
+ 108 008c 9446     		mov	ip, r2
+ 109 008e BC44     		add	ip, ip, r7
+ 110 0090 6344     		add	r3, r3, ip
+ 111 0092 3322     		mov	r2, #51
+ 112 0094 9A70     		strb	r2, [r3, #2]
+ 113 0096 0C23     		mov	r3, #12
+ 114 0098 1022     		mov	r2, #16
+ 115 009a 9446     		mov	ip, r2
+ 116 009c BC44     		add	ip, ip, r7
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 4
+
+
+ 117 009e 6344     		add	r3, r3, ip
+ 118 00a0 3422     		mov	r2, #52
+ 119 00a2 DA70     		strb	r2, [r3, #3]
+ 120 00a4 0C23     		mov	r3, #12
+ 121 00a6 1022     		mov	r2, #16
+ 122 00a8 9446     		mov	ip, r2
+ 123 00aa BC44     		add	ip, ip, r7
+ 124 00ac 6344     		add	r3, r3, ip
+ 125 00ae 0D22     		mov	r2, #13
+ 126 00b0 1A71     		strb	r2, [r3, #4]
+ 127 00b2 0C23     		mov	r3, #12
+ 128 00b4 1022     		mov	r2, #16
+ 129 00b6 9446     		mov	ip, r2
+ 130 00b8 BC44     		add	ip, ip, r7
+ 131 00ba 6344     		add	r3, r3, ip
+ 132 00bc 0A22     		mov	r2, #10
+ 133 00be 5A71     		strb	r2, [r3, #5]
+ 134 00c0 0C23     		mov	r3, #12
+ 135 00c2 1022     		mov	r2, #16
+ 136 00c4 9446     		mov	ip, r2
+ 137 00c6 BC44     		add	ip, ip, r7
+ 138 00c8 6344     		add	r3, r3, ip
+ 139 00ca 0022     		mov	r2, #0
+ 140 00cc 9A71     		strb	r2, [r3, #6]
+ 141 00ce 0C23     		mov	r3, #12
+ 142 00d0 1022     		mov	r2, #16
+ 143 00d2 9446     		mov	ip, r2
+ 144 00d4 BC44     		add	ip, ip, r7
+ 145 00d6 6344     		add	r3, r3, ip
+ 146 00d8 0022     		mov	r2, #0
+ 147 00da DA71     		strb	r2, [r3, #7]
+ 148 00dc 0C23     		mov	r3, #12
+ 149 00de 1022     		mov	r2, #16
+ 150 00e0 9446     		mov	ip, r2
+ 151 00e2 BC44     		add	ip, ip, r7
+ 152 00e4 6344     		add	r3, r3, ip
+ 153 00e6 0022     		mov	r2, #0
+ 154 00e8 1A72     		strb	r2, [r3, #8]
+ 155 00ea 0C23     		mov	r3, #12
+ 156 00ec 1022     		mov	r2, #16
+ 157 00ee 9446     		mov	ip, r2
+ 158 00f0 BC44     		add	ip, ip, r7
+ 159 00f2 6344     		add	r3, r3, ip
+ 160 00f4 0022     		mov	r2, #0
+ 161 00f6 5A72     		strb	r2, [r3, #9]
+ 162 00f8 0C23     		mov	r3, #12
+ 163 00fa 1022     		mov	r2, #16
+ 164 00fc 9446     		mov	ip, r2
+ 165 00fe BC44     		add	ip, ip, r7
+ 166 0100 6344     		add	r3, r3, ip
+ 167 0102 0022     		mov	r2, #0
+ 168 0104 9A72     		strb	r2, [r3, #10]
+ 169 0106 0C23     		mov	r3, #12
+ 170 0108 1022     		mov	r2, #16
+ 171 010a 9446     		mov	ip, r2
+ 172 010c BC44     		add	ip, ip, r7
+ 173 010e 6344     		add	r3, r3, ip
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 5
+
+
+ 174 0110 0022     		mov	r2, #0
+ 175 0112 DA72     		strb	r2, [r3, #11]
+ 176 0114 0C23     		mov	r3, #12
+ 177 0116 1022     		mov	r2, #16
+ 178 0118 9446     		mov	ip, r2
+ 179 011a BC44     		add	ip, ip, r7
+ 180 011c 6344     		add	r3, r3, ip
+ 181 011e 0022     		mov	r2, #0
+ 182 0120 1A73     		strb	r2, [r3, #12]
+ 183 0122 0C23     		mov	r3, #12
+ 184 0124 1022     		mov	r2, #16
+ 185 0126 9446     		mov	ip, r2
+ 186 0128 BC44     		add	ip, ip, r7
+ 187 012a 6344     		add	r3, r3, ip
+ 188 012c 0022     		mov	r2, #0
+ 189 012e 5A73     		strb	r2, [r3, #13]
+ 190 0130 0C23     		mov	r3, #12
+ 191 0132 1022     		mov	r2, #16
+ 192 0134 9446     		mov	ip, r2
+ 193 0136 BC44     		add	ip, ip, r7
+ 194 0138 6344     		add	r3, r3, ip
+ 195 013a 0022     		mov	r2, #0
+ 196 013c 9A73     		strb	r2, [r3, #14]
+ 197 013e 0C23     		mov	r3, #12
+ 198 0140 1022     		mov	r2, #16
+ 199 0142 9446     		mov	ip, r2
+ 200 0144 BC44     		add	ip, ip, r7
+ 201 0146 6344     		add	r3, r3, ip
+ 202 0148 0022     		mov	r2, #0
+ 203 014a DA73     		strb	r2, [r3, #15]
+ 204 014c 0C23     		mov	r3, #12
+ 205 014e 1022     		mov	r2, #16
+ 206 0150 9446     		mov	ip, r2
+ 207 0152 BC44     		add	ip, ip, r7
+ 208 0154 6344     		add	r3, r3, ip
+ 209 0156 0022     		mov	r2, #0
+ 210 0158 1A74     		strb	r2, [r3, #16]
+ 211 015a 0C23     		mov	r3, #12
+ 212 015c 1022     		mov	r2, #16
+ 213 015e 9446     		mov	ip, r2
+ 214 0160 BC44     		add	ip, ip, r7
+ 215 0162 6344     		add	r3, r3, ip
+ 216 0164 0022     		mov	r2, #0
+ 217 0166 5A74     		strb	r2, [r3, #17]
+ 218 0168 0C23     		mov	r3, #12
+ 219 016a 1022     		mov	r2, #16
+ 220 016c 9446     		mov	ip, r2
+ 221 016e BC44     		add	ip, ip, r7
+ 222 0170 6344     		add	r3, r3, ip
+ 223 0172 0022     		mov	r2, #0
+ 224 0174 9A74     		strb	r2, [r3, #18]
+ 225 0176 0C23     		mov	r3, #12
+ 226 0178 1022     		mov	r2, #16
+ 227 017a 9446     		mov	ip, r2
+ 228 017c BC44     		add	ip, ip, r7
+ 229 017e 6344     		add	r3, r3, ip
+ 230 0180 0022     		mov	r2, #0
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 6
+
+
+ 231 0182 DA74     		strb	r2, [r3, #19]
+  56:app_UART.c    ****         
+  57:app_UART.c    ****             unsigned char *x =  uartRxDataNotification->handleValPair.value.val;
+ 232              		.loc 1 57 0
+ 233 0184 7B69     		ldr	r3, [r7, #20]
+ 234 0186 5B68     		ldr	r3, [r3, #4]
+ 235 0188 3B64     		str	r3, [r7, #64]
+  58:app_UART.c    ****             
+  59:app_UART.c    ****             uartTxDataWriteCmd.attrHandle = rxCharHandle;
+ 236              		.loc 1 59 0
+ 237 018a 224B     		ldr	r3, .L4+4
+ 238 018c 1A88     		ldrh	r2, [r3]
+ 239 018e 2023     		mov	r3, #32
+ 240 0190 1021     		mov	r1, #16
+ 241 0192 8C46     		mov	ip, r1
+ 242 0194 BC44     		add	ip, ip, r7
+ 243 0196 6344     		add	r3, r3, ip
+ 244 0198 1A81     		strh	r2, [r3, #8]
+  60:app_UART.c    ****             uartTxDataWriteCmd.value.len  = uartRxDataNotification->handleValPair.value.len;
+ 245              		.loc 1 60 0
+ 246 019a 7B69     		ldr	r3, [r7, #20]
+ 247 019c 1A89     		ldrh	r2, [r3, #8]
+ 248 019e 2023     		mov	r3, #32
+ 249 01a0 1021     		mov	r1, #16
+ 250 01a2 8C46     		mov	ip, r1
+ 251 01a4 BC44     		add	ip, ip, r7
+ 252 01a6 6344     		add	r3, r3, ip
+ 253 01a8 9A80     		strh	r2, [r3, #4]
+  61:app_UART.c    ****             uartTxDataWriteCmd.value.val  = x;  
+ 254              		.loc 1 61 0
+ 255 01aa 2023     		mov	r3, #32
+ 256 01ac 1022     		mov	r2, #16
+ 257 01ae 9446     		mov	ip, r2
+ 258 01b0 BC44     		add	ip, ip, r7
+ 259 01b2 6344     		add	r3, r3, ip
+ 260 01b4 3A6C     		ldr	r2, [r7, #64]
+ 261 01b6 1A60     		str	r2, [r3]
+ 262              	.L3:
+  62:app_UART.c    ****     
+  63:app_UART.c    ****             do
+  64:app_UART.c    ****             {
+  65:app_UART.c    ****                 bleApiResult = CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &uartTxDataWriteCm
+ 263              		.loc 1 65 0 discriminator 2
+ 264 01b8 2E23     		mov	r3, #46
+ 265 01ba 1022     		mov	r2, #16
+ 266 01bc BA18     		add	r2, r7, r2
+ 267 01be D418     		add	r4, r2, r3
+ 268 01c0 154B     		ldr	r3, .L4+8
+ 269 01c2 2022     		mov	r2, #32
+ 270 01c4 1021     		mov	r1, #16
+ 271 01c6 7918     		add	r1, r7, r1
+ 272 01c8 8918     		add	r1, r1, r2
+ 273 01ca 1A78     		ldrb	r2, [r3]
+ 274 01cc 5B78     		ldrb	r3, [r3, #1]
+ 275 01ce 1B02     		lsl	r3, r3, #8
+ 276 01d0 1A43     		orr	r2, r3
+ 277 01d2 0023     		mov	r3, #0
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 7
+
+
+ 278 01d4 1204     		lsl	r2, r2, #16
+ 279 01d6 120C     		lsr	r2, r2, #16
+ 280 01d8 1B0C     		lsr	r3, r3, #16
+ 281 01da 1B04     		lsl	r3, r3, #16
+ 282 01dc 1343     		orr	r3, r2
+ 283 01de 181C     		mov	r0, r3
+ 284 01e0 FFF7FEFF 		bl	CyBle_GattcWriteWithoutResponse
+ 285 01e4 031C     		mov	r3, r0
+ 286 01e6 2380     		strh	r3, [r4]
+  66:app_UART.c    ****                 CyBle_ProcessEvents();
+ 287              		.loc 1 66 0 discriminator 2
+ 288 01e8 FFF7FEFF 		bl	CyBle_ProcessEvents
+  67:app_UART.c    ****             }
+  68:app_UART.c    ****             while((CYBLE_ERROR_OK != bleApiResult) && (CYBLE_STATE_CONNECTED == cyBle_state));
+ 289              		.loc 1 68 0 discriminator 2
+ 290 01ec 2E23     		mov	r3, #46
+ 291 01ee 1022     		mov	r2, #16
+ 292 01f0 9446     		mov	ip, r2
+ 293 01f2 BC44     		add	ip, ip, r7
+ 294 01f4 6344     		add	r3, r3, ip
+ 295 01f6 1B88     		ldrh	r3, [r3]
+ 296 01f8 002B     		cmp	r3, #0
+ 297 01fa 03D0     		beq	.L2
+ 298              		.loc 1 68 0 is_stmt 0 discriminator 1
+ 299 01fc 074B     		ldr	r3, .L4+12
+ 300 01fe 1B78     		ldrb	r3, [r3]
+ 301 0200 022B     		cmp	r3, #2
+ 302 0202 D9D0     		beq	.L3
+ 303              	.L2:
+ 304 0204 3B69     		ldr	r3, [r7, #16]
+ 305 0206 9D46     		mov	sp, r3
+  69:app_UART.c    **** }
+ 306              		.loc 1 69 0 is_stmt 1
+ 307 0208 BD46     		mov	sp, r7
+ 308 020a 15B0     		add	sp, sp, #84
+ 309              		@ sp needed
+ 310 020c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 311              	.L5:
+ 312 020e C046     		.align	2
+ 313              	.L4:
+ 314 0210 00000000 		.word	mtuSize
+ 315 0214 00000000 		.word	rxCharHandle
+ 316 0218 00000000 		.word	cyBle_connHandle
+ 317 021c 00000000 		.word	cyBle_state
+ 318              		.cfi_endproc
+ 319              	.LFE37:
+ 320              		.size	HandleUartRxTraffic, .-HandleUartRxTraffic
+ 321              		.section	.text.HandleUartTxTraffic,"ax",%progbits
+ 322              		.align	2
+ 323              		.global	HandleUartTxTraffic
+ 324              		.code	16
+ 325              		.thumb_func
+ 326              		.type	HandleUartTxTraffic, %function
+ 327              	HandleUartTxTraffic:
+ 328              	.LFB38:
+  70:app_UART.c    **** 
+  71:app_UART.c    **** 
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 8
+
+
+  72:app_UART.c    **** /*******************************************************************************
+  73:app_UART.c    **** * Function Name: HandleUartTxTraffic
+  74:app_UART.c    **** ********************************************************************************
+  75:app_UART.c    **** *
+  76:app_UART.c    **** * Summary:
+  77:app_UART.c    **** *  This function takes data from UART RX buffer and pushes it to the server 
+  78:app_UART.c    **** *  as Write Without Response command.
+  79:app_UART.c    **** *
+  80:app_UART.c    **** * Parameters:
+  81:app_UART.c    **** *  None.
+  82:app_UART.c    **** *
+  83:app_UART.c    **** * Return:
+  84:app_UART.c    **** *   None.
+  85:app_UART.c    **** *
+  86:app_UART.c    **** *******************************************************************************/
+  87:app_UART.c    **** void HandleUartTxTraffic(void)
+  88:app_UART.c    **** {
+ 329              		.loc 1 88 0
+ 330              		.cfi_startproc
+ 331 0000 80B5     		push	{r7, lr}
+ 332              		.cfi_def_cfa_offset 8
+ 333              		.cfi_offset 7, -8
+ 334              		.cfi_offset 14, -4
+ 335 0002 00AF     		add	r7, sp, #0
+ 336              		.cfi_def_cfa_register 7
+  89:app_UART.c    ****     /*uint8   index;
+  90:app_UART.c    ****     uint8   uartTxData[mtuSize - 3];
+  91:app_UART.c    ****     uint16  uartTxDataLength;
+  92:app_UART.c    ****     uint8   a[20]={0x31, 0x7A, 0x0D, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 ,0x00, 0x
+  93:app_UART.c    ****     
+  94:app_UART.c    ****     uartTxDataLength = UART_SpiUartGetRxBufferSize();
+  95:app_UART.c    ****     
+  96:app_UART.c    ****     static uint16 uartIdleCount = UART_IDLE_TIMEOUT;
+  97:app_UART.c    ****     
+  98:app_UART.c    ****     CYBLE_API_RESULT_T              bleApiResult;
+  99:app_UART.c    ****     CYBLE_GATTC_WRITE_CMD_REQ_T     uartTxDataWriteCmd;
+ 100:app_UART.c    ****     
+ 101:app_UART.c    ****     
+ 102:app_UART.c    ****     
+ 103:app_UART.c    ****     #ifdef FLOW_CONTROL
+ 104:app_UART.c    ****         if(uartTxDataLength >= (UART_UART_RX_BUFFER_SIZE - (UART_UART_RX_BUFFER_SIZE/2)))
+ 105:app_UART.c    ****         {
+ 106:app_UART.c    ****             DisableUartRxInt();
+ 107:app_UART.c    ****         }
+ 108:app_UART.c    ****         else
+ 109:app_UART.c    ****         {
+ 110:app_UART.c    ****             EnableUartRxInt();
+ 111:app_UART.c    ****         }
+ 112:app_UART.c    ****     #endif
+ 113:app_UART.c    ****     
+ 114:app_UART.c    ****     if((uartTxDataLength != 0))
+ 115:app_UART.c    ****     {
+ 116:app_UART.c    ****         if(uartTxDataLength >= (mtuSize - 3))
+ 117:app_UART.c    ****         {
+ 118:app_UART.c    ****             uartIdleCount       = UART_IDLE_TIMEOUT;
+ 119:app_UART.c    ****             uartTxDataLength    = mtuSize - 3;
+ 120:app_UART.c    ****         }
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 9
+
+
+ 121:app_UART.c    ****         else
+ 122:app_UART.c    ****         {
+ 123:app_UART.c    ****             if(--uartIdleCount == 0)
+ 124:app_UART.c    ****             {
+ 125:app_UART.c    ****                 /*uartTxDataLength remains unchanged ;
+ 126:app_UART.c    ****             }
+ 127:app_UART.c    ****             else
+ 128:app_UART.c    ****             {
+ 129:app_UART.c    ****                 uartTxDataLength = 0;
+ 130:app_UART.c    ****             }
+ 131:app_UART.c    ****         }
+ 132:app_UART.c    ****         
+ 133:app_UART.c    ****         if(0 != uartTxDataLength)
+ 134:app_UART.c    ****         {
+ 135:app_UART.c    ****             uartIdleCount       = UART_IDLE_TIMEOUT;
+ 136:app_UART.c    ****             
+ 137:app_UART.c    ****             for(index = 0; index < uartTxDataLength; index++)
+ 138:app_UART.c    ****             {
+ 139:app_UART.c    ****                 uartTxData[index] = (uint8) UART_UartGetByte();
+ 140:app_UART.c    ****             }
+ 141:app_UART.c    ****             
+ 142:app_UART.c    ****             //uartTxDataWriteCmd.attrHandle = rxCharHandle;
+ 143:app_UART.c    ****             //uartTxDataWriteCmd.value.len  = uartTxDataLength;
+ 144:app_UART.c    ****             //uartTxDataWriteCmd.value.val  = uartTxData;           
+ 145:app_UART.c    ****   
+ 146:app_UART.c    ****             
+ 147:app_UART.c    ****             uartTxDataWriteCmd.attrHandle = rxCharHandle;
+ 148:app_UART.c    ****             uartTxDataWriteCmd.value.len  = 0x0004;
+ 149:app_UART.c    ****             uartTxDataWriteCmd.value.val  = a; 
+ 150:app_UART.c    ****             
+ 151:app_UART.c    ****             #ifdef FLOW_CONTROL
+ 152:app_UART.c    ****                 DisableUartRxInt();
+ 153:app_UART.c    ****             #endif
+ 154:app_UART.c    ****             
+ 155:app_UART.c    ****             do
+ 156:app_UART.c    ****             {
+ 157:app_UART.c    ****                 bleApiResult = CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &uartTxDataWriteCm
+ 158:app_UART.c    ****                 CyBle_ProcessEvents();
+ 159:app_UART.c    ****             }
+ 160:app_UART.c    ****            while((CYBLE_ERROR_OK != bleApiResult) && (CYBLE_STATE_CONNECTED == cyBle_state));
+ 161:app_UART.c    ****             
+ 162:app_UART.c    ****         }
+ 163:app_UART.c    ****     }
+ 164:app_UART.c    **** */
+ 165:app_UART.c    **** }
+ 337              		.loc 1 165 0
+ 338 0004 BD46     		mov	sp, r7
+ 339              		@ sp needed
+ 340 0006 80BD     		pop	{r7, pc}
+ 341              		.cfi_endproc
+ 342              	.LFE38:
+ 343              		.size	HandleUartTxTraffic, .-HandleUartTxTraffic
+ 344              		.section	.text.DisableUartRxInt,"ax",%progbits
+ 345              		.align	2
+ 346              		.global	DisableUartRxInt
+ 347              		.code	16
+ 348              		.thumb_func
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 10
+
+
+ 349              		.type	DisableUartRxInt, %function
+ 350              	DisableUartRxInt:
+ 351              	.LFB39:
+ 166:app_UART.c    **** 
+ 167:app_UART.c    **** /*****************************************************************************************
+ 168:app_UART.c    **** * Function Name: DisableUartRxInt
+ 169:app_UART.c    **** ******************************************************************************************
+ 170:app_UART.c    **** *
+ 171:app_UART.c    **** * Summary:
+ 172:app_UART.c    **** *  This function disables the UART RX interrupt.
+ 173:app_UART.c    **** *
+ 174:app_UART.c    **** * Parameters:
+ 175:app_UART.c    **** *   None.
+ 176:app_UART.c    **** *
+ 177:app_UART.c    **** * Return:
+ 178:app_UART.c    **** *   None.
+ 179:app_UART.c    **** *
+ 180:app_UART.c    **** *****************************************************************************************/
+ 181:app_UART.c    **** void DisableUartRxInt(void)
+ 182:app_UART.c    **** {
+ 352              		.loc 1 182 0
+ 353              		.cfi_startproc
+ 354 0000 80B5     		push	{r7, lr}
+ 355              		.cfi_def_cfa_offset 8
+ 356              		.cfi_offset 7, -8
+ 357              		.cfi_offset 14, -4
+ 358 0002 00AF     		add	r7, sp, #0
+ 359              		.cfi_def_cfa_register 7
+ 183:app_UART.c    ****     UART_INTR_RX_MASK_REG &= ~UART_RX_INTR_MASK;  
+ 360              		.loc 1 183 0
+ 361 0004 034B     		ldr	r3, .L8
+ 362 0006 034A     		ldr	r2, .L8
+ 363 0008 1268     		ldr	r2, [r2]
+ 364 000a 0421     		mov	r1, #4
+ 365 000c 8A43     		bic	r2, r1
+ 366 000e 1A60     		str	r2, [r3]
+ 184:app_UART.c    **** }
+ 367              		.loc 1 184 0
+ 368 0010 BD46     		mov	sp, r7
+ 369              		@ sp needed
+ 370 0012 80BD     		pop	{r7, pc}
+ 371              	.L9:
+ 372              		.align	2
+ 373              	.L8:
+ 374 0014 C80F2440 		.word	1076105160
+ 375              		.cfi_endproc
+ 376              	.LFE39:
+ 377              		.size	DisableUartRxInt, .-DisableUartRxInt
+ 378              		.section	.text.EnableUartRxInt,"ax",%progbits
+ 379              		.align	2
+ 380              		.global	EnableUartRxInt
+ 381              		.code	16
+ 382              		.thumb_func
+ 383              		.type	EnableUartRxInt, %function
+ 384              	EnableUartRxInt:
+ 385              	.LFB40:
+ 185:app_UART.c    **** 
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 11
+
+
+ 186:app_UART.c    **** /*****************************************************************************************
+ 187:app_UART.c    **** * Function Name: EnableUartRxInt
+ 188:app_UART.c    **** ******************************************************************************************
+ 189:app_UART.c    **** *
+ 190:app_UART.c    **** * Summary:
+ 191:app_UART.c    **** *  This function enables the UART RX interrupt.
+ 192:app_UART.c    **** *
+ 193:app_UART.c    **** * Parameters:
+ 194:app_UART.c    **** *   None.
+ 195:app_UART.c    **** *
+ 196:app_UART.c    **** * Return:
+ 197:app_UART.c    **** *   None.
+ 198:app_UART.c    **** *
+ 199:app_UART.c    **** *****************************************************************************************/
+ 200:app_UART.c    **** void EnableUartRxInt(void)
+ 201:app_UART.c    **** {
+ 386              		.loc 1 201 0
+ 387              		.cfi_startproc
+ 388 0000 80B5     		push	{r7, lr}
+ 389              		.cfi_def_cfa_offset 8
+ 390              		.cfi_offset 7, -8
+ 391              		.cfi_offset 14, -4
+ 392 0002 00AF     		add	r7, sp, #0
+ 393              		.cfi_def_cfa_register 7
+ 202:app_UART.c    ****     UART_INTR_RX_MASK_REG |= UART_RX_INTR_MASK;  
+ 394              		.loc 1 202 0
+ 395 0004 034B     		ldr	r3, .L11
+ 396 0006 034A     		ldr	r2, .L11
+ 397 0008 1268     		ldr	r2, [r2]
+ 398 000a 0421     		mov	r1, #4
+ 399 000c 0A43     		orr	r2, r1
+ 400 000e 1A60     		str	r2, [r3]
+ 203:app_UART.c    **** }
+ 401              		.loc 1 203 0
+ 402 0010 BD46     		mov	sp, r7
+ 403              		@ sp needed
+ 404 0012 80BD     		pop	{r7, pc}
+ 405              	.L12:
+ 406              		.align	2
+ 407              	.L11:
+ 408 0014 C80F2440 		.word	1076105160
+ 409              		.cfi_endproc
+ 410              	.LFE40:
+ 411              		.size	EnableUartRxInt, .-EnableUartRxInt
+ 412              		.data
+ 413              		.align	1
+ 414              		.type	uartIdleCount.7201, %object
+ 415              		.size	uartIdleCount.7201, 2
+ 416              	uartIdleCount.7201:
+ 417 0000 E803     		.short	1000
+ 418              		.text
+ 419              	.Letext0:
+ 420              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 421              		.file 3 "Generated_Source\\PSoC4/BLE_Stack.h"
+ 422              		.file 4 "Generated_Source\\PSoC4/BLE_StackGatt.h"
+ 423              		.file 5 "Generated_Source\\PSoC4/BLE_StackGattClient.h"
+ 424              		.file 6 "Generated_Source\\PSoC4/BLE_eventHandler.h"
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 12
+
+
+ 425              		.file 7 "app_UART.h"
+ 426              		.section	.debug_info,"",%progbits
+ 427              	.Ldebug_info0:
+ 428 0000 D8030000 		.4byte	0x3d8
+ 429 0004 0400     		.2byte	0x4
+ 430 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 431 000a 04       		.byte	0x4
+ 432 000b 01       		.uleb128 0x1
+ 433 000c 08050000 		.4byte	.LASF82
+ 434 0010 01       		.byte	0x1
+ 435 0011 CB050000 		.4byte	.LASF83
+ 436 0015 CC020000 		.4byte	.LASF84
+ 437 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 438 001d 00000000 		.4byte	0
+ 439 0021 00000000 		.4byte	.Ldebug_line0
+ 440 0025 02       		.uleb128 0x2
+ 441 0026 01       		.byte	0x1
+ 442 0027 06       		.byte	0x6
+ 443 0028 E8030000 		.4byte	.LASF0
+ 444 002c 02       		.uleb128 0x2
+ 445 002d 01       		.byte	0x1
+ 446 002e 08       		.byte	0x8
+ 447 002f B6030000 		.4byte	.LASF1
+ 448 0033 02       		.uleb128 0x2
+ 449 0034 02       		.byte	0x2
+ 450 0035 05       		.byte	0x5
+ 451 0036 7D000000 		.4byte	.LASF2
+ 452 003a 02       		.uleb128 0x2
+ 453 003b 02       		.byte	0x2
+ 454 003c 07       		.byte	0x7
+ 455 003d B9040000 		.4byte	.LASF3
+ 456 0041 02       		.uleb128 0x2
+ 457 0042 04       		.byte	0x4
+ 458 0043 05       		.byte	0x5
+ 459 0044 C3020000 		.4byte	.LASF4
+ 460 0048 02       		.uleb128 0x2
+ 461 0049 04       		.byte	0x4
+ 462 004a 07       		.byte	0x7
+ 463 004b 49060000 		.4byte	.LASF5
+ 464 004f 02       		.uleb128 0x2
+ 465 0050 08       		.byte	0x8
+ 466 0051 05       		.byte	0x5
+ 467 0052 87020000 		.4byte	.LASF6
+ 468 0056 02       		.uleb128 0x2
+ 469 0057 08       		.byte	0x8
+ 470 0058 07       		.byte	0x7
+ 471 0059 F4030000 		.4byte	.LASF7
+ 472 005d 03       		.uleb128 0x3
+ 473 005e 04       		.byte	0x4
+ 474 005f 05       		.byte	0x5
+ 475 0060 696E7400 		.ascii	"int\000"
+ 476 0064 02       		.uleb128 0x2
+ 477 0065 04       		.byte	0x4
+ 478 0066 07       		.byte	0x7
+ 479 0067 37040000 		.4byte	.LASF8
+ 480 006b 04       		.uleb128 0x4
+ 481 006c E2010000 		.4byte	.LASF9
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 13
+
+
+ 482 0070 02       		.byte	0x2
+ 483 0071 B901     		.2byte	0x1b9
+ 484 0073 2C000000 		.4byte	0x2c
+ 485 0077 04       		.uleb128 0x4
+ 486 0078 B7010000 		.4byte	.LASF10
+ 487 007c 02       		.byte	0x2
+ 488 007d BA01     		.2byte	0x1ba
+ 489 007f 3A000000 		.4byte	0x3a
+ 490 0083 04       		.uleb128 0x4
+ 491 0084 42060000 		.4byte	.LASF11
+ 492 0088 02       		.byte	0x2
+ 493 0089 BB01     		.2byte	0x1bb
+ 494 008b 48000000 		.4byte	0x48
+ 495 008f 02       		.uleb128 0x2
+ 496 0090 04       		.byte	0x4
+ 497 0091 04       		.byte	0x4
+ 498 0092 6C020000 		.4byte	.LASF12
+ 499 0096 02       		.uleb128 0x2
+ 500 0097 08       		.byte	0x8
+ 501 0098 04       		.byte	0x4
+ 502 0099 66060000 		.4byte	.LASF13
+ 503 009d 02       		.uleb128 0x2
+ 504 009e 01       		.byte	0x1
+ 505 009f 08       		.byte	0x8
+ 506 00a0 D9040000 		.4byte	.LASF14
+ 507 00a4 04       		.uleb128 0x4
+ 508 00a5 90040000 		.4byte	.LASF15
+ 509 00a9 02       		.byte	0x2
+ 510 00aa 6502     		.2byte	0x265
+ 511 00ac B0000000 		.4byte	0xb0
+ 512 00b0 05       		.uleb128 0x5
+ 513 00b1 83000000 		.4byte	0x83
+ 514 00b5 02       		.uleb128 0x2
+ 515 00b6 04       		.byte	0x4
+ 516 00b7 07       		.byte	0x7
+ 517 00b8 87000000 		.4byte	.LASF16
+ 518 00bc 06       		.uleb128 0x6
+ 519 00bd 04       		.byte	0x4
+ 520 00be 2C000000 		.4byte	0x2c
+ 521 00c2 07       		.uleb128 0x7
+ 522 00c3 02       		.byte	0x2
+ 523 00c4 03       		.byte	0x3
+ 524 00c5 D203     		.2byte	0x3d2
+ 525 00c7 92010000 		.4byte	0x192
+ 526 00cb 08       		.uleb128 0x8
+ 527 00cc 9B000000 		.4byte	.LASF17
+ 528 00d0 00       		.sleb128 0
+ 529 00d1 08       		.uleb128 0x8
+ 530 00d2 57010000 		.4byte	.LASF18
+ 531 00d6 01       		.sleb128 1
+ 532 00d7 08       		.uleb128 0x8
+ 533 00d8 BE010000 		.4byte	.LASF19
+ 534 00dc 02       		.sleb128 2
+ 535 00dd 08       		.uleb128 0x8
+ 536 00de D6050000 		.4byte	.LASF20
+ 537 00e2 03       		.sleb128 3
+ 538 00e3 08       		.uleb128 0x8
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 14
+
+
+ 539 00e4 49020000 		.4byte	.LASF21
+ 540 00e8 04       		.sleb128 4
+ 541 00e9 08       		.uleb128 0x8
+ 542 00ea 75010000 		.4byte	.LASF22
+ 543 00ee 05       		.sleb128 5
+ 544 00ef 08       		.uleb128 0x8
+ 545 00f0 0C020000 		.4byte	.LASF23
+ 546 00f4 06       		.sleb128 6
+ 547 00f5 08       		.uleb128 0x8
+ 548 00f6 74030000 		.4byte	.LASF24
+ 549 00fa 07       		.sleb128 7
+ 550 00fb 08       		.uleb128 0x8
+ 551 00fc 3A030000 		.4byte	.LASF25
+ 552 0100 08       		.sleb128 8
+ 553 0101 08       		.uleb128 0x8
+ 554 0102 22040000 		.4byte	.LASF26
+ 555 0106 09       		.sleb128 9
+ 556 0107 08       		.uleb128 0x8
+ 557 0108 2F020000 		.4byte	.LASF27
+ 558 010c 0A       		.sleb128 10
+ 559 010d 08       		.uleb128 0x8
+ 560 010e 95020000 		.4byte	.LASF28
+ 561 0112 0B       		.sleb128 11
+ 562 0113 08       		.uleb128 0x8
+ 563 0114 0B040000 		.4byte	.LASF29
+ 564 0118 0C       		.sleb128 12
+ 565 0119 08       		.uleb128 0x8
+ 566 011a 44040000 		.4byte	.LASF30
+ 567 011e 0D       		.sleb128 13
+ 568 011f 08       		.uleb128 0x8
+ 569 0120 25000000 		.4byte	.LASF31
+ 570 0124 0E       		.sleb128 14
+ 571 0125 08       		.uleb128 0x8
+ 572 0126 00000000 		.4byte	.LASF32
+ 573 012a 0F       		.sleb128 15
+ 574 012b 08       		.uleb128 0x8
+ 575 012c 7F070000 		.4byte	.LASF33
+ 576 0130 10       		.sleb128 16
+ 577 0131 08       		.uleb128 0x8
+ 578 0132 4E000000 		.4byte	.LASF34
+ 579 0136 11       		.sleb128 17
+ 580 0137 08       		.uleb128 0x8
+ 581 0138 C5060000 		.4byte	.LASF35
+ 582 013c 12       		.sleb128 18
+ 583 013d 08       		.uleb128 0x8
+ 584 013e 57070000 		.4byte	.LASF36
+ 585 0142 13       		.sleb128 19
+ 586 0143 08       		.uleb128 0x8
+ 587 0144 01070000 		.4byte	.LASF37
+ 588 0148 27       		.sleb128 39
+ 589 0149 08       		.uleb128 0x8
+ 590 014a AA000000 		.4byte	.LASF38
+ 591 014e 28       		.sleb128 40
+ 592 014f 08       		.uleb128 0x8
+ 593 0150 FD000000 		.4byte	.LASF39
+ 594 0154 29       		.sleb128 41
+ 595 0155 08       		.uleb128 0x8
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 15
+
+
+ 596 0156 CF000000 		.4byte	.LASF40
+ 597 015a 2A       		.sleb128 42
+ 598 015b 08       		.uleb128 0x8
+ 599 015c 0F060000 		.4byte	.LASF41
+ 600 0160 2B       		.sleb128 43
+ 601 0161 08       		.uleb128 0x8
+ 602 0162 C4030000 		.4byte	.LASF42
+ 603 0166 2C       		.sleb128 44
+ 604 0167 08       		.uleb128 0x8
+ 605 0168 96050000 		.4byte	.LASF43
+ 606 016c FE01     		.sleb128 254
+ 607 016e 08       		.uleb128 0x8
+ 608 016f 23070000 		.4byte	.LASF44
+ 609 0173 FF01     		.sleb128 255
+ 610 0175 08       		.uleb128 0x8
+ 611 0176 E8060000 		.4byte	.LASF45
+ 612 017a 8002     		.sleb128 256
+ 613 017c 08       		.uleb128 0x8
+ 614 017d AD070000 		.4byte	.LASF46
+ 615 0181 8102     		.sleb128 257
+ 616 0183 08       		.uleb128 0x8
+ 617 0184 96040000 		.4byte	.LASF47
+ 618 0188 8202     		.sleb128 258
+ 619 018a 08       		.uleb128 0x8
+ 620 018b 33070000 		.4byte	.LASF48
+ 621 018f 8302     		.sleb128 259
+ 622 0191 00       		.byte	0
+ 623 0192 04       		.uleb128 0x4
+ 624 0193 E8010000 		.4byte	.LASF49
+ 625 0197 03       		.byte	0x3
+ 626 0198 3E04     		.2byte	0x43e
+ 627 019a C2000000 		.4byte	0xc2
+ 628 019e 06       		.uleb128 0x6
+ 629 019f 04       		.byte	0x4
+ 630 01a0 6B000000 		.4byte	0x6b
+ 631 01a4 04       		.uleb128 0x4
+ 632 01a5 19010000 		.4byte	.LASF50
+ 633 01a9 04       		.byte	0x4
+ 634 01aa 8401     		.2byte	0x184
+ 635 01ac 77000000 		.4byte	0x77
+ 636 01b0 09       		.uleb128 0x9
+ 637 01b1 02       		.byte	0x2
+ 638 01b2 04       		.byte	0x4
+ 639 01b3 8E01     		.2byte	0x18e
+ 640 01b5 D4010000 		.4byte	0x1d4
+ 641 01b9 0A       		.uleb128 0xa
+ 642 01ba 26020000 		.4byte	.LASF51
+ 643 01be 04       		.byte	0x4
+ 644 01bf 9501     		.2byte	0x195
+ 645 01c1 6B000000 		.4byte	0x6b
+ 646 01c5 00       		.byte	0
+ 647 01c6 0A       		.uleb128 0xa
+ 648 01c7 FD070000 		.4byte	.LASF52
+ 649 01cb 04       		.byte	0x4
+ 650 01cc 9B01     		.2byte	0x19b
+ 651 01ce 6B000000 		.4byte	0x6b
+ 652 01d2 01       		.byte	0x1
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 16
+
+
+ 653 01d3 00       		.byte	0
+ 654 01d4 04       		.uleb128 0x4
+ 655 01d5 81060000 		.4byte	.LASF53
+ 656 01d9 04       		.byte	0x4
+ 657 01da 9D01     		.2byte	0x19d
+ 658 01dc B0010000 		.4byte	0x1b0
+ 659 01e0 09       		.uleb128 0x9
+ 660 01e1 08       		.byte	0x8
+ 661 01e2 04       		.byte	0x4
+ 662 01e3 B901     		.2byte	0x1b9
+ 663 01e5 11020000 		.4byte	0x211
+ 664 01e9 0B       		.uleb128 0xb
+ 665 01ea 76616C00 		.ascii	"val\000"
+ 666 01ee 04       		.byte	0x4
+ 667 01ef BC01     		.2byte	0x1bc
+ 668 01f1 9E010000 		.4byte	0x19e
+ 669 01f5 00       		.byte	0
+ 670 01f6 0B       		.uleb128 0xb
+ 671 01f7 6C656E00 		.ascii	"len\000"
+ 672 01fb 04       		.byte	0x4
+ 673 01fc BF01     		.2byte	0x1bf
+ 674 01fe 77000000 		.4byte	0x77
+ 675 0202 04       		.byte	0x4
+ 676 0203 0A       		.uleb128 0xa
+ 677 0204 4D070000 		.4byte	.LASF54
+ 678 0208 04       		.byte	0x4
+ 679 0209 C601     		.2byte	0x1c6
+ 680 020b 77000000 		.4byte	0x77
+ 681 020f 06       		.byte	0x6
+ 682 0210 00       		.byte	0
+ 683 0211 04       		.uleb128 0x4
+ 684 0212 F5040000 		.4byte	.LASF55
+ 685 0216 04       		.byte	0x4
+ 686 0217 C801     		.2byte	0x1c8
+ 687 0219 E0010000 		.4byte	0x1e0
+ 688 021d 09       		.uleb128 0x9
+ 689 021e 0C       		.byte	0xc
+ 690 021f 04       		.byte	0x4
+ 691 0220 CB01     		.2byte	0x1cb
+ 692 0222 41020000 		.4byte	0x241
+ 693 0226 0A       		.uleb128 0xa
+ 694 0227 93010000 		.4byte	.LASF56
+ 695 022b 04       		.byte	0x4
+ 696 022c CE01     		.2byte	0x1ce
+ 697 022e 11020000 		.4byte	0x211
+ 698 0232 00       		.byte	0
+ 699 0233 0A       		.uleb128 0xa
+ 700 0234 5B060000 		.4byte	.LASF57
+ 701 0238 04       		.byte	0x4
+ 702 0239 D101     		.2byte	0x1d1
+ 703 023b A4010000 		.4byte	0x1a4
+ 704 023f 08       		.byte	0x8
+ 705 0240 00       		.byte	0
+ 706 0241 04       		.uleb128 0x4
+ 707 0242 95060000 		.4byte	.LASF58
+ 708 0246 04       		.byte	0x4
+ 709 0247 D301     		.2byte	0x1d3
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 17
+
+
+ 710 0249 1D020000 		.4byte	0x21d
+ 711 024d 0C       		.uleb128 0xc
+ 712 024e 58030000 		.4byte	.LASF59
+ 713 0252 05       		.byte	0x5
+ 714 0253 74       		.byte	0x74
+ 715 0254 41020000 		.4byte	0x241
+ 716 0258 0D       		.uleb128 0xd
+ 717 0259 10       		.byte	0x10
+ 718 025a 05       		.byte	0x5
+ 719 025b 88       		.byte	0x88
+ 720 025c 79020000 		.4byte	0x279
+ 721 0260 0E       		.uleb128 0xe
+ 722 0261 90000000 		.4byte	.LASF60
+ 723 0265 05       		.byte	0x5
+ 724 0266 8B       		.byte	0x8b
+ 725 0267 D4010000 		.4byte	0x1d4
+ 726 026b 00       		.byte	0
+ 727 026c 0E       		.uleb128 0xe
+ 728 026d B5020000 		.4byte	.LASF61
+ 729 0271 05       		.byte	0x5
+ 730 0272 8E       		.byte	0x8e
+ 731 0273 41020000 		.4byte	0x241
+ 732 0277 04       		.byte	0x4
+ 733 0278 00       		.byte	0
+ 734 0279 0C       		.uleb128 0xc
+ 735 027a 91030000 		.4byte	.LASF62
+ 736 027e 05       		.byte	0x5
+ 737 027f 90       		.byte	0x90
+ 738 0280 58020000 		.4byte	0x258
+ 739 0284 07       		.uleb128 0x7
+ 740 0285 01       		.byte	0x1
+ 741 0286 06       		.byte	0x6
+ 742 0287 F607     		.2byte	0x7f6
+ 743 0289 B2020000 		.4byte	0x2b2
+ 744 028d 08       		.uleb128 0x8
+ 745 028e 43010000 		.4byte	.LASF63
+ 746 0292 00       		.sleb128 0
+ 747 0293 08       		.uleb128 0x8
+ 748 0294 B2050000 		.4byte	.LASF64
+ 749 0298 01       		.sleb128 1
+ 750 0299 08       		.uleb128 0x8
+ 751 029a 99010000 		.4byte	.LASF65
+ 752 029e 02       		.sleb128 2
+ 753 029f 08       		.uleb128 0x8
+ 754 02a0 72020000 		.4byte	.LASF66
+ 755 02a4 03       		.sleb128 3
+ 756 02a5 08       		.uleb128 0x8
+ 757 02a6 D9070000 		.4byte	.LASF67
+ 758 02aa 04       		.sleb128 4
+ 759 02ab 08       		.uleb128 0x8
+ 760 02ac 69040000 		.4byte	.LASF68
+ 761 02b0 05       		.sleb128 5
+ 762 02b1 00       		.byte	0
+ 763 02b2 04       		.uleb128 0x4
+ 764 02b3 82040000 		.4byte	.LASF69
+ 765 02b7 06       		.byte	0x6
+ 766 02b8 0408     		.2byte	0x804
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 18
+
+
+ 767 02ba 84020000 		.4byte	0x284
+ 768 02be 0F       		.uleb128 0xf
+ 769 02bf FB050000 		.4byte	.LASF85
+ 770 02c3 01       		.byte	0x1
+ 771 02c4 20       		.byte	0x20
+ 772 02c5 00000000 		.4byte	.LFB37
+ 773 02c9 20020000 		.4byte	.LFE37-.LFB37
+ 774 02cd 01       		.uleb128 0x1
+ 775 02ce 9C       		.byte	0x9c
+ 776 02cf 51030000 		.4byte	0x351
+ 777 02d3 10       		.uleb128 0x10
+ 778 02d4 DE040000 		.4byte	.LASF86
+ 779 02d8 01       		.byte	0x1
+ 780 02d9 20       		.byte	0x20
+ 781 02da 51030000 		.4byte	0x351
+ 782 02de 03       		.uleb128 0x3
+ 783 02df 91       		.byte	0x91
+ 784 02e0 AC7F     		.sleb128 -84
+ 785 02e2 11       		.uleb128 0x11
+ 786 02e3 DC010000 		.4byte	.LASF87
+ 787 02e7 01       		.byte	0x1
+ 788 02e8 2A       		.byte	0x2a
+ 789 02e9 6B000000 		.4byte	0x6b
+ 790 02ed 12       		.uleb128 0x12
+ 791 02ee 72000000 		.4byte	.LASF70
+ 792 02f2 01       		.byte	0x1
+ 793 02f3 2B       		.byte	0x2b
+ 794 02f4 57030000 		.4byte	0x357
+ 795 02f8 03       		.uleb128 0x3
+ 796 02f9 91       		.byte	0x91
+ 797 02fa 60       		.sleb128 -32
+ 798 02fb 06       		.byte	0x6
+ 799 02fc 12       		.uleb128 0x12
+ 800 02fd EC000000 		.4byte	.LASF71
+ 801 0301 01       		.byte	0x1
+ 802 0302 2C       		.byte	0x2c
+ 803 0303 77000000 		.4byte	0x77
+ 804 0307 02       		.uleb128 0x2
+ 805 0308 91       		.byte	0x91
+ 806 0309 5E       		.sleb128 -34
+ 807 030a 12       		.uleb128 0x12
+ 808 030b 35010000 		.4byte	.LASF72
+ 809 030f 01       		.byte	0x1
+ 810 0310 30       		.byte	0x30
+ 811 0311 77000000 		.4byte	0x77
+ 812 0315 05       		.uleb128 0x5
+ 813 0316 03       		.byte	0x3
+ 814 0317 00000000 		.4byte	uartIdleCount.7201
+ 815 031b 12       		.uleb128 0x12
+ 816 031c F0070000 		.4byte	.LASF73
+ 817 0320 01       		.byte	0x1
+ 818 0321 32       		.byte	0x32
+ 819 0322 92010000 		.4byte	0x192
+ 820 0326 02       		.uleb128 0x2
+ 821 0327 91       		.byte	0x91
+ 822 0328 56       		.sleb128 -42
+ 823 0329 12       		.uleb128 0x12
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 19
+
+
+ 824 032a C6070000 		.4byte	.LASF74
+ 825 032e 01       		.byte	0x1
+ 826 032f 33       		.byte	0x33
+ 827 0330 4D020000 		.4byte	0x24d
+ 828 0334 02       		.uleb128 0x2
+ 829 0335 91       		.byte	0x91
+ 830 0336 48       		.sleb128 -56
+ 831 0337 13       		.uleb128 0x13
+ 832 0338 6100     		.ascii	"a\000"
+ 833 033a 01       		.byte	0x1
+ 834 033b 37       		.byte	0x37
+ 835 033c 6A030000 		.4byte	0x36a
+ 836 0340 03       		.uleb128 0x3
+ 837 0341 91       		.byte	0x91
+ 838 0342 B47F     		.sleb128 -76
+ 839 0344 13       		.uleb128 0x13
+ 840 0345 7800     		.ascii	"x\000"
+ 841 0347 01       		.byte	0x1
+ 842 0348 39       		.byte	0x39
+ 843 0349 BC000000 		.4byte	0xbc
+ 844 034d 02       		.uleb128 0x2
+ 845 034e 91       		.byte	0x91
+ 846 034f 58       		.sleb128 -40
+ 847 0350 00       		.byte	0
+ 848 0351 06       		.uleb128 0x6
+ 849 0352 04       		.byte	0x4
+ 850 0353 79020000 		.4byte	0x279
+ 851 0357 14       		.uleb128 0x14
+ 852 0358 6B000000 		.4byte	0x6b
+ 853 035c 6A030000 		.4byte	0x36a
+ 854 0360 15       		.uleb128 0x15
+ 855 0361 B5000000 		.4byte	0xb5
+ 856 0365 03       		.uleb128 0x3
+ 857 0366 91       		.byte	0x91
+ 858 0367 64       		.sleb128 -28
+ 859 0368 06       		.byte	0x6
+ 860 0369 00       		.byte	0
+ 861 036a 14       		.uleb128 0x14
+ 862 036b 6B000000 		.4byte	0x6b
+ 863 036f 7A030000 		.4byte	0x37a
+ 864 0373 16       		.uleb128 0x16
+ 865 0374 B5000000 		.4byte	0xb5
+ 866 0378 13       		.byte	0x13
+ 867 0379 00       		.byte	0
+ 868 037a 17       		.uleb128 0x17
+ 869 037b 6D060000 		.4byte	.LASF75
+ 870 037f 01       		.byte	0x1
+ 871 0380 57       		.byte	0x57
+ 872 0381 00000000 		.4byte	.LFB38
+ 873 0385 08000000 		.4byte	.LFE38-.LFB38
+ 874 0389 01       		.uleb128 0x1
+ 875 038a 9C       		.byte	0x9c
+ 876 038b 17       		.uleb128 0x17
+ 877 038c B4060000 		.4byte	.LASF76
+ 878 0390 01       		.byte	0x1
+ 879 0391 B5       		.byte	0xb5
+ 880 0392 00000000 		.4byte	.LFB39
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 20
+
+
+ 881 0396 18000000 		.4byte	.LFE39-.LFB39
+ 882 039a 01       		.uleb128 0x1
+ 883 039b 9C       		.byte	0x9c
+ 884 039c 17       		.uleb128 0x17
+ 885 039d 2A030000 		.4byte	.LASF77
+ 886 03a1 01       		.byte	0x1
+ 887 03a2 C8       		.byte	0xc8
+ 888 03a3 00000000 		.4byte	.LFB40
+ 889 03a7 18000000 		.4byte	.LFE40-.LFB40
+ 890 03ab 01       		.uleb128 0x1
+ 891 03ac 9C       		.byte	0x9c
+ 892 03ad 18       		.uleb128 0x18
+ 893 03ae DC030000 		.4byte	.LASF78
+ 894 03b2 06       		.byte	0x6
+ 895 03b3 2A0A     		.2byte	0xa2a
+ 896 03b5 B2020000 		.4byte	0x2b2
+ 897 03b9 18       		.uleb128 0x18
+ 898 03ba FB010000 		.4byte	.LASF79
+ 899 03be 06       		.byte	0x6
+ 900 03bf 2B0A     		.2byte	0xa2b
+ 901 03c1 D4010000 		.4byte	0x1d4
+ 902 03c5 19       		.uleb128 0x19
+ 903 03c6 AF010000 		.4byte	.LASF80
+ 904 03ca 07       		.byte	0x7
+ 905 03cb 20       		.byte	0x20
+ 906 03cc 77000000 		.4byte	0x77
+ 907 03d0 19       		.uleb128 0x19
+ 908 03d1 CC040000 		.4byte	.LASF81
+ 909 03d5 07       		.byte	0x7
+ 910 03d6 22       		.byte	0x22
+ 911 03d7 77000000 		.4byte	0x77
+ 912 03db 00       		.byte	0
+ 913              		.section	.debug_abbrev,"",%progbits
+ 914              	.Ldebug_abbrev0:
+ 915 0000 01       		.uleb128 0x1
+ 916 0001 11       		.uleb128 0x11
+ 917 0002 01       		.byte	0x1
+ 918 0003 25       		.uleb128 0x25
+ 919 0004 0E       		.uleb128 0xe
+ 920 0005 13       		.uleb128 0x13
+ 921 0006 0B       		.uleb128 0xb
+ 922 0007 03       		.uleb128 0x3
+ 923 0008 0E       		.uleb128 0xe
+ 924 0009 1B       		.uleb128 0x1b
+ 925 000a 0E       		.uleb128 0xe
+ 926 000b 55       		.uleb128 0x55
+ 927 000c 17       		.uleb128 0x17
+ 928 000d 11       		.uleb128 0x11
+ 929 000e 01       		.uleb128 0x1
+ 930 000f 10       		.uleb128 0x10
+ 931 0010 17       		.uleb128 0x17
+ 932 0011 00       		.byte	0
+ 933 0012 00       		.byte	0
+ 934 0013 02       		.uleb128 0x2
+ 935 0014 24       		.uleb128 0x24
+ 936 0015 00       		.byte	0
+ 937 0016 0B       		.uleb128 0xb
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 21
+
+
+ 938 0017 0B       		.uleb128 0xb
+ 939 0018 3E       		.uleb128 0x3e
+ 940 0019 0B       		.uleb128 0xb
+ 941 001a 03       		.uleb128 0x3
+ 942 001b 0E       		.uleb128 0xe
+ 943 001c 00       		.byte	0
+ 944 001d 00       		.byte	0
+ 945 001e 03       		.uleb128 0x3
+ 946 001f 24       		.uleb128 0x24
+ 947 0020 00       		.byte	0
+ 948 0021 0B       		.uleb128 0xb
+ 949 0022 0B       		.uleb128 0xb
+ 950 0023 3E       		.uleb128 0x3e
+ 951 0024 0B       		.uleb128 0xb
+ 952 0025 03       		.uleb128 0x3
+ 953 0026 08       		.uleb128 0x8
+ 954 0027 00       		.byte	0
+ 955 0028 00       		.byte	0
+ 956 0029 04       		.uleb128 0x4
+ 957 002a 16       		.uleb128 0x16
+ 958 002b 00       		.byte	0
+ 959 002c 03       		.uleb128 0x3
+ 960 002d 0E       		.uleb128 0xe
+ 961 002e 3A       		.uleb128 0x3a
+ 962 002f 0B       		.uleb128 0xb
+ 963 0030 3B       		.uleb128 0x3b
+ 964 0031 05       		.uleb128 0x5
+ 965 0032 49       		.uleb128 0x49
+ 966 0033 13       		.uleb128 0x13
+ 967 0034 00       		.byte	0
+ 968 0035 00       		.byte	0
+ 969 0036 05       		.uleb128 0x5
+ 970 0037 35       		.uleb128 0x35
+ 971 0038 00       		.byte	0
+ 972 0039 49       		.uleb128 0x49
+ 973 003a 13       		.uleb128 0x13
+ 974 003b 00       		.byte	0
+ 975 003c 00       		.byte	0
+ 976 003d 06       		.uleb128 0x6
+ 977 003e 0F       		.uleb128 0xf
+ 978 003f 00       		.byte	0
+ 979 0040 0B       		.uleb128 0xb
+ 980 0041 0B       		.uleb128 0xb
+ 981 0042 49       		.uleb128 0x49
+ 982 0043 13       		.uleb128 0x13
+ 983 0044 00       		.byte	0
+ 984 0045 00       		.byte	0
+ 985 0046 07       		.uleb128 0x7
+ 986 0047 04       		.uleb128 0x4
+ 987 0048 01       		.byte	0x1
+ 988 0049 0B       		.uleb128 0xb
+ 989 004a 0B       		.uleb128 0xb
+ 990 004b 3A       		.uleb128 0x3a
+ 991 004c 0B       		.uleb128 0xb
+ 992 004d 3B       		.uleb128 0x3b
+ 993 004e 05       		.uleb128 0x5
+ 994 004f 01       		.uleb128 0x1
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 22
+
+
+ 995 0050 13       		.uleb128 0x13
+ 996 0051 00       		.byte	0
+ 997 0052 00       		.byte	0
+ 998 0053 08       		.uleb128 0x8
+ 999 0054 28       		.uleb128 0x28
+ 1000 0055 00       		.byte	0
+ 1001 0056 03       		.uleb128 0x3
+ 1002 0057 0E       		.uleb128 0xe
+ 1003 0058 1C       		.uleb128 0x1c
+ 1004 0059 0D       		.uleb128 0xd
+ 1005 005a 00       		.byte	0
+ 1006 005b 00       		.byte	0
+ 1007 005c 09       		.uleb128 0x9
+ 1008 005d 13       		.uleb128 0x13
+ 1009 005e 01       		.byte	0x1
+ 1010 005f 0B       		.uleb128 0xb
+ 1011 0060 0B       		.uleb128 0xb
+ 1012 0061 3A       		.uleb128 0x3a
+ 1013 0062 0B       		.uleb128 0xb
+ 1014 0063 3B       		.uleb128 0x3b
+ 1015 0064 05       		.uleb128 0x5
+ 1016 0065 01       		.uleb128 0x1
+ 1017 0066 13       		.uleb128 0x13
+ 1018 0067 00       		.byte	0
+ 1019 0068 00       		.byte	0
+ 1020 0069 0A       		.uleb128 0xa
+ 1021 006a 0D       		.uleb128 0xd
+ 1022 006b 00       		.byte	0
+ 1023 006c 03       		.uleb128 0x3
+ 1024 006d 0E       		.uleb128 0xe
+ 1025 006e 3A       		.uleb128 0x3a
+ 1026 006f 0B       		.uleb128 0xb
+ 1027 0070 3B       		.uleb128 0x3b
+ 1028 0071 05       		.uleb128 0x5
+ 1029 0072 49       		.uleb128 0x49
+ 1030 0073 13       		.uleb128 0x13
+ 1031 0074 38       		.uleb128 0x38
+ 1032 0075 0B       		.uleb128 0xb
+ 1033 0076 00       		.byte	0
+ 1034 0077 00       		.byte	0
+ 1035 0078 0B       		.uleb128 0xb
+ 1036 0079 0D       		.uleb128 0xd
+ 1037 007a 00       		.byte	0
+ 1038 007b 03       		.uleb128 0x3
+ 1039 007c 08       		.uleb128 0x8
+ 1040 007d 3A       		.uleb128 0x3a
+ 1041 007e 0B       		.uleb128 0xb
+ 1042 007f 3B       		.uleb128 0x3b
+ 1043 0080 05       		.uleb128 0x5
+ 1044 0081 49       		.uleb128 0x49
+ 1045 0082 13       		.uleb128 0x13
+ 1046 0083 38       		.uleb128 0x38
+ 1047 0084 0B       		.uleb128 0xb
+ 1048 0085 00       		.byte	0
+ 1049 0086 00       		.byte	0
+ 1050 0087 0C       		.uleb128 0xc
+ 1051 0088 16       		.uleb128 0x16
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 23
+
+
+ 1052 0089 00       		.byte	0
+ 1053 008a 03       		.uleb128 0x3
+ 1054 008b 0E       		.uleb128 0xe
+ 1055 008c 3A       		.uleb128 0x3a
+ 1056 008d 0B       		.uleb128 0xb
+ 1057 008e 3B       		.uleb128 0x3b
+ 1058 008f 0B       		.uleb128 0xb
+ 1059 0090 49       		.uleb128 0x49
+ 1060 0091 13       		.uleb128 0x13
+ 1061 0092 00       		.byte	0
+ 1062 0093 00       		.byte	0
+ 1063 0094 0D       		.uleb128 0xd
+ 1064 0095 13       		.uleb128 0x13
+ 1065 0096 01       		.byte	0x1
+ 1066 0097 0B       		.uleb128 0xb
+ 1067 0098 0B       		.uleb128 0xb
+ 1068 0099 3A       		.uleb128 0x3a
+ 1069 009a 0B       		.uleb128 0xb
+ 1070 009b 3B       		.uleb128 0x3b
+ 1071 009c 0B       		.uleb128 0xb
+ 1072 009d 01       		.uleb128 0x1
+ 1073 009e 13       		.uleb128 0x13
+ 1074 009f 00       		.byte	0
+ 1075 00a0 00       		.byte	0
+ 1076 00a1 0E       		.uleb128 0xe
+ 1077 00a2 0D       		.uleb128 0xd
+ 1078 00a3 00       		.byte	0
+ 1079 00a4 03       		.uleb128 0x3
+ 1080 00a5 0E       		.uleb128 0xe
+ 1081 00a6 3A       		.uleb128 0x3a
+ 1082 00a7 0B       		.uleb128 0xb
+ 1083 00a8 3B       		.uleb128 0x3b
+ 1084 00a9 0B       		.uleb128 0xb
+ 1085 00aa 49       		.uleb128 0x49
+ 1086 00ab 13       		.uleb128 0x13
+ 1087 00ac 38       		.uleb128 0x38
+ 1088 00ad 0B       		.uleb128 0xb
+ 1089 00ae 00       		.byte	0
+ 1090 00af 00       		.byte	0
+ 1091 00b0 0F       		.uleb128 0xf
+ 1092 00b1 2E       		.uleb128 0x2e
+ 1093 00b2 01       		.byte	0x1
+ 1094 00b3 3F       		.uleb128 0x3f
+ 1095 00b4 19       		.uleb128 0x19
+ 1096 00b5 03       		.uleb128 0x3
+ 1097 00b6 0E       		.uleb128 0xe
+ 1098 00b7 3A       		.uleb128 0x3a
+ 1099 00b8 0B       		.uleb128 0xb
+ 1100 00b9 3B       		.uleb128 0x3b
+ 1101 00ba 0B       		.uleb128 0xb
+ 1102 00bb 27       		.uleb128 0x27
+ 1103 00bc 19       		.uleb128 0x19
+ 1104 00bd 11       		.uleb128 0x11
+ 1105 00be 01       		.uleb128 0x1
+ 1106 00bf 12       		.uleb128 0x12
+ 1107 00c0 06       		.uleb128 0x6
+ 1108 00c1 40       		.uleb128 0x40
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 24
+
+
+ 1109 00c2 18       		.uleb128 0x18
+ 1110 00c3 9642     		.uleb128 0x2116
+ 1111 00c5 19       		.uleb128 0x19
+ 1112 00c6 01       		.uleb128 0x1
+ 1113 00c7 13       		.uleb128 0x13
+ 1114 00c8 00       		.byte	0
+ 1115 00c9 00       		.byte	0
+ 1116 00ca 10       		.uleb128 0x10
+ 1117 00cb 05       		.uleb128 0x5
+ 1118 00cc 00       		.byte	0
+ 1119 00cd 03       		.uleb128 0x3
+ 1120 00ce 0E       		.uleb128 0xe
+ 1121 00cf 3A       		.uleb128 0x3a
+ 1122 00d0 0B       		.uleb128 0xb
+ 1123 00d1 3B       		.uleb128 0x3b
+ 1124 00d2 0B       		.uleb128 0xb
+ 1125 00d3 49       		.uleb128 0x49
+ 1126 00d4 13       		.uleb128 0x13
+ 1127 00d5 02       		.uleb128 0x2
+ 1128 00d6 18       		.uleb128 0x18
+ 1129 00d7 00       		.byte	0
+ 1130 00d8 00       		.byte	0
+ 1131 00d9 11       		.uleb128 0x11
+ 1132 00da 34       		.uleb128 0x34
+ 1133 00db 00       		.byte	0
+ 1134 00dc 03       		.uleb128 0x3
+ 1135 00dd 0E       		.uleb128 0xe
+ 1136 00de 3A       		.uleb128 0x3a
+ 1137 00df 0B       		.uleb128 0xb
+ 1138 00e0 3B       		.uleb128 0x3b
+ 1139 00e1 0B       		.uleb128 0xb
+ 1140 00e2 49       		.uleb128 0x49
+ 1141 00e3 13       		.uleb128 0x13
+ 1142 00e4 00       		.byte	0
+ 1143 00e5 00       		.byte	0
+ 1144 00e6 12       		.uleb128 0x12
+ 1145 00e7 34       		.uleb128 0x34
+ 1146 00e8 00       		.byte	0
+ 1147 00e9 03       		.uleb128 0x3
+ 1148 00ea 0E       		.uleb128 0xe
+ 1149 00eb 3A       		.uleb128 0x3a
+ 1150 00ec 0B       		.uleb128 0xb
+ 1151 00ed 3B       		.uleb128 0x3b
+ 1152 00ee 0B       		.uleb128 0xb
+ 1153 00ef 49       		.uleb128 0x49
+ 1154 00f0 13       		.uleb128 0x13
+ 1155 00f1 02       		.uleb128 0x2
+ 1156 00f2 18       		.uleb128 0x18
+ 1157 00f3 00       		.byte	0
+ 1158 00f4 00       		.byte	0
+ 1159 00f5 13       		.uleb128 0x13
+ 1160 00f6 34       		.uleb128 0x34
+ 1161 00f7 00       		.byte	0
+ 1162 00f8 03       		.uleb128 0x3
+ 1163 00f9 08       		.uleb128 0x8
+ 1164 00fa 3A       		.uleb128 0x3a
+ 1165 00fb 0B       		.uleb128 0xb
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 25
+
+
+ 1166 00fc 3B       		.uleb128 0x3b
+ 1167 00fd 0B       		.uleb128 0xb
+ 1168 00fe 49       		.uleb128 0x49
+ 1169 00ff 13       		.uleb128 0x13
+ 1170 0100 02       		.uleb128 0x2
+ 1171 0101 18       		.uleb128 0x18
+ 1172 0102 00       		.byte	0
+ 1173 0103 00       		.byte	0
+ 1174 0104 14       		.uleb128 0x14
+ 1175 0105 01       		.uleb128 0x1
+ 1176 0106 01       		.byte	0x1
+ 1177 0107 49       		.uleb128 0x49
+ 1178 0108 13       		.uleb128 0x13
+ 1179 0109 01       		.uleb128 0x1
+ 1180 010a 13       		.uleb128 0x13
+ 1181 010b 00       		.byte	0
+ 1182 010c 00       		.byte	0
+ 1183 010d 15       		.uleb128 0x15
+ 1184 010e 21       		.uleb128 0x21
+ 1185 010f 00       		.byte	0
+ 1186 0110 49       		.uleb128 0x49
+ 1187 0111 13       		.uleb128 0x13
+ 1188 0112 2F       		.uleb128 0x2f
+ 1189 0113 18       		.uleb128 0x18
+ 1190 0114 00       		.byte	0
+ 1191 0115 00       		.byte	0
+ 1192 0116 16       		.uleb128 0x16
+ 1193 0117 21       		.uleb128 0x21
+ 1194 0118 00       		.byte	0
+ 1195 0119 49       		.uleb128 0x49
+ 1196 011a 13       		.uleb128 0x13
+ 1197 011b 2F       		.uleb128 0x2f
+ 1198 011c 0B       		.uleb128 0xb
+ 1199 011d 00       		.byte	0
+ 1200 011e 00       		.byte	0
+ 1201 011f 17       		.uleb128 0x17
+ 1202 0120 2E       		.uleb128 0x2e
+ 1203 0121 00       		.byte	0
+ 1204 0122 3F       		.uleb128 0x3f
+ 1205 0123 19       		.uleb128 0x19
+ 1206 0124 03       		.uleb128 0x3
+ 1207 0125 0E       		.uleb128 0xe
+ 1208 0126 3A       		.uleb128 0x3a
+ 1209 0127 0B       		.uleb128 0xb
+ 1210 0128 3B       		.uleb128 0x3b
+ 1211 0129 0B       		.uleb128 0xb
+ 1212 012a 27       		.uleb128 0x27
+ 1213 012b 19       		.uleb128 0x19
+ 1214 012c 11       		.uleb128 0x11
+ 1215 012d 01       		.uleb128 0x1
+ 1216 012e 12       		.uleb128 0x12
+ 1217 012f 06       		.uleb128 0x6
+ 1218 0130 40       		.uleb128 0x40
+ 1219 0131 18       		.uleb128 0x18
+ 1220 0132 9742     		.uleb128 0x2117
+ 1221 0134 19       		.uleb128 0x19
+ 1222 0135 00       		.byte	0
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 26
+
+
+ 1223 0136 00       		.byte	0
+ 1224 0137 18       		.uleb128 0x18
+ 1225 0138 34       		.uleb128 0x34
+ 1226 0139 00       		.byte	0
+ 1227 013a 03       		.uleb128 0x3
+ 1228 013b 0E       		.uleb128 0xe
+ 1229 013c 3A       		.uleb128 0x3a
+ 1230 013d 0B       		.uleb128 0xb
+ 1231 013e 3B       		.uleb128 0x3b
+ 1232 013f 05       		.uleb128 0x5
+ 1233 0140 49       		.uleb128 0x49
+ 1234 0141 13       		.uleb128 0x13
+ 1235 0142 3F       		.uleb128 0x3f
+ 1236 0143 19       		.uleb128 0x19
+ 1237 0144 3C       		.uleb128 0x3c
+ 1238 0145 19       		.uleb128 0x19
+ 1239 0146 00       		.byte	0
+ 1240 0147 00       		.byte	0
+ 1241 0148 19       		.uleb128 0x19
+ 1242 0149 34       		.uleb128 0x34
+ 1243 014a 00       		.byte	0
+ 1244 014b 03       		.uleb128 0x3
+ 1245 014c 0E       		.uleb128 0xe
+ 1246 014d 3A       		.uleb128 0x3a
+ 1247 014e 0B       		.uleb128 0xb
+ 1248 014f 3B       		.uleb128 0x3b
+ 1249 0150 0B       		.uleb128 0xb
+ 1250 0151 49       		.uleb128 0x49
+ 1251 0152 13       		.uleb128 0x13
+ 1252 0153 3F       		.uleb128 0x3f
+ 1253 0154 19       		.uleb128 0x19
+ 1254 0155 3C       		.uleb128 0x3c
+ 1255 0156 19       		.uleb128 0x19
+ 1256 0157 00       		.byte	0
+ 1257 0158 00       		.byte	0
+ 1258 0159 00       		.byte	0
+ 1259              		.section	.debug_aranges,"",%progbits
+ 1260 0000 34000000 		.4byte	0x34
+ 1261 0004 0200     		.2byte	0x2
+ 1262 0006 00000000 		.4byte	.Ldebug_info0
+ 1263 000a 04       		.byte	0x4
+ 1264 000b 00       		.byte	0
+ 1265 000c 0000     		.2byte	0
+ 1266 000e 0000     		.2byte	0
+ 1267 0010 00000000 		.4byte	.LFB37
+ 1268 0014 20020000 		.4byte	.LFE37-.LFB37
+ 1269 0018 00000000 		.4byte	.LFB38
+ 1270 001c 08000000 		.4byte	.LFE38-.LFB38
+ 1271 0020 00000000 		.4byte	.LFB39
+ 1272 0024 18000000 		.4byte	.LFE39-.LFB39
+ 1273 0028 00000000 		.4byte	.LFB40
+ 1274 002c 18000000 		.4byte	.LFE40-.LFB40
+ 1275 0030 00000000 		.4byte	0
+ 1276 0034 00000000 		.4byte	0
+ 1277              		.section	.debug_ranges,"",%progbits
+ 1278              	.Ldebug_ranges0:
+ 1279 0000 00000000 		.4byte	.LFB37
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 27
+
+
+ 1280 0004 20020000 		.4byte	.LFE37
+ 1281 0008 00000000 		.4byte	.LFB38
+ 1282 000c 08000000 		.4byte	.LFE38
+ 1283 0010 00000000 		.4byte	.LFB39
+ 1284 0014 18000000 		.4byte	.LFE39
+ 1285 0018 00000000 		.4byte	.LFB40
+ 1286 001c 18000000 		.4byte	.LFE40
+ 1287 0020 00000000 		.4byte	0
+ 1288 0024 00000000 		.4byte	0
+ 1289              		.section	.debug_line,"",%progbits
+ 1290              	.Ldebug_line0:
+ 1291 0000 18010000 		.section	.debug_str,"MS",%progbits,1
+ 1291      0200A400 
+ 1291      00000201 
+ 1291      FB0E0D00 
+ 1291      01010101 
+ 1292              	.LASF32:
+ 1293 0000 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_NOT_REGISTERED\000"
+ 1293      455F4552 
+ 1293      524F525F 
+ 1293      4C324341 
+ 1293      505F5053 
+ 1294              	.LASF31:
+ 1295 0025 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_ALREADY_REGISTERED\000"
+ 1295      455F4552 
+ 1295      524F525F 
+ 1295      4C324341 
+ 1295      505F5053 
+ 1296              	.LASF34:
+ 1297 004e 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_CHANNEL_NOT_FOUND\000"
+ 1297      455F4552 
+ 1297      524F525F 
+ 1297      4C324341 
+ 1297      505F4348 
+ 1298              	.LASF70:
+ 1299 0072 75617274 		.ascii	"uartTxData\000"
+ 1299      54784461 
+ 1299      746100
+ 1300              	.LASF2:
+ 1301 007d 73686F72 		.ascii	"short int\000"
+ 1301      7420696E 
+ 1301      7400
+ 1302              	.LASF16:
+ 1303 0087 73697A65 		.ascii	"sizetype\000"
+ 1303      74797065 
+ 1303      00
+ 1304              	.LASF60:
+ 1305 0090 636F6E6E 		.ascii	"connHandle\000"
+ 1305      48616E64 
+ 1305      6C6500
+ 1306              	.LASF17:
+ 1307 009b 4359424C 		.ascii	"CYBLE_ERROR_OK\000"
+ 1307      455F4552 
+ 1307      524F525F 
+ 1307      4F4B00
+ 1308              	.LASF38:
+ 1309 00aa 4359424C 		.ascii	"CYBLE_ERROR_FLASH_WRITE_NOT_PERMITED\000"
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 28
+
+
+ 1309      455F4552 
+ 1309      524F525F 
+ 1309      464C4153 
+ 1309      485F5752 
+ 1310              	.LASF40:
+ 1311 00cf 4359424C 		.ascii	"CYBLE_ERROR_HARDWARE_FAILURE\000"
+ 1311      455F4552 
+ 1311      524F525F 
+ 1311      48415244 
+ 1311      57415245 
+ 1312              	.LASF71:
+ 1313 00ec 75617274 		.ascii	"uartTxDataLength\000"
+ 1313      54784461 
+ 1313      74614C65 
+ 1313      6E677468 
+ 1313      00
+ 1314              	.LASF39:
+ 1315 00fd 4359424C 		.ascii	"CYBLE_ERROR_MIC_AUTH_FAILED\000"
+ 1315      455F4552 
+ 1315      524F525F 
+ 1315      4D49435F 
+ 1315      41555448 
+ 1316              	.LASF50:
+ 1317 0119 4359424C 		.ascii	"CYBLE_GATT_DB_ATTR_HANDLE_T\000"
+ 1317      455F4741 
+ 1317      54545F44 
+ 1317      425F4154 
+ 1317      54525F48 
+ 1318              	.LASF72:
+ 1319 0135 75617274 		.ascii	"uartIdleCount\000"
+ 1319      49646C65 
+ 1319      436F756E 
+ 1319      7400
+ 1320              	.LASF63:
+ 1321 0143 4359424C 		.ascii	"CYBLE_STATE_STOPPED\000"
+ 1321      455F5354 
+ 1321      4154455F 
+ 1321      53544F50 
+ 1321      50454400 
+ 1322              	.LASF18:
+ 1323 0157 4359424C 		.ascii	"CYBLE_ERROR_INVALID_PARAMETER\000"
+ 1323      455F4552 
+ 1323      524F525F 
+ 1323      494E5641 
+ 1323      4C49445F 
+ 1324              	.LASF22:
+ 1325 0175 4359424C 		.ascii	"CYBLE_ERROR_OOB_NOT_AVAILABLE\000"
+ 1325      455F4552 
+ 1325      524F525F 
+ 1325      4F4F425F 
+ 1325      4E4F545F 
+ 1326              	.LASF56:
+ 1327 0193 76616C75 		.ascii	"value\000"
+ 1327      6500
+ 1328              	.LASF65:
+ 1329 0199 4359424C 		.ascii	"CYBLE_STATE_CONNECTED\000"
+ 1329      455F5354 
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 29
+
+
+ 1329      4154455F 
+ 1329      434F4E4E 
+ 1329      45435445 
+ 1330              	.LASF80:
+ 1331 01af 6D747553 		.ascii	"mtuSize\000"
+ 1331      697A6500 
+ 1332              	.LASF10:
+ 1333 01b7 75696E74 		.ascii	"uint16\000"
+ 1333      313600
+ 1334              	.LASF19:
+ 1335 01be 4359424C 		.ascii	"CYBLE_ERROR_INVALID_OPERATION\000"
+ 1335      455F4552 
+ 1335      524F525F 
+ 1335      494E5641 
+ 1335      4C49445F 
+ 1336              	.LASF87:
+ 1337 01dc 696E6465 		.ascii	"index\000"
+ 1337      7800
+ 1338              	.LASF9:
+ 1339 01e2 75696E74 		.ascii	"uint8\000"
+ 1339      3800
+ 1340              	.LASF49:
+ 1341 01e8 4359424C 		.ascii	"CYBLE_API_RESULT_T\000"
+ 1341      455F4150 
+ 1341      495F5245 
+ 1341      53554C54 
+ 1341      5F5400
+ 1342              	.LASF79:
+ 1343 01fb 6379426C 		.ascii	"cyBle_connHandle\000"
+ 1343      655F636F 
+ 1343      6E6E4861 
+ 1343      6E646C65 
+ 1343      00
+ 1344              	.LASF23:
+ 1345 020c 4359424C 		.ascii	"CYBLE_ERROR_NO_CONNECTION\000"
+ 1345      455F4552 
+ 1345      524F525F 
+ 1345      4E4F5F43 
+ 1345      4F4E4E45 
+ 1346              	.LASF51:
+ 1347 0226 62644861 		.ascii	"bdHandle\000"
+ 1347      6E646C65 
+ 1347      00
+ 1348              	.LASF27:
+ 1349 022f 4359424C 		.ascii	"CYBLE_ERROR_TX_POWER_READ\000"
+ 1349      455F4552 
+ 1349      524F525F 
+ 1349      54585F50 
+ 1349      4F574552 
+ 1350              	.LASF21:
+ 1351 0249 4359424C 		.ascii	"CYBLE_ERROR_INSUFFICIENT_RESOURCES\000"
+ 1351      455F4552 
+ 1351      524F525F 
+ 1351      494E5355 
+ 1351      46464943 
+ 1352              	.LASF12:
+ 1353 026c 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 30
+
+
+ 1353      7400
+ 1354              	.LASF66:
+ 1355 0272 4359424C 		.ascii	"CYBLE_STATE_SCANNING\000"
+ 1355      455F5354 
+ 1355      4154455F 
+ 1355      5343414E 
+ 1355      4E494E47 
+ 1356              	.LASF6:
+ 1357 0287 6C6F6E67 		.ascii	"long long int\000"
+ 1357      206C6F6E 
+ 1357      6720696E 
+ 1357      7400
+ 1358              	.LASF28:
+ 1359 0295 4359424C 		.ascii	"CYBLE_ERROR_BT_ON_NOT_COMPLETED\000"
+ 1359      455F4552 
+ 1359      524F525F 
+ 1359      42545F4F 
+ 1359      4E5F4E4F 
+ 1360              	.LASF61:
+ 1361 02b5 68616E64 		.ascii	"handleValPair\000"
+ 1361      6C655661 
+ 1361      6C506169 
+ 1361      7200
+ 1362              	.LASF4:
+ 1363 02c3 6C6F6E67 		.ascii	"long int\000"
+ 1363      20696E74 
+ 1363      00
+ 1364              	.LASF84:
+ 1365 02cc 433A5C55 		.ascii	"C:\\Users\\michs\\Documents\\PSoC Creator\\fNIR PSo"
+ 1365      73657273 
+ 1365      5C6D6963 
+ 1365      68735C44 
+ 1365      6F63756D 
+ 1366 02fa 4320424C 		.ascii	"C BLE\\fNIR PSoC Central\\fNIR PSoC Central.cydsn\000"
+ 1366      455C664E 
+ 1366      49522050 
+ 1366      536F4320 
+ 1366      43656E74 
+ 1367              	.LASF77:
+ 1368 032a 456E6162 		.ascii	"EnableUartRxInt\000"
+ 1368      6C655561 
+ 1368      72745278 
+ 1368      496E7400 
+ 1369              	.LASF25:
+ 1370 033a 4359424C 		.ascii	"CYBLE_ERROR_REPEATED_ATTEMPTS\000"
+ 1370      455F4552 
+ 1370      524F525F 
+ 1370      52455045 
+ 1370      41544544 
+ 1371              	.LASF59:
+ 1372 0358 4359424C 		.ascii	"CYBLE_GATTC_WRITE_CMD_REQ_T\000"
+ 1372      455F4741 
+ 1372      5454435F 
+ 1372      57524954 
+ 1372      455F434D 
+ 1373              	.LASF24:
+ 1374 0374 4359424C 		.ascii	"CYBLE_ERROR_NO_DEVICE_ENTITY\000"
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 31
+
+
+ 1374      455F4552 
+ 1374      524F525F 
+ 1374      4E4F5F44 
+ 1374      45564943 
+ 1375              	.LASF62:
+ 1376 0391 4359424C 		.ascii	"CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T\000"
+ 1376      455F4741 
+ 1376      5454435F 
+ 1376      48414E44 
+ 1376      4C455F56 
+ 1377              	.LASF1:
+ 1378 03b6 756E7369 		.ascii	"unsigned char\000"
+ 1378      676E6564 
+ 1378      20636861 
+ 1378      7200
+ 1379              	.LASF42:
+ 1380 03c4 4359424C 		.ascii	"CYBLE_ERROR_FLASH_WRITE\000"
+ 1380      455F4552 
+ 1380      524F525F 
+ 1380      464C4153 
+ 1380      485F5752 
+ 1381              	.LASF78:
+ 1382 03dc 6379426C 		.ascii	"cyBle_state\000"
+ 1382      655F7374 
+ 1382      61746500 
+ 1383              	.LASF0:
+ 1384 03e8 7369676E 		.ascii	"signed char\000"
+ 1384      65642063 
+ 1384      68617200 
+ 1385              	.LASF7:
+ 1386 03f4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1386      206C6F6E 
+ 1386      6720756E 
+ 1386      7369676E 
+ 1386      65642069 
+ 1387              	.LASF29:
+ 1388 040b 4359424C 		.ascii	"CYBLE_ERROR_SEC_FAILED\000"
+ 1388      455F4552 
+ 1388      524F525F 
+ 1388      5345435F 
+ 1388      4641494C 
+ 1389              	.LASF26:
+ 1390 0422 4359424C 		.ascii	"CYBLE_ERROR_GAP_ROLE\000"
+ 1390      455F4552 
+ 1390      524F525F 
+ 1390      4741505F 
+ 1390      524F4C45 
+ 1391              	.LASF8:
+ 1392 0437 756E7369 		.ascii	"unsigned int\000"
+ 1392      676E6564 
+ 1392      20696E74 
+ 1392      00
+ 1393              	.LASF30:
+ 1394 0444 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_WRONG_ENCODING\000"
+ 1394      455F4552 
+ 1394      524F525F 
+ 1394      4C324341 
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 32
+
+
+ 1394      505F5053 
+ 1395              	.LASF68:
+ 1396 0469 4359424C 		.ascii	"CYBLE_STATE_DISCONNECTED\000"
+ 1396      455F5354 
+ 1396      4154455F 
+ 1396      44495343 
+ 1396      4F4E4E45 
+ 1397              	.LASF69:
+ 1398 0482 4359424C 		.ascii	"CYBLE_STATE_T\000"
+ 1398      455F5354 
+ 1398      4154455F 
+ 1398      5400
+ 1399              	.LASF15:
+ 1400 0490 72656733 		.ascii	"reg32\000"
+ 1400      3200
+ 1401              	.LASF47:
+ 1402 0496 4359424C 		.ascii	"CYBLE_ERROR_CHAR_IS_NOT_DISCOVERED\000"
+ 1402      455F4552 
+ 1402      524F525F 
+ 1402      43484152 
+ 1402      5F49535F 
+ 1403              	.LASF3:
+ 1404 04b9 73686F72 		.ascii	"short unsigned int\000"
+ 1404      7420756E 
+ 1404      7369676E 
+ 1404      65642069 
+ 1404      6E7400
+ 1405              	.LASF81:
+ 1406 04cc 72784368 		.ascii	"rxCharHandle\000"
+ 1406      61724861 
+ 1406      6E646C65 
+ 1406      00
+ 1407              	.LASF14:
+ 1408 04d9 63686172 		.ascii	"char\000"
+ 1408      00
+ 1409              	.LASF86:
+ 1410 04de 75617274 		.ascii	"uartRxDataNotification\000"
+ 1410      52784461 
+ 1410      74614E6F 
+ 1410      74696669 
+ 1410      63617469 
+ 1411              	.LASF55:
+ 1412 04f5 4359424C 		.ascii	"CYBLE_GATT_VALUE_T\000"
+ 1412      455F4741 
+ 1412      54545F56 
+ 1412      414C5545 
+ 1412      5F5400
+ 1413              	.LASF82:
+ 1414 0508 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1414      4320342E 
+ 1414      392E3320 
+ 1414      32303135 
+ 1414      30333033 
+ 1415 053b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1415      20726576 
+ 1415      6973696F 
+ 1415      6E203232 
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 33
+
+
+ 1415      31323230 
+ 1416 056e 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1416      66756E63 
+ 1416      74696F6E 
+ 1416      2D736563 
+ 1416      74696F6E 
+ 1417              	.LASF43:
+ 1418 0596 4359424C 		.ascii	"CYBLE_ERROR_CONTROLLER_BUSY\000"
+ 1418      455F4552 
+ 1418      524F525F 
+ 1418      434F4E54 
+ 1418      524F4C4C 
+ 1419              	.LASF64:
+ 1420 05b2 4359424C 		.ascii	"CYBLE_STATE_INITIALIZING\000"
+ 1420      455F5354 
+ 1420      4154455F 
+ 1420      494E4954 
+ 1420      49414C49 
+ 1421              	.LASF83:
+ 1422 05cb 6170705F 		.ascii	"app_UART.c\000"
+ 1422      55415254 
+ 1422      2E6300
+ 1423              	.LASF20:
+ 1424 05d6 4359424C 		.ascii	"CYBLE_ERROR_MEMORY_ALLOCATION_FAILED\000"
+ 1424      455F4552 
+ 1424      524F525F 
+ 1424      4D454D4F 
+ 1424      52595F41 
+ 1425              	.LASF85:
+ 1426 05fb 48616E64 		.ascii	"HandleUartRxTraffic\000"
+ 1426      6C655561 
+ 1426      72745278 
+ 1426      54726166 
+ 1426      66696300 
+ 1427              	.LASF41:
+ 1428 060f 4359424C 		.ascii	"CYBLE_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER_VALUE\000"
+ 1428      455F4552 
+ 1428      524F525F 
+ 1428      554E5355 
+ 1428      50504F52 
+ 1429              	.LASF11:
+ 1430 0642 75696E74 		.ascii	"uint32\000"
+ 1430      333200
+ 1431              	.LASF5:
+ 1432 0649 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1432      20756E73 
+ 1432      69676E65 
+ 1432      6420696E 
+ 1432      7400
+ 1433              	.LASF57:
+ 1434 065b 61747472 		.ascii	"attrHandle\000"
+ 1434      48616E64 
+ 1434      6C6500
+ 1435              	.LASF13:
+ 1436 0666 646F7562 		.ascii	"double\000"
+ 1436      6C6500
+ 1437              	.LASF75:
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 34
+
+
+ 1438 066d 48616E64 		.ascii	"HandleUartTxTraffic\000"
+ 1438      6C655561 
+ 1438      72745478 
+ 1438      54726166 
+ 1438      66696300 
+ 1439              	.LASF53:
+ 1440 0681 4359424C 		.ascii	"CYBLE_CONN_HANDLE_T\000"
+ 1440      455F434F 
+ 1440      4E4E5F48 
+ 1440      414E444C 
+ 1440      455F5400 
+ 1441              	.LASF58:
+ 1442 0695 4359424C 		.ascii	"CYBLE_GATT_HANDLE_VALUE_PAIR_T\000"
+ 1442      455F4741 
+ 1442      54545F48 
+ 1442      414E444C 
+ 1442      455F5641 
+ 1443              	.LASF76:
+ 1444 06b4 44697361 		.ascii	"DisableUartRxInt\000"
+ 1444      626C6555 
+ 1444      61727452 
+ 1444      78496E74 
+ 1444      00
+ 1445              	.LASF35:
+ 1446 06c5 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_NOT_IN_RANGE\000"
+ 1446      455F4552 
+ 1446      524F525F 
+ 1446      4C324341 
+ 1446      505F5053 
+ 1447              	.LASF45:
+ 1448 06e8 4359424C 		.ascii	"CYBLE_ERROR_NTF_DISABLED\000"
+ 1448      455F4552 
+ 1448      524F525F 
+ 1448      4E54465F 
+ 1448      44495341 
+ 1449              	.LASF37:
+ 1450 0701 4359424C 		.ascii	"CYBLE_ERROR_DEVICE_ALREADY_EXISTS\000"
+ 1450      455F4552 
+ 1450      524F525F 
+ 1450      44455649 
+ 1450      43455F41 
+ 1451              	.LASF44:
+ 1452 0723 4359424C 		.ascii	"CYBLE_ERROR_MAX\000"
+ 1452      455F4552 
+ 1452      524F525F 
+ 1452      4D415800 
+ 1453              	.LASF48:
+ 1454 0733 4359424C 		.ascii	"CYBLE_ERROR_INVALID_STATE\000"
+ 1454      455F4552 
+ 1454      524F525F 
+ 1454      494E5641 
+ 1454      4C49445F 
+ 1455              	.LASF54:
+ 1456 074d 61637475 		.ascii	"actualLen\000"
+ 1456      616C4C65 
+ 1456      6E00
+ 1457              	.LASF36:
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccVdvUzQ.s 			page 35
+
+
+ 1458 0757 4359424C 		.ascii	"CYBLE_ERROR_GATT_DB_INVALID_ATTR_HANDLE\000"
+ 1458      455F4552 
+ 1458      524F525F 
+ 1458      47415454 
+ 1458      5F44425F 
+ 1459              	.LASF33:
+ 1460 077f 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_CONNECTION_ENTITY_NOT_FOUND\000"
+ 1460      455F4552 
+ 1460      524F525F 
+ 1460      4C324341 
+ 1460      505F434F 
+ 1461              	.LASF46:
+ 1462 07ad 4359424C 		.ascii	"CYBLE_ERROR_IND_DISABLED\000"
+ 1462      455F4552 
+ 1462      524F525F 
+ 1462      494E445F 
+ 1462      44495341 
+ 1463              	.LASF74:
+ 1464 07c6 75617274 		.ascii	"uartTxDataWriteCmd\000"
+ 1464      54784461 
+ 1464      74615772 
+ 1464      69746543 
+ 1464      6D6400
+ 1465              	.LASF67:
+ 1466 07d9 4359424C 		.ascii	"CYBLE_STATE_CONNECTING\000"
+ 1466      455F5354 
+ 1466      4154455F 
+ 1466      434F4E4E 
+ 1466      45435449 
+ 1467              	.LASF73:
+ 1468 07f0 626C6541 		.ascii	"bleApiResult\000"
+ 1468      70695265 
+ 1468      73756C74 
+ 1468      00
+ 1469              	.LASF52:
+ 1470 07fd 61747449 		.ascii	"attId\000"
+ 1470      6400
+ 1471              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

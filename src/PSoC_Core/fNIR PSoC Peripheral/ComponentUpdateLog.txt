@@ -1,0 +1,24 @@
+Last Modified Date & Time: 12/28/2016 13:44:06
+
+UART_to_BLE_peripheral: TopDesign.cysch
+	BLE [v1.20] to [v3.20]
+	Conn_LED [v2.10] to [v2.20]
+	Adv_LED [v2.10] to [v2.20]
+	UART [v2.0] to [v3.20]
+
+UART_to_BLE_peripheral: UART_to_BLE_peripheral.cydwr
+	cy_boot [v4.20] to [v5.50]
+
+
+Last Modified Date & Time: 01/04/2017 08:11:19
+
+UART_to_BLE_peripheral: TopDesign.cysch
+	BLE [v1.20] to [v3.20]
+	Conn_LED [v2.10] to [v2.20]
+	Adv_LED [v2.10] to [v2.20]
+	UART [v2.0] to [v3.20]
+
+UART_to_BLE_peripheral: UART_to_BLE_peripheral.cydwr
+	cy_boot [v4.20] to [v5.50]
+
+

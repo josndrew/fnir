@@ -1,0 +1,994 @@
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata
+  18              		.align	2
+  19              	.LC1:
+  20 0000 0A0D2A2A 		.ascii	"\012\015*******************************************"
+  20      2A2A2A2A 
+  20      2A2A2A2A 
+  20      2A2A2A2A 
+  20      2A2A2A2A 
+  21 002d 2A2A2A2A 		.ascii	"*****************\000"
+  21      2A2A2A2A 
+  21      2A2A2A2A 
+  21      2A2A2A2A 
+  21      2A00
+  22 003f 00       		.align	2
+  23              	.LC3:
+  24 0040 0A0D2A2A 		.ascii	"\012\015***************** BLE UART example project "
+  24      2A2A2A2A 
+  24      2A2A2A2A 
+  24      2A2A2A2A 
+  24      2A2A2A20 
+  25 006d 2A2A2A2A 		.ascii	"*****************\000"
+  25      2A2A2A2A 
+  25      2A2A2A2A 
+  25      2A2A2A2A 
+  25      2A00
+  26 007f 00       		.align	2
+  27              	.LC5:
+  28 0080 0A0D2A2A 		.ascii	"\012\015*******************************************"
+  28      2A2A2A2A 
+  28      2A2A2A2A 
+  28      2A2A2A2A 
+  28      2A2A2A2A 
+  29 00ad 2A2A2A2A 		.ascii	"*****************\012\015\000"
+  29      2A2A2A2A 
+  29      2A2A2A2A 
+  29      2A2A2A2A 
+  29      2A0A0D00 
+  30 00c1 000000   		.align	2
+  31              	.LC7:
+  32 00c4 0A0D4465 		.ascii	"\012\015Device role \011: CENTRAL\000"
+  32      76696365 
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 2
+
+
+  32      20726F6C 
+  32      6520093A 
+  32      2043454E 
+  33 00dd 000000   		.align	2
+  34              	.LC9:
+  35 00e0 0A0D4C6F 		.ascii	"\012\015Low Power Mode \011: DISABLED\000"
+  35      7720506F 
+  35      77657220 
+  35      4D6F6465 
+  35      20093A20 
+  36 00fd 000000   		.align	2
+  37              	.LC11:
+  38 0100 0A0D466C 		.ascii	"\012\015Flow Control \011: DISABLED\000"
+  38      6F772043 
+  38      6F6E7472 
+  38      6F6C2009 
+  38      3A204449 
+  39 011b 00       		.align	2
+  40              	.LC13:
+  41 011c 0A0D0909 		.ascii	"\012\015\011\011CyBle stack initilization FAILED!!!"
+  41      4379426C 
+  41      65207374 
+  41      61636B20 
+  41      696E6974 
+  42 0143 200A0D20 		.ascii	" \012\015 \000"
+  42      00
+  43              		.section	.text.main,"ax",%progbits
+  44              		.align	2
+  45              		.global	main
+  46              		.code	16
+  47              		.thumb_func
+  48              		.type	main, %function
+  49              	main:
+  50              	.LFB37:
+  51              		.file 1 "main.c"
+   1:main.c        **** /*******************************************************************************
+   2:main.c        **** * File Name: main.c
+   3:main.c        **** *
+   4:main.c        **** * Version: 1.0
+   5:main.c        **** *
+   6:main.c        **** * Description:
+   7:main.c        **** *  BLE example project that works as a BLE to UART bridge, using 
+   8:main.c        **** *  Cypress's BLE component APIs and application layer callback. 
+   9:main.c        **** *  This project demostrates a custom service usage for BLE to UART  
+  10:main.c        **** *  bridge in a CENTRAL role.
+  11:main.c        **** *
+  12:main.c        **** * References:
+  13:main.c        **** *  BLUETOOTH SPECIFICATION Version 4.1
+  14:main.c        **** *
+  15:main.c        **** * Hardware Dependency:
+  16:main.c        **** *  (1) CY8CKIT-042 BLE
+  17:main.c        **** *  (2) An external UART transciever (if flow control is enabled) 
+  18:main.c        **** *
+  19:main.c        **** ********************************************************************************
+  20:main.c        **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+  21:main.c        **** * You may use this file only in accordance with the license, terms, conditions,
+  22:main.c        **** * disclaimers, and limitations in the end user license agreement accompanying
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 3
+
+
+  23:main.c        **** * the software package with which this file was provided.
+  24:main.c        **** *******************************************************************************/
+  25:main.c        **** 
+  26:main.c        **** #include "main.h"
+  27:main.c        **** 
+  28:main.c        **** int main()
+  29:main.c        **** {
+  52              		.loc 1 29 0
+  53              		.cfi_startproc
+  54 0000 90B5     		push	{r4, r7, lr}
+  55              		.cfi_def_cfa_offset 12
+  56              		.cfi_offset 4, -12
+  57              		.cfi_offset 7, -8
+  58              		.cfi_offset 14, -4
+  59 0002 83B0     		sub	sp, sp, #12
+  60              		.cfi_def_cfa_offset 24
+  61 0004 00AF     		add	r7, sp, #0
+  62              		.cfi_def_cfa_register 7
+  30:main.c        ****     #ifdef LOW_POWER_MODE    
+  31:main.c        ****         CYBLE_LP_MODE_T         lpMode;
+  32:main.c        ****         CYBLE_BLESS_STATE_T     blessState;
+  33:main.c        ****     #endif
+  34:main.c        ****     
+  35:main.c        ****     CYBLE_API_RESULT_T      bleApiResult;
+  36:main.c        ****    
+  37:main.c        ****     CyGlobalIntEnable; 
+  63              		.loc 1 37 0
+  64              	@ 37 "main.c" 1
+  65 0006 62B6     		CPSIE   i
+  66              	@ 0 "" 2
+  38:main.c        ****     
+  39:main.c        ****     /* Start UART and BLE component and display project information */
+  40:main.c        ****     UART_Start();   
+  67              		.loc 1 40 0
+  68              		.code	16
+  69 0008 FFF7FEFF 		bl	UART_Start
+  41:main.c        ****     bleApiResult = CyBle_Start(AppCallBack); 
+  70              		.loc 1 41 0
+  71 000c BC1D     		add	r4, r7, #6
+  72 000e 184B     		ldr	r3, .L6
+  73 0010 181C     		mov	r0, r3
+  74 0012 FFF7FEFF 		bl	CyBle_Start
+  75 0016 031C     		mov	r3, r0
+  76 0018 2380     		strh	r3, [r4]
+  42:main.c        ****     
+  43:main.c        ****     if(bleApiResult == CYBLE_ERROR_OK)
+  77              		.loc 1 43 0
+  78 001a BB1D     		add	r3, r7, #6
+  79 001c 1B88     		ldrh	r3, [r3]
+  80 001e 002B     		cmp	r3, #0
+  81 0020 1AD1     		bne	.L2
+  44:main.c        ****     {
+  45:main.c        ****         #ifdef PRINT_MESSAGE_LOG
+  46:main.c        ****             UART_UartPutString("\n\r************************************************************");
+  82              		.loc 1 46 0
+  83 0022 144B     		ldr	r3, .L6+4
+  84 0024 181C     		mov	r0, r3
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 4
+
+
+  85 0026 FFF7FEFF 		bl	UART_UartPutString
+  47:main.c        ****             UART_UartPutString("\n\r***************** BLE UART example project *****************");
+  86              		.loc 1 47 0
+  87 002a 134B     		ldr	r3, .L6+8
+  88 002c 181C     		mov	r0, r3
+  89 002e FFF7FEFF 		bl	UART_UartPutString
+  48:main.c        ****             UART_UartPutString("\n\r************************************************************\n\
+  90              		.loc 1 48 0
+  91 0032 124B     		ldr	r3, .L6+12
+  92 0034 181C     		mov	r0, r3
+  93 0036 FFF7FEFF 		bl	UART_UartPutString
+  49:main.c        ****             UART_UartPutString("\n\rDevice role \t: CENTRAL");
+  94              		.loc 1 49 0
+  95 003a 114B     		ldr	r3, .L6+16
+  96 003c 181C     		mov	r0, r3
+  97 003e FFF7FEFF 		bl	UART_UartPutString
+  50:main.c        ****             
+  51:main.c        ****             #ifdef LOW_POWER_MODE
+  52:main.c        ****                 UART_UartPutString("\n\rLow Power Mode \t: ENABLED");
+  53:main.c        ****             #else
+  54:main.c        ****                 UART_UartPutString("\n\rLow Power Mode \t: DISABLED");
+  98              		.loc 1 54 0
+  99 0042 104B     		ldr	r3, .L6+20
+ 100 0044 181C     		mov	r0, r3
+ 101 0046 FFF7FEFF 		bl	UART_UartPutString
+  55:main.c        ****             #endif
+  56:main.c        ****             
+  57:main.c        ****             #ifdef FLOW_CONTROL
+  58:main.c        ****                 UART_UartPutString("\n\rFlow Control \t: ENABLED");  
+  59:main.c        ****             #else
+  60:main.c        ****                 UART_UartPutString("\n\rFlow Control \t: DISABLED");
+ 102              		.loc 1 60 0
+ 103 004a 0F4B     		ldr	r3, .L6+24
+ 104 004c 181C     		mov	r0, r3
+ 105 004e FFF7FEFF 		bl	UART_UartPutString
+  61:main.c        ****             #endif
+  62:main.c        ****             
+  63:main.c        ****         #endif
+  64:main.c        ****     }
+  65:main.c        ****     else
+  66:main.c        ****     {
+  67:main.c        ****         #ifdef PRINT_MESSAGE_LOG   
+  68:main.c        ****             UART_UartPutString("\n\r\t\tCyBle stack initilization FAILED!!! \n\r ");
+  69:main.c        ****         #endif
+  70:main.c        ****         
+  71:main.c        ****         /* Enter infinite loop */
+  72:main.c        ****         while(1);
+  73:main.c        ****     }
+  74:main.c        ****     
+  75:main.c        ****     CyBle_ProcessEvents();
+ 106              		.loc 1 75 0
+ 107 0052 FFF7FEFF 		bl	CyBle_ProcessEvents
+ 108 0056 04E0     		b	.L5
+ 109              	.L2:
+  68:main.c        ****         #endif
+ 110              		.loc 1 68 0
+ 111 0058 0C4B     		ldr	r3, .L6+28
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 5
+
+
+ 112 005a 181C     		mov	r0, r3
+ 113 005c FFF7FEFF 		bl	UART_UartPutString
+ 114              	.L4:
+  72:main.c        ****     }
+ 115              		.loc 1 72 0 discriminator 1
+ 116 0060 FEE7     		b	.L4
+ 117              	.L5:
+  76:main.c        ****     
+  77:main.c        ****     /***************************************************************************
+  78:main.c        ****     * Main polling loop
+  79:main.c        ****     ***************************************************************************/
+  80:main.c        ****     while(1)
+  81:main.c        ****     {               
+  82:main.c        ****         #ifdef LOW_POWER_MODE
+  83:main.c        ****             
+  84:main.c        ****             if((CyBle_GetState() != CYBLE_STATE_INITIALIZING) && (CyBle_GetState() != CYBLE_STATE_D
+  85:main.c        ****             {
+  86:main.c        ****                 /* Enter DeepSleep mode between connection intervals */
+  87:main.c        ****                 
+  88:main.c        ****                 lpMode = CyBle_EnterLPM(CYBLE_BLESS_DEEPSLEEP);
+  89:main.c        ****                 CyGlobalIntDisable;
+  90:main.c        ****                 blessState = CyBle_GetBleSsState();
+  91:main.c        **** 
+  92:main.c        ****                 if(lpMode == CYBLE_BLESS_DEEPSLEEP) 
+  93:main.c        ****                 {   
+  94:main.c        ****                     if((blessState == CYBLE_BLESS_STATE_ECO_ON || blessState == CYBLE_BLESS_STATE_D
+  95:main.c        ****                             (UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u)
+  96:main.c        ****                     {
+  97:main.c        ****                         EnableUartRxInt();
+  98:main.c        ****                         CySysPmSleep();
+  99:main.c        ****                         DisableUartRxInt();
+ 100:main.c        ****                     }
+ 101:main.c        ****                 }
+ 102:main.c        ****                 else
+ 103:main.c        ****                 {
+ 104:main.c        ****                     if((blessState != CYBLE_BLESS_STATE_EVENT_CLOSE) && \
+ 105:main.c        ****                             (UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u)
+ 106:main.c        ****                     {
+ 107:main.c        ****                         EnableUartRxInt();
+ 108:main.c        ****                         CySysPmSleep();
+ 109:main.c        ****                         DisableUartRxInt();
+ 110:main.c        ****                     }
+ 111:main.c        ****                 }
+ 112:main.c        ****                 CyGlobalIntEnable;
+ 113:main.c        ****                 
+ 114:main.c        ****                 /* Handle advertising led blinking */
+ 115:main.c        ****                 HandleLeds();
+ 116:main.c        ****             }
+ 117:main.c        ****             
+ 118:main.c        ****         #else
+ 119:main.c        ****             HandleLeds();
+ 118              		.loc 1 119 0 discriminator 1
+ 119 0062 FFF7FEFF 		bl	HandleLeds
+ 120:main.c        ****         #endif
+ 121:main.c        ****         
+ 122:main.c        ****         /*******************************************************************
+ 123:main.c        ****         *  Process all pending BLE events in the stack
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 6
+
+
+ 124:main.c        ****         *******************************************************************/      
+ 125:main.c        ****         HandleBleProcessing();
+ 120              		.loc 1 125 0 discriminator 1
+ 121 0066 FFF7FEFF 		bl	HandleBleProcessing
+ 126:main.c        ****         CyBle_ProcessEvents();
+ 122              		.loc 1 126 0 discriminator 1
+ 123 006a FFF7FEFF 		bl	CyBle_ProcessEvents
+ 127:main.c        ****     }
+ 124              		.loc 1 127 0 discriminator 1
+ 125 006e F8E7     		b	.L5
+ 126              	.L7:
+ 127              		.align	2
+ 128              	.L6:
+ 129 0070 00000000 		.word	AppCallBack
+ 130 0074 00000000 		.word	.LC1
+ 131 0078 40000000 		.word	.LC3
+ 132 007c 80000000 		.word	.LC5
+ 133 0080 C4000000 		.word	.LC7
+ 134 0084 E0000000 		.word	.LC9
+ 135 0088 00010000 		.word	.LC11
+ 136 008c 1C010000 		.word	.LC13
+ 137              		.cfi_endproc
+ 138              	.LFE37:
+ 139              		.size	main, .-main
+ 140              		.text
+ 141              	.Letext0:
+ 142              		.file 2 "Generated_Source\\PSoC4/BLE_Stack.h"
+ 143              		.section	.debug_info,"",%progbits
+ 144              	.Ldebug_info0:
+ 145 0000 84010000 		.4byte	0x184
+ 146 0004 0400     		.2byte	0x4
+ 147 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 148 000a 04       		.byte	0x4
+ 149 000b 01       		.uleb128 0x1
+ 150 000c 5E000000 		.4byte	.LASF45
+ 151 0010 01       		.byte	0x1
+ 152 0011 DE040000 		.4byte	.LASF46
+ 153 0015 00000000 		.4byte	.LASF47
+ 154 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 155 001d 00000000 		.4byte	0
+ 156 0021 00000000 		.4byte	.Ldebug_line0
+ 157 0025 02       		.uleb128 0x2
+ 158 0026 01       		.byte	0x1
+ 159 0027 06       		.byte	0x6
+ 160 0028 5B050000 		.4byte	.LASF0
+ 161 002c 02       		.uleb128 0x2
+ 162 002d 01       		.byte	0x1
+ 163 002e 08       		.byte	0x8
+ 164 002f B7020000 		.4byte	.LASF1
+ 165 0033 02       		.uleb128 0x2
+ 166 0034 02       		.byte	0x2
+ 167 0035 05       		.byte	0x5
+ 168 0036 12050000 		.4byte	.LASF2
+ 169 003a 02       		.uleb128 0x2
+ 170 003b 02       		.byte	0x2
+ 171 003c 07       		.byte	0x7
+ 172 003d 33030000 		.4byte	.LASF3
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 7
+
+
+ 173 0041 02       		.uleb128 0x2
+ 174 0042 04       		.byte	0x4
+ 175 0043 05       		.byte	0x5
+ 176 0044 3F050000 		.4byte	.LASF4
+ 177 0048 02       		.uleb128 0x2
+ 178 0049 04       		.byte	0x4
+ 179 004a 07       		.byte	0x7
+ 180 004b 07030000 		.4byte	.LASF5
+ 181 004f 02       		.uleb128 0x2
+ 182 0050 08       		.byte	0x8
+ 183 0051 05       		.byte	0x5
+ 184 0052 D0040000 		.4byte	.LASF6
+ 185 0056 02       		.uleb128 0x2
+ 186 0057 08       		.byte	0x8
+ 187 0058 07       		.byte	0x7
+ 188 0059 86020000 		.4byte	.LASF7
+ 189 005d 03       		.uleb128 0x3
+ 190 005e 04       		.byte	0x4
+ 191 005f 05       		.byte	0x5
+ 192 0060 696E7400 		.ascii	"int\000"
+ 193 0064 02       		.uleb128 0x2
+ 194 0065 04       		.byte	0x4
+ 195 0066 07       		.byte	0x7
+ 196 0067 2B040000 		.4byte	.LASF8
+ 197 006b 02       		.uleb128 0x2
+ 198 006c 04       		.byte	0x4
+ 199 006d 04       		.byte	0x4
+ 200 006e 42010000 		.4byte	.LASF9
+ 201 0072 02       		.uleb128 0x2
+ 202 0073 08       		.byte	0x8
+ 203 0074 04       		.byte	0x4
+ 204 0075 BC030000 		.4byte	.LASF10
+ 205 0079 02       		.uleb128 0x2
+ 206 007a 01       		.byte	0x1
+ 207 007b 08       		.byte	0x8
+ 208 007c 51040000 		.4byte	.LASF11
+ 209 0080 02       		.uleb128 0x2
+ 210 0081 04       		.byte	0x4
+ 211 0082 07       		.byte	0x7
+ 212 0083 C7040000 		.4byte	.LASF12
+ 213 0087 04       		.uleb128 0x4
+ 214 0088 02       		.byte	0x2
+ 215 0089 02       		.byte	0x2
+ 216 008a D203     		.2byte	0x3d2
+ 217 008c 57010000 		.4byte	0x157
+ 218 0090 05       		.uleb128 0x5
+ 219 0091 FD010000 		.4byte	.LASF13
+ 220 0095 00       		.sleb128 0
+ 221 0096 05       		.uleb128 0x5
+ 222 0097 56040000 		.4byte	.LASF14
+ 223 009b 01       		.sleb128 1
+ 224 009c 05       		.uleb128 0x5
+ 225 009d 3F020000 		.4byte	.LASF15
+ 226 00a1 02       		.sleb128 2
+ 227 00a2 05       		.uleb128 0x5
+ 228 00a3 EC000000 		.4byte	.LASF16
+ 229 00a7 03       		.sleb128 3
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 8
+
+
+ 230 00a8 05       		.uleb128 0x5
+ 231 00a9 1C050000 		.4byte	.LASF17
+ 232 00ad 04       		.sleb128 4
+ 233 00ae 05       		.uleb128 0x5
+ 234 00af E8030000 		.4byte	.LASF18
+ 235 00b3 05       		.sleb128 5
+ 236 00b4 05       		.uleb128 0x5
+ 237 00b5 19030000 		.4byte	.LASF19
+ 238 00b9 06       		.sleb128 6
+ 239 00ba 05       		.uleb128 0x5
+ 240 00bb F5040000 		.4byte	.LASF20
+ 241 00bf 07       		.sleb128 7
+ 242 00c0 05       		.uleb128 0x5
+ 243 00c1 74040000 		.4byte	.LASF21
+ 244 00c5 08       		.sleb128 8
+ 245 00c6 05       		.uleb128 0x5
+ 246 00c7 67050000 		.4byte	.LASF22
+ 247 00cb 09       		.sleb128 9
+ 248 00cc 05       		.uleb128 0x5
+ 249 00cd 9D020000 		.4byte	.LASF23
+ 250 00d1 0A       		.sleb128 10
+ 251 00d2 05       		.uleb128 0x5
+ 252 00d3 C3030000 		.4byte	.LASF24
+ 253 00d7 0B       		.sleb128 11
+ 254 00d8 05       		.uleb128 0x5
+ 255 00d9 E6010000 		.4byte	.LASF25
+ 256 00dd 0C       		.sleb128 12
+ 257 00de 05       		.uleb128 0x5
+ 258 00df 06040000 		.4byte	.LASF26
+ 259 00e3 0D       		.sleb128 13
+ 260 00e4 05       		.uleb128 0x5
+ 261 00e5 5D020000 		.4byte	.LASF27
+ 262 00e9 0E       		.sleb128 14
+ 263 00ea 05       		.uleb128 0x5
+ 264 00eb 8D010000 		.4byte	.LASF28
+ 265 00ef 0F       		.sleb128 15
+ 266 00f0 05       		.uleb128 0x5
+ 267 00f1 8E030000 		.4byte	.LASF29
+ 268 00f5 10       		.sleb128 16
+ 269 00f6 05       		.uleb128 0x5
+ 270 00f7 11010000 		.4byte	.LASF30
+ 271 00fb 11       		.sleb128 17
+ 272 00fc 05       		.uleb128 0x5
+ 273 00fd 6A010000 		.4byte	.LASF31
+ 274 0101 12       		.sleb128 18
+ 275 0102 05       		.uleb128 0x5
+ 276 0103 C5020000 		.4byte	.LASF32
+ 277 0107 13       		.sleb128 19
+ 278 0108 05       		.uleb128 0x5
+ 279 0109 48010000 		.4byte	.LASF33
+ 280 010d 27       		.sleb128 39
+ 281 010e 05       		.uleb128 0x5
+ 282 010f 46030000 		.4byte	.LASF34
+ 283 0113 28       		.sleb128 40
+ 284 0114 05       		.uleb128 0x5
+ 285 0115 CA010000 		.4byte	.LASF35
+ 286 0119 29       		.sleb128 41
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 9
+
+
+ 287 011a 05       		.uleb128 0x5
+ 288 011b 7C050000 		.4byte	.LASF36
+ 289 011f 2A       		.sleb128 42
+ 290 0120 05       		.uleb128 0x5
+ 291 0121 0C020000 		.4byte	.LASF37
+ 292 0125 2B       		.sleb128 43
+ 293 0126 05       		.uleb128 0x5
+ 294 0127 B2010000 		.4byte	.LASF38
+ 295 012b 2C       		.sleb128 44
+ 296 012c 05       		.uleb128 0x5
+ 297 012d 92040000 		.4byte	.LASF39
+ 298 0131 FE01     		.sleb128 254
+ 299 0133 05       		.uleb128 0x5
+ 300 0134 E5040000 		.4byte	.LASF40
+ 301 0138 FF01     		.sleb128 255
+ 302 013a 05       		.uleb128 0x5
+ 303 013b 38040000 		.4byte	.LASF41
+ 304 013f 8002     		.sleb128 256
+ 305 0141 05       		.uleb128 0x5
+ 306 0142 AE040000 		.4byte	.LASF42
+ 307 0146 8102     		.sleb128 257
+ 308 0148 05       		.uleb128 0x5
+ 309 0149 6B030000 		.4byte	.LASF43
+ 310 014d 8202     		.sleb128 258
+ 311 014f 05       		.uleb128 0x5
+ 312 0150 ED020000 		.4byte	.LASF44
+ 313 0154 8302     		.sleb128 259
+ 314 0156 00       		.byte	0
+ 315 0157 06       		.uleb128 0x6
+ 316 0158 48050000 		.4byte	.LASF48
+ 317 015c 02       		.byte	0x2
+ 318 015d 3E04     		.2byte	0x43e
+ 319 015f 87000000 		.4byte	0x87
+ 320 0163 07       		.uleb128 0x7
+ 321 0164 E3030000 		.4byte	.LASF49
+ 322 0168 01       		.byte	0x1
+ 323 0169 1C       		.byte	0x1c
+ 324 016a 5D000000 		.4byte	0x5d
+ 325 016e 00000000 		.4byte	.LFB37
+ 326 0172 90000000 		.4byte	.LFE37-.LFB37
+ 327 0176 01       		.uleb128 0x1
+ 328 0177 9C       		.byte	0x9c
+ 329 0178 08       		.uleb128 0x8
+ 330 0179 35010000 		.4byte	.LASF50
+ 331 017d 01       		.byte	0x1
+ 332 017e 23       		.byte	0x23
+ 333 017f 57010000 		.4byte	0x157
+ 334 0183 02       		.uleb128 0x2
+ 335 0184 91       		.byte	0x91
+ 336 0185 6E       		.sleb128 -18
+ 337 0186 00       		.byte	0
+ 338 0187 00       		.byte	0
+ 339              		.section	.debug_abbrev,"",%progbits
+ 340              	.Ldebug_abbrev0:
+ 341 0000 01       		.uleb128 0x1
+ 342 0001 11       		.uleb128 0x11
+ 343 0002 01       		.byte	0x1
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 10
+
+
+ 344 0003 25       		.uleb128 0x25
+ 345 0004 0E       		.uleb128 0xe
+ 346 0005 13       		.uleb128 0x13
+ 347 0006 0B       		.uleb128 0xb
+ 348 0007 03       		.uleb128 0x3
+ 349 0008 0E       		.uleb128 0xe
+ 350 0009 1B       		.uleb128 0x1b
+ 351 000a 0E       		.uleb128 0xe
+ 352 000b 55       		.uleb128 0x55
+ 353 000c 17       		.uleb128 0x17
+ 354 000d 11       		.uleb128 0x11
+ 355 000e 01       		.uleb128 0x1
+ 356 000f 10       		.uleb128 0x10
+ 357 0010 17       		.uleb128 0x17
+ 358 0011 00       		.byte	0
+ 359 0012 00       		.byte	0
+ 360 0013 02       		.uleb128 0x2
+ 361 0014 24       		.uleb128 0x24
+ 362 0015 00       		.byte	0
+ 363 0016 0B       		.uleb128 0xb
+ 364 0017 0B       		.uleb128 0xb
+ 365 0018 3E       		.uleb128 0x3e
+ 366 0019 0B       		.uleb128 0xb
+ 367 001a 03       		.uleb128 0x3
+ 368 001b 0E       		.uleb128 0xe
+ 369 001c 00       		.byte	0
+ 370 001d 00       		.byte	0
+ 371 001e 03       		.uleb128 0x3
+ 372 001f 24       		.uleb128 0x24
+ 373 0020 00       		.byte	0
+ 374 0021 0B       		.uleb128 0xb
+ 375 0022 0B       		.uleb128 0xb
+ 376 0023 3E       		.uleb128 0x3e
+ 377 0024 0B       		.uleb128 0xb
+ 378 0025 03       		.uleb128 0x3
+ 379 0026 08       		.uleb128 0x8
+ 380 0027 00       		.byte	0
+ 381 0028 00       		.byte	0
+ 382 0029 04       		.uleb128 0x4
+ 383 002a 04       		.uleb128 0x4
+ 384 002b 01       		.byte	0x1
+ 385 002c 0B       		.uleb128 0xb
+ 386 002d 0B       		.uleb128 0xb
+ 387 002e 3A       		.uleb128 0x3a
+ 388 002f 0B       		.uleb128 0xb
+ 389 0030 3B       		.uleb128 0x3b
+ 390 0031 05       		.uleb128 0x5
+ 391 0032 01       		.uleb128 0x1
+ 392 0033 13       		.uleb128 0x13
+ 393 0034 00       		.byte	0
+ 394 0035 00       		.byte	0
+ 395 0036 05       		.uleb128 0x5
+ 396 0037 28       		.uleb128 0x28
+ 397 0038 00       		.byte	0
+ 398 0039 03       		.uleb128 0x3
+ 399 003a 0E       		.uleb128 0xe
+ 400 003b 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 11
+
+
+ 401 003c 0D       		.uleb128 0xd
+ 402 003d 00       		.byte	0
+ 403 003e 00       		.byte	0
+ 404 003f 06       		.uleb128 0x6
+ 405 0040 16       		.uleb128 0x16
+ 406 0041 00       		.byte	0
+ 407 0042 03       		.uleb128 0x3
+ 408 0043 0E       		.uleb128 0xe
+ 409 0044 3A       		.uleb128 0x3a
+ 410 0045 0B       		.uleb128 0xb
+ 411 0046 3B       		.uleb128 0x3b
+ 412 0047 05       		.uleb128 0x5
+ 413 0048 49       		.uleb128 0x49
+ 414 0049 13       		.uleb128 0x13
+ 415 004a 00       		.byte	0
+ 416 004b 00       		.byte	0
+ 417 004c 07       		.uleb128 0x7
+ 418 004d 2E       		.uleb128 0x2e
+ 419 004e 01       		.byte	0x1
+ 420 004f 3F       		.uleb128 0x3f
+ 421 0050 19       		.uleb128 0x19
+ 422 0051 03       		.uleb128 0x3
+ 423 0052 0E       		.uleb128 0xe
+ 424 0053 3A       		.uleb128 0x3a
+ 425 0054 0B       		.uleb128 0xb
+ 426 0055 3B       		.uleb128 0x3b
+ 427 0056 0B       		.uleb128 0xb
+ 428 0057 49       		.uleb128 0x49
+ 429 0058 13       		.uleb128 0x13
+ 430 0059 11       		.uleb128 0x11
+ 431 005a 01       		.uleb128 0x1
+ 432 005b 12       		.uleb128 0x12
+ 433 005c 06       		.uleb128 0x6
+ 434 005d 40       		.uleb128 0x40
+ 435 005e 18       		.uleb128 0x18
+ 436 005f 9642     		.uleb128 0x2116
+ 437 0061 19       		.uleb128 0x19
+ 438 0062 00       		.byte	0
+ 439 0063 00       		.byte	0
+ 440 0064 08       		.uleb128 0x8
+ 441 0065 34       		.uleb128 0x34
+ 442 0066 00       		.byte	0
+ 443 0067 03       		.uleb128 0x3
+ 444 0068 0E       		.uleb128 0xe
+ 445 0069 3A       		.uleb128 0x3a
+ 446 006a 0B       		.uleb128 0xb
+ 447 006b 3B       		.uleb128 0x3b
+ 448 006c 0B       		.uleb128 0xb
+ 449 006d 49       		.uleb128 0x49
+ 450 006e 13       		.uleb128 0x13
+ 451 006f 02       		.uleb128 0x2
+ 452 0070 18       		.uleb128 0x18
+ 453 0071 00       		.byte	0
+ 454 0072 00       		.byte	0
+ 455 0073 00       		.byte	0
+ 456              		.section	.debug_aranges,"",%progbits
+ 457 0000 1C000000 		.4byte	0x1c
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 12
+
+
+ 458 0004 0200     		.2byte	0x2
+ 459 0006 00000000 		.4byte	.Ldebug_info0
+ 460 000a 04       		.byte	0x4
+ 461 000b 00       		.byte	0
+ 462 000c 0000     		.2byte	0
+ 463 000e 0000     		.2byte	0
+ 464 0010 00000000 		.4byte	.LFB37
+ 465 0014 90000000 		.4byte	.LFE37-.LFB37
+ 466 0018 00000000 		.4byte	0
+ 467 001c 00000000 		.4byte	0
+ 468              		.section	.debug_ranges,"",%progbits
+ 469              	.Ldebug_ranges0:
+ 470 0000 00000000 		.4byte	.LFB37
+ 471 0004 90000000 		.4byte	.LFE37
+ 472 0008 00000000 		.4byte	0
+ 473 000c 00000000 		.4byte	0
+ 474              		.section	.debug_line,"",%progbits
+ 475              	.Ldebug_line0:
+ 476 0000 82000000 		.section	.debug_str,"MS",%progbits,1
+ 476      02004300 
+ 476      00000201 
+ 476      FB0E0D00 
+ 476      01010101 
+ 477              	.LASF47:
+ 478 0000 433A5C55 		.ascii	"C:\\Users\\michs\\Documents\\PSoC Creator\\fNIR PSo"
+ 478      73657273 
+ 478      5C6D6963 
+ 478      68735C44 
+ 478      6F63756D 
+ 479 002e 4320424C 		.ascii	"C BLE\\fNIR PSoC Central\\fNIR PSoC Central.cydsn\000"
+ 479      455C664E 
+ 479      49522050 
+ 479      536F4320 
+ 479      43656E74 
+ 480              	.LASF45:
+ 481 005e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 481      4320342E 
+ 481      392E3320 
+ 481      32303135 
+ 481      30333033 
+ 482 0091 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 482      20726576 
+ 482      6973696F 
+ 482      6E203232 
+ 482      31323230 
+ 483 00c4 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 483      66756E63 
+ 483      74696F6E 
+ 483      2D736563 
+ 483      74696F6E 
+ 484              	.LASF16:
+ 485 00ec 4359424C 		.ascii	"CYBLE_ERROR_MEMORY_ALLOCATION_FAILED\000"
+ 485      455F4552 
+ 485      524F525F 
+ 485      4D454D4F 
+ 485      52595F41 
+ 486              	.LASF30:
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 13
+
+
+ 487 0111 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_CHANNEL_NOT_FOUND\000"
+ 487      455F4552 
+ 487      524F525F 
+ 487      4C324341 
+ 487      505F4348 
+ 488              	.LASF50:
+ 489 0135 626C6541 		.ascii	"bleApiResult\000"
+ 489      70695265 
+ 489      73756C74 
+ 489      00
+ 490              	.LASF9:
+ 491 0142 666C6F61 		.ascii	"float\000"
+ 491      7400
+ 492              	.LASF33:
+ 493 0148 4359424C 		.ascii	"CYBLE_ERROR_DEVICE_ALREADY_EXISTS\000"
+ 493      455F4552 
+ 493      524F525F 
+ 493      44455649 
+ 493      43455F41 
+ 494              	.LASF31:
+ 495 016a 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_NOT_IN_RANGE\000"
+ 495      455F4552 
+ 495      524F525F 
+ 495      4C324341 
+ 495      505F5053 
+ 496              	.LASF28:
+ 497 018d 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_NOT_REGISTERED\000"
+ 497      455F4552 
+ 497      524F525F 
+ 497      4C324341 
+ 497      505F5053 
+ 498              	.LASF38:
+ 499 01b2 4359424C 		.ascii	"CYBLE_ERROR_FLASH_WRITE\000"
+ 499      455F4552 
+ 499      524F525F 
+ 499      464C4153 
+ 499      485F5752 
+ 500              	.LASF35:
+ 501 01ca 4359424C 		.ascii	"CYBLE_ERROR_MIC_AUTH_FAILED\000"
+ 501      455F4552 
+ 501      524F525F 
+ 501      4D49435F 
+ 501      41555448 
+ 502              	.LASF25:
+ 503 01e6 4359424C 		.ascii	"CYBLE_ERROR_SEC_FAILED\000"
+ 503      455F4552 
+ 503      524F525F 
+ 503      5345435F 
+ 503      4641494C 
+ 504              	.LASF13:
+ 505 01fd 4359424C 		.ascii	"CYBLE_ERROR_OK\000"
+ 505      455F4552 
+ 505      524F525F 
+ 505      4F4B00
+ 506              	.LASF37:
+ 507 020c 4359424C 		.ascii	"CYBLE_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER_VALUE\000"
+ 507      455F4552 
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 14
+
+
+ 507      524F525F 
+ 507      554E5355 
+ 507      50504F52 
+ 508              	.LASF15:
+ 509 023f 4359424C 		.ascii	"CYBLE_ERROR_INVALID_OPERATION\000"
+ 509      455F4552 
+ 509      524F525F 
+ 509      494E5641 
+ 509      4C49445F 
+ 510              	.LASF27:
+ 511 025d 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_ALREADY_REGISTERED\000"
+ 511      455F4552 
+ 511      524F525F 
+ 511      4C324341 
+ 511      505F5053 
+ 512              	.LASF7:
+ 513 0286 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 513      206C6F6E 
+ 513      6720756E 
+ 513      7369676E 
+ 513      65642069 
+ 514              	.LASF23:
+ 515 029d 4359424C 		.ascii	"CYBLE_ERROR_TX_POWER_READ\000"
+ 515      455F4552 
+ 515      524F525F 
+ 515      54585F50 
+ 515      4F574552 
+ 516              	.LASF1:
+ 517 02b7 756E7369 		.ascii	"unsigned char\000"
+ 517      676E6564 
+ 517      20636861 
+ 517      7200
+ 518              	.LASF32:
+ 519 02c5 4359424C 		.ascii	"CYBLE_ERROR_GATT_DB_INVALID_ATTR_HANDLE\000"
+ 519      455F4552 
+ 519      524F525F 
+ 519      47415454 
+ 519      5F44425F 
+ 520              	.LASF44:
+ 521 02ed 4359424C 		.ascii	"CYBLE_ERROR_INVALID_STATE\000"
+ 521      455F4552 
+ 521      524F525F 
+ 521      494E5641 
+ 521      4C49445F 
+ 522              	.LASF5:
+ 523 0307 6C6F6E67 		.ascii	"long unsigned int\000"
+ 523      20756E73 
+ 523      69676E65 
+ 523      6420696E 
+ 523      7400
+ 524              	.LASF19:
+ 525 0319 4359424C 		.ascii	"CYBLE_ERROR_NO_CONNECTION\000"
+ 525      455F4552 
+ 525      524F525F 
+ 525      4E4F5F43 
+ 525      4F4E4E45 
+ 526              	.LASF3:
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 15
+
+
+ 527 0333 73686F72 		.ascii	"short unsigned int\000"
+ 527      7420756E 
+ 527      7369676E 
+ 527      65642069 
+ 527      6E7400
+ 528              	.LASF34:
+ 529 0346 4359424C 		.ascii	"CYBLE_ERROR_FLASH_WRITE_NOT_PERMITED\000"
+ 529      455F4552 
+ 529      524F525F 
+ 529      464C4153 
+ 529      485F5752 
+ 530              	.LASF43:
+ 531 036b 4359424C 		.ascii	"CYBLE_ERROR_CHAR_IS_NOT_DISCOVERED\000"
+ 531      455F4552 
+ 531      524F525F 
+ 531      43484152 
+ 531      5F49535F 
+ 532              	.LASF29:
+ 533 038e 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_CONNECTION_ENTITY_NOT_FOUND\000"
+ 533      455F4552 
+ 533      524F525F 
+ 533      4C324341 
+ 533      505F434F 
+ 534              	.LASF10:
+ 535 03bc 646F7562 		.ascii	"double\000"
+ 535      6C6500
+ 536              	.LASF24:
+ 537 03c3 4359424C 		.ascii	"CYBLE_ERROR_BT_ON_NOT_COMPLETED\000"
+ 537      455F4552 
+ 537      524F525F 
+ 537      42545F4F 
+ 537      4E5F4E4F 
+ 538              	.LASF49:
+ 539 03e3 6D61696E 		.ascii	"main\000"
+ 539      00
+ 540              	.LASF18:
+ 541 03e8 4359424C 		.ascii	"CYBLE_ERROR_OOB_NOT_AVAILABLE\000"
+ 541      455F4552 
+ 541      524F525F 
+ 541      4F4F425F 
+ 541      4E4F545F 
+ 542              	.LASF26:
+ 543 0406 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_WRONG_ENCODING\000"
+ 543      455F4552 
+ 543      524F525F 
+ 543      4C324341 
+ 543      505F5053 
+ 544              	.LASF8:
+ 545 042b 756E7369 		.ascii	"unsigned int\000"
+ 545      676E6564 
+ 545      20696E74 
+ 545      00
+ 546              	.LASF41:
+ 547 0438 4359424C 		.ascii	"CYBLE_ERROR_NTF_DISABLED\000"
+ 547      455F4552 
+ 547      524F525F 
+ 547      4E54465F 
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 16
+
+
+ 547      44495341 
+ 548              	.LASF11:
+ 549 0451 63686172 		.ascii	"char\000"
+ 549      00
+ 550              	.LASF14:
+ 551 0456 4359424C 		.ascii	"CYBLE_ERROR_INVALID_PARAMETER\000"
+ 551      455F4552 
+ 551      524F525F 
+ 551      494E5641 
+ 551      4C49445F 
+ 552              	.LASF21:
+ 553 0474 4359424C 		.ascii	"CYBLE_ERROR_REPEATED_ATTEMPTS\000"
+ 553      455F4552 
+ 553      524F525F 
+ 553      52455045 
+ 553      41544544 
+ 554              	.LASF39:
+ 555 0492 4359424C 		.ascii	"CYBLE_ERROR_CONTROLLER_BUSY\000"
+ 555      455F4552 
+ 555      524F525F 
+ 555      434F4E54 
+ 555      524F4C4C 
+ 556              	.LASF42:
+ 557 04ae 4359424C 		.ascii	"CYBLE_ERROR_IND_DISABLED\000"
+ 557      455F4552 
+ 557      524F525F 
+ 557      494E445F 
+ 557      44495341 
+ 558              	.LASF12:
+ 559 04c7 73697A65 		.ascii	"sizetype\000"
+ 559      74797065 
+ 559      00
+ 560              	.LASF6:
+ 561 04d0 6C6F6E67 		.ascii	"long long int\000"
+ 561      206C6F6E 
+ 561      6720696E 
+ 561      7400
+ 562              	.LASF46:
+ 563 04de 6D61696E 		.ascii	"main.c\000"
+ 563      2E6300
+ 564              	.LASF40:
+ 565 04e5 4359424C 		.ascii	"CYBLE_ERROR_MAX\000"
+ 565      455F4552 
+ 565      524F525F 
+ 565      4D415800 
+ 566              	.LASF20:
+ 567 04f5 4359424C 		.ascii	"CYBLE_ERROR_NO_DEVICE_ENTITY\000"
+ 567      455F4552 
+ 567      524F525F 
+ 567      4E4F5F44 
+ 567      45564943 
+ 568              	.LASF2:
+ 569 0512 73686F72 		.ascii	"short int\000"
+ 569      7420696E 
+ 569      7400
+ 570              	.LASF17:
+ 571 051c 4359424C 		.ascii	"CYBLE_ERROR_INSUFFICIENT_RESOURCES\000"
+ARM GAS  C:\Users\michs\AppData\Local\Temp\ccoRPS5E.s 			page 17
+
+
+ 571      455F4552 
+ 571      524F525F 
+ 571      494E5355 
+ 571      46464943 
+ 572              	.LASF4:
+ 573 053f 6C6F6E67 		.ascii	"long int\000"
+ 573      20696E74 
+ 573      00
+ 574              	.LASF48:
+ 575 0548 4359424C 		.ascii	"CYBLE_API_RESULT_T\000"
+ 575      455F4150 
+ 575      495F5245 
+ 575      53554C54 
+ 575      5F5400
+ 576              	.LASF0:
+ 577 055b 7369676E 		.ascii	"signed char\000"
+ 577      65642063 
+ 577      68617200 
+ 578              	.LASF22:
+ 579 0567 4359424C 		.ascii	"CYBLE_ERROR_GAP_ROLE\000"
+ 579      455F4552 
+ 579      524F525F 
+ 579      4741505F 
+ 579      524F4C45 
+ 580              	.LASF36:
+ 581 057c 4359424C 		.ascii	"CYBLE_ERROR_HARDWARE_FAILURE\000"
+ 581      455F4552 
+ 581      524F525F 
+ 581      48415244 
+ 581      57415245 
+ 582              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

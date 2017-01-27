@@ -1,0 +1,685 @@
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"app_LED.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.HandleLeds,"ax",%progbits
+  18              		.align	2
+  19              		.global	HandleLeds
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	HandleLeds, %function
+  23              	HandleLeds:
+  24              	.LFB37:
+  25              		.file 1 "app_LED.c"
+   1:app_LED.c     **** /*******************************************************************************
+   2:app_LED.c     **** * File Name: app_LED.c
+   3:app_LED.c     **** *
+   4:app_LED.c     **** * Description:
+   5:app_LED.c     **** *  Common BLE application code for client devices.
+   6:app_LED.c     **** *
+   7:app_LED.c     **** *******************************************************************************
+   8:app_LED.c     **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+   9:app_LED.c     **** * You may use this file only in accordance with the license, terms, conditions,
+  10:app_LED.c     **** * disclaimers, and limitations in the end user license agreement accompanying
+  11:app_LED.c     **** * the software package with which this file was provided.
+  12:app_LED.c     **** *******************************************************************************/
+  13:app_LED.c     **** 
+  14:app_LED.c     **** #include "app_LED.h"
+  15:app_LED.c     **** 
+  16:app_LED.c     **** 
+  17:app_LED.c     **** /*******************************************************************************
+  18:app_LED.c     **** * Function Name: HandleLeds
+  19:app_LED.c     **** ********************************************************************************
+  20:app_LED.c     **** *
+  21:app_LED.c     **** * Summary:
+  22:app_LED.c     **** *  This function handles the toggling of Scan and Connection LED. 
+  23:app_LED.c     **** *
+  24:app_LED.c     **** * Parameters:
+  25:app_LED.c     **** *  None.
+  26:app_LED.c     **** *
+  27:app_LED.c     **** * Return:
+  28:app_LED.c     **** *   None.
+  29:app_LED.c     **** *
+  30:app_LED.c     **** *******************************************************************************/
+  31:app_LED.c     **** void HandleLeds(void)
+  32:app_LED.c     **** {
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 2
+
+
+  26              		.loc 1 32 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 00AF     		add	r7, sp, #0
+  33              		.cfi_def_cfa_register 7
+  33:app_LED.c     ****     static uint8        ledState        = LED_OFF;
+  34:app_LED.c     ****     static uint32       advLedTimer     = ADV_LED_TIMEOUT;   
+  35:app_LED.c     ****     static uint32       connLedTimer    = CONN_LED_TIMEOUT;   
+  36:app_LED.c     ****     
+  37:app_LED.c     ****     switch (cyBle_state)
+  34              		.loc 1 37 0
+  35 0004 124B     		ldr	r3, .L6
+  36 0006 1B78     		ldrb	r3, [r3]
+  37 0008 022B     		cmp	r3, #2
+  38 000a 06D0     		beq	.L3
+  39 000c 032B     		cmp	r3, #3
+  40 000e 00D0     		beq	.L4
+  38:app_LED.c     ****     {
+  39:app_LED.c     ****         case CYBLE_STATE_ADVERTISING:
+  40:app_LED.c     ****             
+  41:app_LED.c     ****             Conn_LED_Write(LED_OFF);
+  42:app_LED.c     ****             #if DONGLE
+  43:app_LED.c     ****             if(--advLedTimer == 0u) 
+  44:app_LED.c     ****             {
+  45:app_LED.c     ****                 advLedTimer = ADV_LED_TIMEOUT;
+  46:app_LED.c     ****                 ledState ^= LED_OFF;
+  47:app_LED.c     ****                 
+  48:app_LED.c     ****                 Adv_LED_Write(ledState);
+  49:app_LED.c     ****             }
+  50:app_LED.c     ****             #endif 
+  51:app_LED.c     ****             
+  52:app_LED.c     ****             break;
+  53:app_LED.c     ****             
+  54:app_LED.c     ****         case CYBLE_STATE_CONNECTED: 
+  55:app_LED.c     ****             
+  56:app_LED.c     ****             #if DONGLE
+  57:app_LED.c     ****             Adv_LED_Write(LED_OFF);
+  58:app_LED.c     ****             #endif 
+  59:app_LED.c     ****             
+  60:app_LED.c     ****             if(--connLedTimer == 0u) 
+  61:app_LED.c     ****             {
+  62:app_LED.c     ****                 connLedTimer = CONN_LED_TIMEOUT;
+  63:app_LED.c     ****                 ledState    ^= LED_OFF;
+  64:app_LED.c     ****                 
+  65:app_LED.c     ****                 Conn_LED_Write(ledState);
+  66:app_LED.c     ****             }
+  67:app_LED.c     ****             
+  68:app_LED.c     ****         default:
+  69:app_LED.c     ****             break;
+  41              		.loc 1 69 0
+  42 0010 1CE0     		b	.L1
+  43              	.L4:
+  41:app_LED.c     ****             #if DONGLE
+  44              		.loc 1 41 0
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 3
+
+
+  45 0012 0120     		mov	r0, #1
+  46 0014 FFF7FEFF 		bl	Conn_LED_Write
+  52:app_LED.c     ****             
+  47              		.loc 1 52 0
+  48 0018 18E0     		b	.L1
+  49              	.L3:
+  60:app_LED.c     ****             {
+  50              		.loc 1 60 0
+  51 001a 0E4B     		ldr	r3, .L6+4
+  52 001c 1B68     		ldr	r3, [r3]
+  53 001e 5A1E     		sub	r2, r3, #1
+  54 0020 0C4B     		ldr	r3, .L6+4
+  55 0022 1A60     		str	r2, [r3]
+  56 0024 0B4B     		ldr	r3, .L6+4
+  57 0026 1B68     		ldr	r3, [r3]
+  58 0028 002B     		cmp	r3, #0
+  59 002a 0ED1     		bne	.L2
+  62:app_LED.c     ****                 ledState    ^= LED_OFF;
+  60              		.loc 1 62 0
+  61 002c 094B     		ldr	r3, .L6+4
+  62 002e 0A4A     		ldr	r2, .L6+8
+  63 0030 1A60     		str	r2, [r3]
+  63:app_LED.c     ****                 
+  64              		.loc 1 63 0
+  65 0032 0A4B     		ldr	r3, .L6+12
+  66 0034 1B78     		ldrb	r3, [r3]
+  67 0036 0122     		mov	r2, #1
+  68 0038 5340     		eor	r3, r2
+  69 003a DAB2     		uxtb	r2, r3
+  70 003c 074B     		ldr	r3, .L6+12
+  71 003e 1A70     		strb	r2, [r3]
+  65:app_LED.c     ****             }
+  72              		.loc 1 65 0
+  73 0040 064B     		ldr	r3, .L6+12
+  74 0042 1B78     		ldrb	r3, [r3]
+  75 0044 181C     		mov	r0, r3
+  76 0046 FFF7FEFF 		bl	Conn_LED_Write
+  77              	.L2:
+  78              		.loc 1 69 0
+  79 004a C046     		mov	r8, r8
+  80              	.L1:
+  70:app_LED.c     ****     }
+  71:app_LED.c     **** }
+  81              		.loc 1 71 0
+  82 004c BD46     		mov	sp, r7
+  83              		@ sp needed
+  84 004e 80BD     		pop	{r7, pc}
+  85              	.L7:
+  86              		.align	2
+  87              	.L6:
+  88 0050 00000000 		.word	cyBle_state
+  89 0054 00000000 		.word	connLedTimer.7006
+  90 0058 50C30000 		.word	50000
+  91 005c 04000000 		.word	ledState.7004
+  92              		.cfi_endproc
+  93              	.LFE37:
+  94              		.size	HandleLeds, .-HandleLeds
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 4
+
+
+  95              		.data
+  96              		.align	2
+  97              		.type	connLedTimer.7006, %object
+  98              		.size	connLedTimer.7006, 4
+  99              	connLedTimer.7006:
+ 100 0000 50C30000 		.word	50000
+ 101              		.type	ledState.7004, %object
+ 102              		.size	ledState.7004, 1
+ 103              	ledState.7004:
+ 104 0004 01       		.byte	1
+ 105 0005 000000   		.align	2
+ 106              		.type	advLedTimer.7005, %object
+ 107              		.size	advLedTimer.7005, 4
+ 108              	advLedTimer.7005:
+ 109 0008 30750000 		.word	30000
+ 110              		.text
+ 111              	.Letext0:
+ 112              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 113              		.file 3 "Generated_Source\\PSoC4/BLE_eventHandler.h"
+ 114              		.section	.debug_info,"",%progbits
+ 115              	.Ldebug_info0:
+ 116 0000 25010000 		.4byte	0x125
+ 117 0004 0400     		.2byte	0x4
+ 118 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 119 000a 04       		.byte	0x4
+ 120 000b 01       		.uleb128 0x1
+ 121 000c C5010000 		.4byte	.LASF24
+ 122 0010 01       		.byte	0x1
+ 123 0011 28000000 		.4byte	.LASF25
+ 124 0015 63000000 		.4byte	.LASF26
+ 125 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 126 001d 00000000 		.4byte	0
+ 127 0021 00000000 		.4byte	.Ldebug_line0
+ 128 0025 02       		.uleb128 0x2
+ 129 0026 01       		.byte	0x1
+ 130 0027 06       		.byte	0x6
+ 131 0028 4C010000 		.4byte	.LASF0
+ 132 002c 02       		.uleb128 0x2
+ 133 002d 01       		.byte	0x1
+ 134 002e 08       		.byte	0x8
+ 135 002f FC000000 		.4byte	.LASF1
+ 136 0033 02       		.uleb128 0x2
+ 137 0034 02       		.byte	0x2
+ 138 0035 05       		.byte	0x5
+ 139 0036 A7010000 		.4byte	.LASF2
+ 140 003a 02       		.uleb128 0x2
+ 141 003b 02       		.byte	0x2
+ 142 003c 07       		.byte	0x7
+ 143 003d 39010000 		.4byte	.LASF3
+ 144 0041 02       		.uleb128 0x2
+ 145 0042 04       		.byte	0x4
+ 146 0043 05       		.byte	0x5
+ 147 0044 0F010000 		.4byte	.LASF4
+ 148 0048 02       		.uleb128 0x2
+ 149 0049 04       		.byte	0x4
+ 150 004a 07       		.byte	0x7
+ 151 004b 51000000 		.4byte	.LASF5
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 5
+
+
+ 152 004f 02       		.uleb128 0x2
+ 153 0050 08       		.byte	0x8
+ 154 0051 05       		.byte	0x5
+ 155 0052 2B010000 		.4byte	.LASF6
+ 156 0056 02       		.uleb128 0x2
+ 157 0057 08       		.byte	0x8
+ 158 0058 07       		.byte	0x7
+ 159 0059 B7000000 		.4byte	.LASF7
+ 160 005d 03       		.uleb128 0x3
+ 161 005e 04       		.byte	0x4
+ 162 005f 05       		.byte	0x5
+ 163 0060 696E7400 		.ascii	"int\000"
+ 164 0064 02       		.uleb128 0x2
+ 165 0065 04       		.byte	0x4
+ 166 0066 07       		.byte	0x7
+ 167 0067 1B000000 		.4byte	.LASF8
+ 168 006b 04       		.uleb128 0x4
+ 169 006c 4B000000 		.4byte	.LASF9
+ 170 0070 02       		.byte	0x2
+ 171 0071 B901     		.2byte	0x1b9
+ 172 0073 2C000000 		.4byte	0x2c
+ 173 0077 04       		.uleb128 0x4
+ 174 0078 14000000 		.4byte	.LASF10
+ 175 007c 02       		.byte	0x2
+ 176 007d BB01     		.2byte	0x1bb
+ 177 007f 48000000 		.4byte	0x48
+ 178 0083 02       		.uleb128 0x2
+ 179 0084 04       		.byte	0x4
+ 180 0085 04       		.byte	0x4
+ 181 0086 93010000 		.4byte	.LASF11
+ 182 008a 02       		.uleb128 0x2
+ 183 008b 08       		.byte	0x8
+ 184 008c 04       		.byte	0x4
+ 185 008d 24010000 		.4byte	.LASF12
+ 186 0091 02       		.uleb128 0x2
+ 187 0092 01       		.byte	0x1
+ 188 0093 08       		.byte	0x8
+ 189 0094 0A010000 		.4byte	.LASF13
+ 190 0098 02       		.uleb128 0x2
+ 191 0099 04       		.byte	0x4
+ 192 009a 07       		.byte	0x7
+ 193 009b BC010000 		.4byte	.LASF14
+ 194 009f 05       		.uleb128 0x5
+ 195 00a0 01       		.byte	0x1
+ 196 00a1 03       		.byte	0x3
+ 197 00a2 F607     		.2byte	0x7f6
+ 198 00a4 C7000000 		.4byte	0xc7
+ 199 00a8 06       		.uleb128 0x6
+ 200 00a9 00000000 		.4byte	.LASF15
+ 201 00ad 00       		.sleb128 0
+ 202 00ae 06       		.uleb128 0x6
+ 203 00af 7A010000 		.4byte	.LASF16
+ 204 00b3 01       		.sleb128 1
+ 205 00b4 06       		.uleb128 0x6
+ 206 00b5 64010000 		.4byte	.LASF17
+ 207 00b9 02       		.sleb128 2
+ 208 00ba 06       		.uleb128 0x6
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 6
+
+
+ 209 00bb E4000000 		.4byte	.LASF18
+ 210 00bf 03       		.sleb128 3
+ 211 00c0 06       		.uleb128 0x6
+ 212 00c1 32000000 		.4byte	.LASF19
+ 213 00c5 04       		.sleb128 4
+ 214 00c6 00       		.byte	0
+ 215 00c7 04       		.uleb128 0x4
+ 216 00c8 99010000 		.4byte	.LASF20
+ 217 00cc 03       		.byte	0x3
+ 218 00cd 0408     		.2byte	0x804
+ 219 00cf 9F000000 		.4byte	0x9f
+ 220 00d3 07       		.uleb128 0x7
+ 221 00d4 B1010000 		.4byte	.LASF27
+ 222 00d8 01       		.byte	0x1
+ 223 00d9 1F       		.byte	0x1f
+ 224 00da 00000000 		.4byte	.LFB37
+ 225 00de 60000000 		.4byte	.LFE37-.LFB37
+ 226 00e2 01       		.uleb128 0x1
+ 227 00e3 9C       		.byte	0x9c
+ 228 00e4 1C010000 		.4byte	0x11c
+ 229 00e8 08       		.uleb128 0x8
+ 230 00e9 DB000000 		.4byte	.LASF21
+ 231 00ed 01       		.byte	0x1
+ 232 00ee 21       		.byte	0x21
+ 233 00ef 6B000000 		.4byte	0x6b
+ 234 00f3 05       		.uleb128 0x5
+ 235 00f4 03       		.byte	0x3
+ 236 00f5 04000000 		.4byte	ledState.7004
+ 237 00f9 08       		.uleb128 0x8
+ 238 00fa 58010000 		.4byte	.LASF22
+ 239 00fe 01       		.byte	0x1
+ 240 00ff 22       		.byte	0x22
+ 241 0100 77000000 		.4byte	0x77
+ 242 0104 05       		.uleb128 0x5
+ 243 0105 03       		.byte	0x3
+ 244 0106 08000000 		.4byte	advLedTimer.7005
+ 245 010a 08       		.uleb128 0x8
+ 246 010b CE000000 		.4byte	.LASF23
+ 247 010f 01       		.byte	0x1
+ 248 0110 23       		.byte	0x23
+ 249 0111 77000000 		.4byte	0x77
+ 250 0115 05       		.uleb128 0x5
+ 251 0116 03       		.byte	0x3
+ 252 0117 00000000 		.4byte	connLedTimer.7006
+ 253 011b 00       		.byte	0
+ 254 011c 09       		.uleb128 0x9
+ 255 011d 18010000 		.4byte	.LASF28
+ 256 0121 03       		.byte	0x3
+ 257 0122 2A0A     		.2byte	0xa2a
+ 258 0124 C7000000 		.4byte	0xc7
+ 259 0128 00       		.byte	0
+ 260              		.section	.debug_abbrev,"",%progbits
+ 261              	.Ldebug_abbrev0:
+ 262 0000 01       		.uleb128 0x1
+ 263 0001 11       		.uleb128 0x11
+ 264 0002 01       		.byte	0x1
+ 265 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 7
+
+
+ 266 0004 0E       		.uleb128 0xe
+ 267 0005 13       		.uleb128 0x13
+ 268 0006 0B       		.uleb128 0xb
+ 269 0007 03       		.uleb128 0x3
+ 270 0008 0E       		.uleb128 0xe
+ 271 0009 1B       		.uleb128 0x1b
+ 272 000a 0E       		.uleb128 0xe
+ 273 000b 55       		.uleb128 0x55
+ 274 000c 17       		.uleb128 0x17
+ 275 000d 11       		.uleb128 0x11
+ 276 000e 01       		.uleb128 0x1
+ 277 000f 10       		.uleb128 0x10
+ 278 0010 17       		.uleb128 0x17
+ 279 0011 00       		.byte	0
+ 280 0012 00       		.byte	0
+ 281 0013 02       		.uleb128 0x2
+ 282 0014 24       		.uleb128 0x24
+ 283 0015 00       		.byte	0
+ 284 0016 0B       		.uleb128 0xb
+ 285 0017 0B       		.uleb128 0xb
+ 286 0018 3E       		.uleb128 0x3e
+ 287 0019 0B       		.uleb128 0xb
+ 288 001a 03       		.uleb128 0x3
+ 289 001b 0E       		.uleb128 0xe
+ 290 001c 00       		.byte	0
+ 291 001d 00       		.byte	0
+ 292 001e 03       		.uleb128 0x3
+ 293 001f 24       		.uleb128 0x24
+ 294 0020 00       		.byte	0
+ 295 0021 0B       		.uleb128 0xb
+ 296 0022 0B       		.uleb128 0xb
+ 297 0023 3E       		.uleb128 0x3e
+ 298 0024 0B       		.uleb128 0xb
+ 299 0025 03       		.uleb128 0x3
+ 300 0026 08       		.uleb128 0x8
+ 301 0027 00       		.byte	0
+ 302 0028 00       		.byte	0
+ 303 0029 04       		.uleb128 0x4
+ 304 002a 16       		.uleb128 0x16
+ 305 002b 00       		.byte	0
+ 306 002c 03       		.uleb128 0x3
+ 307 002d 0E       		.uleb128 0xe
+ 308 002e 3A       		.uleb128 0x3a
+ 309 002f 0B       		.uleb128 0xb
+ 310 0030 3B       		.uleb128 0x3b
+ 311 0031 05       		.uleb128 0x5
+ 312 0032 49       		.uleb128 0x49
+ 313 0033 13       		.uleb128 0x13
+ 314 0034 00       		.byte	0
+ 315 0035 00       		.byte	0
+ 316 0036 05       		.uleb128 0x5
+ 317 0037 04       		.uleb128 0x4
+ 318 0038 01       		.byte	0x1
+ 319 0039 0B       		.uleb128 0xb
+ 320 003a 0B       		.uleb128 0xb
+ 321 003b 3A       		.uleb128 0x3a
+ 322 003c 0B       		.uleb128 0xb
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 8
+
+
+ 323 003d 3B       		.uleb128 0x3b
+ 324 003e 05       		.uleb128 0x5
+ 325 003f 01       		.uleb128 0x1
+ 326 0040 13       		.uleb128 0x13
+ 327 0041 00       		.byte	0
+ 328 0042 00       		.byte	0
+ 329 0043 06       		.uleb128 0x6
+ 330 0044 28       		.uleb128 0x28
+ 331 0045 00       		.byte	0
+ 332 0046 03       		.uleb128 0x3
+ 333 0047 0E       		.uleb128 0xe
+ 334 0048 1C       		.uleb128 0x1c
+ 335 0049 0D       		.uleb128 0xd
+ 336 004a 00       		.byte	0
+ 337 004b 00       		.byte	0
+ 338 004c 07       		.uleb128 0x7
+ 339 004d 2E       		.uleb128 0x2e
+ 340 004e 01       		.byte	0x1
+ 341 004f 3F       		.uleb128 0x3f
+ 342 0050 19       		.uleb128 0x19
+ 343 0051 03       		.uleb128 0x3
+ 344 0052 0E       		.uleb128 0xe
+ 345 0053 3A       		.uleb128 0x3a
+ 346 0054 0B       		.uleb128 0xb
+ 347 0055 3B       		.uleb128 0x3b
+ 348 0056 0B       		.uleb128 0xb
+ 349 0057 27       		.uleb128 0x27
+ 350 0058 19       		.uleb128 0x19
+ 351 0059 11       		.uleb128 0x11
+ 352 005a 01       		.uleb128 0x1
+ 353 005b 12       		.uleb128 0x12
+ 354 005c 06       		.uleb128 0x6
+ 355 005d 40       		.uleb128 0x40
+ 356 005e 18       		.uleb128 0x18
+ 357 005f 9642     		.uleb128 0x2116
+ 358 0061 19       		.uleb128 0x19
+ 359 0062 01       		.uleb128 0x1
+ 360 0063 13       		.uleb128 0x13
+ 361 0064 00       		.byte	0
+ 362 0065 00       		.byte	0
+ 363 0066 08       		.uleb128 0x8
+ 364 0067 34       		.uleb128 0x34
+ 365 0068 00       		.byte	0
+ 366 0069 03       		.uleb128 0x3
+ 367 006a 0E       		.uleb128 0xe
+ 368 006b 3A       		.uleb128 0x3a
+ 369 006c 0B       		.uleb128 0xb
+ 370 006d 3B       		.uleb128 0x3b
+ 371 006e 0B       		.uleb128 0xb
+ 372 006f 49       		.uleb128 0x49
+ 373 0070 13       		.uleb128 0x13
+ 374 0071 02       		.uleb128 0x2
+ 375 0072 18       		.uleb128 0x18
+ 376 0073 00       		.byte	0
+ 377 0074 00       		.byte	0
+ 378 0075 09       		.uleb128 0x9
+ 379 0076 34       		.uleb128 0x34
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 9
+
+
+ 380 0077 00       		.byte	0
+ 381 0078 03       		.uleb128 0x3
+ 382 0079 0E       		.uleb128 0xe
+ 383 007a 3A       		.uleb128 0x3a
+ 384 007b 0B       		.uleb128 0xb
+ 385 007c 3B       		.uleb128 0x3b
+ 386 007d 05       		.uleb128 0x5
+ 387 007e 49       		.uleb128 0x49
+ 388 007f 13       		.uleb128 0x13
+ 389 0080 3F       		.uleb128 0x3f
+ 390 0081 19       		.uleb128 0x19
+ 391 0082 3C       		.uleb128 0x3c
+ 392 0083 19       		.uleb128 0x19
+ 393 0084 00       		.byte	0
+ 394 0085 00       		.byte	0
+ 395 0086 00       		.byte	0
+ 396              		.section	.debug_aranges,"",%progbits
+ 397 0000 1C000000 		.4byte	0x1c
+ 398 0004 0200     		.2byte	0x2
+ 399 0006 00000000 		.4byte	.Ldebug_info0
+ 400 000a 04       		.byte	0x4
+ 401 000b 00       		.byte	0
+ 402 000c 0000     		.2byte	0
+ 403 000e 0000     		.2byte	0
+ 404 0010 00000000 		.4byte	.LFB37
+ 405 0014 60000000 		.4byte	.LFE37-.LFB37
+ 406 0018 00000000 		.4byte	0
+ 407 001c 00000000 		.4byte	0
+ 408              		.section	.debug_ranges,"",%progbits
+ 409              	.Ldebug_ranges0:
+ 410 0000 00000000 		.4byte	.LFB37
+ 411 0004 60000000 		.4byte	.LFE37
+ 412 0008 00000000 		.4byte	0
+ 413 000c 00000000 		.4byte	0
+ 414              		.section	.debug_line,"",%progbits
+ 415              	.Ldebug_line0:
+ 416 0000 7F000000 		.section	.debug_str,"MS",%progbits,1
+ 416      02005A00 
+ 416      00000201 
+ 416      FB0E0D00 
+ 416      01010101 
+ 417              	.LASF15:
+ 418 0000 4359424C 		.ascii	"CYBLE_STATE_STOPPED\000"
+ 418      455F5354 
+ 418      4154455F 
+ 418      53544F50 
+ 418      50454400 
+ 419              	.LASF10:
+ 420 0014 75696E74 		.ascii	"uint32\000"
+ 420      333200
+ 421              	.LASF8:
+ 422 001b 756E7369 		.ascii	"unsigned int\000"
+ 422      676E6564 
+ 422      20696E74 
+ 422      00
+ 423              	.LASF25:
+ 424 0028 6170705F 		.ascii	"app_LED.c\000"
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 10
+
+
+ 424      4C45442E 
+ 424      6300
+ 425              	.LASF19:
+ 426 0032 4359424C 		.ascii	"CYBLE_STATE_DISCONNECTED\000"
+ 426      455F5354 
+ 426      4154455F 
+ 426      44495343 
+ 426      4F4E4E45 
+ 427              	.LASF9:
+ 428 004b 75696E74 		.ascii	"uint8\000"
+ 428      3800
+ 429              	.LASF5:
+ 430 0051 6C6F6E67 		.ascii	"long unsigned int\000"
+ 430      20756E73 
+ 430      69676E65 
+ 430      6420696E 
+ 430      7400
+ 431              	.LASF26:
+ 432 0063 443A5C43 		.ascii	"D:\\Cypress\\Projects\\fNIR PSoC BLE\\UART_to_BLE_p"
+ 432      79707265 
+ 432      73735C50 
+ 432      726F6A65 
+ 432      6374735C 
+ 433 0092 65726970 		.ascii	"eripheral\\fNIR PSoC Peripheral.cydsn\000"
+ 433      68657261 
+ 433      6C5C664E 
+ 433      49522050 
+ 433      536F4320 
+ 434              	.LASF7:
+ 435 00b7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 435      206C6F6E 
+ 435      6720756E 
+ 435      7369676E 
+ 435      65642069 
+ 436              	.LASF23:
+ 437 00ce 636F6E6E 		.ascii	"connLedTimer\000"
+ 437      4C656454 
+ 437      696D6572 
+ 437      00
+ 438              	.LASF21:
+ 439 00db 6C656453 		.ascii	"ledState\000"
+ 439      74617465 
+ 439      00
+ 440              	.LASF18:
+ 441 00e4 4359424C 		.ascii	"CYBLE_STATE_ADVERTISING\000"
+ 441      455F5354 
+ 441      4154455F 
+ 441      41445645 
+ 441      52544953 
+ 442              	.LASF1:
+ 443 00fc 756E7369 		.ascii	"unsigned char\000"
+ 443      676E6564 
+ 443      20636861 
+ 443      7200
+ 444              	.LASF13:
+ 445 010a 63686172 		.ascii	"char\000"
+ 445      00
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 11
+
+
+ 446              	.LASF4:
+ 447 010f 6C6F6E67 		.ascii	"long int\000"
+ 447      20696E74 
+ 447      00
+ 448              	.LASF28:
+ 449 0118 6379426C 		.ascii	"cyBle_state\000"
+ 449      655F7374 
+ 449      61746500 
+ 450              	.LASF12:
+ 451 0124 646F7562 		.ascii	"double\000"
+ 451      6C6500
+ 452              	.LASF6:
+ 453 012b 6C6F6E67 		.ascii	"long long int\000"
+ 453      206C6F6E 
+ 453      6720696E 
+ 453      7400
+ 454              	.LASF3:
+ 455 0139 73686F72 		.ascii	"short unsigned int\000"
+ 455      7420756E 
+ 455      7369676E 
+ 455      65642069 
+ 455      6E7400
+ 456              	.LASF0:
+ 457 014c 7369676E 		.ascii	"signed char\000"
+ 457      65642063 
+ 457      68617200 
+ 458              	.LASF22:
+ 459 0158 6164764C 		.ascii	"advLedTimer\000"
+ 459      65645469 
+ 459      6D657200 
+ 460              	.LASF17:
+ 461 0164 4359424C 		.ascii	"CYBLE_STATE_CONNECTED\000"
+ 461      455F5354 
+ 461      4154455F 
+ 461      434F4E4E 
+ 461      45435445 
+ 462              	.LASF16:
+ 463 017a 4359424C 		.ascii	"CYBLE_STATE_INITIALIZING\000"
+ 463      455F5354 
+ 463      4154455F 
+ 463      494E4954 
+ 463      49414C49 
+ 464              	.LASF11:
+ 465 0193 666C6F61 		.ascii	"float\000"
+ 465      7400
+ 466              	.LASF20:
+ 467 0199 4359424C 		.ascii	"CYBLE_STATE_T\000"
+ 467      455F5354 
+ 467      4154455F 
+ 467      5400
+ 468              	.LASF2:
+ 469 01a7 73686F72 		.ascii	"short int\000"
+ 469      7420696E 
+ 469      7400
+ 470              	.LASF27:
+ 471 01b1 48616E64 		.ascii	"HandleLeds\000"
+ 471      6C654C65 
+ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 12
+
+
+ 471      647300
+ 472              	.LASF14:
+ 473 01bc 73697A65 		.ascii	"sizetype\000"
+ 473      74797065 
+ 473      00
+ 474              	.LASF24:
+ 475 01c5 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 475      4320342E 
+ 475      392E3320 
+ 475      32303135 
+ 475      30333033 
+ 476 01f8 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 476      20726576 
+ 476      6973696F 
+ 476      6E203232 
+ 476      31323230 
+ 477 022b 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 477      66756E63 
+ 477      74696F6E 
+ 477      2D736563 
+ 477      74696F6E 
+ 478              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
