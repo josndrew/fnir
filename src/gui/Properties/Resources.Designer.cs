@@ -63,6 +63,36 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _11949892282132520602led_circle_green_svg_med {
+            get {
+                object obj = ResourceManager.GetObject("11949892282132520602led_circle_green.svg.med", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1194989228908147779led_circle_grey_svg_med {
+            get {
+                object obj = ResourceManager.GetObject("1194989228908147779led_circle_grey.svg.med", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1194989231691813435led_circle_red_svg_med {
+            get {
+                object obj = ResourceManager.GetObject("1194989231691813435led_circle_red.svg.med", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Arduino {
             get {
                 object obj = ResourceManager.GetObject("Arduino", resourceCulture);

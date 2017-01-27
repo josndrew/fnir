@@ -182,6 +182,15 @@
   <ItemGroup>
     <None Include="Resources\Legend.JPG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1194989231691813435led_circle_red.svg.med.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11949892282132520602led_circle_green.svg.med.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1194989228908147779led_circle_grey.svg.med.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

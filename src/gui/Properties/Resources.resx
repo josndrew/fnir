@@ -121,10 +121,19 @@
   <data name="Arduino" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Arduino.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Legend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Legend.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="11949892282132520602led_circle_green.svg.med" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\11949892282132520602led_circle_green.svg.med.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1194989231691813435led_circle_red.svg.med" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1194989231691813435led_circle_red.svg.med.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Biomed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Biomed.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Legend" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Legend.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1194989228908147779led_circle_grey.svg.med" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1194989228908147779led_circle_grey.svg.med.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

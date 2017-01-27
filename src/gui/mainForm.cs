@@ -25,7 +25,7 @@ namespace GUI
         private SerialPort adruinoSerial;
         public SerialSetup adruino_dialog;
         private SettingsSetup settings_dialog;
-        private Thread thread1, thread2;
+        private Thread thread1, thread2, thread3;
         private Chart[] channels;
         private Label[] labels;
         private DataTable foundSessions;
@@ -33,14 +33,12 @@ namespace GUI
         private bool isFrozen = false;
         private bool isFullScreen = false;
         private int sessionsFound = 0;
-        private int currentpoint;
+        private int currentpoint, currentProcpoint;
         private int INTERVAL;
-        private int freq = 15;
+        private int freq = 28;
         const int NUM_CHANNELS = 4;
-        private double[] values;
-        private bool S1 = false, S2 = false, S3 = false, S4 = false;
         private string sessionPath, logPath;
-        private double newBegin, newEnd;
+        
 
         public mainForm()
         {
@@ -59,17 +57,17 @@ namespace GUI
             stopToolStripMenuItem.Enabled = false;
             button1.Enabled = false;
             isCollecting = false;
-            button1.Text = "START";
-            button2.Text = "Freeze";
+            
             button2.Enabled = false;
-            button3.Text = "<";
             button3.Enabled = false;
-            button4.Text = ">";
             button4.Enabled = false;
+            button5.Enabled = false;
+            button6.Enabled = false;
+
             currentpoint = 0;
+            currentProcpoint = 0;
             channels = new Chart[NUM_CHANNELS * 2] { channel1, channel2, channel3, channel4, channel1_P, channel2_P, channel3_P, channel4_P };
             labels = new Label[NUM_CHANNELS * 2] { label1, label2, label3, label4, label5, label6, label7, label8 };
-            values = new double[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
 
             for (int j = 0; j < NUM_CHANNELS * 2; j++)
             {
@@ -191,28 +189,7 @@ namespace GUI
         private void connectWithAdruinoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //serialDialogOpen();
-            try
-            {
-                adruinoSerial.PortName = GUI.Properties.Settings.Default.PortName;
-                adruinoSerial.BaudRate = GUI.Properties.Settings.Default.BaudRate;
-                adruinoSerial.Parity = GUI.Properties.Settings.Default.Parity;
-                adruinoSerial.DataBits = GUI.Properties.Settings.Default.DataBits;
-                adruinoSerial.StopBits = GUI.Properties.Settings.Default.StopBits;
-                adruinoSerial.Handshake = GUI.Properties.Settings.Default.Handshake;
-
-                adruinoSerial.DataReceived += new SerialDataReceivedEventHandler(comPort_DataReceived);
-                adruinoSerial.Open();        
-
-                startToolStripMenuItem.Enabled = true;
-                stopToolStripMenuItem.Enabled = false;
-                button1.Enabled = true;
-                button2.Enabled = true;
-            }
-
-            catch
-            {
-                serialDialogOpen();
-            }
+            connectToDevice();
         }
 
         private void uploadDataFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -253,24 +230,33 @@ namespace GUI
             {
                 Chart chart = channels[i];
 
-                chart.Series[0].MarkerSize = 7 / (comboBox1.SelectedIndex + 1);
-                chart.Series[2].MarkerSize = 7 / (comboBox1.SelectedIndex + 1);
-                chart.Series[1].MarkerSize = 5 / (comboBox1.SelectedIndex + 1);
-                chart.Series[3].MarkerSize = 5 / (comboBox1.SelectedIndex + 1);
+                chart.Series[0].MarkerSize = 10 / (comboBox1.SelectedIndex + 1);
+                chart.Series[2].MarkerSize = 10 / (comboBox1.SelectedIndex + 1);
+                chart.Series[1].MarkerSize = 7 / (comboBox1.SelectedIndex + 1);
+                chart.Series[3].MarkerSize = 7 / (comboBox1.SelectedIndex + 1);
 
-                newBegin = chart.ChartAreas[0].AxisX.Minimum;
-                newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
+                
+                double newBegin = chart.ChartAreas[0].AxisX.Minimum;
+                double newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
 
                 if (!isFrozen)
                 {
-                    if (newEnd > currentpoint)
+
+
+                    double pointOfValue = 0;
+                    if (chart.Series["HbO2"].Points.Count != 0)
                     {
-                        newBegin = currentpoint - INTERVAL;
+                        pointOfValue = chart.Series["HbO2"].Points[chart.Series["HbO2"].Points.Count - 1].XValue;
+                    }
+
+                    if (newEnd > pointOfValue)
+                    {
+                        newBegin = pointOfValue - INTERVAL;
                         if (newBegin < 0)
                         {
                             newBegin = 0;
                         }
-                        newEnd = currentpoint;
+                        newEnd = pointOfValue;
                     }
                 }
 
@@ -294,25 +280,42 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            newBegin = newBegin - INTERVAL;
-            newEnd = newBegin + INTERVAL;
-
-            if (newBegin < 0)
+            for (int i = 0; i < NUM_CHANNELS * 2; i++)
             {
-                newBegin = 0;
-                newEnd = INTERVAL;
-                button3.Enabled = false;
+                Chart chart = channels[i];
+                double newBegin = chart.ChartAreas[0].AxisX.Minimum;
+                double newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
+
+                newBegin = newBegin - INTERVAL;
+                newEnd = newBegin + INTERVAL;
+
+                if (newBegin < 0)
+                {
+                    newBegin = 0;
+                    newEnd = INTERVAL;
+                    button3.Enabled = false;
+                }
             }
-            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            newEnd = newEnd + INTERVAL;
-            newBegin = newEnd - INTERVAL;
-            button3.Enabled = true;
+            for (int i = 0; i < NUM_CHANNELS * 2; i++)
+            {
+                Chart chart = channels[i];
+                double newBegin = chart.ChartAreas[0].AxisX.Minimum;
+                double newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
+
+                newEnd = newEnd + INTERVAL;
+                newBegin = newEnd - INTERVAL;
+                button3.Enabled = true;
+            }
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            connectToDevice();
+        }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -458,6 +461,22 @@ namespace GUI
                         thread2.Start();
                     }
 
+                    Thread.Sleep(2000);
+
+                    try
+                    {
+                        if (!thread3.IsAlive)
+                        {
+                            thread3 = new Thread(new ThreadStart(processData));
+                            thread3.Start();
+                        }
+                    }
+                    catch
+                    {
+                        thread3 = new Thread(new ThreadStart(processData));
+                        thread3.Start();
+                    }
+
                     break;
 
                 case "STOP":
@@ -468,6 +487,7 @@ namespace GUI
                     button2.Enabled = false;
                     button3.Enabled = true;
                     button4.Enabled = true;
+
                     for (int k = 0; k < NUM_CHANNELS; k++)
                     {
                         labels[k].BackColor = Color.Transparent;
@@ -478,6 +498,33 @@ namespace GUI
             }
         }
 
+        private void connectToDevice()
+        {
+            try
+            {
+                adruinoSerial.PortName = GUI.Properties.Settings.Default.PortName;
+                adruinoSerial.BaudRate = GUI.Properties.Settings.Default.BaudRate;
+                adruinoSerial.Parity = GUI.Properties.Settings.Default.Parity;
+                adruinoSerial.DataBits = GUI.Properties.Settings.Default.DataBits;
+                adruinoSerial.StopBits = GUI.Properties.Settings.Default.StopBits;
+                adruinoSerial.Handshake = GUI.Properties.Settings.Default.Handshake;
+
+                adruinoSerial.DataReceived += new SerialDataReceivedEventHandler(comPort_DataReceived);
+                adruinoSerial.Open();
+
+                startToolStripMenuItem.Enabled = true;
+                stopToolStripMenuItem.Enabled = false;
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button5.Enabled = true;
+                button6.Enabled = true;
+            }
+
+            catch
+            {
+                serialDialogOpen();
+            }
+        }
      
         private void changeGraphUpdateStatus()
         {
@@ -569,144 +616,153 @@ namespace GUI
         private void parseData()
         {
             int lineCount = 0;
+
+            while (textBox1.Lines.Count() < 10) { }
+
             while (true)
             {
                 string[] bufferArray = (textBox1.Lines[lineCount]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                 if (bufferArray.Length > 0)
                 {
-                    double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
-                    displayData(fieldArray[0], new double[4] { fieldArray[1], fieldArray[2], fieldArray[3], fieldArray[4] }, fieldArray[5], true);
+                    if (bufferArray.Length == 6)
+                    {
+                        double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
+                        displayData(fieldArray[0], new double[4] { fieldArray[1], fieldArray[2], fieldArray[3], fieldArray[4] }, fieldArray[5], true);
+                    }
                     lineCount++;
                 }
-                else
+            }
+        }
+
+        private void processData()
+        {
+            int lineCount = 0;
+
+            while (textBox1.Lines.Count() < 20) { }
+
+            while (true)
+            {
+                try
                 {
-                    return;
+                    string[] buffer1 = (textBox1.Lines[lineCount]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] buffer2 = (textBox1.Lines[lineCount + 1]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    if ((buffer1.Length > 0) && (buffer2.Length > 0))
+                    {
+                        if ((buffer1.Length == 6) && (buffer2.Length == 6))
+                        {
+                            double[] field1 = Array.ConvertAll(buffer1, s => double.Parse(s));
+                            double[] field2 = Array.ConvertAll(buffer2, s => double.Parse(s));
+
+                            for (int k = 1; k < 5; k++)
+                            {
+                                double yp1 = 0, yp2 = 0;
+                                calcPerData(field1[k], field2[k], out yp1, out yp2);
+                                Invoke((MethodInvoker)delegate { updateChart(field1[0], yp1, yp2, channels[k + 3], k + 3, true, true); });
+                            }
+                        }
+                        lineCount += 2;
+                    }
+                }
+                catch (System.IndexOutOfRangeException)
+                {
+                    Thread.Sleep(1000);
                 }
             }
         }
 
         private void displayData(double timeStamp, double[] dataArray, double ledIndex, bool fromDevice)
         {
-            bool updateProcessed = false;
-            if (fromDevice)
-            {
-                if ((ledIndex == 0) || (ledIndex == 2))
-                {
-                    values[0] = dataArray[0];
-                    values[2] = dataArray[1];
-                    values[4] = dataArray[2];
-                    values[6] = dataArray[3];
-                    S1 = true;
-                }
-                else if ((ledIndex == 1) || (ledIndex == 3))
-                {
-                    values[1] = dataArray[0];
-                    values[3] = dataArray[1];
-                    values[5] = dataArray[2];
-                    values[7] = dataArray[3];
-                    S2 = true;
-                }
-
-                currentpoint++;
-            }
- 
-
-            if (S1 && S2)
-            {
-                double yp1 = 0, yp2 = 0;
-                Parallel.Invoke(() =>
-                { Invoke((MethodInvoker)delegate { calcPerData(values[0], values[1], out yp1, out yp2); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, yp1, yp2, channel1_P, 0, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { calcPerData(values[2], values[3], out yp1, out yp2); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, yp1, yp2, channel2_P, 0, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { calcPerData(values[4], values[5], out yp1, out yp2); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, yp1, yp2, channel3_P, 0, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { calcPerData(values[6], values[7], out yp1, out yp2); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, yp1, yp2, channel4_P, 0, true, fromDevice); }); 
-                });
-                S1 = false;
-                S2 = false;
-                updateProcessed = true;
-            }
-            
-            if (!updateProcessed)
-            {
-                Parallel.Invoke(() =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, 0, 0, channel1_P, 0, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, 0, 0, channel2_P, 0, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, 0, 0, channel3_P, 0, true, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, 0, 0, channel4_P, 0, true, fromDevice); }); }
-               );
-            }
-
-            Parallel.Invoke(() =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], 0, channel1, 0, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[1], 0, channel2, 1, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], 0, channel3, 2, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[3], 0, channel4, 3, false, fromDevice); }); }, () =>
-                { Invoke((MethodInvoker)delegate { updateLED(ledIndex); }); }, () =>
-                { BeginInvoke((MethodInvoker)delegate { Update(); Refresh(); }); }
-            );
+            currentpoint++;
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], ledIndex, channel1, 0, false, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[1], ledIndex, channel2, 1, false, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], ledIndex, channel3, 2, false, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[3], ledIndex, channel4, 3, false, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateLED(ledIndex); });
+            Invoke((MethodInvoker)delegate { Update(); Refresh(); });
         }
 
         private void updateChart(double x, double y1, double y2, Chart chart, int index, bool procData, bool fromDevice)
         {
-            double beg = chart.ChartAreas[0].AxisX.Minimum;
-            double end = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
-
             if (fromDevice)
             {
                 chart.Series["HbO2"].Points.AddXY(x, y1);
                 chart.Series["HbR"].Points.AddXY(x, y2);
-                
-                if (chart.Series["HbO2"].Points.Count > 3650)
+
+                chart.Series["HbR"].Enabled = false;
+                //if (index < 4)
+                //{
+                //    chart.Series["HbR"].Enabled = false;
+                //    if (((int)y2 % 2) == 0)
+                //    {
+                //        chart.Series["HbO2"].Points[chart.Series["HbO2"].Points.Count - 1].MarkerColor = Color.Red;
+                //        chart.Series["HbO2"].Points[chart.Series["HbO2"].Points.Count - 1].Color = Color.Red;
+                //    }
+                //    else
+                //    {
+                //        chart.Series["HbO2"].Points[chart.Series["HbO2"].Points.Count -1 ].MarkerColor = Color.Green;
+                //        chart.Series["HbO2"].Points[chart.Series["HbO2"].Points.Count - 1].Color = Color.Red;
+                //    }
+                //}
+
+                if (chart.Series["HbO2"].Points.Count > 4000)
                 {
                     chart.Series["HbO2"].Points.RemoveAt(0);
                     chart.Series["HbR"].Points.RemoveAt(0);
-                    end = chart.ChartAreas[0].AxisX.Maximum;
                 }
                 labels[index].Text = ((Math.Abs(y1) + Math.Abs(y2))).ToString("N2");
 
-                if ((Math.Abs(y1) > 70 ) || (Math.Abs(y2) > 70))
-                {
-                    label9.Visible = true;
-                }
+                //if ((Math.Abs(y1) > 70 ) || (Math.Abs(y2) > 70))
+                //{
+                //    label9.Visible = true;
+                //}
+            }
 
-            }
-            else
-            {
-                chart.Series["HbO2_Freeze"].Points.AddXY(x, y1);
-                chart.Series["HbR_Freeze"].Points.AddXY(x, y2);
-            }
 
             if (!isFrozen)
             {
                 chart.Series["HbO2"].Enabled = true;
-                if ((chart == channel1) || (chart == channel2) || (chart == channel3) || (chart == channel4))
+                labels[index].Text = (y1).ToString("N2");
+
+                if (index > 3)
                 {
-                    chart.Series["HbR"].Enabled = false;
+                    chart.Series["HbR"].Enabled = true;
+                    labels[index].Text = ((Math.Abs(y1) + Math.Abs(y2))).ToString("N2");
+                }
+
+                double beg = chart.ChartAreas[0].AxisX.Minimum; 
+                double end = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
+                int propValue = 0;
+
+                if (index < 4)
+                {
+                    propValue = currentpoint;
+                    
+                    if (end > propValue)
+                    {
+                        beg = (chart.Series["HbO2"].Points.Count - 1) - (INTERVAL);
+                        if (beg < 0)
+                        {
+                            beg = 0;
+                        }
+                        end = chart.Series["HbO2"].Points.Count - 1;
+                    }
                 }
                 else
                 {
-                    chart.Series["HbR"].Enabled = true;
-                }
-                
-                chart.Series["HbO2_Freeze"].Enabled = false;
-                chart.Series["HbO2_Freeze"].Points.Clear();
-                chart.Series["HbR_Freeze"].Enabled = false;
-                chart.Series["HbR_Freeze"].Points.Clear();
+                    propValue = currentProcpoint;
 
-
-
-                if (end > currentpoint)
-                {
-                    beg = currentpoint - INTERVAL;
-                    if (beg < 0)
+                    if (end > propValue)
                     {
-                        beg = 0;
+                        beg = (chart.Series["HbO2"].Points.Count-1) - (INTERVAL/2.0);
+                        if (beg < 0)
+                        {
+                            beg = 0;
+                        }
+                        end = chart.Series["HbO2"].Points.Count-1;
                     }
-                    end = currentpoint;
                 }
+
+                
 
                 if ((beg >= 0) && (end > 0))
                 {
@@ -719,41 +775,34 @@ namespace GUI
                 }
 
             }
-            
         }
 
         private void updateLED(double index)
         {
-            for (int k = 0; k < NUM_CHANNELS; k++)
+            if(index == 0)
             {
-                labels[k].BackColor = Color.Transparent;
-                labels[k + NUM_CHANNELS].BackColor = Color.Transparent;
+                pictureBox1.Image = GUI.Properties.Resources._1194989231691813435led_circle_red_svg_med;
+                pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
             }
-
-            Color ledColor;
-            if ((index % 2) == 0)
+            else if (index == 1)
             {
-                ledColor = Color.Red;
+                pictureBox1.Image = GUI.Properties.Resources._11949892282132520602led_circle_green_svg_med;
+                pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
             }
-            else
+            else if (index == 2)
             {
-                ledColor = Color.Green;
+                pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                pictureBox3.Image = GUI.Properties.Resources._1194989231691813435led_circle_red_svg_med;
             }
-
-            if ((index == 0) || (index == 1))
+            else if (index == 3)
             {
-                label1.BackColor = ledColor;
-                label5.BackColor = ledColor;
-                label2.BackColor = ledColor;
-                label6.BackColor = ledColor;
+                pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                pictureBox3.Image = GUI.Properties.Resources._11949892282132520602led_circle_green_svg_med;
             }
-
-            else if ((index == 2) || (index == 3))
+            else if (index == 4)
             {
-                label3.BackColor = ledColor;
-                label7.BackColor = ledColor;
-                label4.BackColor = ledColor;
-                label8.BackColor = ledColor;
+                pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
             }
         }
 
@@ -776,10 +825,6 @@ namespace GUI
             {
                 ser1 = chart.Series["HbO2"];
                 ser2 = chart.Series["HbR"];
-                if (currentpoint < end)
-                {
-                    end = currentpoint;
-                }
             }
             else
             {
@@ -944,6 +989,7 @@ namespace GUI
                 }
             }
         }
+
 
         private void comPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
