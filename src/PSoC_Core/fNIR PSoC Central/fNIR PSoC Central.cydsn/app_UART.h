@@ -40,6 +40,7 @@
     void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *);
     void DisableUartRxInt(void);
     void EnableUartRxInt(void);
+    void dec_to_str (uint8* str, uint32_t val, size_t digits);
     
 #endif
 /* [] END OF FILE */

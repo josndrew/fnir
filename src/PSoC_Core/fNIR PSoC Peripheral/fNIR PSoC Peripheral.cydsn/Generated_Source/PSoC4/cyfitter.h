@@ -551,7 +551,7 @@
 
 /* Miscellaneous */
 #define CY_PROJECT_NAME "fNIR PSoC Peripheral"
-#define CY_VERSION "PSoC Creator  4.0"
+#define CY_VERSION "PSoC Creator  4.0 Update 1"
 #define CYDEV_BANDGAP_VOLTAGE 1.024
 #define CYDEV_BCLK__HFCLK__HZ 48000000U
 #define CYDEV_BCLK__HFCLK__KHZ 48000U

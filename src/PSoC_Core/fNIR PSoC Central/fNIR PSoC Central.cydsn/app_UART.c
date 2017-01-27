@@ -13,6 +13,8 @@
 
 #include "app_UART.h"
 
+int ledIndex = 0;
+
 /*******************************************************************************
 * Function Name: HandleUartRxTraffic
 ********************************************************************************
@@ -52,22 +54,73 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
     
     
 
-            uint8   a[20]={'1',  uartTxDataLength, '3', '4', 0x0D, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 ,0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-        
-            unsigned char *x =  uartRxDataNotification->handleValPair.value.val;
             
-            uartTxDataWriteCmd.attrHandle = rxCharHandle;
-            uartTxDataWriteCmd.value.len  = uartRxDataNotification->handleValPair.value.len;
-            uartTxDataWriteCmd.value.val  = x;  
-    
-            do
+        
+    unsigned char *x =  uartRxDataNotification->handleValPair.value.val;
+    uint8 a[20]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 , 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x0a};
+           
+            
+            
+    int k;
+    int count = 0;
+    switch (*x)
+    {
+        case 'a':
+        /*
+            gettimeofday(&stop, NULL);
+            uint8 secs = (double)(stop.tv_usec - start.tv_usec) / 1000 + (double)(stop.tv_sec - start.tv_sec);
+            dec_to_str (&a[count], secs, 3);
+            a[count + 3] = ',';
+            count+=4;
+          */  
+            
+            for (k = 0; k < 4; k++)
             {
-                bleApiResult = CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &uartTxDataWriteCmd);
-                CyBle_ProcessEvents();
+                uint16 VAL1=ADC_GetResult16(k);
+                uint8 AV1=ADC_CountsTo_mVolts(0,VAL1);
+                dec_to_str (&a[count], AV1, 3);
+                a[count + 3] = ',';
+                count+=4;
             }
-            while((CYBLE_ERROR_OK != bleApiResult) && (CYBLE_STATE_CONNECTED == cyBle_state));
+            dec_to_str (&a[count], (ledIndex % 4), 1);
+            ledIndex = (ledIndex + 1) % 4;
+            //a[count + 1] = 0x0D;
+            a[count + 1] = 0x0A;
+            break;
+        case 'b':
+            gettimeofday(&start, NULL);
+            break;
+        default:
+            break;
+    }
+    
+            
+            
+    uartTxDataWriteCmd.attrHandle = rxCharHandle;
+    uartTxDataWriteCmd.value.len  = 20; //uartRxDataNotification->handleValPair.value.len;          
+    uartTxDataWriteCmd.value.val  = a;  
+
+    do
+    {
+        bleApiResult = CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &uartTxDataWriteCmd);
+        CyBle_ProcessEvents();
+    }
+    while((CYBLE_ERROR_OK != bleApiResult) && (CYBLE_STATE_CONNECTED == cyBle_state));
+            
 }
 
+void dec_to_str (uint8* str, uint32_t val, size_t digits)
+{
+  size_t i=1u;
+
+  for(; i<=digits; i++)
+  {
+    str[digits-i] = (char)((val % 10u) + '0');
+    val/=10u;
+  }
+
+  //str[i-1u] = '\0'; // assuming you want null terminated strings?
+}
 
 /*******************************************************************************
 * Function Name: HandleUartTxTraffic

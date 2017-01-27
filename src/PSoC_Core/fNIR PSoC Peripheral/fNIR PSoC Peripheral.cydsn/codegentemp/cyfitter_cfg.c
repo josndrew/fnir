@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: cyfitter_cfg.c
 * 
-* PSoC Creator  4.0
+* PSoC Creator  4.0 Update 1
 *
 * Description:
 * This file contains device initialization code.

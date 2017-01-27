@@ -1,4 +1,4 @@
-D:\Cypress\Projects\fNIR PSoC BLE\UART_to_BLE_peripheral\fNIR PSoC Peripheral.cydsn\TopDesign\TopDesign.cysch
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Peripheral\fNIR PSoC Peripheral.cydsn\TopDesign\TopDesign.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\Capacitor_v1_0\Capacitor_v1_0.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\Capacitor_v1_0\Capacitor_v1_0.pdf
 C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\Gnd_v1_0\Gnd_v1_0.cysym
@@ -397,7 +397,7 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\defaul
 C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\Power_v1_0\Power_v1_0.pdf
 C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\LED_v1_0\LED_v1_0.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\LED_v1_0\LED_v1_0.pdf
-D:\Cypress\Projects\fNIR PSoC BLE\UART_to_BLE_peripheral\fNIR PSoC Peripheral.cydsn\fNIR PSoC Peripheral.cydwr
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Peripheral\fNIR PSoC Peripheral.cydsn\fNIR PSoC Peripheral.cydwr
 C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC4\API\cm0gcc.ld
 C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC4\API\Cm0RealView.scat
 C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC4\API\Cm0Start.c

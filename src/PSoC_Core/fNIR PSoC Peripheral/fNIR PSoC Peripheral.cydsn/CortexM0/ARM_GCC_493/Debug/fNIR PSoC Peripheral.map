@@ -8676,7 +8676,7 @@ i.CyBle_BleSSInterruptHandler
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x6d94
+.debug_info     0x00000000     0x6db1
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x188 .\CortexM0\ARM_GCC_493\Debug\main.o
  .debug_info    0x00000188      0x5aa .\CortexM0\ARM_GCC_493\Debug\app_Ble.o
@@ -8695,13 +8695,13 @@ i.CyBle_BleSSInterruptHandler
  .debug_info    0x0000443d      0x31d .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART_UART.o)
  .debug_info    0x0000475a      0x9d2 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyLib.o)
  .debug_info    0x0000512c      0xaa3 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyLFClk.o)
- .debug_info    0x00005bcf       0xa2 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyBootAsmGnu.o)
- .debug_info    0x00005c71      0x17f .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART_SPI_UART_INT.o)
- .debug_info    0x00005df0      0x7a4 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_HAL_PVT.o)
- .debug_info    0x00006594      0x246 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_bless_isr.o)
- .debug_info    0x000067da      0x313 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyFlash.o)
- .debug_info    0x00006aed      0x20e .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(cyPm.o)
- .debug_info    0x00006cfb       0x99 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_HAL_INT.o)
+ .debug_info    0x00005bcf       0xbf .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyBootAsmGnu.o)
+ .debug_info    0x00005c8e      0x17f .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART_SPI_UART_INT.o)
+ .debug_info    0x00005e0d      0x7a4 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_HAL_PVT.o)
+ .debug_info    0x000065b1      0x246 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_bless_isr.o)
+ .debug_info    0x000067f7      0x313 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyFlash.o)
+ .debug_info    0x00006b0a      0x20e .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(cyPm.o)
+ .debug_info    0x00006d18       0x99 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_HAL_INT.o)
 
 .debug_abbrev   0x00000000     0x1a76
  *(.debug_abbrev)
@@ -10312,54 +10312,54 @@ i.CyBle_BleSSInterruptHandler
  .debug_frame   0x0001b8ac       0x28 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy.o)
  .debug_frame   0x0001b8d4       0x20 c:/program files (x86)/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x6c54
+.debug_str      0x00000000     0x6c71
  *(.debug_str)
- .debug_str     0x00000000      0x556 .\CortexM0\ARM_GCC_493\Debug\main.o
-                                0x58f (size before relaxing)
- .debug_str     0x00000556     0x1018 .\CortexM0\ARM_GCC_493\Debug\app_Ble.o
-                               0x11ac (size before relaxing)
- .debug_str     0x0000156e       0xc1 .\CortexM0\ARM_GCC_493\Debug\app_UART.o
-                                0x7df (size before relaxing)
- .debug_str     0x0000162f       0x37 .\CortexM0\ARM_GCC_493\Debug\app_LED.o
-                                0x253 (size before relaxing)
- .debug_str     0x00001666       0x59 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
-                                0x1e0 (size before relaxing)
- .debug_str     0x000016bf      0x126 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
-                                0x2d4 (size before relaxing)
- .debug_str     0x000017e5       0x9c .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(cyfitter_cfg.o)
-                                0x24b (size before relaxing)
- .debug_str     0x00001881      0x69c .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE.o)
-                               0x156e (size before relaxing)
- .debug_str     0x00001f1d     0x25a4 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_gatt.o)
-                               0x3bd1 (size before relaxing)
- .debug_str     0x000044c1      0xc63 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_eventHandler.o)
-                               0x227a (size before relaxing)
- .debug_str     0x00005124       0xb0 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_custom.o)
-                                0xac9 (size before relaxing)
- .debug_str     0x000051d4       0xc5 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(Conn_LED.o)
-                                0x25d (size before relaxing)
- .debug_str     0x00005299      0x120 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART.o)
-                                0x2bb (size before relaxing)
- .debug_str     0x000053b9      0x1cf .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART_SPI_UART.o)
-                                0x36e (size before relaxing)
- .debug_str     0x00005588      0x189 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART_UART.o)
-                                0x3ad (size before relaxing)
- .debug_str     0x00005711      0x53a .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyLib.o)
-                                0x706 (size before relaxing)
- .debug_str     0x00005c4b      0x717 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyLFClk.o)
-                                0x900 (size before relaxing)
- .debug_str     0x00006362       0x3d .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART_SPI_UART_INT.o)
-                                0x28f (size before relaxing)
- .debug_str     0x0000639f      0x505 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_HAL_PVT.o)
-                                0xab2 (size before relaxing)
- .debug_str     0x000068a4      0x165 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_bless_isr.o)
-                                0x333 (size before relaxing)
- .debug_str     0x00006a09      0x135 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyFlash.o)
-                                0x2f8 (size before relaxing)
- .debug_str     0x00006b3e       0xdb .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(cyPm.o)
-                                0x295 (size before relaxing)
- .debug_str     0x00006c19       0x3b .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_HAL_INT.o)
-                                0x1bc (size before relaxing)
+ .debug_str     0x00000000      0x573 .\CortexM0\ARM_GCC_493\Debug\main.o
+                                0x5ac (size before relaxing)
+ .debug_str     0x00000573     0x1018 .\CortexM0\ARM_GCC_493\Debug\app_Ble.o
+                               0x11c9 (size before relaxing)
+ .debug_str     0x0000158b       0xc1 .\CortexM0\ARM_GCC_493\Debug\app_UART.o
+                                0x7fc (size before relaxing)
+ .debug_str     0x0000164c       0x37 .\CortexM0\ARM_GCC_493\Debug\app_LED.o
+                                0x270 (size before relaxing)
+ .debug_str     0x00001683       0x59 .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
+                                0x1fd (size before relaxing)
+ .debug_str     0x000016dc      0x126 .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o
+                                0x2f1 (size before relaxing)
+ .debug_str     0x00001802       0x9c .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(cyfitter_cfg.o)
+                                0x268 (size before relaxing)
+ .debug_str     0x0000189e      0x69c .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE.o)
+                               0x158b (size before relaxing)
+ .debug_str     0x00001f3a     0x25a4 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_gatt.o)
+                               0x3bee (size before relaxing)
+ .debug_str     0x000044de      0xc63 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_eventHandler.o)
+                               0x2297 (size before relaxing)
+ .debug_str     0x00005141       0xb0 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_custom.o)
+                                0xae6 (size before relaxing)
+ .debug_str     0x000051f1       0xc5 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(Conn_LED.o)
+                                0x27a (size before relaxing)
+ .debug_str     0x000052b6      0x120 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART.o)
+                                0x2d8 (size before relaxing)
+ .debug_str     0x000053d6      0x1cf .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART_SPI_UART.o)
+                                0x38b (size before relaxing)
+ .debug_str     0x000055a5      0x189 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART_UART.o)
+                                0x3ca (size before relaxing)
+ .debug_str     0x0000572e      0x53a .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyLib.o)
+                                0x723 (size before relaxing)
+ .debug_str     0x00005c68      0x717 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyLFClk.o)
+                                0x91d (size before relaxing)
+ .debug_str     0x0000637f       0x3d .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(UART_SPI_UART_INT.o)
+                                0x2ac (size before relaxing)
+ .debug_str     0x000063bc      0x505 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_HAL_PVT.o)
+                                0xacf (size before relaxing)
+ .debug_str     0x000068c1      0x165 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_bless_isr.o)
+                                0x350 (size before relaxing)
+ .debug_str     0x00006a26      0x135 .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(CyFlash.o)
+                                0x315 (size before relaxing)
+ .debug_str     0x00006b5b       0xdb .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(cyPm.o)
+                                0x2b2 (size before relaxing)
+ .debug_str     0x00006c36       0x3b .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Peripheral.a(BLE_HAL_INT.o)
+                                0x1d9 (size before relaxing)
 
 .debug_loc
  *(.debug_loc)

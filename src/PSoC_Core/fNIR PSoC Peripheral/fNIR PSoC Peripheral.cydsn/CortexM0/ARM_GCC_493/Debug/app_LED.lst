@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
   30:app_LED.c     **** *******************************************************************************/
   31:app_LED.c     **** void HandleLeds(void)
   32:app_LED.c     **** {
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 2
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 2
 
 
   26              		.loc 1 32 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
   43              	.L4:
   41:app_LED.c     ****             #if DONGLE
   44              		.loc 1 41 0
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 3
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 3
 
 
   45 0012 0120     		mov	r0, #1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
   92              		.cfi_endproc
   93              	.LFE37:
   94              		.size	HandleLeds, .-HandleLeds
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 4
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 4
 
 
   95              		.data
@@ -207,48 +207,48 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  118 0006 00000000 		.4byte	.Ldebug_abbrev0
  119 000a 04       		.byte	0x4
  120 000b 01       		.uleb128 0x1
- 121 000c C5010000 		.4byte	.LASF24
+ 121 000c E2010000 		.4byte	.LASF24
  122 0010 01       		.byte	0x1
  123 0011 28000000 		.4byte	.LASF25
- 124 0015 63000000 		.4byte	.LASF26
+ 124 0015 3F010000 		.4byte	.LASF26
  125 0019 00000000 		.4byte	.Ldebug_ranges0+0
  126 001d 00000000 		.4byte	0
  127 0021 00000000 		.4byte	.Ldebug_line0
  128 0025 02       		.uleb128 0x2
  129 0026 01       		.byte	0x1
  130 0027 06       		.byte	0x6
- 131 0028 4C010000 		.4byte	.LASF0
+ 131 0028 27010000 		.4byte	.LASF0
  132 002c 02       		.uleb128 0x2
  133 002d 01       		.byte	0x1
  134 002e 08       		.byte	0x8
- 135 002f FC000000 		.4byte	.LASF1
+ 135 002f D7000000 		.4byte	.LASF1
  136 0033 02       		.uleb128 0x2
  137 0034 02       		.byte	0x2
  138 0035 05       		.byte	0x5
- 139 0036 A7010000 		.4byte	.LASF2
+ 139 0036 C4010000 		.4byte	.LASF2
  140 003a 02       		.uleb128 0x2
  141 003b 02       		.byte	0x2
  142 003c 07       		.byte	0x7
- 143 003d 39010000 		.4byte	.LASF3
+ 143 003d 14010000 		.4byte	.LASF3
  144 0041 02       		.uleb128 0x2
  145 0042 04       		.byte	0x4
  146 0043 05       		.byte	0x5
- 147 0044 0F010000 		.4byte	.LASF4
+ 147 0044 EA000000 		.4byte	.LASF4
  148 0048 02       		.uleb128 0x2
  149 0049 04       		.byte	0x4
  150 004a 07       		.byte	0x7
- 151 004b 51000000 		.4byte	.LASF5
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 5
+ 151 004b 67000000 		.4byte	.LASF5
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 5
 
 
  152 004f 02       		.uleb128 0x2
  153 0050 08       		.byte	0x8
  154 0051 05       		.byte	0x5
- 155 0052 2B010000 		.4byte	.LASF6
+ 155 0052 06010000 		.4byte	.LASF6
  156 0056 02       		.uleb128 0x2
  157 0057 08       		.byte	0x8
  158 0058 07       		.byte	0x7
- 159 0059 B7000000 		.4byte	.LASF7
+ 159 0059 92000000 		.4byte	.LASF7
  160 005d 03       		.uleb128 0x3
  161 005e 04       		.byte	0x4
  162 005f 05       		.byte	0x5
@@ -258,7 +258,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  166 0066 07       		.byte	0x7
  167 0067 1B000000 		.4byte	.LASF8
  168 006b 04       		.uleb128 0x4
- 169 006c 4B000000 		.4byte	.LASF9
+ 169 006c 61000000 		.4byte	.LASF9
  170 0070 02       		.byte	0x2
  171 0071 B901     		.2byte	0x1b9
  172 0073 2C000000 		.4byte	0x2c
@@ -270,19 +270,19 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  178 0083 02       		.uleb128 0x2
  179 0084 04       		.byte	0x4
  180 0085 04       		.byte	0x4
- 181 0086 93010000 		.4byte	.LASF11
+ 181 0086 B0010000 		.4byte	.LASF11
  182 008a 02       		.uleb128 0x2
  183 008b 08       		.byte	0x8
  184 008c 04       		.byte	0x4
- 185 008d 24010000 		.4byte	.LASF12
+ 185 008d FF000000 		.4byte	.LASF12
  186 0091 02       		.uleb128 0x2
  187 0092 01       		.byte	0x1
  188 0093 08       		.byte	0x8
- 189 0094 0A010000 		.4byte	.LASF13
+ 189 0094 E5000000 		.4byte	.LASF13
  190 0098 02       		.uleb128 0x2
  191 0099 04       		.byte	0x4
  192 009a 07       		.byte	0x7
- 193 009b BC010000 		.4byte	.LASF14
+ 193 009b D9010000 		.4byte	.LASF14
  194 009f 05       		.uleb128 0x5
  195 00a0 01       		.byte	0x1
  196 00a1 03       		.byte	0x3
@@ -292,28 +292,28 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  200 00a9 00000000 		.4byte	.LASF15
  201 00ad 00       		.sleb128 0
  202 00ae 06       		.uleb128 0x6
- 203 00af 7A010000 		.4byte	.LASF16
+ 203 00af 79000000 		.4byte	.LASF16
  204 00b3 01       		.sleb128 1
  205 00b4 06       		.uleb128 0x6
- 206 00b5 64010000 		.4byte	.LASF17
+ 206 00b5 4B000000 		.4byte	.LASF17
  207 00b9 02       		.sleb128 2
  208 00ba 06       		.uleb128 0x6
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 6
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 6
 
 
- 209 00bb E4000000 		.4byte	.LASF18
+ 209 00bb BF000000 		.4byte	.LASF18
  210 00bf 03       		.sleb128 3
  211 00c0 06       		.uleb128 0x6
  212 00c1 32000000 		.4byte	.LASF19
  213 00c5 04       		.sleb128 4
  214 00c6 00       		.byte	0
  215 00c7 04       		.uleb128 0x4
- 216 00c8 99010000 		.4byte	.LASF20
+ 216 00c8 B6010000 		.4byte	.LASF20
  217 00cc 03       		.byte	0x3
  218 00cd 0408     		.2byte	0x804
  219 00cf 9F000000 		.4byte	0x9f
  220 00d3 07       		.uleb128 0x7
- 221 00d4 B1010000 		.4byte	.LASF27
+ 221 00d4 CE010000 		.4byte	.LASF27
  222 00d8 01       		.byte	0x1
  223 00d9 1F       		.byte	0x1f
  224 00da 00000000 		.4byte	.LFB37
@@ -322,7 +322,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  227 00e3 9C       		.byte	0x9c
  228 00e4 1C010000 		.4byte	0x11c
  229 00e8 08       		.uleb128 0x8
- 230 00e9 DB000000 		.4byte	.LASF21
+ 230 00e9 B6000000 		.4byte	.LASF21
  231 00ed 01       		.byte	0x1
  232 00ee 21       		.byte	0x21
  233 00ef 6B000000 		.4byte	0x6b
@@ -330,7 +330,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  235 00f4 03       		.byte	0x3
  236 00f5 04000000 		.4byte	ledState.7004
  237 00f9 08       		.uleb128 0x8
- 238 00fa 58010000 		.4byte	.LASF22
+ 238 00fa 33010000 		.4byte	.LASF22
  239 00fe 01       		.byte	0x1
  240 00ff 22       		.byte	0x22
  241 0100 77000000 		.4byte	0x77
@@ -338,7 +338,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  243 0105 03       		.byte	0x3
  244 0106 08000000 		.4byte	advLedTimer.7005
  245 010a 08       		.uleb128 0x8
- 246 010b CE000000 		.4byte	.LASF23
+ 246 010b A9000000 		.4byte	.LASF23
  247 010f 01       		.byte	0x1
  248 0110 23       		.byte	0x23
  249 0111 77000000 		.4byte	0x77
@@ -347,7 +347,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  252 0117 00000000 		.4byte	connLedTimer.7006
  253 011b 00       		.byte	0
  254 011c 09       		.uleb128 0x9
- 255 011d 18010000 		.4byte	.LASF28
+ 255 011d F3000000 		.4byte	.LASF28
  256 0121 03       		.byte	0x3
  257 0122 2A0A     		.2byte	0xa2a
  258 0124 C7000000 		.4byte	0xc7
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  263 0001 11       		.uleb128 0x11
  264 0002 01       		.byte	0x1
  265 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 7
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 7
 
 
  266 0004 0E       		.uleb128 0xe
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  320 003a 0B       		.uleb128 0xb
  321 003b 3A       		.uleb128 0x3a
  322 003c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 8
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 8
 
 
  323 003d 3B       		.uleb128 0x3b
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  377 0074 00       		.byte	0
  378 0075 09       		.uleb128 0x9
  379 0076 34       		.uleb128 0x34
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 9
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 9
 
 
  380 0077 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  422      00
  423              	.LASF25:
  424 0028 6170705F 		.ascii	"app_LED.c\000"
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 10
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 10
 
 
  424      4C45442E 
@@ -549,137 +549,142 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 1
  426      4154455F 
  426      44495343 
  426      4F4E4E45 
- 427              	.LASF9:
- 428 004b 75696E74 		.ascii	"uint8\000"
- 428      3800
- 429              	.LASF5:
- 430 0051 6C6F6E67 		.ascii	"long unsigned int\000"
- 430      20756E73 
- 430      69676E65 
- 430      6420696E 
- 430      7400
- 431              	.LASF26:
- 432 0063 443A5C43 		.ascii	"D:\\Cypress\\Projects\\fNIR PSoC BLE\\UART_to_BLE_p"
- 432      79707265 
- 432      73735C50 
- 432      726F6A65 
- 432      6374735C 
- 433 0092 65726970 		.ascii	"eripheral\\fNIR PSoC Peripheral.cydsn\000"
- 433      68657261 
- 433      6C5C664E 
- 433      49522050 
- 433      536F4320 
- 434              	.LASF7:
- 435 00b7 6C6F6E67 		.ascii	"long long unsigned int\000"
- 435      206C6F6E 
- 435      6720756E 
- 435      7369676E 
- 435      65642069 
- 436              	.LASF23:
- 437 00ce 636F6E6E 		.ascii	"connLedTimer\000"
- 437      4C656454 
- 437      696D6572 
- 437      00
- 438              	.LASF21:
- 439 00db 6C656453 		.ascii	"ledState\000"
- 439      74617465 
- 439      00
- 440              	.LASF18:
- 441 00e4 4359424C 		.ascii	"CYBLE_STATE_ADVERTISING\000"
- 441      455F5354 
- 441      4154455F 
- 441      41445645 
- 441      52544953 
- 442              	.LASF1:
- 443 00fc 756E7369 		.ascii	"unsigned char\000"
- 443      676E6564 
- 443      20636861 
- 443      7200
- 444              	.LASF13:
- 445 010a 63686172 		.ascii	"char\000"
- 445      00
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 11
+ 427              	.LASF17:
+ 428 004b 4359424C 		.ascii	"CYBLE_STATE_CONNECTED\000"
+ 428      455F5354 
+ 428      4154455F 
+ 428      434F4E4E 
+ 428      45435445 
+ 429              	.LASF9:
+ 430 0061 75696E74 		.ascii	"uint8\000"
+ 430      3800
+ 431              	.LASF5:
+ 432 0067 6C6F6E67 		.ascii	"long unsigned int\000"
+ 432      20756E73 
+ 432      69676E65 
+ 432      6420696E 
+ 432      7400
+ 433              	.LASF16:
+ 434 0079 4359424C 		.ascii	"CYBLE_STATE_INITIALIZING\000"
+ 434      455F5354 
+ 434      4154455F 
+ 434      494E4954 
+ 434      49414C49 
+ 435              	.LASF7:
+ 436 0092 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 436      206C6F6E 
+ 436      6720756E 
+ 436      7369676E 
+ 436      65642069 
+ 437              	.LASF23:
+ 438 00a9 636F6E6E 		.ascii	"connLedTimer\000"
+ 438      4C656454 
+ 438      696D6572 
+ 438      00
+ 439              	.LASF21:
+ 440 00b6 6C656453 		.ascii	"ledState\000"
+ 440      74617465 
+ 440      00
+ 441              	.LASF18:
+ 442 00bf 4359424C 		.ascii	"CYBLE_STATE_ADVERTISING\000"
+ 442      455F5354 
+ 442      4154455F 
+ 442      41445645 
+ 442      52544953 
+ 443              	.LASF1:
+ 444 00d7 756E7369 		.ascii	"unsigned char\000"
+ 444      676E6564 
+ 444      20636861 
+ 444      7200
+ 445              	.LASF13:
+ 446 00e5 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 11
 
 
- 446              	.LASF4:
- 447 010f 6C6F6E67 		.ascii	"long int\000"
- 447      20696E74 
- 447      00
- 448              	.LASF28:
- 449 0118 6379426C 		.ascii	"cyBle_state\000"
- 449      655F7374 
- 449      61746500 
- 450              	.LASF12:
- 451 0124 646F7562 		.ascii	"double\000"
- 451      6C6500
- 452              	.LASF6:
- 453 012b 6C6F6E67 		.ascii	"long long int\000"
- 453      206C6F6E 
- 453      6720696E 
- 453      7400
- 454              	.LASF3:
- 455 0139 73686F72 		.ascii	"short unsigned int\000"
- 455      7420756E 
- 455      7369676E 
- 455      65642069 
- 455      6E7400
- 456              	.LASF0:
- 457 014c 7369676E 		.ascii	"signed char\000"
- 457      65642063 
- 457      68617200 
- 458              	.LASF22:
- 459 0158 6164764C 		.ascii	"advLedTimer\000"
- 459      65645469 
- 459      6D657200 
- 460              	.LASF17:
- 461 0164 4359424C 		.ascii	"CYBLE_STATE_CONNECTED\000"
- 461      455F5354 
- 461      4154455F 
- 461      434F4E4E 
- 461      45435445 
- 462              	.LASF16:
- 463 017a 4359424C 		.ascii	"CYBLE_STATE_INITIALIZING\000"
- 463      455F5354 
- 463      4154455F 
- 463      494E4954 
- 463      49414C49 
- 464              	.LASF11:
- 465 0193 666C6F61 		.ascii	"float\000"
- 465      7400
- 466              	.LASF20:
- 467 0199 4359424C 		.ascii	"CYBLE_STATE_T\000"
- 467      455F5354 
- 467      4154455F 
- 467      5400
- 468              	.LASF2:
- 469 01a7 73686F72 		.ascii	"short int\000"
- 469      7420696E 
- 469      7400
- 470              	.LASF27:
- 471 01b1 48616E64 		.ascii	"HandleLeds\000"
- 471      6C654C65 
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccJFheLS.s 			page 12
+ 446      00
+ 447              	.LASF4:
+ 448 00ea 6C6F6E67 		.ascii	"long int\000"
+ 448      20696E74 
+ 448      00
+ 449              	.LASF28:
+ 450 00f3 6379426C 		.ascii	"cyBle_state\000"
+ 450      655F7374 
+ 450      61746500 
+ 451              	.LASF12:
+ 452 00ff 646F7562 		.ascii	"double\000"
+ 452      6C6500
+ 453              	.LASF6:
+ 454 0106 6C6F6E67 		.ascii	"long long int\000"
+ 454      206C6F6E 
+ 454      6720696E 
+ 454      7400
+ 455              	.LASF3:
+ 456 0114 73686F72 		.ascii	"short unsigned int\000"
+ 456      7420756E 
+ 456      7369676E 
+ 456      65642069 
+ 456      6E7400
+ 457              	.LASF0:
+ 458 0127 7369676E 		.ascii	"signed char\000"
+ 458      65642063 
+ 458      68617200 
+ 459              	.LASF22:
+ 460 0133 6164764C 		.ascii	"advLedTimer\000"
+ 460      65645469 
+ 460      6D657200 
+ 461              	.LASF26:
+ 462 013f 433A5C55 		.ascii	"C:\\Users\\Andrew Joseph\\Desktop\\Senior Design\\t"
+ 462      73657273 
+ 462      5C416E64 
+ 462      72657720 
+ 462      4A6F7365 
+ 463 016d 72756E6B 		.ascii	"runk\\src\\PSoC_Core\\fNIR PSoC Peripheral\\fNIR PS"
+ 463      5C737263 
+ 463      5C50536F 
+ 463      435F436F 
+ 463      72655C66 
+ 464 019c 6F432050 		.ascii	"oC Peripheral.cydsn\000"
+ 464      65726970 
+ 464      68657261 
+ 464      6C2E6379 
+ 464      64736E00 
+ 465              	.LASF11:
+ 466 01b0 666C6F61 		.ascii	"float\000"
+ 466      7400
+ 467              	.LASF20:
+ 468 01b6 4359424C 		.ascii	"CYBLE_STATE_T\000"
+ 468      455F5354 
+ 468      4154455F 
+ 468      5400
+ 469              	.LASF2:
+ 470 01c4 73686F72 		.ascii	"short int\000"
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccHru0k4.s 			page 12
 
 
- 471      647300
- 472              	.LASF14:
- 473 01bc 73697A65 		.ascii	"sizetype\000"
- 473      74797065 
- 473      00
- 474              	.LASF24:
- 475 01c5 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 475      4320342E 
- 475      392E3320 
- 475      32303135 
- 475      30333033 
- 476 01f8 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 476      20726576 
- 476      6973696F 
- 476      6E203232 
- 476      31323230 
- 477 022b 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 477      66756E63 
- 477      74696F6E 
- 477      2D736563 
- 477      74696F6E 
- 478              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 470      7420696E 
+ 470      7400
+ 471              	.LASF27:
+ 472 01ce 48616E64 		.ascii	"HandleLeds\000"
+ 472      6C654C65 
+ 472      647300
+ 473              	.LASF14:
+ 474 01d9 73697A65 		.ascii	"sizetype\000"
+ 474      74797065 
+ 474      00
+ 475              	.LASF24:
+ 476 01e2 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 476      4320342E 
+ 476      392E3320 
+ 476      32303135 
+ 476      30333033 
+ 477 0215 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 477      20726576 
+ 477      6973696F 
+ 477      6E203232 
+ 477      31323230 
+ 478 0248 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 478      66756E63 
+ 478      74696F6E 
+ 478      2D736563 
+ 478      74696F6E 
+ 479              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

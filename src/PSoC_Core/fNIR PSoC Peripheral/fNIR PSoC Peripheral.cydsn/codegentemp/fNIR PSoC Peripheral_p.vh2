@@ -1,6 +1,6 @@
 -- Project:   fNIR PSoC Peripheral
--- Generated: 01/04/2017 08:24:49
--- PSoC Creator  4.0
+-- Generated: 01/27/2017 10:28:34
+-- PSoC Creator  4.0 Update 1
 
 ENTITY \fNIR PSoC Peripheral\ IS
     PORT(

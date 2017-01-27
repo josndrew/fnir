@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
   22:Generated_Source\PSoC4/CyFlash.c **** 
   23:Generated_Source\PSoC4/CyFlash.c **** /*******************************************************************************
   24:Generated_Source\PSoC4/CyFlash.c **** * Cypress identified a defect with the Flash write functionality of the
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 2
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 2
 
 
   25:Generated_Source\PSoC4/CyFlash.c **** * PSoC 4000, PSoC 4100, and PSoC 4200 devices. The CySysFlashWriteRow() function
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
   79:Generated_Source\PSoC4/CyFlash.c **** *******************************************************************************/
   80:Generated_Source\PSoC4/CyFlash.c **** uint32 CySysFlashWriteRow(uint32 rowNum, const uint8 rowData[])
   81:Generated_Source\PSoC4/CyFlash.c **** {
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 3
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 3
 
 
   30              		.loc 1 81 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
   66              		.loc 1 99 0 is_stmt 1
   67 002c 0C23     		mov	r3, #12
   68 002e FB18     		add	r3, r7, r3
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 4
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 4
 
 
   69 0030 0833     		add	r3, r3, #8
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
   94 0056 FB18     		add	r3, r7, r3
   95 0058 7F22     		mov	r2, #127
   96 005a 5A60     		str	r2, [r3, #4]
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 5
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 5
 
 
  128:Generated_Source\PSoC4/CyFlash.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  146 009e 9822     		mov	r2, #152
  147 00a0 BA18     		add	r2, r7, r2
  148 00a2 1360     		str	r3, [r2]
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 6
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 6
 
 
  133:Generated_Source\PSoC4/CyFlash.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  182 00de FB18     		add	r3, r7, r3
  183 00e0 1B68     		ldr	r3, [r3]
  184 00e2 002B     		cmp	r3, #0
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 7
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 7
 
 
  185 00e4 30D1     		bne	.L11
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  230 0128 0BE0     		b	.L13
  231              	.L12:
  232              		.loc 1 162 0 discriminator 2
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 8
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 8
 
 
  233 012a 1A4B     		ldr	r3, .L19+16
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  196:Generated_Source\PSoC4/CyFlash.c ****                         retValue = CY_FLASH_API_RETURN;
  197:Generated_Source\PSoC4/CyFlash.c ****                     }
  198:Generated_Source\PSoC4/CyFlash.c ****                 }
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 9
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 9
 
 
  199:Generated_Source\PSoC4/CyFlash.c ****             #endif  /* (CY_FLASH_CHECKSUM_WORKAROUND) */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  290 017e BD46     		mov	sp, r7
  291 0180 29B0     		add	sp, sp, #164
  292              		@ sp needed
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 10
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 10
 
 
  293 0182 90BD     		pop	{r4, r7, pc}
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  246:Generated_Source\PSoC4/CyFlash.c **** *
  247:Generated_Source\PSoC4/CyFlash.c **** * \return \ref group_flash_status_codes
  248:Generated_Source\PSoC4/CyFlash.c **** *
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 11
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 11
 
 
  249:Generated_Source\PSoC4/CyFlash.c **** *******************************************************************************/
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  303:Generated_Source\PSoC4/CyFlash.c ****                 parameters[0u] |= (uint32)(rowNum << 16u);
  304:Generated_Source\PSoC4/CyFlash.c **** 
  305:Generated_Source\PSoC4/CyFlash.c ****                 CY_FLASH_CPUSS_SYSARG_REG = (uint32) &parameters[0u];
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 12
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 12
 
 
  306:Generated_Source\PSoC4/CyFlash.c ****                 CY_FLASH_CPUSS_SYSREQ_REG = CY_FLASH_CPUSS_REQ_START | CY_FLASH_API_OPCODE_NON_BLOC
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  360:Generated_Source\PSoC4/CyFlash.c **** * The non-blocking write row API \ref CySysFlashStartWriteRow() requires that
  361:Generated_Source\PSoC4/CyFlash.c **** * this API be called 3 times to complete the write. This can be done by
  362:Generated_Source\PSoC4/CyFlash.c **** * configuring SPCIF interrupt and placing a call to this API.
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 13
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 13
 
 
  363:Generated_Source\PSoC4/CyFlash.c **** *
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  417:Generated_Source\PSoC4/CyFlash.c **** {
  317              		.loc 1 417 0
  318              		.cfi_startproc
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 14
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 14
 
 
  319 0000 90B5     		push	{r4, r7, lr}
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  351 002c 08D8     		bhi	.L24
  440:Generated_Source\PSoC4/CyFlash.c ****             {
  441:Generated_Source\PSoC4/CyFlash.c ****                 CY_FLASH_CTL_REG = (CY_FLASH_CTL_REG & ~CY_FLASH_CTL_WS_MASK) | CY_FLASH_CTL_WS_1_V
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 15
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 15
 
 
  352              		.loc 1 441 0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  388              		.loc 1 459 0
  389 006a BD46     		mov	sp, r7
  390 006c 05B0     		add	sp, sp, #20
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 16
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 16
 
 
  391              		@ sp needed
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  419 0006 7860     		str	r0, [r7, #4]
  420 0008 3960     		str	r1, [r7]
  486:Generated_Source\PSoC4/CyFlash.c ****     volatile uint32 retValue = CY_SYS_FLASH_SUCCESS;
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 17
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 17
 
 
  421              		.loc 1 486 0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  461 0040 FB18     		add	r3, r7, r3
  462 0042 7F22     		mov	r2, #127
  463 0044 5A60     		str	r2, [r3, #4]
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 18
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 18
 
 
  500:Generated_Source\PSoC4/CyFlash.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  512 0090 9A42     		cmp	r2, r3
  513 0092 02D0     		beq	.L34
  514              		.loc 1 505 0 discriminator 4
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 19
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 19
 
 
  515 0094 3B4B     		ldr	r3, .L46+12
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  552 00d2 031C     		mov	r3, r0
  553 00d4 9822     		mov	r2, #152
  554 00d6 BA18     		add	r2, r7, r2
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 20
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 20
 
 
  555 00d8 1360     		str	r3, [r2]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  596 0112 04D1     		bne	.L39
  597              		.loc 1 535 0 is_stmt 0 discriminator 1
  598 0114 1B4B     		ldr	r3, .L46+12
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 21
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 21
 
 
  599 0116 1B68     		ldr	r3, [r3]
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  645              		.loc 1 507 0
  646 015e 04E0     		b	.L44
  647              	.L36:
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 22
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 22
 
 
  648 0160 03E0     		b	.L44
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  558:Generated_Source\PSoC4/CyFlash.c **** *
  559:Generated_Source\PSoC4/CyFlash.c **** * Backups the device clock configuration.
  560:Generated_Source\PSoC4/CyFlash.c **** *
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 23
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 23
 
 
  561:Generated_Source\PSoC4/CyFlash.c **** * \return The same as \ref CySysFlashWriteRow().
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  602:Generated_Source\PSoC4/CyFlash.c ****         *
  603:Generated_Source\PSoC4/CyFlash.c ****         * The registers not to be saved:
  604:Generated_Source\PSoC4/CyFlash.c ****         * - CY_SYS_CLK_IMO_TRIM1_REG  - No need to save. Function of frequency.
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 24
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 24
 
 
  605:Generated_Source\PSoC4/CyFlash.c ****         *                               Restored by CySysClkWriteImoFreq().
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  731              		.loc 1 627 0 is_stmt 0 discriminator 1
  732 0034 0D4B     		ldr	r3, .L54+8
  733 0036 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 25
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 25
 
 
  734 0038 FF22     		mov	r2, #255
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  780              		.type	CySysFlashClockConfig, %function
  781              	CySysFlashClockConfig:
  782              	.LFB6:
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 26
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 26
 
 
  636:Generated_Source\PSoC4/CyFlash.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  677:Generated_Source\PSoC4/CyFlash.c ****         ***********************************************************************/
  678:Generated_Source\PSoC4/CyFlash.c ****         CySysClkWriteHfclkDiv(CY_SYS_CLK_HFCLK_DIV_4);
  679:Generated_Source\PSoC4/CyFlash.c **** 
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 27
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 27
 
 
  680:Generated_Source\PSoC4/CyFlash.c ****         /* The IMO frequency should be 48 MHz */
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  825              	.L57:
  826              		.loc 1 704 0 discriminator 2
  827 0032 094B     		ldr	r3, .L62
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 28
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 28
 
 
  828 0034 1B68     		ldr	r3, [r3]
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  717:Generated_Source\PSoC4/CyFlash.c **** * Restores the device clock configuration.
  718:Generated_Source\PSoC4/CyFlash.c **** *
  719:Generated_Source\PSoC4/CyFlash.c **** * \return The same as \ref CySysFlashWriteRow().
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 29
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 29
 
 
  720:Generated_Source\PSoC4/CyFlash.c **** *
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  761:Generated_Source\PSoC4/CyFlash.c **** 
  762:Generated_Source\PSoC4/CyFlash.c ****             /* Restore HFCLK clock source */
  763:Generated_Source\PSoC4/CyFlash.c ****             CySysClkWriteHfclkDirect(cySysFlashBackup.clkSelectReg & CY_SYS_CLK_SELECT_DIRECT_SEL_M
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 30
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 30
 
 
  764:Generated_Source\PSoC4/CyFlash.c **** 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  914              		.loc 1 786 0 is_stmt 0 discriminator 1
  915 0034 0D4B     		ldr	r3, .L70+8
  916 0036 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 31
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 31
 
 
  917 0038 FF22     		mov	r2, #255
@@ -1858,52 +1858,52 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  963              		.section	.debug_info,"",%progbits
  964              	.Ldebug_info0:
  965 0000 0F030000 		.4byte	0x30f
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 32
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 32
 
 
  966 0004 0400     		.2byte	0x4
  967 0006 00000000 		.4byte	.Ldebug_abbrev0
  968 000a 04       		.byte	0x4
  969 000b 01       		.uleb128 0x1
- 970 000c DC000000 		.4byte	.LASF34
+ 970 000c 44010000 		.4byte	.LASF34
  971 0010 01       		.byte	0x1
- 972 0011 8A010000 		.4byte	.LASF35
- 973 0015 ED010000 		.4byte	.LASF36
+ 972 0011 FB010000 		.4byte	.LASF35
+ 973 0015 00000000 		.4byte	.LASF36
  974 0019 00000000 		.4byte	.Ldebug_ranges0+0
  975 001d 00000000 		.4byte	0
  976 0021 00000000 		.4byte	.Ldebug_line0
  977 0025 02       		.uleb128 0x2
  978 0026 01       		.byte	0x1
  979 0027 06       		.byte	0x6
- 980 0028 C1020000 		.4byte	.LASF0
+ 980 0028 DE020000 		.4byte	.LASF0
  981 002c 02       		.uleb128 0x2
  982 002d 01       		.byte	0x1
  983 002e 08       		.byte	0x8
- 984 002f 93000000 		.4byte	.LASF1
+ 984 002f FB000000 		.4byte	.LASF1
  985 0033 02       		.uleb128 0x2
  986 0034 02       		.byte	0x2
  987 0035 05       		.byte	0x5
- 988 0036 D2000000 		.4byte	.LASF2
+ 988 0036 3A010000 		.4byte	.LASF2
  989 003a 02       		.uleb128 0x2
  990 003b 02       		.byte	0x2
  991 003c 07       		.byte	0x7
- 992 003d 62000000 		.4byte	.LASF3
+ 992 003d CA000000 		.4byte	.LASF3
  993 0041 02       		.uleb128 0x2
  994 0042 04       		.byte	0x4
  995 0043 05       		.byte	0x5
- 996 0044 B8020000 		.4byte	.LASF4
+ 996 0044 D5020000 		.4byte	.LASF4
  997 0048 02       		.uleb128 0x2
  998 0049 04       		.byte	0x4
  999 004a 07       		.byte	0x7
- 1000 004b 78010000 		.4byte	.LASF5
+ 1000 004b E9010000 		.4byte	.LASF5
  1001 004f 02       		.uleb128 0x2
  1002 0050 08       		.byte	0x8
  1003 0051 05       		.byte	0x5
- 1004 0052 DA010000 		.4byte	.LASF6
+ 1004 0052 4B020000 		.4byte	.LASF6
  1005 0056 02       		.uleb128 0x2
  1006 0057 08       		.byte	0x8
  1007 0058 07       		.byte	0x7
- 1008 0059 AB010000 		.4byte	.LASF7
+ 1008 0059 1C020000 		.4byte	.LASF7
  1009 005d 03       		.uleb128 0x3
  1010 005e 04       		.byte	0x4
  1011 005f 05       		.byte	0x5
@@ -1911,44 +1911,44 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1013 0064 02       		.uleb128 0x2
  1014 0065 04       		.byte	0x4
  1015 0066 07       		.byte	0x7
- 1016 0067 75000000 		.4byte	.LASF8
+ 1016 0067 DD000000 		.4byte	.LASF8
  1017 006b 04       		.uleb128 0x4
- 1018 006c C5000000 		.4byte	.LASF9
+ 1018 006c 2D010000 		.4byte	.LASF9
  1019 0070 02       		.byte	0x2
  1020 0071 B901     		.2byte	0x1b9
  1021 0073 2C000000 		.4byte	0x2c
  1022 0077 04       		.uleb128 0x4
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 33
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 33
 
 
- 1023 0078 6A010000 		.4byte	.LASF10
+ 1023 0078 D2010000 		.4byte	.LASF10
  1024 007c 02       		.byte	0x2
  1025 007d BA01     		.2byte	0x1ba
  1026 007f 3A000000 		.4byte	0x3a
  1027 0083 04       		.uleb128 0x4
- 1028 0084 71010000 		.4byte	.LASF11
+ 1028 0084 E2010000 		.4byte	.LASF11
  1029 0088 02       		.byte	0x2
  1030 0089 BB01     		.2byte	0x1bb
  1031 008b 48000000 		.4byte	0x48
  1032 008f 02       		.uleb128 0x2
  1033 0090 04       		.byte	0x4
  1034 0091 04       		.byte	0x4
- 1035 0092 82000000 		.4byte	.LASF12
+ 1035 0092 EA000000 		.4byte	.LASF12
  1036 0096 02       		.uleb128 0x2
  1037 0097 08       		.byte	0x8
  1038 0098 04       		.byte	0x4
- 1039 0099 CB000000 		.4byte	.LASF13
+ 1039 0099 33010000 		.4byte	.LASF13
  1040 009d 02       		.uleb128 0x2
  1041 009e 01       		.byte	0x1
  1042 009f 08       		.byte	0x8
- 1043 00a0 E8010000 		.4byte	.LASF14
+ 1043 00a0 59020000 		.4byte	.LASF14
  1044 00a4 04       		.uleb128 0x4
- 1045 00a5 00000000 		.4byte	.LASF15
+ 1045 00a5 D9010000 		.4byte	.LASF15
  1046 00a9 02       		.byte	0x2
  1047 00aa 5B02     		.2byte	0x25b
  1048 00ac 48000000 		.4byte	0x48
  1049 00b0 04       		.uleb128 0x4
- 1050 00b1 09000000 		.4byte	.LASF16
+ 1050 00b1 71000000 		.4byte	.LASF16
  1051 00b5 02       		.byte	0x2
  1052 00b6 6502     		.2byte	0x265
  1053 00b8 BC000000 		.4byte	0xbc
@@ -1957,28 +1957,28 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1056 00c1 02       		.uleb128 0x2
  1057 00c2 04       		.byte	0x4
  1058 00c3 07       		.byte	0x7
- 1059 00c4 D1010000 		.4byte	.LASF17
+ 1059 00c4 42020000 		.4byte	.LASF17
  1060 00c8 06       		.uleb128 0x6
- 1061 00c9 2E000000 		.4byte	.LASF37
+ 1061 00c9 96000000 		.4byte	.LASF37
  1062 00cd 14       		.byte	0x14
  1063 00ce 03       		.byte	0x3
  1064 00cf D7       		.byte	0xd7
  1065 00d0 ED000000 		.4byte	0xed
  1066 00d4 07       		.uleb128 0x7
- 1067 00d5 88000000 		.4byte	.LASF18
+ 1067 00d5 F0000000 		.4byte	.LASF18
  1068 00d9 03       		.byte	0x3
  1069 00da E3       		.byte	0xe3
  1070 00db 83000000 		.4byte	0x83
  1071 00df 00       		.byte	0
  1072 00e0 07       		.uleb128 0x7
- 1073 00e1 46020000 		.4byte	.LASF19
+ 1073 00e1 63020000 		.4byte	.LASF19
  1074 00e5 03       		.byte	0x3
  1075 00e6 E7       		.byte	0xe7
  1076 00e7 ED000000 		.4byte	0xed
  1077 00eb 04       		.byte	0x4
  1078 00ec 00       		.byte	0
  1079 00ed 08       		.uleb128 0x8
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 34
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 34
 
 
  1080 00ee 83000000 		.4byte	0x83
@@ -1988,12 +1988,12 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1084 00fb 03       		.byte	0x3
  1085 00fc 00       		.byte	0
  1086 00fd 0A       		.uleb128 0xa
- 1087 00fe 97020000 		.4byte	.LASF20
+ 1087 00fe B4020000 		.4byte	.LASF20
  1088 0102 03       		.byte	0x3
  1089 0103 ED       		.byte	0xed
  1090 0104 C8000000 		.4byte	0xc8
  1091 0108 0B       		.uleb128 0xb
- 1092 0109 CD020000 		.4byte	.LASF28
+ 1092 0109 EA020000 		.4byte	.LASF28
  1093 010d 01       		.byte	0x1
  1094 010e 50       		.byte	0x50
  1095 010f 83000000 		.4byte	0x83
@@ -2003,7 +2003,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1099 011c 9C       		.byte	0x9c
  1100 011d 79010000 		.4byte	0x179
  1101 0121 0C       		.uleb128 0xc
- 1102 0122 18000000 		.4byte	.LASF21
+ 1102 0122 80000000 		.4byte	.LASF21
  1103 0126 01       		.byte	0x1
  1104 0127 50       		.byte	0x50
  1105 0128 83000000 		.4byte	0x83
@@ -2011,7 +2011,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1107 012d 91       		.byte	0x91
  1108 012e D47E     		.sleb128 -172
  1109 0130 0C       		.uleb128 0xc
- 1110 0131 A1000000 		.4byte	.LASF22
+ 1110 0131 09010000 		.4byte	.LASF22
  1111 0135 01       		.byte	0x1
  1112 0136 50       		.byte	0x50
  1113 0137 79010000 		.4byte	0x179
@@ -2019,7 +2019,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1115 013c 91       		.byte	0x91
  1116 013d D07E     		.sleb128 -176
  1117 013f 0D       		.uleb128 0xd
- 1118 0140 0F000000 		.4byte	.LASF23
+ 1118 0140 77000000 		.4byte	.LASF23
  1119 0144 01       		.byte	0x1
  1120 0145 52       		.byte	0x52
  1121 0146 BC000000 		.4byte	0xbc
@@ -2027,7 +2027,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1123 014b 91       		.byte	0x91
  1124 014c 68       		.sleb128 -24
  1125 014d 0D       		.uleb128 0xd
- 1126 014e 1F000000 		.4byte	.LASF24
+ 1126 014e 87000000 		.4byte	.LASF24
  1127 0152 01       		.byte	0x1
  1128 0153 53       		.byte	0x53
  1129 0154 BC000000 		.4byte	0xbc
@@ -2035,10 +2035,10 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1131 0159 91       		.byte	0x91
  1132 015a 64       		.sleb128 -28
  1133 015b 0D       		.uleb128 0xd
- 1134 015c A9000000 		.4byte	.LASF25
+ 1134 015c 11010000 		.4byte	.LASF25
  1135 0160 01       		.byte	0x1
  1136 0161 54       		.byte	0x54
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 35
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 35
 
 
  1137 0162 94010000 		.4byte	0x194
@@ -2046,7 +2046,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1139 0167 91       		.byte	0x91
  1140 0168 DC7E     		.sleb128 -164
  1141 016a 0D       		.uleb128 0xd
- 1142 016b C2010000 		.4byte	.LASF26
+ 1142 016b 33020000 		.4byte	.LASF26
  1143 016f 01       		.byte	0x1
  1144 0170 55       		.byte	0x55
  1145 0171 6B000000 		.4byte	0x6b
@@ -2069,7 +2069,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1162 0194 05       		.uleb128 0x5
  1163 0195 84010000 		.4byte	0x184
  1164 0199 10       		.uleb128 0x10
- 1165 019a E0020000 		.4byte	.LASF38
+ 1165 019a FD020000 		.4byte	.LASF38
  1166 019e 01       		.byte	0x1
  1167 019f A001     		.2byte	0x1a0
  1168 01a1 00000000 		.4byte	.LFB3
@@ -2078,7 +2078,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1171 01aa 9C       		.byte	0x9c
  1172 01ab CE010000 		.4byte	0x1ce
  1173 01af 11       		.uleb128 0x11
- 1174 01b0 41020000 		.4byte	.LASF27
+ 1174 01b0 5E020000 		.4byte	.LASF27
  1175 01b4 01       		.byte	0x1
  1176 01b5 A001     		.2byte	0x1a0
  1177 01b7 83000000 		.4byte	0x83
@@ -2086,7 +2086,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1179 01bc 91       		.byte	0x91
  1180 01bd 64       		.sleb128 -28
  1181 01be 12       		.uleb128 0x12
- 1182 01bf C2010000 		.4byte	.LASF26
+ 1182 01bf 33020000 		.4byte	.LASF26
  1183 01c3 01       		.byte	0x1
  1184 01c4 A201     		.2byte	0x1a2
  1185 01c6 6B000000 		.4byte	0x6b
@@ -2095,10 +2095,10 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1188 01cc 6F       		.sleb128 -17
  1189 01cd 00       		.byte	0
  1190 01ce 13       		.uleb128 0x13
- 1191 01cf 4A000000 		.4byte	.LASF29
+ 1191 01cf B2000000 		.4byte	.LASF29
  1192 01d3 01       		.byte	0x1
  1193 01d4 E401     		.2byte	0x1e4
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 36
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 36
 
 
  1194 01d6 83000000 		.4byte	0x83
@@ -2108,7 +2108,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1198 01e3 9C       		.byte	0x9c
  1199 01e4 46020000 		.4byte	0x246
  1200 01e8 11       		.uleb128 0x11
- 1201 01e9 18000000 		.4byte	.LASF21
+ 1201 01e9 80000000 		.4byte	.LASF21
  1202 01ed 01       		.byte	0x1
  1203 01ee E401     		.2byte	0x1e4
  1204 01f0 83000000 		.4byte	0x83
@@ -2116,7 +2116,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1206 01f5 91       		.byte	0x91
  1207 01f6 D47E     		.sleb128 -172
  1208 01f8 11       		.uleb128 0x11
- 1209 01f9 A1000000 		.4byte	.LASF22
+ 1209 01f9 09010000 		.4byte	.LASF22
  1210 01fd 01       		.byte	0x1
  1211 01fe E401     		.2byte	0x1e4
  1212 0200 79010000 		.4byte	0x179
@@ -2124,7 +2124,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1214 0205 91       		.byte	0x91
  1215 0206 D07E     		.sleb128 -176
  1216 0208 12       		.uleb128 0x12
- 1217 0209 0F000000 		.4byte	.LASF23
+ 1217 0209 77000000 		.4byte	.LASF23
  1218 020d 01       		.byte	0x1
  1219 020e E601     		.2byte	0x1e6
  1220 0210 BC000000 		.4byte	0xbc
@@ -2132,7 +2132,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1222 0215 91       		.byte	0x91
  1223 0216 68       		.sleb128 -24
  1224 0217 12       		.uleb128 0x12
- 1225 0218 1F000000 		.4byte	.LASF24
+ 1225 0218 87000000 		.4byte	.LASF24
  1226 021c 01       		.byte	0x1
  1227 021d E701     		.2byte	0x1e7
  1228 021f BC000000 		.4byte	0xbc
@@ -2140,7 +2140,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1230 0224 91       		.byte	0x91
  1231 0225 64       		.sleb128 -28
  1232 0226 12       		.uleb128 0x12
- 1233 0227 A9000000 		.4byte	.LASF25
+ 1233 0227 11010000 		.4byte	.LASF25
  1234 022b 01       		.byte	0x1
  1235 022c E801     		.2byte	0x1e8
  1236 022e 46020000 		.4byte	0x246
@@ -2148,7 +2148,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1238 0233 91       		.byte	0x91
  1239 0234 DC7E     		.sleb128 -164
  1240 0236 12       		.uleb128 0x12
- 1241 0237 C2010000 		.4byte	.LASF26
+ 1241 0237 33020000 		.4byte	.LASF26
  1242 023b 01       		.byte	0x1
  1243 023c E901     		.2byte	0x1e9
  1244 023e 6B000000 		.4byte	0x6b
@@ -2158,11 +2158,11 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1248 0245 00       		.byte	0
  1249 0246 05       		.uleb128 0x5
  1250 0247 84010000 		.4byte	0x184
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 37
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 37
 
 
  1251 024b 14       		.uleb128 0x14
- 1252 024c 81020000 		.4byte	.LASF30
+ 1252 024c 9E020000 		.4byte	.LASF30
  1253 0250 01       		.byte	0x1
  1254 0251 3402     		.2byte	0x234
  1255 0253 A4000000 		.4byte	0xa4
@@ -2172,7 +2172,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1259 0260 9C       		.byte	0x9c
  1260 0261 84020000 		.4byte	0x284
  1261 0265 12       		.uleb128 0x12
- 1262 0266 0F000000 		.4byte	.LASF23
+ 1262 0266 77000000 		.4byte	.LASF23
  1263 026a 01       		.byte	0x1
  1264 026b 3602     		.2byte	0x236
  1265 026d A4000000 		.4byte	0xa4
@@ -2180,7 +2180,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1267 0272 91       		.byte	0x91
  1268 0273 74       		.sleb128 -12
  1269 0274 12       		.uleb128 0x12
- 1270 0275 A9000000 		.4byte	.LASF25
+ 1270 0275 11010000 		.4byte	.LASF25
  1271 0279 01       		.byte	0x1
  1272 027a 3A02     		.2byte	0x23a
  1273 027c 94020000 		.4byte	0x294
@@ -2198,7 +2198,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1285 0294 05       		.uleb128 0x5
  1286 0295 84020000 		.4byte	0x284
  1287 0299 14       		.uleb128 0x14
- 1288 029a 54020000 		.4byte	.LASF31
+ 1288 029a 71020000 		.4byte	.LASF31
  1289 029e 01       		.byte	0x1
  1290 029f 8802     		.2byte	0x288
  1291 02a1 A4000000 		.4byte	0xa4
@@ -2208,7 +2208,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1295 02ae 9C       		.byte	0x9c
  1296 02af C3020000 		.4byte	0x2c3
  1297 02b3 12       		.uleb128 0x12
- 1298 02b4 0F000000 		.4byte	.LASF23
+ 1298 02b4 77000000 		.4byte	.LASF23
  1299 02b8 01       		.byte	0x1
  1300 02b9 8A02     		.2byte	0x28a
  1301 02bb A4000000 		.4byte	0xa4
@@ -2217,8 +2217,8 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1304 02c1 74       		.sleb128 -12
  1305 02c2 00       		.byte	0
  1306 02c3 14       		.uleb128 0x14
- 1307 02c4 6A020000 		.4byte	.LASF32
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 38
+ 1307 02c4 87020000 		.4byte	.LASF32
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 38
 
 
  1308 02c8 01       		.byte	0x1
@@ -2230,7 +2230,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1314 02d8 9C       		.byte	0x9c
  1315 02d9 FC020000 		.4byte	0x2fc
  1316 02dd 12       		.uleb128 0x12
- 1317 02de 0F000000 		.4byte	.LASF23
+ 1317 02de 77000000 		.4byte	.LASF23
  1318 02e2 01       		.byte	0x1
  1319 02e3 D402     		.2byte	0x2d4
  1320 02e5 A4000000 		.4byte	0xa4
@@ -2238,7 +2238,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1322 02ea 91       		.byte	0x91
  1323 02eb 74       		.sleb128 -12
  1324 02ec 12       		.uleb128 0x12
- 1325 02ed A9000000 		.4byte	.LASF25
+ 1325 02ed 11010000 		.4byte	.LASF25
  1326 02f1 01       		.byte	0x1
  1327 02f2 D802     		.2byte	0x2d8
  1328 02f4 FC020000 		.4byte	0x2fc
@@ -2249,7 +2249,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1333 02fc 05       		.uleb128 0x5
  1334 02fd 84020000 		.4byte	0x284
  1335 0301 0D       		.uleb128 0xd
- 1336 0302 B4000000 		.4byte	.LASF33
+ 1336 0302 1C010000 		.4byte	.LASF33
  1337 0306 01       		.byte	0x1
  1338 0307 21       		.byte	0x21
  1339 0308 FD000000 		.4byte	0xfd
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1362 0010 17       		.uleb128 0x17
  1363 0011 00       		.byte	0
  1364 0012 00       		.byte	0
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 39
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 39
 
 
  1365 0013 02       		.uleb128 0x2
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1419 0049 13       		.uleb128 0x13
  1420 004a 00       		.byte	0
  1421 004b 00       		.byte	0
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 40
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 40
 
 
  1422 004c 07       		.uleb128 0x7
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1476 0082 0B       		.uleb128 0xb
  1477 0083 3B       		.uleb128 0x3b
  1478 0084 0B       		.uleb128 0xb
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 41
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 41
 
 
  1479 0085 27       		.uleb128 0x27
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1533 00bc 00       		.byte	0
  1534 00bd 0F       		.uleb128 0xf
  1535 00be 26       		.uleb128 0x26
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 42
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 42
 
 
  1536 00bf 00       		.byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1590 00f6 49       		.uleb128 0x49
  1591 00f7 13       		.uleb128 0x13
  1592 00f8 02       		.uleb128 0x2
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 43
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 43
 
 
  1593 00f9 18       		.uleb128 0x18
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1647 0131 00       		.byte	0
  1648 0132 00       		.byte	0
  1649              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 44
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 44
 
 
  1650 0000 44000000 		.4byte	0x44
@@ -2625,213 +2625,218 @@ ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 1
  1689      00000201 
  1689      FB0E0D00 
  1689      01010101 
- 1690              	.LASF15:
- 1691 0000 63797374 		.ascii	"cystatus\000"
- 1691      61747573 
- 1691      00
- 1692              	.LASF16:
- 1693 0009 72656733 		.ascii	"reg32\000"
- 1693      3200
- 1694              	.LASF23:
- 1695 000f 72657456 		.ascii	"retValue\000"
- 1695      616C7565 
- 1695      00
- 1696              	.LASF21:
- 1697 0018 726F774E 		.ascii	"rowNum\000"
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 45
+ 1690              	.LASF36:
+ 1691 0000 433A5C55 		.ascii	"C:\\Users\\Andrew Joseph\\Desktop\\Senior Design\\t"
+ 1691      73657273 
+ 1691      5C416E64 
+ 1691      72657720 
+ 1691      4A6F7365 
+ 1692 002e 72756E6B 		.ascii	"runk\\src\\PSoC_Core\\fNIR PSoC Peripheral\\fNIR PS"
+ 1692      5C737263 
+ 1692      5C50536F 
+ 1692      435F436F 
+ 1692      72655C66 
+ 1693 005d 6F432050 		.ascii	"oC Peripheral.cydsn\000"
+ 1693      65726970 
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 45
 
 
- 1697      756D00
- 1698              	.LASF24:
- 1699 001f 636C6B43 		.ascii	"clkCnfRetValue\000"
- 1699      6E665265 
- 1699      7456616C 
- 1699      756500
- 1700              	.LASF37:
- 1701 002e 63795379 		.ascii	"cySysFlashClockBackupStruct\000"
- 1701      73466C61 
- 1701      7368436C 
- 1701      6F636B42 
- 1701      61636B75 
- 1702              	.LASF29:
- 1703 004a 43795379 		.ascii	"CySysSFlashWriteUserRow\000"
- 1703      7353466C 
- 1703      61736857 
- 1703      72697465 
- 1703      55736572 
- 1704              	.LASF3:
- 1705 0062 73686F72 		.ascii	"short unsigned int\000"
- 1705      7420756E 
- 1705      7369676E 
- 1705      65642069 
- 1705      6E7400
- 1706              	.LASF8:
- 1707 0075 756E7369 		.ascii	"unsigned int\000"
- 1707      676E6564 
- 1707      20696E74 
- 1707      00
- 1708              	.LASF12:
- 1709 0082 666C6F61 		.ascii	"float\000"
- 1709      7400
- 1710              	.LASF18:
- 1711 0088 636C6B49 		.ascii	"clkImoPump\000"
- 1711      6D6F5075 
- 1711      6D7000
- 1712              	.LASF1:
- 1713 0093 756E7369 		.ascii	"unsigned char\000"
- 1713      676E6564 
- 1713      20636861 
- 1713      7200
- 1714              	.LASF22:
- 1715 00a1 726F7744 		.ascii	"rowData\000"
- 1715      61746100 
- 1716              	.LASF25:
- 1717 00a9 70617261 		.ascii	"parameters\000"
- 1717      6D657465 
- 1717      727300
- 1718              	.LASF33:
- 1719 00b4 63795379 		.ascii	"cySysFlashBackup\000"
- 1719      73466C61 
- 1719      73684261 
- 1719      636B7570 
- 1719      00
- 1720              	.LASF9:
- 1721 00c5 75696E74 		.ascii	"uint8\000"
- 1721      3800
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 46
+ 1693      68657261 
+ 1693      6C2E6379 
+ 1693      64736E00 
+ 1694              	.LASF16:
+ 1695 0071 72656733 		.ascii	"reg32\000"
+ 1695      3200
+ 1696              	.LASF23:
+ 1697 0077 72657456 		.ascii	"retValue\000"
+ 1697      616C7565 
+ 1697      00
+ 1698              	.LASF21:
+ 1699 0080 726F774E 		.ascii	"rowNum\000"
+ 1699      756D00
+ 1700              	.LASF24:
+ 1701 0087 636C6B43 		.ascii	"clkCnfRetValue\000"
+ 1701      6E665265 
+ 1701      7456616C 
+ 1701      756500
+ 1702              	.LASF37:
+ 1703 0096 63795379 		.ascii	"cySysFlashClockBackupStruct\000"
+ 1703      73466C61 
+ 1703      7368436C 
+ 1703      6F636B42 
+ 1703      61636B75 
+ 1704              	.LASF29:
+ 1705 00b2 43795379 		.ascii	"CySysSFlashWriteUserRow\000"
+ 1705      7353466C 
+ 1705      61736857 
+ 1705      72697465 
+ 1705      55736572 
+ 1706              	.LASF3:
+ 1707 00ca 73686F72 		.ascii	"short unsigned int\000"
+ 1707      7420756E 
+ 1707      7369676E 
+ 1707      65642069 
+ 1707      6E7400
+ 1708              	.LASF8:
+ 1709 00dd 756E7369 		.ascii	"unsigned int\000"
+ 1709      676E6564 
+ 1709      20696E74 
+ 1709      00
+ 1710              	.LASF12:
+ 1711 00ea 666C6F61 		.ascii	"float\000"
+ 1711      7400
+ 1712              	.LASF18:
+ 1713 00f0 636C6B49 		.ascii	"clkImoPump\000"
+ 1713      6D6F5075 
+ 1713      6D7000
+ 1714              	.LASF1:
+ 1715 00fb 756E7369 		.ascii	"unsigned char\000"
+ 1715      676E6564 
+ 1715      20636861 
+ 1715      7200
+ 1716              	.LASF22:
+ 1717 0109 726F7744 		.ascii	"rowData\000"
+ 1717      61746100 
+ 1718              	.LASF25:
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 46
 
 
- 1722              	.LASF13:
- 1723 00cb 646F7562 		.ascii	"double\000"
- 1723      6C6500
- 1724              	.LASF2:
- 1725 00d2 73686F72 		.ascii	"short int\000"
- 1725      7420696E 
- 1725      7400
- 1726              	.LASF34:
- 1727 00dc 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1727      4320342E 
- 1727      392E3320 
- 1727      32303135 
- 1727      30333033 
- 1728 010f 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 1728      20726576 
- 1728      6973696F 
- 1728      6E203232 
- 1728      31323230 
- 1729 0142 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1729      66756E63 
- 1729      74696F6E 
- 1729      2D736563 
- 1729      74696F6E 
- 1730              	.LASF10:
- 1731 016a 75696E74 		.ascii	"uint16\000"
- 1731      313600
- 1732              	.LASF11:
- 1733 0171 75696E74 		.ascii	"uint32\000"
- 1733      333200
- 1734              	.LASF5:
- 1735 0178 6C6F6E67 		.ascii	"long unsigned int\000"
- 1735      20756E73 
- 1735      69676E65 
- 1735      6420696E 
- 1735      7400
- 1736              	.LASF35:
- 1737 018a 47656E65 		.ascii	"Generated_Source\\PSoC4\\CyFlash.c\000"
- 1737      72617465 
- 1737      645F536F 
- 1737      75726365 
- 1737      5C50536F 
- 1738              	.LASF7:
- 1739 01ab 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1739      206C6F6E 
- 1739      6720756E 
- 1739      7369676E 
- 1739      65642069 
- 1740              	.LASF26:
- 1741 01c2 696E7465 		.ascii	"interruptState\000"
- 1741      72727570 
- 1741      74537461 
- 1741      746500
- 1742              	.LASF17:
- 1743 01d1 73697A65 		.ascii	"sizetype\000"
- 1743      74797065 
- 1743      00
- 1744              	.LASF6:
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 47
+ 1719 0111 70617261 		.ascii	"parameters\000"
+ 1719      6D657465 
+ 1719      727300
+ 1720              	.LASF33:
+ 1721 011c 63795379 		.ascii	"cySysFlashBackup\000"
+ 1721      73466C61 
+ 1721      73684261 
+ 1721      636B7570 
+ 1721      00
+ 1722              	.LASF9:
+ 1723 012d 75696E74 		.ascii	"uint8\000"
+ 1723      3800
+ 1724              	.LASF13:
+ 1725 0133 646F7562 		.ascii	"double\000"
+ 1725      6C6500
+ 1726              	.LASF2:
+ 1727 013a 73686F72 		.ascii	"short int\000"
+ 1727      7420696E 
+ 1727      7400
+ 1728              	.LASF34:
+ 1729 0144 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1729      4320342E 
+ 1729      392E3320 
+ 1729      32303135 
+ 1729      30333033 
+ 1730 0177 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1730      20726576 
+ 1730      6973696F 
+ 1730      6E203232 
+ 1730      31323230 
+ 1731 01aa 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1731      66756E63 
+ 1731      74696F6E 
+ 1731      2D736563 
+ 1731      74696F6E 
+ 1732              	.LASF10:
+ 1733 01d2 75696E74 		.ascii	"uint16\000"
+ 1733      313600
+ 1734              	.LASF15:
+ 1735 01d9 63797374 		.ascii	"cystatus\000"
+ 1735      61747573 
+ 1735      00
+ 1736              	.LASF11:
+ 1737 01e2 75696E74 		.ascii	"uint32\000"
+ 1737      333200
+ 1738              	.LASF5:
+ 1739 01e9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1739      20756E73 
+ 1739      69676E65 
+ 1739      6420696E 
+ 1739      7400
+ 1740              	.LASF35:
+ 1741 01fb 47656E65 		.ascii	"Generated_Source\\PSoC4\\CyFlash.c\000"
+ 1741      72617465 
+ 1741      645F536F 
+ 1741      75726365 
+ 1741      5C50536F 
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 47
 
 
- 1745 01da 6C6F6E67 		.ascii	"long long int\000"
- 1745      206C6F6E 
- 1745      6720696E 
- 1745      7400
- 1746              	.LASF14:
- 1747 01e8 63686172 		.ascii	"char\000"
+ 1742              	.LASF7:
+ 1743 021c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1743      206C6F6E 
+ 1743      6720756E 
+ 1743      7369676E 
+ 1743      65642069 
+ 1744              	.LASF26:
+ 1745 0233 696E7465 		.ascii	"interruptState\000"
+ 1745      72727570 
+ 1745      74537461 
+ 1745      746500
+ 1746              	.LASF17:
+ 1747 0242 73697A65 		.ascii	"sizetype\000"
+ 1747      74797065 
  1747      00
- 1748              	.LASF36:
- 1749 01ed 443A5C43 		.ascii	"D:\\Cypress\\Projects\\fNIR PSoC BLE\\UART_to_BLE_p"
- 1749      79707265 
- 1749      73735C50 
- 1749      726F6A65 
- 1749      6374735C 
- 1750 021c 65726970 		.ascii	"eripheral\\fNIR PSoC Peripheral.cydsn\000"
- 1750      68657261 
- 1750      6C5C664E 
- 1750      49522050 
- 1750      536F4320 
- 1751              	.LASF27:
- 1752 0241 66726571 		.ascii	"freq\000"
- 1752      00
- 1753              	.LASF19:
- 1754 0246 636C6F63 		.ascii	"clockSettings\000"
- 1754      6B536574 
- 1754      74696E67 
- 1754      7300
- 1755              	.LASF31:
- 1756 0254 43795379 		.ascii	"CySysFlashClockConfig\000"
- 1756      73466C61 
- 1756      7368436C 
- 1756      6F636B43 
- 1756      6F6E6669 
- 1757              	.LASF32:
- 1758 026a 43795379 		.ascii	"CySysFlashClockRestore\000"
- 1758      73466C61 
- 1758      7368436C 
- 1758      6F636B52 
- 1758      6573746F 
- 1759              	.LASF30:
- 1760 0281 43795379 		.ascii	"CySysFlashClockBackup\000"
- 1760      73466C61 
- 1760      7368436C 
- 1760      6F636B42 
- 1760      61636B75 
- 1761              	.LASF20:
- 1762 0297 43595F53 		.ascii	"CY_SYS_FLASH_CLOCK_BACKUP_STRUCT\000"
- 1762      59535F46 
- 1762      4C415348 
- 1762      5F434C4F 
- 1762      434B5F42 
- 1763              	.LASF4:
- 1764 02b8 6C6F6E67 		.ascii	"long int\000"
- 1764      20696E74 
- 1764      00
- 1765              	.LASF0:
- 1766 02c1 7369676E 		.ascii	"signed char\000"
- 1766      65642063 
-ARM GAS  C:\Users\MICHS_~1\AppData\Local\Temp\ccZUkrNf.s 			page 48
+ 1748              	.LASF6:
+ 1749 024b 6C6F6E67 		.ascii	"long long int\000"
+ 1749      206C6F6E 
+ 1749      6720696E 
+ 1749      7400
+ 1750              	.LASF14:
+ 1751 0259 63686172 		.ascii	"char\000"
+ 1751      00
+ 1752              	.LASF27:
+ 1753 025e 66726571 		.ascii	"freq\000"
+ 1753      00
+ 1754              	.LASF19:
+ 1755 0263 636C6F63 		.ascii	"clockSettings\000"
+ 1755      6B536574 
+ 1755      74696E67 
+ 1755      7300
+ 1756              	.LASF31:
+ 1757 0271 43795379 		.ascii	"CySysFlashClockConfig\000"
+ 1757      73466C61 
+ 1757      7368436C 
+ 1757      6F636B43 
+ 1757      6F6E6669 
+ 1758              	.LASF32:
+ 1759 0287 43795379 		.ascii	"CySysFlashClockRestore\000"
+ 1759      73466C61 
+ 1759      7368436C 
+ 1759      6F636B52 
+ 1759      6573746F 
+ 1760              	.LASF30:
+ 1761 029e 43795379 		.ascii	"CySysFlashClockBackup\000"
+ 1761      73466C61 
+ 1761      7368436C 
+ 1761      6F636B42 
+ 1761      61636B75 
+ 1762              	.LASF20:
+ 1763 02b4 43595F53 		.ascii	"CY_SYS_FLASH_CLOCK_BACKUP_STRUCT\000"
+ 1763      59535F46 
+ 1763      4C415348 
+ 1763      5F434C4F 
+ 1763      434B5F42 
+ 1764              	.LASF4:
+ 1765 02d5 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc13nJVR.s 			page 48
 
 
- 1766      68617200 
- 1767              	.LASF28:
- 1768 02cd 43795379 		.ascii	"CySysFlashWriteRow\000"
- 1768      73466C61 
- 1768      73685772 
- 1768      69746552 
- 1768      6F7700
- 1769              	.LASF38:
- 1770 02e0 43795379 		.ascii	"CySysFlashSetWaitCycles\000"
- 1770      73466C61 
- 1770      73685365 
- 1770      74576169 
- 1770      74437963 
- 1771              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1765      20696E74 
+ 1765      00
+ 1766              	.LASF0:
+ 1767 02de 7369676E 		.ascii	"signed char\000"
+ 1767      65642063 
+ 1767      68617200 
+ 1768              	.LASF28:
+ 1769 02ea 43795379 		.ascii	"CySysFlashWriteRow\000"
+ 1769      73466C61 
+ 1769      73685772 
+ 1769      69746552 
+ 1769      6F7700
+ 1770              	.LASF38:
+ 1771 02fd 43795379 		.ascii	"CySysFlashSetWaitCycles\000"
+ 1771      73466C61 
+ 1771      73685365 
+ 1771      74576169 
+ 1771      74437963 
+ 1772              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -25,7 +25,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
    1              	/*******************************************************************************
    2              	* File Name: cydevicegnu_trm.inc
    3              	* 
-   4              	* PSoC Creator  4.0
+   4              	* PSoC Creator  4.0 Update 1
    5              	*
    6              	* Description:
    7              	* This file provides all of the address values for the entire PSoC device.

@@ -20,7 +20,12 @@
     #include "app_Ble.h"
     #include "app_LED.h"
     #include "stdbool.h"    
+    #include <sys/time.h>
 
+    
+    extern struct timeval start;
+    extern struct timeval stop;
+    
     /***************************************
     *   Conditional compilation parameters
     ***************************************/      

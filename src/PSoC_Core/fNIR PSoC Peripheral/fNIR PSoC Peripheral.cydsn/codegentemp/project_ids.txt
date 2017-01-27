@@ -1,5 +1,5 @@
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|2334e4f1-f0da-4ecb-8fb6-3079359819e8
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|63fa249b-306c-4d0b-83db-6f1d345fc2df
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|5eaa48ee-fd1f-4b29-b11a-a00c82bb2072
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3867764d-230e-4158-8258-aec1cd19c236
-D:\Cypress\Projects\fNIR PSoC BLE\UART_to_BLE_peripheral\fNIR PSoC Peripheral.cydsn\fNIR PSoC Peripheral.cyprj|74ff8fec-1659-4f5a-911d-b601a455a94c
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Peripheral\fNIR PSoC Peripheral.cydsn\fNIR PSoC Peripheral.cyprj|8cfbd6a3-944a-4c0a-a12c-44635eefc55f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|60126785-f837-45f9-865e-87f632f25ec2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|60ef7752-6b60-4c1b-8f7c-f51f7078ef2b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|8529ea34-53c4-4d77-886d-1e4e26ba1d2a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|33d19ff9-e31a-4057-975a-ecb3236bbfc5

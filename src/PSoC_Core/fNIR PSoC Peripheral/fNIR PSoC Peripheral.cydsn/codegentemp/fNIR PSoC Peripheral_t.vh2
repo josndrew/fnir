@@ -1,6 +1,6 @@
--- Project:   D:\Cypress\Projects\fNIR PSoC BLE\UART_to_BLE_peripheral\fNIR PSoC Peripheral.cydsn\fNIR PSoC Peripheral.cyprj
--- Generated: 01/04/2017 08:24:50
--- PSoC Creator  4.0
+-- Project:   C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Peripheral\fNIR PSoC Peripheral.cydsn\fNIR PSoC Peripheral.cyprj
+-- Generated: 01/27/2017 10:28:35
+-- PSoC Creator  4.0 Update 1
 
 ENTITY \fNIR PSoC Peripheral\ IS
     PORT(
