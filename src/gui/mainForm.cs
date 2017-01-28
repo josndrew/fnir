@@ -37,7 +37,7 @@ namespace GUI
         private int INTERVAL;
         private int freq = 28;
         const int NUM_CHANNELS = 4;
-        private string sessionPath, logPath;
+        private string sessionPath, processedPath, logPath;
         
 
         public mainForm()
@@ -104,12 +104,20 @@ namespace GUI
             foundSessions.Columns.Add("Date of Session:", typeof(DateTime));
             foundSessions.Columns.Add("Session Duration:", typeof(TimeSpan));
             foundSessions.Columns.Add("File Path:", typeof(string));
+            foundSessions.Columns.Add("File Attribute:", typeof(string));
+
+            
 
             dataGridView1.DataSource = foundSessions;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+            chk.HeaderText = "Select";
+            dataGridView1.Columns.Add(chk);
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            
             folderBrowserDialog1.SelectedPath = GUI.Properties.Settings.Default.workingDirectory;
             ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
             sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".drexel";
+            processedPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + "_Processed.drexel";
             logPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "log.csv";
             if (File.Exists(logPath))
             {
@@ -169,6 +177,7 @@ namespace GUI
                 ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
 
                 sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".drexel";
+                
                 if (File.Exists(sessionPath))
                 {
                     //File.Delete(sessionPath);
@@ -312,10 +321,27 @@ namespace GUI
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            thread1.Suspend();
+            adruinoSerial.Write("m"); //Get Data
+            Thread.Sleep(1000);
+            thread1.Resume();
+        }
+
         private void button7_Click(object sender, EventArgs e)
         {
             connectToDevice();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            thread1.Suspend();
+            adruinoSerial.Write(textBox2.Text);
+            Thread.Sleep(300);
+            thread1.Resume();
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -646,6 +672,7 @@ namespace GUI
                 {
                     string[] buffer1 = (textBox1.Lines[lineCount]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                     string[] buffer2 = (textBox1.Lines[lineCount + 1]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    string outBuffer = "";
                     if ((buffer1.Length > 0) && (buffer2.Length > 0))
                     {
                         if ((buffer1.Length == 6) && (buffer2.Length == 6))
@@ -653,11 +680,18 @@ namespace GUI
                             double[] field1 = Array.ConvertAll(buffer1, s => double.Parse(s));
                             double[] field2 = Array.ConvertAll(buffer2, s => double.Parse(s));
 
+                            outBuffer += field1[0];
                             for (int k = 1; k < 5; k++)
                             {
                                 double yp1 = 0, yp2 = 0;
                                 calcPerData(field1[k], field2[k], out yp1, out yp2);
                                 Invoke((MethodInvoker)delegate { updateChart(field1[0], yp1, yp2, channels[k + 3], k + 3, true, true); });
+                                outBuffer = outBuffer + "," + yp1 + "," + yp2;
+                            }
+
+                            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@processedPath, true))
+                            {
+                                file.WriteLine(outBuffer);
                             }
                         }
                         lineCount += 2;
@@ -959,6 +993,8 @@ namespace GUI
             }
         }
 
+        
+
         private void serialDialogOpen()
         {
             adruino_dialog = new SerialSetup();
@@ -993,9 +1029,13 @@ namespace GUI
 
         private void comPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            bool open = adruinoSerial.IsOpen;
             string buffer = adruinoSerial.ReadLine();
+            buffer = buffer.TrimEnd('\0');
             Invoke((MethodInvoker)delegate { textBox1.AppendText(buffer + "\n"); });
-            
+            //Invoke((MethodInvoker)delegate { textBox1.Update(); });
+            //Invoke((MethodInvoker)delegate { textBox1.Refresh(); });
+
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
             {
                 file.WriteLine(buffer);
@@ -1019,7 +1059,7 @@ namespace GUI
         private void ProcessFile(string path)
         {
             FileInfo f = new FileInfo(path);
-            foundSessions.Rows.Add(sessionsFound + 1, f.Name, f.Length, f.CreationTime, f.LastWriteTime.Subtract(f.CreationTime), f.FullName);
+            foundSessions.Rows.Add(sessionsFound + 1, f.Name, f.Length, f.CreationTime, f.LastWriteTime.Subtract(f.CreationTime), f.FullName, f.Attributes);
             sessionsFound++;
         }
 
