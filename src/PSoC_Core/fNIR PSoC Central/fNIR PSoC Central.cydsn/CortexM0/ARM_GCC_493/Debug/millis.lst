@@ -1,0 +1,775 @@
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"millis.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.bss
+  18              		.align	2
+  19              	msCount:
+  20 0000 00000000 		.space	4
+  21              		.section	.text.millisSysTickISR,"ax",%progbits
+  22              		.align	2
+  23              		.global	millisSysTickISR
+  24              		.code	16
+  25              		.thumb_func
+  26              		.type	millisSysTickISR, %function
+  27              	millisSysTickISR:
+  28              	.LFB2:
+  29              		.file 1 "millis.c"
+   1:millis.c      **** /*
+   2:millis.c      ****  * Semi-equivalent of millis() from the Arduino API.
+   3:millis.c      ****  * Uses SysTick to generate interrupts to be counted every one millisecond.
+   4:millis.c      ****  *
+   5:millis.c      ****  * Written by Eric B. Wertz (eric@edushields.com)
+   6:millis.c      ****  * Version 1.0
+   7:millis.c      ****  * Last modified 28-Aug-2015
+   8:millis.c      ****  */
+   9:millis.c      **** 
+  10:millis.c      **** #include <CyLib.h>
+  11:millis.c      **** #include "millis.h"
+  12:millis.c      **** 
+  13:millis.c      **** #define INITMILLIS_OK   0
+  14:millis.c      **** #define INITMILLIS_FAIL 1
+  15:millis.c      **** 
+  16:millis.c      **** volatile static uint32 msCount;
+  17:millis.c      **** 
+  18:millis.c      **** CY_ISR(millisSysTickISR)
+  19:millis.c      **** {
+  30              		.loc 1 19 0
+  31              		.cfi_startproc
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  20:millis.c      ****     msCount++;
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 2
+
+
+  38              		.loc 1 20 0
+  39 0004 034B     		ldr	r3, .L2
+  40 0006 1B68     		ldr	r3, [r3]
+  41 0008 5A1C     		add	r2, r3, #1
+  42 000a 024B     		ldr	r3, .L2
+  43 000c 1A60     		str	r2, [r3]
+  21:millis.c      **** }
+  44              		.loc 1 21 0
+  45 000e BD46     		mov	sp, r7
+  46              		@ sp needed
+  47 0010 80BD     		pop	{r7, pc}
+  48              	.L3:
+  49 0012 C046     		.align	2
+  50              	.L2:
+  51 0014 00000000 		.word	msCount
+  52              		.cfi_endproc
+  53              	.LFE2:
+  54              		.size	millisSysTickISR, .-millisSysTickISR
+  55              		.section	.text.millis_Start,"ax",%progbits
+  56              		.align	2
+  57              		.global	millis_Start
+  58              		.code	16
+  59              		.thumb_func
+  60              		.type	millis_Start, %function
+  61              	millis_Start:
+  62              	.LFB3:
+  22:millis.c      **** 
+  23:millis.c      **** /*
+  24:millis.c      ****  * Install ISR in first available slot, if it's not there already.
+  25:millis.c      ****  * Reset millis() counter to 0.
+  26:millis.c      ****  */
+  27:millis.c      **** int millis_Start(void)
+  28:millis.c      **** {
+  63              		.loc 1 28 0
+  64              		.cfi_startproc
+  65 0000 80B5     		push	{r7, lr}
+  66              		.cfi_def_cfa_offset 8
+  67              		.cfi_offset 7, -8
+  68              		.cfi_offset 14, -4
+  69 0002 82B0     		sub	sp, sp, #8
+  70              		.cfi_def_cfa_offset 16
+  71 0004 00AF     		add	r7, sp, #0
+  72              		.cfi_def_cfa_register 7
+  29:millis.c      ****     unsigned int i;
+  30:millis.c      ****     int retval=INITMILLIS_FAIL;
+  73              		.loc 1 30 0
+  74 0006 0123     		mov	r3, #1
+  75 0008 3B60     		str	r3, [r7]
+  31:millis.c      **** 
+  32:millis.c      ****     msCount = 0;
+  76              		.loc 1 32 0
+  77 000a 164B     		ldr	r3, .L11
+  78 000c 0022     		mov	r2, #0
+  79 000e 1A60     		str	r2, [r3]
+  33:millis.c      **** 
+  34:millis.c      ****     CySysTickStart();
+  80              		.loc 1 34 0
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 3
+
+
+  81 0010 FFF7FEFF 		bl	CySysTickStart
+  35:millis.c      **** 
+  36:millis.c      ****     for (i=0; i < CY_SYS_SYST_NUM_OF_CALLBACKS; ++i) {
+  82              		.loc 1 36 0
+  83 0014 0023     		mov	r3, #0
+  84 0016 7B60     		str	r3, [r7, #4]
+  85 0018 1CE0     		b	.L5
+  86              	.L9:
+  37:millis.c      ****         if (!CySysTickGetCallback(i)) {
+  87              		.loc 1 37 0
+  88 001a 7B68     		ldr	r3, [r7, #4]
+  89 001c 181C     		mov	r0, r3
+  90 001e FFF7FEFF 		bl	CySysTickGetCallback
+  91 0022 031E     		sub	r3, r0, #0
+  92 0024 08D1     		bne	.L6
+  38:millis.c      ****             CySysTickSetCallback(i, millisSysTickISR);
+  93              		.loc 1 38 0
+  94 0026 7A68     		ldr	r2, [r7, #4]
+  95 0028 0F4B     		ldr	r3, .L11+4
+  96 002a 101C     		mov	r0, r2
+  97 002c 191C     		mov	r1, r3
+  98 002e FFF7FEFF 		bl	CySysTickSetCallback
+  39:millis.c      ****             retval = INITMILLIS_OK;
+  99              		.loc 1 39 0
+ 100 0032 0023     		mov	r3, #0
+ 101 0034 3B60     		str	r3, [r7]
+  40:millis.c      ****             break;
+ 102              		.loc 1 40 0
+ 103 0036 10E0     		b	.L7
+ 104              	.L6:
+  41:millis.c      ****         }
+  42:millis.c      ****         else if (CySysTickGetCallback(i) == millisSysTickISR) {
+ 105              		.loc 1 42 0
+ 106 0038 7B68     		ldr	r3, [r7, #4]
+ 107 003a 181C     		mov	r0, r3
+ 108 003c FFF7FEFF 		bl	CySysTickGetCallback
+ 109 0040 021E     		sub	r2, r0, #0
+ 110 0042 094B     		ldr	r3, .L11+4
+ 111 0044 9A42     		cmp	r2, r3
+ 112 0046 02D1     		bne	.L8
+  43:millis.c      ****             retval = INITMILLIS_OK;
+ 113              		.loc 1 43 0
+ 114 0048 0023     		mov	r3, #0
+ 115 004a 3B60     		str	r3, [r7]
+  44:millis.c      ****             break;
+ 116              		.loc 1 44 0
+ 117 004c 05E0     		b	.L7
+ 118              	.L8:
+  36:millis.c      ****         if (!CySysTickGetCallback(i)) {
+ 119              		.loc 1 36 0 discriminator 2
+ 120 004e 7B68     		ldr	r3, [r7, #4]
+ 121 0050 0133     		add	r3, r3, #1
+ 122 0052 7B60     		str	r3, [r7, #4]
+ 123              	.L5:
+  36:millis.c      ****         if (!CySysTickGetCallback(i)) {
+ 124              		.loc 1 36 0 is_stmt 0 discriminator 1
+ 125 0054 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 4
+
+
+ 126 0056 042B     		cmp	r3, #4
+ 127 0058 DFD9     		bls	.L9
+ 128              	.L7:
+  45:millis.c      ****         }
+  46:millis.c      ****     }
+  47:millis.c      **** 
+  48:millis.c      ****     return retval;
+ 129              		.loc 1 48 0 is_stmt 1
+ 130 005a 3B68     		ldr	r3, [r7]
+  49:millis.c      **** }
+ 131              		.loc 1 49 0
+ 132 005c 181C     		mov	r0, r3
+ 133 005e BD46     		mov	sp, r7
+ 134 0060 02B0     		add	sp, sp, #8
+ 135              		@ sp needed
+ 136 0062 80BD     		pop	{r7, pc}
+ 137              	.L12:
+ 138              		.align	2
+ 139              	.L11:
+ 140 0064 00000000 		.word	msCount
+ 141 0068 00000000 		.word	millisSysTickISR
+ 142              		.cfi_endproc
+ 143              	.LFE3:
+ 144              		.size	millis_Start, .-millis_Start
+ 145              		.section	.text.millis,"ax",%progbits
+ 146              		.align	2
+ 147              		.global	millis
+ 148              		.code	16
+ 149              		.thumb_func
+ 150              		.type	millis, %function
+ 151              	millis:
+ 152              	.LFB4:
+  50:millis.c      **** 
+  51:millis.c      **** uint32 millis(void)
+  52:millis.c      **** {
+ 153              		.loc 1 52 0
+ 154              		.cfi_startproc
+ 155 0000 80B5     		push	{r7, lr}
+ 156              		.cfi_def_cfa_offset 8
+ 157              		.cfi_offset 7, -8
+ 158              		.cfi_offset 14, -4
+ 159 0002 00AF     		add	r7, sp, #0
+ 160              		.cfi_def_cfa_register 7
+  53:millis.c      ****     return msCount;
+ 161              		.loc 1 53 0
+ 162 0004 024B     		ldr	r3, .L15
+ 163 0006 1B68     		ldr	r3, [r3]
+  54:millis.c      **** }
+ 164              		.loc 1 54 0
+ 165 0008 181C     		mov	r0, r3
+ 166 000a BD46     		mov	sp, r7
+ 167              		@ sp needed
+ 168 000c 80BD     		pop	{r7, pc}
+ 169              	.L16:
+ 170 000e C046     		.align	2
+ 171              	.L15:
+ 172 0010 00000000 		.word	msCount
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 5
+
+
+ 173              		.cfi_endproc
+ 174              	.LFE4:
+ 175              		.size	millis, .-millis
+ 176              		.section	.text.millis_Reset,"ax",%progbits
+ 177              		.align	2
+ 178              		.global	millis_Reset
+ 179              		.code	16
+ 180              		.thumb_func
+ 181              		.type	millis_Reset, %function
+ 182              	millis_Reset:
+ 183              	.LFB5:
+  55:millis.c      **** 
+  56:millis.c      **** void millis_Reset(void)
+  57:millis.c      **** {
+ 184              		.loc 1 57 0
+ 185              		.cfi_startproc
+ 186 0000 80B5     		push	{r7, lr}
+ 187              		.cfi_def_cfa_offset 8
+ 188              		.cfi_offset 7, -8
+ 189              		.cfi_offset 14, -4
+ 190 0002 00AF     		add	r7, sp, #0
+ 191              		.cfi_def_cfa_register 7
+  58:millis.c      ****     msCount = 0;
+ 192              		.loc 1 58 0
+ 193 0004 024B     		ldr	r3, .L18
+ 194 0006 0022     		mov	r2, #0
+ 195 0008 1A60     		str	r2, [r3]
+  59:millis.c      **** }
+ 196              		.loc 1 59 0
+ 197 000a BD46     		mov	sp, r7
+ 198              		@ sp needed
+ 199 000c 80BD     		pop	{r7, pc}
+ 200              	.L19:
+ 201 000e C046     		.align	2
+ 202              	.L18:
+ 203 0010 00000000 		.word	msCount
+ 204              		.cfi_endproc
+ 205              	.LFE5:
+ 206              		.size	millis_Reset, .-millis_Reset
+ 207              		.text
+ 208              	.Letext0:
+ 209              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 210              		.section	.debug_info,"",%progbits
+ 211              	.Ldebug_info0:
+ 212 0000 11010000 		.4byte	0x111
+ 213 0004 0400     		.2byte	0x4
+ 214 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 215 000a 04       		.byte	0x4
+ 216 000b 01       		.uleb128 0x1
+ 217 000c 76000000 		.4byte	.LASF17
+ 218 0010 01       		.byte	0x1
+ 219 0011 62010000 		.4byte	.LASF18
+ 220 0015 75010000 		.4byte	.LASF19
+ 221 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 222 001d 00000000 		.4byte	0
+ 223 0021 00000000 		.4byte	.Ldebug_line0
+ 224 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 6
+
+
+ 225 0026 01       		.byte	0x1
+ 226 0027 06       		.byte	0x6
+ 227 0028 48010000 		.4byte	.LASF0
+ 228 002c 02       		.uleb128 0x2
+ 229 002d 01       		.byte	0x1
+ 230 002e 08       		.byte	0x8
+ 231 002f 0B010000 		.4byte	.LASF1
+ 232 0033 02       		.uleb128 0x2
+ 233 0034 02       		.byte	0x2
+ 234 0035 05       		.byte	0x5
+ 235 0036 6B010000 		.4byte	.LASF2
+ 236 003a 02       		.uleb128 0x2
+ 237 003b 02       		.byte	0x2
+ 238 003c 07       		.byte	0x7
+ 239 003d 35010000 		.4byte	.LASF3
+ 240 0041 02       		.uleb128 0x2
+ 241 0042 04       		.byte	0x4
+ 242 0043 05       		.byte	0x5
+ 243 0044 1E010000 		.4byte	.LASF4
+ 244 0048 02       		.uleb128 0x2
+ 245 0049 04       		.byte	0x4
+ 246 004a 07       		.byte	0x7
+ 247 004b 4D000000 		.4byte	.LASF5
+ 248 004f 02       		.uleb128 0x2
+ 249 0050 08       		.byte	0x8
+ 250 0051 05       		.byte	0x5
+ 251 0052 00000000 		.4byte	.LASF6
+ 252 0056 02       		.uleb128 0x2
+ 253 0057 08       		.byte	0x8
+ 254 0058 07       		.byte	0x7
+ 255 0059 5F000000 		.4byte	.LASF7
+ 256 005d 03       		.uleb128 0x3
+ 257 005e 04       		.byte	0x4
+ 258 005f 05       		.byte	0x5
+ 259 0060 696E7400 		.ascii	"int\000"
+ 260 0064 02       		.uleb128 0x2
+ 261 0065 04       		.byte	0x4
+ 262 0066 07       		.byte	0x7
+ 263 0067 15000000 		.4byte	.LASF8
+ 264 006b 04       		.uleb128 0x4
+ 265 006c 0E000000 		.4byte	.LASF20
+ 266 0070 02       		.byte	0x2
+ 267 0071 BB01     		.2byte	0x1bb
+ 268 0073 48000000 		.4byte	0x48
+ 269 0077 02       		.uleb128 0x2
+ 270 0078 04       		.byte	0x4
+ 271 0079 04       		.byte	0x4
+ 272 007a 5C010000 		.4byte	.LASF9
+ 273 007e 02       		.uleb128 0x2
+ 274 007f 08       		.byte	0x8
+ 275 0080 04       		.byte	0x4
+ 276 0081 2E010000 		.4byte	.LASF10
+ 277 0085 02       		.uleb128 0x2
+ 278 0086 01       		.byte	0x1
+ 279 0087 08       		.byte	0x8
+ 280 0088 19010000 		.4byte	.LASF11
+ 281 008c 05       		.uleb128 0x5
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 7
+
+
+ 282 008d 6B000000 		.4byte	0x6b
+ 283 0091 02       		.uleb128 0x2
+ 284 0092 04       		.byte	0x4
+ 285 0093 07       		.byte	0x7
+ 286 0094 E0010000 		.4byte	.LASF12
+ 287 0098 06       		.uleb128 0x6
+ 288 0099 3C000000 		.4byte	.LASF14
+ 289 009d 01       		.byte	0x1
+ 290 009e 12       		.byte	0x12
+ 291 009f 00000000 		.4byte	.LFB2
+ 292 00a3 18000000 		.4byte	.LFE2-.LFB2
+ 293 00a7 01       		.uleb128 0x1
+ 294 00a8 9C       		.byte	0x9c
+ 295 00a9 07       		.uleb128 0x7
+ 296 00aa 2F000000 		.4byte	.LASF21
+ 297 00ae 01       		.byte	0x1
+ 298 00af 1B       		.byte	0x1b
+ 299 00b0 5D000000 		.4byte	0x5d
+ 300 00b4 00000000 		.4byte	.LFB3
+ 301 00b8 6C000000 		.4byte	.LFE3-.LFB3
+ 302 00bc 01       		.uleb128 0x1
+ 303 00bd 9C       		.byte	0x9c
+ 304 00be DD000000 		.4byte	0xdd
+ 305 00c2 08       		.uleb128 0x8
+ 306 00c3 6900     		.ascii	"i\000"
+ 307 00c5 01       		.byte	0x1
+ 308 00c6 1D       		.byte	0x1d
+ 309 00c7 64000000 		.4byte	0x64
+ 310 00cb 02       		.uleb128 0x2
+ 311 00cc 91       		.byte	0x91
+ 312 00cd 74       		.sleb128 -12
+ 313 00ce 09       		.uleb128 0x9
+ 314 00cf 04010000 		.4byte	.LASF13
+ 315 00d3 01       		.byte	0x1
+ 316 00d4 1E       		.byte	0x1e
+ 317 00d5 5D000000 		.4byte	0x5d
+ 318 00d9 02       		.uleb128 0x2
+ 319 00da 91       		.byte	0x91
+ 320 00db 70       		.sleb128 -16
+ 321 00dc 00       		.byte	0
+ 322 00dd 0A       		.uleb128 0xa
+ 323 00de 27010000 		.4byte	.LASF22
+ 324 00e2 01       		.byte	0x1
+ 325 00e3 33       		.byte	0x33
+ 326 00e4 6B000000 		.4byte	0x6b
+ 327 00e8 00000000 		.4byte	.LFB4
+ 328 00ec 14000000 		.4byte	.LFE4-.LFB4
+ 329 00f0 01       		.uleb128 0x1
+ 330 00f1 9C       		.byte	0x9c
+ 331 00f2 06       		.uleb128 0x6
+ 332 00f3 22000000 		.4byte	.LASF15
+ 333 00f7 01       		.byte	0x1
+ 334 00f8 38       		.byte	0x38
+ 335 00f9 00000000 		.4byte	.LFB5
+ 336 00fd 14000000 		.4byte	.LFE5-.LFB5
+ 337 0101 01       		.uleb128 0x1
+ 338 0102 9C       		.byte	0x9c
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 8
+
+
+ 339 0103 09       		.uleb128 0x9
+ 340 0104 54010000 		.4byte	.LASF16
+ 341 0108 01       		.byte	0x1
+ 342 0109 10       		.byte	0x10
+ 343 010a 8C000000 		.4byte	0x8c
+ 344 010e 05       		.uleb128 0x5
+ 345 010f 03       		.byte	0x3
+ 346 0110 00000000 		.4byte	msCount
+ 347 0114 00       		.byte	0
+ 348              		.section	.debug_abbrev,"",%progbits
+ 349              	.Ldebug_abbrev0:
+ 350 0000 01       		.uleb128 0x1
+ 351 0001 11       		.uleb128 0x11
+ 352 0002 01       		.byte	0x1
+ 353 0003 25       		.uleb128 0x25
+ 354 0004 0E       		.uleb128 0xe
+ 355 0005 13       		.uleb128 0x13
+ 356 0006 0B       		.uleb128 0xb
+ 357 0007 03       		.uleb128 0x3
+ 358 0008 0E       		.uleb128 0xe
+ 359 0009 1B       		.uleb128 0x1b
+ 360 000a 0E       		.uleb128 0xe
+ 361 000b 55       		.uleb128 0x55
+ 362 000c 17       		.uleb128 0x17
+ 363 000d 11       		.uleb128 0x11
+ 364 000e 01       		.uleb128 0x1
+ 365 000f 10       		.uleb128 0x10
+ 366 0010 17       		.uleb128 0x17
+ 367 0011 00       		.byte	0
+ 368 0012 00       		.byte	0
+ 369 0013 02       		.uleb128 0x2
+ 370 0014 24       		.uleb128 0x24
+ 371 0015 00       		.byte	0
+ 372 0016 0B       		.uleb128 0xb
+ 373 0017 0B       		.uleb128 0xb
+ 374 0018 3E       		.uleb128 0x3e
+ 375 0019 0B       		.uleb128 0xb
+ 376 001a 03       		.uleb128 0x3
+ 377 001b 0E       		.uleb128 0xe
+ 378 001c 00       		.byte	0
+ 379 001d 00       		.byte	0
+ 380 001e 03       		.uleb128 0x3
+ 381 001f 24       		.uleb128 0x24
+ 382 0020 00       		.byte	0
+ 383 0021 0B       		.uleb128 0xb
+ 384 0022 0B       		.uleb128 0xb
+ 385 0023 3E       		.uleb128 0x3e
+ 386 0024 0B       		.uleb128 0xb
+ 387 0025 03       		.uleb128 0x3
+ 388 0026 08       		.uleb128 0x8
+ 389 0027 00       		.byte	0
+ 390 0028 00       		.byte	0
+ 391 0029 04       		.uleb128 0x4
+ 392 002a 16       		.uleb128 0x16
+ 393 002b 00       		.byte	0
+ 394 002c 03       		.uleb128 0x3
+ 395 002d 0E       		.uleb128 0xe
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 9
+
+
+ 396 002e 3A       		.uleb128 0x3a
+ 397 002f 0B       		.uleb128 0xb
+ 398 0030 3B       		.uleb128 0x3b
+ 399 0031 05       		.uleb128 0x5
+ 400 0032 49       		.uleb128 0x49
+ 401 0033 13       		.uleb128 0x13
+ 402 0034 00       		.byte	0
+ 403 0035 00       		.byte	0
+ 404 0036 05       		.uleb128 0x5
+ 405 0037 35       		.uleb128 0x35
+ 406 0038 00       		.byte	0
+ 407 0039 49       		.uleb128 0x49
+ 408 003a 13       		.uleb128 0x13
+ 409 003b 00       		.byte	0
+ 410 003c 00       		.byte	0
+ 411 003d 06       		.uleb128 0x6
+ 412 003e 2E       		.uleb128 0x2e
+ 413 003f 00       		.byte	0
+ 414 0040 3F       		.uleb128 0x3f
+ 415 0041 19       		.uleb128 0x19
+ 416 0042 03       		.uleb128 0x3
+ 417 0043 0E       		.uleb128 0xe
+ 418 0044 3A       		.uleb128 0x3a
+ 419 0045 0B       		.uleb128 0xb
+ 420 0046 3B       		.uleb128 0x3b
+ 421 0047 0B       		.uleb128 0xb
+ 422 0048 27       		.uleb128 0x27
+ 423 0049 19       		.uleb128 0x19
+ 424 004a 11       		.uleb128 0x11
+ 425 004b 01       		.uleb128 0x1
+ 426 004c 12       		.uleb128 0x12
+ 427 004d 06       		.uleb128 0x6
+ 428 004e 40       		.uleb128 0x40
+ 429 004f 18       		.uleb128 0x18
+ 430 0050 9742     		.uleb128 0x2117
+ 431 0052 19       		.uleb128 0x19
+ 432 0053 00       		.byte	0
+ 433 0054 00       		.byte	0
+ 434 0055 07       		.uleb128 0x7
+ 435 0056 2E       		.uleb128 0x2e
+ 436 0057 01       		.byte	0x1
+ 437 0058 3F       		.uleb128 0x3f
+ 438 0059 19       		.uleb128 0x19
+ 439 005a 03       		.uleb128 0x3
+ 440 005b 0E       		.uleb128 0xe
+ 441 005c 3A       		.uleb128 0x3a
+ 442 005d 0B       		.uleb128 0xb
+ 443 005e 3B       		.uleb128 0x3b
+ 444 005f 0B       		.uleb128 0xb
+ 445 0060 27       		.uleb128 0x27
+ 446 0061 19       		.uleb128 0x19
+ 447 0062 49       		.uleb128 0x49
+ 448 0063 13       		.uleb128 0x13
+ 449 0064 11       		.uleb128 0x11
+ 450 0065 01       		.uleb128 0x1
+ 451 0066 12       		.uleb128 0x12
+ 452 0067 06       		.uleb128 0x6
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 10
+
+
+ 453 0068 40       		.uleb128 0x40
+ 454 0069 18       		.uleb128 0x18
+ 455 006a 9642     		.uleb128 0x2116
+ 456 006c 19       		.uleb128 0x19
+ 457 006d 01       		.uleb128 0x1
+ 458 006e 13       		.uleb128 0x13
+ 459 006f 00       		.byte	0
+ 460 0070 00       		.byte	0
+ 461 0071 08       		.uleb128 0x8
+ 462 0072 34       		.uleb128 0x34
+ 463 0073 00       		.byte	0
+ 464 0074 03       		.uleb128 0x3
+ 465 0075 08       		.uleb128 0x8
+ 466 0076 3A       		.uleb128 0x3a
+ 467 0077 0B       		.uleb128 0xb
+ 468 0078 3B       		.uleb128 0x3b
+ 469 0079 0B       		.uleb128 0xb
+ 470 007a 49       		.uleb128 0x49
+ 471 007b 13       		.uleb128 0x13
+ 472 007c 02       		.uleb128 0x2
+ 473 007d 18       		.uleb128 0x18
+ 474 007e 00       		.byte	0
+ 475 007f 00       		.byte	0
+ 476 0080 09       		.uleb128 0x9
+ 477 0081 34       		.uleb128 0x34
+ 478 0082 00       		.byte	0
+ 479 0083 03       		.uleb128 0x3
+ 480 0084 0E       		.uleb128 0xe
+ 481 0085 3A       		.uleb128 0x3a
+ 482 0086 0B       		.uleb128 0xb
+ 483 0087 3B       		.uleb128 0x3b
+ 484 0088 0B       		.uleb128 0xb
+ 485 0089 49       		.uleb128 0x49
+ 486 008a 13       		.uleb128 0x13
+ 487 008b 02       		.uleb128 0x2
+ 488 008c 18       		.uleb128 0x18
+ 489 008d 00       		.byte	0
+ 490 008e 00       		.byte	0
+ 491 008f 0A       		.uleb128 0xa
+ 492 0090 2E       		.uleb128 0x2e
+ 493 0091 00       		.byte	0
+ 494 0092 3F       		.uleb128 0x3f
+ 495 0093 19       		.uleb128 0x19
+ 496 0094 03       		.uleb128 0x3
+ 497 0095 0E       		.uleb128 0xe
+ 498 0096 3A       		.uleb128 0x3a
+ 499 0097 0B       		.uleb128 0xb
+ 500 0098 3B       		.uleb128 0x3b
+ 501 0099 0B       		.uleb128 0xb
+ 502 009a 27       		.uleb128 0x27
+ 503 009b 19       		.uleb128 0x19
+ 504 009c 49       		.uleb128 0x49
+ 505 009d 13       		.uleb128 0x13
+ 506 009e 11       		.uleb128 0x11
+ 507 009f 01       		.uleb128 0x1
+ 508 00a0 12       		.uleb128 0x12
+ 509 00a1 06       		.uleb128 0x6
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 11
+
+
+ 510 00a2 40       		.uleb128 0x40
+ 511 00a3 18       		.uleb128 0x18
+ 512 00a4 9742     		.uleb128 0x2117
+ 513 00a6 19       		.uleb128 0x19
+ 514 00a7 00       		.byte	0
+ 515 00a8 00       		.byte	0
+ 516 00a9 00       		.byte	0
+ 517              		.section	.debug_aranges,"",%progbits
+ 518 0000 34000000 		.4byte	0x34
+ 519 0004 0200     		.2byte	0x2
+ 520 0006 00000000 		.4byte	.Ldebug_info0
+ 521 000a 04       		.byte	0x4
+ 522 000b 00       		.byte	0
+ 523 000c 0000     		.2byte	0
+ 524 000e 0000     		.2byte	0
+ 525 0010 00000000 		.4byte	.LFB2
+ 526 0014 18000000 		.4byte	.LFE2-.LFB2
+ 527 0018 00000000 		.4byte	.LFB3
+ 528 001c 6C000000 		.4byte	.LFE3-.LFB3
+ 529 0020 00000000 		.4byte	.LFB4
+ 530 0024 14000000 		.4byte	.LFE4-.LFB4
+ 531 0028 00000000 		.4byte	.LFB5
+ 532 002c 14000000 		.4byte	.LFE5-.LFB5
+ 533 0030 00000000 		.4byte	0
+ 534 0034 00000000 		.4byte	0
+ 535              		.section	.debug_ranges,"",%progbits
+ 536              	.Ldebug_ranges0:
+ 537 0000 00000000 		.4byte	.LFB2
+ 538 0004 18000000 		.4byte	.LFE2
+ 539 0008 00000000 		.4byte	.LFB3
+ 540 000c 6C000000 		.4byte	.LFE3
+ 541 0010 00000000 		.4byte	.LFB4
+ 542 0014 14000000 		.4byte	.LFE4
+ 543 0018 00000000 		.4byte	.LFB5
+ 544 001c 14000000 		.4byte	.LFE5
+ 545 0020 00000000 		.4byte	0
+ 546 0024 00000000 		.4byte	0
+ 547              		.section	.debug_line,"",%progbits
+ 548              	.Ldebug_line0:
+ 549 0000 A8000000 		.section	.debug_str,"MS",%progbits,1
+ 549      02004300 
+ 549      00000201 
+ 549      FB0E0D00 
+ 549      01010101 
+ 550              	.LASF6:
+ 551 0000 6C6F6E67 		.ascii	"long long int\000"
+ 551      206C6F6E 
+ 551      6720696E 
+ 551      7400
+ 552              	.LASF20:
+ 553 000e 75696E74 		.ascii	"uint32\000"
+ 553      333200
+ 554              	.LASF8:
+ 555 0015 756E7369 		.ascii	"unsigned int\000"
+ 555      676E6564 
+ 555      20696E74 
+ 555      00
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 12
+
+
+ 556              	.LASF15:
+ 557 0022 6D696C6C 		.ascii	"millis_Reset\000"
+ 557      69735F52 
+ 557      65736574 
+ 557      00
+ 558              	.LASF21:
+ 559 002f 6D696C6C 		.ascii	"millis_Start\000"
+ 559      69735F53 
+ 559      74617274 
+ 559      00
+ 560              	.LASF14:
+ 561 003c 6D696C6C 		.ascii	"millisSysTickISR\000"
+ 561      69735379 
+ 561      73546963 
+ 561      6B495352 
+ 561      00
+ 562              	.LASF5:
+ 563 004d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 563      20756E73 
+ 563      69676E65 
+ 563      6420696E 
+ 563      7400
+ 564              	.LASF7:
+ 565 005f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 565      206C6F6E 
+ 565      6720756E 
+ 565      7369676E 
+ 565      65642069 
+ 566              	.LASF17:
+ 567 0076 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 567      4320342E 
+ 567      392E3320 
+ 567      32303135 
+ 567      30333033 
+ 568 00a9 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 568      20726576 
+ 568      6973696F 
+ 568      6E203232 
+ 568      31323230 
+ 569 00dc 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 569      66756E63 
+ 569      74696F6E 
+ 569      2D736563 
+ 569      74696F6E 
+ 570              	.LASF13:
+ 571 0104 72657476 		.ascii	"retval\000"
+ 571      616C00
+ 572              	.LASF1:
+ 573 010b 756E7369 		.ascii	"unsigned char\000"
+ 573      676E6564 
+ 573      20636861 
+ 573      7200
+ 574              	.LASF11:
+ 575 0119 63686172 		.ascii	"char\000"
+ 575      00
+ 576              	.LASF4:
+ 577 011e 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccDzJrei.s 			page 13
+
+
+ 577      20696E74 
+ 577      00
+ 578              	.LASF22:
+ 579 0127 6D696C6C 		.ascii	"millis\000"
+ 579      697300
+ 580              	.LASF10:
+ 581 012e 646F7562 		.ascii	"double\000"
+ 581      6C6500
+ 582              	.LASF3:
+ 583 0135 73686F72 		.ascii	"short unsigned int\000"
+ 583      7420756E 
+ 583      7369676E 
+ 583      65642069 
+ 583      6E7400
+ 584              	.LASF0:
+ 585 0148 7369676E 		.ascii	"signed char\000"
+ 585      65642063 
+ 585      68617200 
+ 586              	.LASF16:
+ 587 0154 6D73436F 		.ascii	"msCount\000"
+ 587      756E7400 
+ 588              	.LASF9:
+ 589 015c 666C6F61 		.ascii	"float\000"
+ 589      7400
+ 590              	.LASF18:
+ 591 0162 6D696C6C 		.ascii	"millis.c\000"
+ 591      69732E63 
+ 591      00
+ 592              	.LASF2:
+ 593 016b 73686F72 		.ascii	"short int\000"
+ 593      7420696E 
+ 593      7400
+ 594              	.LASF19:
+ 595 0175 433A5C55 		.ascii	"C:\\Users\\Andrew Joseph\\Desktop\\Senior Design\\t"
+ 595      73657273 
+ 595      5C416E64 
+ 595      72657720 
+ 595      4A6F7365 
+ 596 01a3 72756E6B 		.ascii	"runk\\src\\PSoC_Core\\fNIR PSoC Central\\fNIR PSoC "
+ 596      5C737263 
+ 596      5C50536F 
+ 596      435F436F 
+ 596      72655C66 
+ 597 01d2 43656E74 		.ascii	"Central.cydsn\000"
+ 597      72616C2E 
+ 597      63796473 
+ 597      6E00
+ 598              	.LASF12:
+ 599 01e0 73697A65 		.ascii	"sizetype\000"
+ 599      74797065 
+ 599      00
+ 600              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

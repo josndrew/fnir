@@ -18,7 +18,8 @@
     
     #include <project.h>
     #include "main.h"    
-    #include "stdbool.h"  
+    #include "stdbool.h"
+    
     
     /***************************************
     *       Constants
@@ -41,6 +42,7 @@
     void DisableUartRxInt(void);
     void EnableUartRxInt(void);
     void dec_to_str (uint8* str, uint32_t val, size_t digits);
+    void sendCommand(uint8 a[]);
     
 #endif
 /* [] END OF FILE */

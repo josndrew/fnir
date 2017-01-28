@@ -19,13 +19,11 @@
     #include <project.h>
     #include "app_Ble.h"
     #include "app_LED.h"
-    #include "stdbool.h"    
-    #include <sys/time.h>
-
+    #include "stdbool.h"
+    #include "millis.h"
     
-    extern struct timeval start;
-    extern struct timeval stop;
     
+        
     /***************************************
     *   Conditional compilation parameters
     ***************************************/      

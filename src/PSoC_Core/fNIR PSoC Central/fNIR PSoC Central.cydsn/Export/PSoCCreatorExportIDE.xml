@@ -40,10 +40,12 @@
           <File BuildType="BUILD" Toolchain="">app_Ble.c</File>
           <File BuildType="BUILD" Toolchain="">app_UART.c</File>
           <File BuildType="BUILD" Toolchain="">app_LED.c</File>
+          <File BuildType="BUILD" Toolchain="">millis.c</File>
           <File BuildType="BUILD" Toolchain="">main.h</File>
           <File BuildType="BUILD" Toolchain="">app_UART.h</File>
           <File BuildType="BUILD" Toolchain="">app_Ble.h</File>
           <File BuildType="BUILD" Toolchain="">app_LED.h</File>
+          <File BuildType="BUILD" Toolchain="">millis.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\Generated_Source\PSoC4">

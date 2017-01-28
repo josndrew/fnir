@@ -13,7 +13,6 @@
 
 #include "app_UART.h"
 
-int ledIndex = 0;
 
 /*******************************************************************************
 * Function Name: HandleUartRxTraffic
@@ -32,95 +31,106 @@ int ledIndex = 0;
 *
 *******************************************************************************/
 void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotification)
-{
-    
-    //if(uartRxDataNotification->handleValPair.attrHandle == txCharHandle)
-    //{
-    //    UART_SpiUartPutArray(uartRxDataNotification->handleValPair.value.val, \
-    //        (uint32) uartRxDataNotification->handleValPair.value.len);
-    //}
-    // Change to send data back
-    
-    uint8   index;
-    uint8   uartTxData[mtuSize - 3];
-    uint16  uartTxDataLength;
-    
-    
-    
-    static uint16 uartIdleCount = UART_IDLE_TIMEOUT;
-    
-    CYBLE_API_RESULT_T              bleApiResult;
-    CYBLE_GATTC_WRITE_CMD_REQ_T     uartTxDataWriteCmd;
-    
-    
-
-            
-        
+{    
     unsigned char *x =  uartRxDataNotification->handleValPair.value.val;
-    uint8 a[20]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 , 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x0a};
+    
+    
            
             
-            
-    int k;
-    int count = 0;
+    int i; //Variable for Loop Through Light Source           
+    int k; //Variable for Loop Through Sensors
+    
     switch (*x)
     {
-        case 'a':
-        /*
-            gettimeofday(&stop, NULL);
-            uint8 secs = (double)(stop.tv_usec - start.tv_usec) / 1000 + (double)(stop.tv_sec - start.tv_sec);
-            dec_to_str (&a[count], secs, 3);
-            a[count + 3] = ',';
-            count+=4;
-          */  
-            
-            for (k = 0; k < 4; k++)
+        case 'r':
+            for (i = 0; i < 5; i++) //Loop Through Light Source
             {
-                uint16 VAL1=ADC_GetResult16(k);
-                uint8 AV1=ADC_CountsTo_mVolts(0,VAL1);
-                dec_to_str (&a[count], AV1, 3);
-                a[count + 3] = ',';
-                count+=4;
+                uint8 writeBuffer[40]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A};
+                
+                
+                int count = 0; //Place Holder for writeBuffer
+                uint32 timestamp = millis();
+                dec_to_str (&writeBuffer[count], timestamp, 10);
+                writeBuffer[count + 11] = ',';
+                count+=12;
+          
+                for (k = 0; k < 4; k++) //Loop Through Sensors
+                {
+                    uint16 VAL1=ADC_GetResult16(k);
+                    uint8 AV1=ADC_CountsTo_mVolts(0,VAL1);
+                    dec_to_str (&writeBuffer[count], AV1, 4);
+                    writeBuffer[count + 5] = ',';
+                    count+=6;
+                }
+                dec_to_str (&writeBuffer[count], i, 0);
+                sendCommand(writeBuffer);
             }
-            dec_to_str (&a[count], (ledIndex % 4), 1);
-            ledIndex = (ledIndex + 1) % 4;
-            //a[count + 1] = 0x0D;
-            a[count + 1] = 0x0A;
+   
             break;
-        case 'b':
-            gettimeofday(&start, NULL);
+            
+        case 's':
+            millis_Reset();
+            break;
+        case 'm':
+            CySoftwareReset();
             break;
         default:
             break;
     }
     
-            
-            
-    uartTxDataWriteCmd.attrHandle = rxCharHandle;
-    uartTxDataWriteCmd.value.len  = 20; //uartRxDataNotification->handleValPair.value.len;          
-    uartTxDataWriteCmd.value.val  = a;  
-
-    do
-    {
-        bleApiResult = CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &uartTxDataWriteCmd);
-        CyBle_ProcessEvents();
-    }
-    while((CYBLE_ERROR_OK != bleApiResult) && (CYBLE_STATE_CONNECTED == cyBle_state));
-            
 }
+
+void sendCommand(uint8 a[])
+{
+    CYBLE_API_RESULT_T              bleApiResult;
+    CYBLE_GATTC_WRITE_CMD_REQ_T     uartTxDataWriteCmd;
+    
+
+    uartTxDataWriteCmd.attrHandle = rxCharHandle;
+    uartTxDataWriteCmd.value.len  = 20; //uartRxDataNotification->handleValPair.value.len;
+    
+    int j;
+    for (j = 0; j < 40; j+=20)
+    {
+        uartTxDataWriteCmd.value.val  = &a[j];  
+        
+        do
+        {
+            bleApiResult = CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &uartTxDataWriteCmd);
+            CyBle_ProcessEvents();
+        }
+        while((CYBLE_ERROR_OK != bleApiResult) && (CYBLE_STATE_CONNECTED == cyBle_state));
+    }
+}
+
 
 void dec_to_str (uint8* str, uint32_t val, size_t digits)
 {
   size_t i=1u;
-
+  digits++;
+    
   for(; i<=digits; i++)
   {
-    str[digits-i] = (char)((val % 10u) + '0');
-    val/=10u;
+    
+    if ((digits == 5) && (i == (digits - 1)))
+    {
+        str[digits-i] = '.';
+    }
+    else if ((digits == 11) && (i == (digits - 7)))
+    {
+        str[digits-i] = '.';
+    }
+    else
+    {
+        str[digits-i] = (char)((val % 10u) + '0');
+        val/=10u;
+    }
   }
-
-  //str[i-1u] = '\0'; // assuming you want null terminated strings?
 }
+
 
 /*******************************************************************************
 * Function Name: HandleUartTxTraffic

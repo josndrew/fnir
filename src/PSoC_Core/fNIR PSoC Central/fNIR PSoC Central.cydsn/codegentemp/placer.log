@@ -6,7 +6,7 @@
 
 #Build Date:         Apr 29 2016 09:00:55
 
-#File Generated:     Jan 27 2017 12:01:49
+#File Generated:     Jan 28 2017 18:29:46
 
 #Purpose:            
 
@@ -65,7 +65,7 @@ Phase 4
 D2088: Phase 4, elapsed time : 0.0 (sec)
 
 Phase 7
-D2088: Phase 7, elapsed time : 0.1 (sec)
+D2088: Phase 7, elapsed time : 0.0 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	0
@@ -87,5 +87,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 0.4 sec.
+I2076: Total run-time: 0.3 sec.
 
