@@ -10,6 +10,7 @@
   <Data key="DataVersionKey" value="1" />
   <Group key="DWRInstGuidMapping">
     <Group key="Pin">
+      <Data key="0b8d8601-5724-4e52-ba11-539f2628f14d" value="LED_2" />
       <Data key="8af192ab-4b9a-4fb3-b8ab-550f42242b6c" value="Conn_LED" />
       <Data key="9f59fdaa-1585-4b52-bb60-7e36d46351da" value="SW1" />
       <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/23b8206d-1c77-4e61-be4a-b4037d5de5fc" value="UART_tx" />
@@ -17,9 +18,12 @@
       <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/b2cd7ba8-7018-4355-962d-598e7769bbf3" value="UART_rts" />
       <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/d6cdce57-6174-4335-bfac-214115fde1eb" value="UART_cts" />
       <Data key="69bdbe73-96ba-40d5-8fbc-06ec47ac4678" value="A3" />
+      <Data key="372d46e3-67e4-4f6b-80c0-efb83b8b6673" value="LED_3" />
       <Data key="3899b5dc-effb-43d8-8853-66d82e684bc9" value="Scan_LED" />
       <Data key="01790367-ee28-485f-aa54-07fd3ba63dd0" value="A2" />
       <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="A1" />
+      <Data key="bee1badf-060f-4d34-9b56-a28b67e7d11f" value="LED_1" />
+      <Data key="d1379db7-e0cc-49b5-97d2-59e5a6ae1f50" value="LED_4" />
       <Data key="eea9d33e-b27f-4e67-ab4d-1b63422e75ee" value="A4" />
     </Group>
   </Group>
@@ -3461,6 +3465,11 @@
     </Group>
   </Group>
   <Group key="Pin2">
+    <Group key="0b8d8601-5724-4e52-ba11-539f2628f14d">
+      <Group key="0">
+        <Data key="Port Format" value="1,2" />
+      </Group>
+    </Group>
     <Group key="9f59fdaa-1585-4b52-bb60-7e36d46351da">
       <Group key="0">
         <Data key="Port Format" value="2,7" />
@@ -3474,6 +3483,21 @@
     <Group key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/d6cdce57-6174-4335-bfac-214115fde1eb">
       <Group key="0">
         <Data key="Port Format" value="1,7" />
+      </Group>
+    </Group>
+    <Group key="372d46e3-67e4-4f6b-80c0-efb83b8b6673">
+      <Group key="0">
+        <Data key="Port Format" value="1,3" />
+      </Group>
+    </Group>
+    <Group key="bee1badf-060f-4d34-9b56-a28b67e7d11f">
+      <Group key="0">
+        <Data key="Port Format" value="1,1" />
+      </Group>
+    </Group>
+    <Group key="d1379db7-e0cc-49b5-97d2-59e5a6ae1f50">
+      <Group key="0">
+        <Data key="Port Format" value="1,4" />
       </Group>
     </Group>
     <Group key="UnAssigned Pins">

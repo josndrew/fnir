@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2017-01-28T23:29:47Z")
+ (DATE "2017-02-03T20:02:28Z")
  (DESIGN "fNIR PSoC Central")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -28,6 +28,10 @@
     (INTERCONNECT \\UART\:tx\(0\)\\.pad_out \\UART\:tx\(0\)_PAD\\ (0.000:0.000:0.000))
     (INTERCONNECT \\UART\:tx\(0\)_PAD\\ \\UART\:tx\(0\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\UART\:rx\(0\)_PAD\\ \\UART\:rx\(0\)\\.pad_in (0.000:0.000:0.000))
+    (INTERCONNECT LED_1\(0\)_PAD LED_1\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT LED_2\(0\)_PAD LED_2\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT LED_3\(0\)_PAD LED_3\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT LED_4\(0\)_PAD LED_4\(0\).pad_in (0.000:0.000:0.000))
    )
   )
  )

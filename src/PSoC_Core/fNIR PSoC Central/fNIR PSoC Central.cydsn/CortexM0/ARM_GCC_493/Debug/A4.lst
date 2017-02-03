@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
   30:Generated_Source\PSoC4/A4.c ****         #define A4_SetP4PinDriveMode(shift, mode)  \
   31:Generated_Source\PSoC4/A4.c ****         do { \
   32:Generated_Source\PSoC4/A4.c ****             A4_USBIO_CTRL_REG = (A4_USBIO_CTRL_REG & \
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 2
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 2
 
 
   33:Generated_Source\PSoC4/A4.c ****                                     (uint32)(~(uint32)(A4_DRIVE_MODE_IND_MASK << \
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
   74:Generated_Source\PSoC4/A4.c **** 		A4_SetP4PinDriveMode(A4__0__SHIFT, mode);
   39              		.loc 1 74 0
   40 000c 064B     		ldr	r3, .L2
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 3
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 3
 
 
   41 000e 064A     		ldr	r2, .L2
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
   99:Generated_Source\PSoC4/A4.c **** *
  100:Generated_Source\PSoC4/A4.c **** * \sideeffect
  101:Generated_Source\PSoC4/A4.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 4
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 4
 
 
  102:Generated_Source\PSoC4/A4.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  116:Generated_Source\PSoC4/A4.c **** }
  111              		.loc 1 116 0
  112 003c BD46     		mov	sp, r7
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 5
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 5
 
 
  113 003e 04B0     		add	sp, sp, #16
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  145 000e DBB2     		uxtb	r3, r3
  139:Generated_Source\PSoC4/A4.c **** }
  146              		.loc 1 139 0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 6
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 6
 
 
  147 0010 181C     		mov	r0, r3
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  174              		.loc 1 166 0
  175 0004 044B     		ldr	r3, .L13
  176 0006 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 7
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 7
 
 
  177 0008 8022     		mov	r2, #128
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  197:Generated_Source\PSoC4/A4.c **** *  
  198:Generated_Source\PSoC4/A4.c **** * \sideeffect
  199:Generated_Source\PSoC4/A4.c **** *  It is recommended that the interrupt be disabled before calling this 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 8
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 8
 
 
  200:Generated_Source\PSoC4/A4.c **** *  function to avoid unintended interrupt requests. Note that the interrupt
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  241 003a 80BD     		pop	{r7, pc}
  242              	.L17:
  243              		.align	2
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 9
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 9
 
 
  244              	.L16:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  273 0010 8A43     		bic	r2, r1
  274 0012 1A70     		strb	r2, [r3]
  239:Generated_Source\PSoC4/A4.c **** 	A4_INTSTAT = maskedStatus;
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 10
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 10
 
 
  275              		.loc 1 239 0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  327 003a 02       		.uleb128 0x2
  328 003b 02       		.byte	0x2
  329 003c 07       		.byte	0x7
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 11
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 11
 
 
  330 003d 81000000 		.4byte	.LASF3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  384 00a9 02       		.byte	0x2
  385 00aa 6502     		.2byte	0x265
  386 00ac B0000000 		.4byte	0xb0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 12
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 12
 
 
  387 00b0 05       		.uleb128 0x5
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  441 011f 9C       		.byte	0x9c
  442 0120 09       		.uleb128 0x9
  443 0121 9B000000 		.4byte	.LASF21
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 13
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 13
 
 
  444 0125 01       		.byte	0x1
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  498 0191 6B000000 		.4byte	0x6b
  499 0195 02       		.uleb128 0x2
  500 0196 91       		.byte	0x91
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 14
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 14
 
 
  501 0197 77       		.sleb128 -9
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  555 0031 05       		.uleb128 0x5
  556 0032 49       		.uleb128 0x49
  557 0033 13       		.uleb128 0x13
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 15
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 15
 
 
  558 0034 00       		.byte	0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  612 006b 3A       		.uleb128 0x3a
  613 006c 0B       		.uleb128 0xb
  614 006d 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 16
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 16
 
 
  615 006e 0B       		.uleb128 0xb
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  669 00a6 19       		.uleb128 0x19
  670 00a7 00       		.byte	0
  671 00a8 00       		.byte	0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 17
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 17
 
 
  672 00a9 00       		.byte	0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  719      65645374 
  719      61747573 
  719      00
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 18
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 18
 
 
  720              	.LASF19:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  743      30333033 
  744 00dd 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  744      20726576 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 19
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 19
 
 
  744      6973696F 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 1
  769 01b0 73686F72 		.ascii	"short int\000"
  769      7420696E 
  769      7400
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXFB4DC.s 			page 20
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cckbpf5d.s 			page 20
 
 
  770              	.LASF30:

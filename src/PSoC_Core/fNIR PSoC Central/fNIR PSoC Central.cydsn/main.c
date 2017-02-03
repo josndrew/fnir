@@ -127,6 +127,11 @@ int main()
         HandleBleProcessing();
         CyBle_ProcessEvents();
     }
+    
+    LED_1_Write(0);
+    LED_2_Write(0);
+    LED_3_Write(0);
+    LED_4_Write(0);
 }
 
 

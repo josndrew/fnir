@@ -37,19 +37,20 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
     
            
             
-    int i; //Variable for Loop Through Light Source           
+    int l; //Variable for Loop Through Light Source           
     int k; //Variable for Loop Through Sensors
     
     switch (*x)
     {
         case 'r':
-            for (i = 0; i < 5; i++) //Loop Through Light Source
-            {
+            for (l = 0; l < 5; l++) //Loop Through Light Source
+            {                                
                 uint8 writeBuffer[40]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A};
-                
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x0A};
+                                
+                switchLED(l);
                 
                 int count = 0; //Place Holder for writeBuffer
                 uint32 timestamp = millis();
@@ -65,10 +66,9 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
                     writeBuffer[count + 5] = ',';
                     count+=6;
                 }
-                dec_to_str (&writeBuffer[count], i, 0);
-                sendCommand(writeBuffer);
-            }
-   
+                dec_to_str (&writeBuffer[count], l, 0);
+                sendCommand(writeBuffer); 
+            }   
             break;
             
         case 's':
@@ -77,24 +77,78 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
         case 'm':
             CySoftwareReset();
             break;
+        case 'b': //Baseline Collection
+            break;
+        case '0':
+            switchLED(0);
+            break;
+        case '1':
+            switchLED(1);
+            break;
+        case '2':
+            switchLED(2);
+            break;
+        case '3':
+            switchLED(3);
+            break;
+        case '4':
+            switchLED(4);
+            break;
+            
         default:
             break;
     }
     
 }
 
-void sendCommand(uint8 a[])
+void switchLED(int index)
 {
-    CYBLE_API_RESULT_T              bleApiResult;
-    CYBLE_GATTC_WRITE_CMD_REQ_T     uartTxDataWriteCmd;
-    
+    switch (index)
+    {
+        case 0: 
+            LED_1_Write(0);
+            LED_2_Write(0);
+            LED_3_Write(0);
+            LED_4_Write(0);
+            break;
+        case 1: 
+            LED_1_Write(1);
+            LED_2_Write(0);
+            LED_3_Write(0);
+            LED_4_Write(0);
+            break;
+        case 2: 
+            LED_1_Write(0);
+            LED_2_Write(1);
+            LED_3_Write(0);
+            LED_4_Write(0);
+            break;
+        case 3: 
+            LED_1_Write(0);
+            LED_2_Write(0);
+            LED_3_Write(1);
+            LED_4_Write(0);
+            break;
+        default:
+            LED_1_Write(0);
+            LED_2_Write(0);
+            LED_3_Write(0);
+            LED_4_Write(1);
+            break;
+    }
+}
 
-    uartTxDataWriteCmd.attrHandle = rxCharHandle;
-    uartTxDataWriteCmd.value.len  = 20; //uartRxDataNotification->handleValPair.value.len;
-    
+void sendCommand(uint8 a[])
+{    
     int j;
     for (j = 0; j < 40; j+=20)
     {
+        CYBLE_API_RESULT_T              bleApiResult = 0xCDF7;
+        CYBLE_GATTC_WRITE_CMD_REQ_T     uartTxDataWriteCmd;
+    
+        uartTxDataWriteCmd.attrHandle = rxCharHandle;
+        uartTxDataWriteCmd.value.len  = 20; //uartRxDataNotification->handleValPair.value.len;
+        
         uartTxDataWriteCmd.value.val  = &a[j];  
         
         do
@@ -103,6 +157,8 @@ void sendCommand(uint8 a[])
             CyBle_ProcessEvents();
         }
         while((CYBLE_ERROR_OK != bleApiResult) && (CYBLE_STATE_CONNECTED == cyBle_state));
+        
+        CyBle_ProcessEvents();
     }
 }
 

@@ -75,6 +75,22 @@
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\A4.h" value="HEADER;;;;;A4" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\A4_aliases.h" value="HEADER;;;;;A4" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\A4_PM.c" value="SOURCE_C;CortexM0;;;;A4" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_1.c" value="SOURCE_C;CortexM0;;;;LED_1" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_1.h" value="HEADER;;;;;LED_1" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_1_aliases.h" value="HEADER;;;;;LED_1" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_1_PM.c" value="SOURCE_C;CortexM0;;;;LED_1" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_2.c" value="SOURCE_C;CortexM0;;;;LED_2" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_2.h" value="HEADER;;;;;LED_2" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_2_aliases.h" value="HEADER;;;;;LED_2" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_2_PM.c" value="SOURCE_C;CortexM0;;;;LED_2" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_3.c" value="SOURCE_C;CortexM0;;;;LED_3" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_3.h" value="HEADER;;;;;LED_3" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_3_aliases.h" value="HEADER;;;;;LED_3" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_3_PM.c" value="SOURCE_C;CortexM0;;;;LED_3" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_4.c" value="SOURCE_C;CortexM0;;;;LED_4" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_4.h" value="HEADER;;;;;LED_4" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_4_aliases.h" value="HEADER;;;;;LED_4" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\LED_4_PM.c" value="SOURCE_C;CortexM0;;;;LED_4" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\BLE_bless_isr.c" value="SOURCE_C;CortexM0;;;;BLE_bless_isr" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\BLE_bless_isr.h" value="HEADER;;;;;BLE_bless_isr" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\UART_SCBCLK.c" value="SOURCE_C;CortexM0;;;;UART_SCBCLK" />

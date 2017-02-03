@@ -43,6 +43,7 @@
     void EnableUartRxInt(void);
     void dec_to_str (uint8* str, uint32_t val, size_t digits);
     void sendCommand(uint8 a[]);
+    void switchLED(int index);
     
 #endif
 /* [] END OF FILE */
