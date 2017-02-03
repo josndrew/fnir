@@ -123,6 +123,15 @@ namespace GUI
             {
                 File.Delete(logPath);
             }
+
+            
+            settings_dialog = new SettingsSetup();
+            settings_dialog.TopLevel = false;
+            settings_dialog.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            tabPage2.Controls.Add(settings_dialog);
+            settings_dialog.Location = new Point(400, 150);
+            settings_dialog.Visible = true;
+            settings_dialog.Show();
         }
         #endregion
 
@@ -187,11 +196,13 @@ namespace GUI
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            settings_dialog.saveButton_Click(sender, e);
             changeCollectingStatus();
         }
 
         private void stopToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            settings_dialog.saveButton_Click(sender, e);
             changeCollectingStatus();
         }
 
@@ -279,6 +290,7 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            settings_dialog.saveButton_Click(sender, e);
             changeCollectingStatus();
         }
 
@@ -444,7 +456,7 @@ namespace GUI
         private void changeCollectingStatus()
         {
             string status = button1.Text;
-
+            
             switch (status)
             {
                 case "START":
@@ -452,6 +464,8 @@ namespace GUI
                     startToolStripMenuItem.Enabled = false;
                     stopToolStripMenuItem.Enabled = true;
                     button1.Text = "STOP";
+                    settings_dialog.Visible = true;
+                    settings_dialog.Enabled = false;
                     button2.Enabled = true;
                     button3.Enabled = false;
                     button4.Enabled = false;
@@ -510,6 +524,9 @@ namespace GUI
                     startToolStripMenuItem.Enabled = true;
                     stopToolStripMenuItem.Enabled = false;
                     button1.Text = "START";
+                    settings_dialog.Visible = true;
+                    settings_dialog.Enabled = true;
+                    
                     button2.Enabled = false;
                     button3.Enabled = true;
                     button4.Enabled = true;
@@ -624,7 +641,7 @@ namespace GUI
                     {
                         
                         adruinoSerial.Write("r"); //Get Data
-                        Thread.Sleep(200);
+                        Thread.Sleep(GUI.Properties.Settings.Default.delay);
                     }
                     else
                     {
@@ -664,7 +681,7 @@ namespace GUI
         {
             int lineCount = 0;
 
-            while (textBox1.Lines.Count() < 20) { }
+            while (textBox1.Lines.Count() < 80) { }
 
             while (true)
             {
@@ -695,11 +712,15 @@ namespace GUI
                             }
                         }
                         lineCount += 2;
+                        if ((lineCount % 4) == 0)
+                        {
+                            lineCount++;
+                        }
                     }
                 }
                 catch (System.IndexOutOfRangeException)
                 {
-                    Thread.Sleep(1000);
+                    //Thread.Sleep(1000);
                 }
             }
         }
@@ -707,12 +728,12 @@ namespace GUI
         private void displayData(double timeStamp, double[] dataArray, double ledIndex, bool fromDevice)
         {
             currentpoint++;
-            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], ledIndex, channel1, 0, false, fromDevice); });
-            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[1], ledIndex, channel2, 1, false, fromDevice); });
-            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], ledIndex, channel3, 2, false, fromDevice); });
-            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[3], ledIndex, channel4, 3, false, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], dataArray[0], channel1, 0, false, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[1], dataArray[1], channel2, 1, false, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], dataArray[2], channel3, 2, false, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[3], dataArray[3], channel4, 3, false, fromDevice); });
             Invoke((MethodInvoker)delegate { updateLED(ledIndex); });
-            Invoke((MethodInvoker)delegate { Update(); Refresh(); });
+            Invoke((MethodInvoker)delegate { Update(); });
         }
 
         private void updateChart(double x, double y1, double y2, Chart chart, int index, bool procData, bool fromDevice)
@@ -723,21 +744,7 @@ namespace GUI
                 chart.Series["HbR"].Points.AddXY(x, y2);
 
                 chart.Series["HbR"].Enabled = false;
-                //if (index < 4)
-                //{
-                //    chart.Series["HbR"].Enabled = false;
-                //    if (((int)y2 % 2) == 0)
-                //    {
-                //        chart.Series["HbO2"].Points[chart.Series["HbO2"].Points.Count - 1].MarkerColor = Color.Red;
-                //        chart.Series["HbO2"].Points[chart.Series["HbO2"].Points.Count - 1].Color = Color.Red;
-                //    }
-                //    else
-                //    {
-                //        chart.Series["HbO2"].Points[chart.Series["HbO2"].Points.Count -1 ].MarkerColor = Color.Green;
-                //        chart.Series["HbO2"].Points[chart.Series["HbO2"].Points.Count - 1].Color = Color.Red;
-                //    }
-                //}
-
+        
                 if (chart.Series["HbO2"].Points.Count > 4000)
                 {
                     chart.Series["HbO2"].Points.RemoveAt(0);
@@ -833,7 +840,7 @@ namespace GUI
                 pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
                 pictureBox3.Image = GUI.Properties.Resources._11949892282132520602led_circle_green_svg_med;
             }
-            else if (index == 4)
+            else if ((index == 4) || (index == 5))
             {
                 pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
                 pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
@@ -894,22 +901,22 @@ namespace GUI
 
             double[] limits = { maxX, minX, maxA, minA};
 
-            chart.ChartAreas[0].AxisY.Maximum = Math.Round(limits.Max(), 1, MidpointRounding.AwayFromZero) + .1;
-            chart.ChartAreas[0].AxisY.Minimum = Math.Round(limits.Min(), 1, MidpointRounding.AwayFromZero) - .1;
+            chart.ChartAreas[0].AxisY.Maximum = Math.Round(limits.Max(), 3, MidpointRounding.AwayFromZero) + .4;
+            chart.ChartAreas[0].AxisY.Minimum = Math.Round(limits.Min(), 3, MidpointRounding.AwayFromZero) - .4;
 
-            double interval = Math.Round((chart.ChartAreas[0].AxisY.Maximum - chart.ChartAreas[0].AxisY.Minimum) / 1, 1, MidpointRounding.AwayFromZero);
+            double interval = Math.Round((chart.ChartAreas[0].AxisY.Maximum - chart.ChartAreas[0].AxisY.Minimum) / 4, 3, MidpointRounding.AwayFromZero);
 
             chart.ChartAreas[0].AxisY.MajorGrid.Interval = interval;
             chart.ChartAreas[0].AxisY.MajorTickMark.Interval = interval;
 
 
-            chart.ChartAreas[0].AxisX.MajorGrid.Interval = 2;
-            chart.ChartAreas[0].AxisX.MajorTickMark.Interval = 2;
+            chart.ChartAreas[0].AxisX.MinorGrid.Enabled = false;
+            chart.ChartAreas[0].AxisX.MinorTickMark.Enabled = false;
 
             if (comboBox1.SelectedIndex > 1)
             {
                 chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-                chart.ChartAreas[0].AxisX.MajorTickMark.Enabled = false;
+                chart.ChartAreas[0].AxisX.MajorTickMark.Enabled = false;    
             }
             else
             {
@@ -1031,11 +1038,10 @@ namespace GUI
         {
             bool open = adruinoSerial.IsOpen;
             string buffer = adruinoSerial.ReadLine();
+            buffer = buffer.TrimEnd('\r');
             buffer = buffer.TrimEnd('\0');
             Invoke((MethodInvoker)delegate { textBox1.AppendText(buffer + "\n"); });
-            //Invoke((MethodInvoker)delegate { textBox1.Update(); });
-            //Invoke((MethodInvoker)delegate { textBox1.Refresh(); });
-
+            
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
             {
                 file.WriteLine(buffer);
@@ -1070,6 +1076,14 @@ namespace GUI
             label9.Visible = false;
         }
 
+        public static void ShowFormInContainerControl(Control ctl, Form frm)
+        {
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.Visible = true;
+            ctl.Controls.Add(frm);
+        }
     }
 
 }
