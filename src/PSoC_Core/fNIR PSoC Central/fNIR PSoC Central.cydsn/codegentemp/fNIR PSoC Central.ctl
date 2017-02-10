@@ -1,6 +1,6 @@
 -- ======================================================================
 -- fNIR PSoC Central.ctl generated from fNIR PSoC Central
--- 02/03/2017 at 15:02
+-- 02/10/2017 at 10:32
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 

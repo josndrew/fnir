@@ -33,41 +33,18 @@
 void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotification)
 {    
     unsigned char *x =  uartRxDataNotification->handleValPair.value.val;
-    
-    
-           
+              
             
     int l; //Variable for Loop Through Light Source           
-    int k; //Variable for Loop Through Sensors
+    
     
     switch (*x)
     {
         case 'r':
             for (l = 0; l < 5; l++) //Loop Through Light Source
             {                                
-                uint8 writeBuffer[40]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x0A};
-                                
                 switchLED(l);
-                
-                int count = 0; //Place Holder for writeBuffer
-                uint32 timestamp = millis();
-                dec_to_str (&writeBuffer[count], timestamp, 10);
-                writeBuffer[count + 11] = ',';
-                count+=12;
-          
-                for (k = 0; k < 4; k++) //Loop Through Sensors
-                {
-                    uint16 VAL1=ADC_GetResult16(k);
-                    uint8 AV1=ADC_CountsTo_mVolts(0,VAL1);
-                    dec_to_str (&writeBuffer[count], AV1, 4);
-                    writeBuffer[count + 5] = ',';
-                    count+=6;
-                }
-                dec_to_str (&writeBuffer[count], l, 0);
-                sendCommand(writeBuffer); 
+                readSensor(l);                
             }   
             break;
             
@@ -81,18 +58,23 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
             break;
         case '0':
             switchLED(0);
+            readSensor(0);
             break;
         case '1':
             switchLED(1);
+            readSensor(1);
             break;
         case '2':
             switchLED(2);
+            readSensor(2);
             break;
         case '3':
             switchLED(3);
+            readSensor(3);
             break;
         case '4':
             switchLED(4);
+            readSensor(4);
             break;
             
         default:
@@ -100,6 +82,38 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
     }
     
 }
+
+void readSensor(int index)
+{
+    int k; //Variable for Loop Through Sensors
+    int count = 0; //Place Holder for writeBuffer
+    
+    uint8 writeBuffer[40]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+         0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x0A};
+                
+    uint32 timestamp = millis();
+    
+    dec_to_str (&writeBuffer[count], timestamp, 10);
+    writeBuffer[count + 11] = ',';
+    count+=12;
+    
+    
+    
+    for (k = 0; k < 4; k++) //Loop Through Sensors
+    {
+        ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+        uint16 VAL1 = ADC_GetResult16(k);
+        uint16 AV1 = ADC_CountsTo_mVolts(k,VAL1);
+        dec_to_str (&writeBuffer[count], AV1, 4);
+        writeBuffer[count + 5] = ',';
+        count+=6;
+    }
+    dec_to_str (&writeBuffer[count], index, 0);
+    sendCommand(writeBuffer); 
+}
+
 
 void switchLED(int index)
 {

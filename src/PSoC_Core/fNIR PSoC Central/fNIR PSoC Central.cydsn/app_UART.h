@@ -44,6 +44,8 @@
     void dec_to_str (uint8* str, uint32_t val, size_t digits);
     void sendCommand(uint8 a[]);
     void switchLED(int index);
+    void readSensor(int index);
+    void debug(int value);
     
 #endif
 /* [] END OF FILE */

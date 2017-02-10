@@ -1,5 +1,5 @@
 -- Project:   fNIR PSoC Central
--- Generated: 02/03/2017 15:02:26
+-- Generated: 02/10/2017 10:32:06
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \fNIR PSoC Central\ IS
@@ -740,10 +740,10 @@ BEGIN
 
     A1:logicalport
         GENERIC MAP(
-            drive_mode => "000",
+            drive_mode => "010",
             ibuf_enabled => "0",
             id => "77715107-f8d5-47e5-a629-0fb83101ac6b",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -792,7 +792,7 @@ BEGIN
             slew_rate => "0",
             spanning => 0,
             sw_only => 0,
-            use_annotation => "1",
+            use_annotation => "0",
             vtrip => "10",
             width => 1,
             in_clk_inv => 0,
@@ -829,10 +829,10 @@ BEGIN
 
     A2:logicalport
         GENERIC MAP(
-            drive_mode => "000",
+            drive_mode => "010",
             ibuf_enabled => "0",
             id => "01790367-ee28-485f-aa54-07fd3ba63dd0",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -881,7 +881,7 @@ BEGIN
             slew_rate => "0",
             spanning => 0,
             sw_only => 0,
-            use_annotation => "1",
+            use_annotation => "0",
             vtrip => "10",
             width => 1,
             in_clk_inv => 0,
@@ -918,10 +918,10 @@ BEGIN
 
     A3:logicalport
         GENERIC MAP(
-            drive_mode => "000",
+            drive_mode => "010",
             ibuf_enabled => "0",
             id => "69bdbe73-96ba-40d5-8fbc-06ec47ac4678",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -970,7 +970,7 @@ BEGIN
             slew_rate => "0",
             spanning => 0,
             sw_only => 0,
-            use_annotation => "1",
+            use_annotation => "0",
             vtrip => "10",
             width => 1,
             in_clk_inv => 0,
@@ -1007,10 +1007,10 @@ BEGIN
 
     A4:logicalport
         GENERIC MAP(
-            drive_mode => "000",
+            drive_mode => "010",
             ibuf_enabled => "0",
             id => "eea9d33e-b27f-4e67-ab4d-1b63422e75ee",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -1059,7 +1059,7 @@ BEGIN
             slew_rate => "0",
             spanning => 0,
             sw_only => 0,
-            use_annotation => "1",
+            use_annotation => "0",
             vtrip => "10",
             width => 1,
             in_clk_inv => 0,
@@ -1096,7 +1096,7 @@ BEGIN
 
     LED_1:logicalport
         GENERIC MAP(
-            drive_mode => "100",
+            drive_mode => "110",
             ibuf_enabled => "1",
             id => "bee1badf-060f-4d34-9b56-a28b67e7d11f",
             init_dr_st => "0",
@@ -1186,7 +1186,7 @@ BEGIN
 
     LED_2:logicalport
         GENERIC MAP(
-            drive_mode => "100",
+            drive_mode => "110",
             ibuf_enabled => "1",
             id => "0b8d8601-5724-4e52-ba11-539f2628f14d",
             init_dr_st => "0",
@@ -1276,7 +1276,7 @@ BEGIN
 
     LED_3:logicalport
         GENERIC MAP(
-            drive_mode => "100",
+            drive_mode => "110",
             ibuf_enabled => "1",
             id => "372d46e3-67e4-4f6b-80c0-efb83b8b6673",
             init_dr_st => "0",
@@ -1366,7 +1366,7 @@ BEGIN
 
     LED_4:logicalport
         GENERIC MAP(
-            drive_mode => "100",
+            drive_mode => "110",
             ibuf_enabled => "1",
             id => "d1379db7-e0cc-49b5-97d2-59e5a6ae1f50",
             init_dr_st => "0",

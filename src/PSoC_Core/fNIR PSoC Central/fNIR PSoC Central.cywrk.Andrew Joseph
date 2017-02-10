@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="fNIR PSoC Central\fNIR PSoC Central\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>fNIR PSoC Central</v>
 <v>fNIR PSoC Central\fNIR PSoC Central</v>
@@ -38,7 +38,6 @@
 <v>fNIR PSoC Central\fNIR PSoC Central\Source Files\app_UART.c</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Source Files\main.c</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Source Files\millis.c</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A1</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A1\A1.c</v>
@@ -223,12 +222,6 @@
 <v>fNIR PSoC Central\fNIR PSoC Central\Source Files\main.c</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Source Files\millis.c</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A1</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A1\A1.c</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A1\A1.h</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A1\A1_aliases.h</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A1\A1_PM.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -417,11 +410,11 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\fNIR PSoC Central.cydsn\app_UART.c" />
 <name v=".\fNIR PSoC Central.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\fNIR PSoC Central.cydsn\app_UART.h" />
-<name v=".\fNIR PSoC Central.cydsn\fNIR PSoC Central.cydwr" />
 <name v=".\fNIR PSoC Central.cydsn\main.c" />
+<name v=".\fNIR PSoC Central.cydsn\app_UART.c" />
+<name v=".\fNIR PSoC Central.cydsn\app_UART.h" />
+<name v=".\fNIR PSoC Central.cydsn\main.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -429,7 +422,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="753, 541" SelectedTabbedMdiWindow="7e86ba83-5a7f-4596-95c6-5ebff7a3fda7"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="965ca48f-fa5b-47e2-b506-07b2c80ff5ff" /><DocumentWindow Key="4de6e6fe-125c-45f0-ab6a-9bc4a039dd4e" Guid="8f2a7daa-6dd9-46c4-b9e2-ce3b69a54da3" /><DocumentWindow Key="d26c27b6-3f26-4bf1-ad3b-f9e4ec2856d6" Guid="901d8db6-0a4f-41cc-822d-f98bbbada59a" /><DocumentWindow Key="71630afc-d443-41cf-aa9f-37857123575b" Guid="fb875eaf-3d69-437b-8494-4ff526d94f77" /><DocumentWindow Key="6363c30d-9c05-4dee-b632-7565693e7d76" Guid="c3bcb421-569b-4fbb-90a5-e7a09040c995" /><DocumentWindow Key="3c3128f9-baad-4f9d-89cb-251492a2c653" Guid="7e86ba83-5a7f-4596-95c6-5ebff7a3fda7" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="784, 423" SelectedTabbedMdiWindow="83f3e8c8-4918-4c33-bfe9-e060516c53e0"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="965ca48f-fa5b-47e2-b506-07b2c80ff5ff" /><DocumentWindow Key="14eb8138-769d-410f-8237-b5de955186f2" Guid="83f3e8c8-4918-4c33-bfe9-e060516c53e0" /><DocumentWindow Key="c8b2539b-f3d3-4c8b-adab-acc12fd747b8" Guid="cd4a1b82-a697-4faa-8a74-5ebba90067fd" /><DocumentWindow Key="71bdc7ab-0ab7-40a1-85be-b6d25ace02c6" Guid="009d68ba-dfc1-49f3-942f-b812807592b1" /><DocumentWindow Key="ce81ba80-74d7-4067-8ad4-4c6eb21fb94b" Guid="ff6754d8-6b36-47c7-bfb4-b181606e07aa" /><DocumentWindow Key="f7851680-ea41-44ac-90fa-5befb073886a" Guid="18a83aeb-9f8f-462f-bddf-767c7bcfa9e8" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

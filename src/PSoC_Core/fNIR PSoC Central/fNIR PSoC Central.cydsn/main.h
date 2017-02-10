@@ -17,6 +17,7 @@
     #define MAIN_H
     
     #include <project.h>
+    #include <stdio.h>
     #include "app_Ble.h"
     #include "app_LED.h"
     #include "stdbool.h"

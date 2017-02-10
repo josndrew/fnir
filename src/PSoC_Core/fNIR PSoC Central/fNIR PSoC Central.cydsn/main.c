@@ -75,6 +75,7 @@ int main()
     
     CyBle_ProcessEvents();
     ADC_Start();
+    ADC_StartConvert();
     millis_Start();
     /***************************************************************************
     * Main polling loop
