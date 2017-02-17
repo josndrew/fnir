@@ -116,7 +116,7 @@ typedef struct
 #define ADC_DEFAULT_NEG_INPUT_SEL          (0u)
 #define ADC_DEFAULT_ALT_RESOLUTION_SEL     (0u)
 #define ADC_DEFAULT_JUSTIFICATION_SEL      (0u)
-#define ADC_DEFAULT_DIFF_RESULT_FORMAT_SEL (1u)
+#define ADC_DEFAULT_DIFF_RESULT_FORMAT_SEL (0u)
 #define ADC_DEFAULT_SE_RESULT_FORMAT_SEL   (1u)
 #define ADC_DEFAULT_CLOCK_SOURCE           (1u)
 #define ADC_DEFAULT_VREF_MV_VALUE          (3300)
@@ -135,7 +135,7 @@ typedef struct
 #define ADC_TOTAL_CHANNELS_NUM             (4u)
 #define ADC_SEQUENCED_CHANNELS_NUM         (4u)
 #define ADC_DEFAULT_EN_CHANNELS            (15u)
-#define ADC_NOMINAL_CLOCK_FREQ             (8000000)
+#define ADC_NOMINAL_CLOCK_FREQ             (1000000)
 #define ADC_INJ_CHANNEL_ENABLED            (0u)
 #define ADC_IRQ_REMOVE                     (0u)
 

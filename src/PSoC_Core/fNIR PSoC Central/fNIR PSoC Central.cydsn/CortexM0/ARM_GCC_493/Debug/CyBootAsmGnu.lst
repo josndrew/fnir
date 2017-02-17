@@ -10407,8 +10407,8 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  404              	
  405              	/* ADC_intClock */
  406              	.set ADC_intClock__CTRL_REGISTER, CYREG_PERI_PCLK_CTL6
- 407              	.set ADC_intClock__DIV_ID, 0x00000040
- 408              	.set ADC_intClock__DIV_REGISTER, CYREG_PERI_DIV_16_CTL0
+ 407              	.set ADC_intClock__DIV_ID, 0x00000041
+ 408              	.set ADC_intClock__DIV_REGISTER, CYREG_PERI_DIV_16_CTL1
  409              	.set ADC_intClock__PA_DIV_ID, 0x000000FF
  410              	
  411              	/* ADC_IRQ */
@@ -10850,8 +10850,8 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  826              	
  827              	/* UART_SCBCLK */
  828              	.set UART_SCBCLK__CTRL_REGISTER, CYREG_PERI_PCLK_CTL1
- 829              	.set UART_SCBCLK__DIV_ID, 0x00000041
- 830              	.set UART_SCBCLK__DIV_REGISTER, CYREG_PERI_DIV_16_CTL1
+ 829              	.set UART_SCBCLK__DIV_ID, 0x00000040
+ 830              	.set UART_SCBCLK__DIV_REGISTER, CYREG_PERI_DIV_16_CTL0
  831              	.set UART_SCBCLK__PA_DIV_ID, 0x000000FF
  832              	
  833              	/* UART_tx */

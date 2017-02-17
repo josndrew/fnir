@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
   31              	.LC7:
   32 00c4 0A0D4465 		.ascii	"\012\015Device role \011: CENTRAL\000"
   32      76696365 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 2
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 2
 
 
   32      20726F6C 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
   20:main.c        **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
   21:main.c        **** * You may use this file only in accordance with the license, terms, conditions,
   22:main.c        **** * disclaimers, and limitations in the end user license agreement accompanying
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 3
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 3
 
 
   23:main.c        **** * the software package with which this file was provided.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
   47:main.c        ****             UART_UartPutString("\n\r************************************************************");
   82              		.loc 1 47 0
   83 0022 174B     		ldr	r3, .L6+4
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 4
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 4
 
 
   84 0024 181C     		mov	r0, r3
@@ -238,13 +238,14 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  108              		.loc 1 77 0
  109 0056 FFF7FEFF 		bl	ADC_Start
   78:main.c        ****     ADC_StartConvert();
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 5
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 5
 
 
  110              		.loc 1 78 0
  111 005a FFF7FEFF 		bl	ADC_StartConvert
-  79:main.c        ****     millis_Start();
- 112              		.loc 1 79 0
+  79:main.c        ****     
+  80:main.c        ****     millis_Start();
+ 112              		.loc 1 80 0
  113 005e FFF7FEFF 		bl	millis_Start
  114 0062 04E0     		b	.L5
  115              	.L2:
@@ -258,67 +259,67 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  121              		.loc 1 73 0 discriminator 1
  122 006c FEE7     		b	.L4
  123              	.L5:
-  80:main.c        ****     /***************************************************************************
-  81:main.c        ****     * Main polling loop
-  82:main.c        ****     ***************************************************************************/
-  83:main.c        ****     while(1)
-  84:main.c        ****     {               
-  85:main.c        ****         #ifdef LOW_POWER_MODE
-  86:main.c        ****             
-  87:main.c        ****             if((CyBle_GetState() != CYBLE_STATE_INITIALIZING) && (CyBle_GetState() != CYBLE_STATE_D
-  88:main.c        ****             {
-  89:main.c        ****                 /* Enter DeepSleep mode between connection intervals */
-  90:main.c        ****                 
-  91:main.c        ****                 lpMode = CyBle_EnterLPM(CYBLE_BLESS_DEEPSLEEP);
-  92:main.c        ****                 CyGlobalIntDisable;
-  93:main.c        ****                 blessState = CyBle_GetBleSsState();
-  94:main.c        **** 
-  95:main.c        ****                 if(lpMode == CYBLE_BLESS_DEEPSLEEP) 
-  96:main.c        ****                 {   
-  97:main.c        ****                     if((blessState == CYBLE_BLESS_STATE_ECO_ON || blessState == CYBLE_BLESS_STATE_D
-  98:main.c        ****                             (UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u)
-  99:main.c        ****                     {
- 100:main.c        ****                         EnableUartRxInt();
- 101:main.c        ****                         CySysPmSleep();
- 102:main.c        ****                         DisableUartRxInt();
- 103:main.c        ****                     }
- 104:main.c        ****                 }
- 105:main.c        ****                 else
- 106:main.c        ****                 {
- 107:main.c        ****                     if((blessState != CYBLE_BLESS_STATE_EVENT_CLOSE) && \
- 108:main.c        ****                             (UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u)
- 109:main.c        ****                     {
- 110:main.c        ****                         EnableUartRxInt();
- 111:main.c        ****                         CySysPmSleep();
- 112:main.c        ****                         DisableUartRxInt();
- 113:main.c        ****                     }
- 114:main.c        ****                 }
- 115:main.c        ****                 CyGlobalIntEnable;
- 116:main.c        ****                 
- 117:main.c        ****                 /* Handle advertising led blinking */
- 118:main.c        ****                 HandleLeds();
- 119:main.c        ****             }
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 6
+  81:main.c        ****     /***************************************************************************
+  82:main.c        ****     * Main polling loop
+  83:main.c        ****     ***************************************************************************/
+  84:main.c        ****     while(1)
+  85:main.c        ****     {               
+  86:main.c        ****         #ifdef LOW_POWER_MODE
+  87:main.c        ****             
+  88:main.c        ****             if((CyBle_GetState() != CYBLE_STATE_INITIALIZING) && (CyBle_GetState() != CYBLE_STATE_D
+  89:main.c        ****             {
+  90:main.c        ****                 /* Enter DeepSleep mode between connection intervals */
+  91:main.c        ****                 
+  92:main.c        ****                 lpMode = CyBle_EnterLPM(CYBLE_BLESS_DEEPSLEEP);
+  93:main.c        ****                 CyGlobalIntDisable;
+  94:main.c        ****                 blessState = CyBle_GetBleSsState();
+  95:main.c        **** 
+  96:main.c        ****                 if(lpMode == CYBLE_BLESS_DEEPSLEEP) 
+  97:main.c        ****                 {   
+  98:main.c        ****                     if((blessState == CYBLE_BLESS_STATE_ECO_ON || blessState == CYBLE_BLESS_STATE_D
+  99:main.c        ****                             (UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u)
+ 100:main.c        ****                     {
+ 101:main.c        ****                         EnableUartRxInt();
+ 102:main.c        ****                         CySysPmSleep();
+ 103:main.c        ****                         DisableUartRxInt();
+ 104:main.c        ****                     }
+ 105:main.c        ****                 }
+ 106:main.c        ****                 else
+ 107:main.c        ****                 {
+ 108:main.c        ****                     if((blessState != CYBLE_BLESS_STATE_EVENT_CLOSE) && \
+ 109:main.c        ****                             (UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u)
+ 110:main.c        ****                     {
+ 111:main.c        ****                         EnableUartRxInt();
+ 112:main.c        ****                         CySysPmSleep();
+ 113:main.c        ****                         DisableUartRxInt();
+ 114:main.c        ****                     }
+ 115:main.c        ****                 }
+ 116:main.c        ****                 CyGlobalIntEnable;
+ 117:main.c        ****                 
+ 118:main.c        ****                 /* Handle advertising led blinking */
+ 119:main.c        ****                 HandleLeds();
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 6
 
 
- 120:main.c        ****             
- 121:main.c        ****         #else
- 122:main.c        ****             HandleLeds();
- 124              		.loc 1 122 0 discriminator 1
+ 120:main.c        ****             }
+ 121:main.c        ****             
+ 122:main.c        ****         #else
+ 123:main.c        ****             HandleLeds();
+ 124              		.loc 1 123 0 discriminator 1
  125 006e FFF7FEFF 		bl	HandleLeds
- 123:main.c        ****         #endif
- 124:main.c        ****         
- 125:main.c        ****         /*******************************************************************
- 126:main.c        ****         *  Process all pending BLE events in the stack
- 127:main.c        ****         *******************************************************************/      
- 128:main.c        ****         HandleBleProcessing();
- 126              		.loc 1 128 0 discriminator 1
+ 124:main.c        ****         #endif
+ 125:main.c        ****         
+ 126:main.c        ****         /*******************************************************************
+ 127:main.c        ****         *  Process all pending BLE events in the stack
+ 128:main.c        ****         *******************************************************************/      
+ 129:main.c        ****         HandleBleProcessing();
+ 126              		.loc 1 129 0 discriminator 1
  127 0072 FFF7FEFF 		bl	HandleBleProcessing
- 129:main.c        ****         CyBle_ProcessEvents();
- 128              		.loc 1 129 0 discriminator 1
+ 130:main.c        ****         CyBle_ProcessEvents();
+ 128              		.loc 1 130 0 discriminator 1
  129 0076 FFF7FEFF 		bl	CyBle_ProcessEvents
- 130:main.c        ****     }
- 130              		.loc 1 130 0 discriminator 1
+ 131:main.c        ****     }
+ 130              		.loc 1 131 0 discriminator 1
  131 007a F8E7     		b	.L5
  132              	.L7:
  133              		.align	2
@@ -357,10 +358,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  166 0028 68050000 		.4byte	.LASF0
  167 002c 02       		.uleb128 0x2
  168 002d 01       		.byte	0x1
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 7
+
+
  169 002e 08       		.byte	0x8
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 7
-
-
  170 002f 59020000 		.4byte	.LASF1
  171 0033 02       		.uleb128 0x2
  172 0034 02       		.byte	0x2
@@ -417,10 +418,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  223 008c 57010000 		.4byte	0x157
  224 0090 05       		.uleb128 0x5
  225 0091 9F010000 		.4byte	.LASF13
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 8
+
+
  226 0095 00       		.sleb128 0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 8
-
-
  227 0096 05       		.uleb128 0x5
  228 0097 F8030000 		.4byte	.LASF14
  229 009b 01       		.sleb128 1
@@ -477,10 +478,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  280 0101 12       		.sleb128 18
  281 0102 05       		.uleb128 0x5
  282 0103 67020000 		.4byte	.LASF32
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 9
+
+
  283 0107 13       		.sleb128 19
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 9
-
-
  284 0108 05       		.uleb128 0x5
  285 0109 EA000000 		.4byte	.LASF33
  286 010d 27       		.sleb128 39
@@ -537,10 +538,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  337 017d 01       		.byte	0x1
  338 017e 24       		.byte	0x24
  339 017f 57010000 		.4byte	0x157
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 10
+
+
  340 0183 02       		.uleb128 0x2
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 10
-
-
  341 0184 91       		.byte	0x91
  342 0185 6E       		.sleb128 -18
  343 0186 00       		.byte	0
@@ -597,10 +598,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  394 002f 0B       		.uleb128 0xb
  395 0030 3B       		.uleb128 0x3b
  396 0031 05       		.uleb128 0x5
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 11
+
+
  397 0032 01       		.uleb128 0x1
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 11
-
-
  398 0033 13       		.uleb128 0x13
  399 0034 00       		.byte	0
  400 0035 00       		.byte	0
@@ -657,10 +658,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  451 0069 3A       		.uleb128 0x3a
  452 006a 0B       		.uleb128 0xb
  453 006b 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 12
+
+
  454 006c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 12
-
-
  455 006d 49       		.uleb128 0x49
  456 006e 13       		.uleb128 0x13
  457 006f 02       		.uleb128 0x2
@@ -717,10 +718,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  488      52595F41 
  489              	.LASF30:
  490 00b3 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_CHANNEL_NOT_FOUND\000"
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 13
+
+
  490      455F4552 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 13
-
-
  490      524F525F 
  490      4C324341 
  490      505F4348 
@@ -777,10 +778,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  510 01ae 4359424C 		.ascii	"CYBLE_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER_VALUE\000"
  510      455F4552 
  510      524F525F 
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 14
+
+
  510      554E5355 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 14
-
-
  510      50504F52 
  511              	.LASF15:
  512 01e1 4359424C 		.ascii	"CYBLE_ERROR_INVALID_OPERATION\000"
@@ -837,10 +838,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  528      4F4E4E45 
  529              	.LASF3:
  530 02d5 73686F72 		.ascii	"short unsigned int\000"
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 15
+
+
  530      7420756E 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 15
-
-
  530      7369676E 
  530      65642069 
  530      6E7400
@@ -897,10 +898,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  550      524F525F 
  550      4E54465F 
  550      44495341 
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 16
+
+
  551              	.LASF11:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 16
-
-
  552 03f3 63686172 		.ascii	"char\000"
  552      00
  553              	.LASF14:
@@ -957,10 +958,10 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 1
  573              	.LASF17:
  574 04be 4359424C 		.ascii	"CYBLE_ERROR_INSUFFICIENT_RESOURCES\000"
  574      455F4552 
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccXSK5ic.s 			page 17
+
+
  574      524F525F 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccWXfL7F.s 			page 17
-
-
  574      494E5355 
  574      46464943 
  575              	.LASF47:

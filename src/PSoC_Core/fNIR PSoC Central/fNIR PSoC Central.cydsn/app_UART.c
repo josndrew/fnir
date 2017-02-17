@@ -47,37 +47,34 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
                 readSensor(l);                
             }   
             break;
-            
         case 's':
             millis_Reset();
             break;
         case 'm':
             CySoftwareReset();
             break;
-        case 'b': //Baseline Collection
-            break;
-        case '0':
-            switchLED(0);
-            readSensor(0);
-            break;
-        case '1':
-            switchLED(1);
-            readSensor(1);
-            break;
-        case '2':
-            switchLED(2);
-            readSensor(2);
-            break;
-        case '3':
-            switchLED(3);
-            readSensor(3);
-            break;
-        case '4':
-            switchLED(4);
-            readSensor(4);
+        case 'b':
+            for (l = 0; l < 4; l++) //Loop Through Each Sensor
+            {
+                ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+                uint16 VAL1 = ADC_GetResult16(l);
+                ADC_SetOffset(l,VAL1);
+            }
             break;
             
+        /* The following Case statements go THROUGH default: */
+        case '0':
+            switchLED(0);
+        case '1':
+            switchLED(1);
+        case '2':
+            switchLED(2);
+        case '3':
+            switchLED(3);
+        case '4':
+            switchLED(4);            
         default:
+            readSensorBitVal();
             break;
     }
     
@@ -100,18 +97,53 @@ void readSensor(int index)
     count+=12;
     
     
-    
     for (k = 0; k < 4; k++) //Loop Through Sensors
     {
-        ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
-        uint16 VAL1 = ADC_GetResult16(k);
-        uint16 AV1 = ADC_CountsTo_mVolts(k,VAL1);
+        uint16 VAL1 = 0;
+        do
+        {
+            VAL1 = 0;
+            ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+            VAL1 = ADC_GetResult16(k) - ADC_offset[k];        
+        }while (VAL1 > 64000);
+        
+        uint16 AV1 = ADC_CountsTo_mVolts(k, VAL1+ADC_offset[k]);
+        
         dec_to_str (&writeBuffer[count], AV1, 4);
         writeBuffer[count + 5] = ',';
         count+=6;
     }
+    
     dec_to_str (&writeBuffer[count], index, 0);
     sendCommand(writeBuffer); 
+}
+
+
+void readSensorBitVal()
+{
+    int k; //Variable for Loop Through Sensors
+    int count = 0; //Place Holder for writeBuffer
+    
+    uint8 writeBuffer[40]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+         0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x0A}; 
+        
+
+    for (k = 0; k < 4; k++) //Loop Through Sensors
+    {
+        uint16 VAL1 = 0;
+        do
+        {
+            VAL1 = 0;
+            ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+            VAL1 = ADC_GetResult16(k) - ADC_offset[k];        
+        }while (VAL1 > 64000);
+        
+        bit_to_str (&writeBuffer[count], VAL1, 30);
+
+        sendCommand(writeBuffer); 
+    }
 }
 
 
@@ -198,6 +230,18 @@ void dec_to_str (uint8* str, uint32_t val, size_t digits)
         str[digits-i] = (char)((val % 10u) + '0');
         val/=10u;
     }
+  }
+}
+
+void bit_to_str (uint8* str, uint32_t val, size_t digits)
+{
+  size_t i=1u;
+  digits++;
+    
+  for(; i<=digits; i++)
+  {
+    str[digits-i] = (char)((val % 10u) + '0');
+    val/=10u;
   }
 }
 

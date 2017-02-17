@@ -1,6 +1,6 @@
 // ======================================================================
 // fNIR PSoC Central.v generated from TopDesign.cysch
-// 02/10/2017 at 10:32
+// 02/10/2017 at 12:24
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -544,7 +544,7 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\Bus_Connect_v2_40\Bus_Connect_v2_40.v"
 `endif
 
-// ADC_SAR_SEQ_P4_v2_40(AdcAClock=2, AdcAdjust=1, AdcAlternateResolution=0, AdcAvgMode=1, AdcAvgSamplesNum=4, AdcBClock=2, AdcCClock=2, AdcChannelsEnConf=15, AdcChannelsModeConf=0, AdcClock=1, AdcClockFrequency=8000000, AdcCompareMode=0, AdcDataFormatJustification=0, AdcDClock=2, AdcDedicatedExtVref=true, AdcDifferentialResultFormat=1, AdcHighLimit=2047, AdcInjChannelEnabled=false, AdcInputBufGain=0, AdcLowLimit=0, AdcMaxResolution=12, AdcSampleMode=0, AdcSarMuxChannelConfig=0000, AdcSequencedChannels=4, AdcSingleEndedNegativeInput=0, AdcSingleResultFormat=1, AdcSymbolHasSingleEndedInputChannel=false, AdcTotalChannels=4, AdcVrefSelect=1, AdcVrefVoltage_mV=1024, rm_int=false, SeqChannelsConfigTable=<?xml version="1.0" encoding="utf-16"?><CyChannelsConfigTable xmlns:Version="2_40"><m_channelsConfigTable><CyChannelsConfigTableRow><m_enabled>false</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Diff</m_mode><m_averaged>false</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow><CyChannelsConfigTableRow><m_enabled>true</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Single</m_mode><m_averaged>true</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow><CyChannelsConfigTableRow><m_enabled>true</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Single</m_mode><m_averaged>true</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow><CyChannelsConfigTableRow><m_enabled>true</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Single</m_mode><m_averaged>true</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow><CyChannelsConfigTableRow><m_enabled>true</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Single</m_mode><m_averaged>true</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow></m_channelsConfigTable></CyChannelsConfigTable>, TermMode_aclk=0, TermMode_eoc=0, TermMode_sdone=0, TermMode_soc=0, TermMode_vinMinus0=0, TermMode_vinMinus1=0, TermMode_vinMinus10=0, TermMode_vinMinus11=0, TermMode_vinMinus12=0, TermMode_vinMinus13=0, TermMode_vinMinus14=0, TermMode_vinMinus15=0, TermMode_vinMinus2=0, TermMode_vinMinus3=0, TermMode_vinMinus4=0, TermMode_vinMinus5=0, TermMode_vinMinus6=0, TermMode_vinMinus7=0, TermMode_vinMinus8=0, TermMode_vinMinus9=0, TermMode_vinMinusINJ=0, TermMode_vinNeg=0, TermMode_vinPlus0=0, TermMode_vinPlus1=0, TermMode_vinPlus10=0, TermMode_vinPlus11=0, TermMode_vinPlus12=0, TermMode_vinPlus13=0, TermMode_vinPlus14=0, TermMode_vinPlus15=0, TermMode_vinPlus2=0, TermMode_vinPlus3=0, TermMode_vinPlus4=0, TermMode_vinPlus5=0, TermMode_vinPlus6=0, TermMode_vinPlus7=0, TermMode_vinPlus8=0, TermMode_vinPlus9=0, TermMode_vinPlusINJ=0, TermMode_Vref=0, TermVisibility_aclk=false, TermVisibility_eoc=true, TermVisibility_sdone=true, TermVisibility_soc=false, TermVisibility_vinMinus0=false, TermVisibility_vinMinus1=false, TermVisibility_vinMinus10=false, TermVisibility_vinMinus11=false, TermVisibility_vinMinus12=false, TermVisibility_vinMinus13=false, TermVisibility_vinMinus14=false, TermVisibility_vinMinus15=false, TermVisibility_vinMinus2=false, TermVisibility_vinMinus3=false, TermVisibility_vinMinus4=false, TermVisibility_vinMinus5=false, TermVisibility_vinMinus6=false, TermVisibility_vinMinus7=false, TermVisibility_vinMinus8=false, TermVisibility_vinMinus9=false, TermVisibility_vinMinusINJ=false, TermVisibility_vinNeg=false, TermVisibility_vinPlus0=true, TermVisibility_vinPlus1=true, TermVisibility_vinPlus10=false, TermVisibility_vinPlus11=false, TermVisibility_vinPlus12=false, TermVisibility_vinPlus13=false, TermVisibility_vinPlus14=false, TermVisibility_vinPlus15=false, TermVisibility_vinPlus2=true, TermVisibility_vinPlus3=true, TermVisibility_vinPlus4=false, TermVisibility_vinPlus5=false, TermVisibility_vinPlus6=false, TermVisibility_vinPlus7=false, TermVisibility_vinPlus8=false, TermVisibility_vinPlus9=false, TermVisibility_vinPlusINJ=false, TermVisibility_Vref=false, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=ADC_SAR_SEQ_P4_v2_40, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC, CY_INSTANCE_SHORT_NAME=ADC, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=40, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=ADC, )
+// ADC_SAR_SEQ_P4_v2_40(AdcAClock=2, AdcAdjust=1, AdcAlternateResolution=0, AdcAvgMode=1, AdcAvgSamplesNum=4, AdcBClock=2, AdcCClock=2, AdcChannelsEnConf=15, AdcChannelsModeConf=0, AdcClock=1, AdcClockFrequency=1000000, AdcCompareMode=0, AdcDataFormatJustification=0, AdcDClock=2, AdcDedicatedExtVref=true, AdcDifferentialResultFormat=0, AdcHighLimit=2047, AdcInjChannelEnabled=false, AdcInputBufGain=0, AdcLowLimit=0, AdcMaxResolution=12, AdcSampleMode=0, AdcSarMuxChannelConfig=0000, AdcSequencedChannels=4, AdcSingleEndedNegativeInput=0, AdcSingleResultFormat=1, AdcSymbolHasSingleEndedInputChannel=false, AdcTotalChannels=4, AdcVrefSelect=1, AdcVrefVoltage_mV=1024, rm_int=false, SeqChannelsConfigTable=<?xml version="1.0" encoding="utf-16"?><CyChannelsConfigTable xmlns:Version="2_40"><m_channelsConfigTable><CyChannelsConfigTableRow><m_enabled>false</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Single</m_mode><m_averaged>false</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow><CyChannelsConfigTableRow><m_enabled>true</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Single</m_mode><m_averaged>false</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow><CyChannelsConfigTableRow><m_enabled>true</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Single</m_mode><m_averaged>false</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow><CyChannelsConfigTableRow><m_enabled>true</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Single</m_mode><m_averaged>false</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow><CyChannelsConfigTableRow><m_enabled>true</m_enabled><m_resolution>Twelve</m_resolution><m_mode>Single</m_mode><m_averaged>false</m_averaged><m_acqTime>AClocks</m_acqTime><m_limitsDetectIntrEnabled>false</m_limitsDetectIntrEnabled><m_saturationIntrEnabled>false</m_saturationIntrEnabled></CyChannelsConfigTableRow></m_channelsConfigTable></CyChannelsConfigTable>, TermMode_aclk=0, TermMode_eoc=0, TermMode_sdone=0, TermMode_soc=0, TermMode_vinMinus0=0, TermMode_vinMinus1=0, TermMode_vinMinus10=0, TermMode_vinMinus11=0, TermMode_vinMinus12=0, TermMode_vinMinus13=0, TermMode_vinMinus14=0, TermMode_vinMinus15=0, TermMode_vinMinus2=0, TermMode_vinMinus3=0, TermMode_vinMinus4=0, TermMode_vinMinus5=0, TermMode_vinMinus6=0, TermMode_vinMinus7=0, TermMode_vinMinus8=0, TermMode_vinMinus9=0, TermMode_vinMinusINJ=0, TermMode_vinNeg=0, TermMode_vinPlus0=0, TermMode_vinPlus1=0, TermMode_vinPlus10=0, TermMode_vinPlus11=0, TermMode_vinPlus12=0, TermMode_vinPlus13=0, TermMode_vinPlus14=0, TermMode_vinPlus15=0, TermMode_vinPlus2=0, TermMode_vinPlus3=0, TermMode_vinPlus4=0, TermMode_vinPlus5=0, TermMode_vinPlus6=0, TermMode_vinPlus7=0, TermMode_vinPlus8=0, TermMode_vinPlus9=0, TermMode_vinPlusINJ=0, TermMode_Vref=0, TermVisibility_aclk=false, TermVisibility_eoc=true, TermVisibility_sdone=true, TermVisibility_soc=false, TermVisibility_vinMinus0=false, TermVisibility_vinMinus1=false, TermVisibility_vinMinus10=false, TermVisibility_vinMinus11=false, TermVisibility_vinMinus12=false, TermVisibility_vinMinus13=false, TermVisibility_vinMinus14=false, TermVisibility_vinMinus15=false, TermVisibility_vinMinus2=false, TermVisibility_vinMinus3=false, TermVisibility_vinMinus4=false, TermVisibility_vinMinus5=false, TermVisibility_vinMinus6=false, TermVisibility_vinMinus7=false, TermVisibility_vinMinus8=false, TermVisibility_vinMinus9=false, TermVisibility_vinMinusINJ=false, TermVisibility_vinNeg=false, TermVisibility_vinPlus0=true, TermVisibility_vinPlus1=true, TermVisibility_vinPlus10=false, TermVisibility_vinPlus11=false, TermVisibility_vinPlus12=false, TermVisibility_vinPlus13=false, TermVisibility_vinPlus14=false, TermVisibility_vinPlus15=false, TermVisibility_vinPlus2=true, TermVisibility_vinPlus3=true, TermVisibility_vinPlus4=false, TermVisibility_vinPlus5=false, TermVisibility_vinPlus6=false, TermVisibility_vinPlus7=false, TermVisibility_vinPlus8=false, TermVisibility_vinPlus9=false, TermVisibility_vinPlusINJ=false, TermVisibility_Vref=false, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMPONENT_NAME=ADC_SAR_SEQ_P4_v2_40, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=ADC, CY_INSTANCE_SHORT_NAME=ADC, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=40, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=ADC, )
 module ADC_SAR_SEQ_P4_v2_40_2 (
     Vref,
     sdone,
@@ -1069,7 +1069,7 @@ module ADC_SAR_SEQ_P4_v2_40_2 (
 		#(.id("42dee392-a108-445c-8a46-7b4a54352ff6/5c71752a-e182-47ca-942c-9cb20adbdf2f"),
 		  .source_clock_id(""),
 		  .divisor(0),
-		  .period("125000000"),
+		  .period("1000000000"),
 		  .is_direct(0),
 		  .is_digital(0))
 		intClock
@@ -1090,6 +1090,10 @@ module top ;
     electrical  Net_304;
     electrical  Net_307;
     electrical  Net_305;
+    electrical  Net_346;
+    electrical  Net_345;
+    electrical  Net_344;
+    electrical  Net_343;
           wire  Net_57;
     electrical  Net_56;
     electrical  Net_95;
@@ -1403,7 +1407,7 @@ module top ;
 
 	cy_psoc3_pins_v1_10
 		#(.id("77715107-f8d5-47e5-a629-0fb83101ac6b"),
-		  .drive_mode(3'b010),
+		  .drive_mode(3'b000),
 		  .ibuf_enabled(1'b0),
 		  .init_dr_st(1'b0),
 		  .input_clk_en(0),
@@ -1447,7 +1451,7 @@ module top ;
 		  .sio_vohsel(""),
 		  .slew_rate(1'b0),
 		  .spanning(0),
-		  .use_annotation(1'b0),
+		  .use_annotation(1'b1),
 		  .vtrip(2'b10),
 		  .width(1),
 		  .ovt_hyst_trim(1'b0),
@@ -1462,6 +1466,7 @@ module top ;
 		  .io({tmpIO_0__A1_net[0:0]}),
 		  .siovref(tmpSIOVREF__A1_net),
 		  .interrupt({tmpINTERRUPT_0__A1_net[0:0]}),
+		  .annotation({Net_343}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -1479,7 +1484,7 @@ module top ;
 
 	cy_psoc3_pins_v1_10
 		#(.id("01790367-ee28-485f-aa54-07fd3ba63dd0"),
-		  .drive_mode(3'b010),
+		  .drive_mode(3'b000),
 		  .ibuf_enabled(1'b0),
 		  .init_dr_st(1'b0),
 		  .input_clk_en(0),
@@ -1523,7 +1528,7 @@ module top ;
 		  .sio_vohsel(""),
 		  .slew_rate(1'b0),
 		  .spanning(0),
-		  .use_annotation(1'b0),
+		  .use_annotation(1'b1),
 		  .vtrip(2'b10),
 		  .width(1),
 		  .ovt_hyst_trim(1'b0),
@@ -1538,6 +1543,7 @@ module top ;
 		  .io({tmpIO_0__A2_net[0:0]}),
 		  .siovref(tmpSIOVREF__A2_net),
 		  .interrupt({tmpINTERRUPT_0__A2_net[0:0]}),
+		  .annotation({Net_344}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -1555,7 +1561,7 @@ module top ;
 
 	cy_psoc3_pins_v1_10
 		#(.id("69bdbe73-96ba-40d5-8fbc-06ec47ac4678"),
-		  .drive_mode(3'b010),
+		  .drive_mode(3'b000),
 		  .ibuf_enabled(1'b0),
 		  .init_dr_st(1'b0),
 		  .input_clk_en(0),
@@ -1599,7 +1605,7 @@ module top ;
 		  .sio_vohsel(""),
 		  .slew_rate(1'b0),
 		  .spanning(0),
-		  .use_annotation(1'b0),
+		  .use_annotation(1'b1),
 		  .vtrip(2'b10),
 		  .width(1),
 		  .ovt_hyst_trim(1'b0),
@@ -1614,6 +1620,7 @@ module top ;
 		  .io({tmpIO_0__A3_net[0:0]}),
 		  .siovref(tmpSIOVREF__A3_net),
 		  .interrupt({tmpINTERRUPT_0__A3_net[0:0]}),
+		  .annotation({Net_345}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -1631,7 +1638,7 @@ module top ;
 
 	cy_psoc3_pins_v1_10
 		#(.id("eea9d33e-b27f-4e67-ab4d-1b63422e75ee"),
-		  .drive_mode(3'b010),
+		  .drive_mode(3'b000),
 		  .ibuf_enabled(1'b0),
 		  .init_dr_st(1'b0),
 		  .input_clk_en(0),
@@ -1675,7 +1682,7 @@ module top ;
 		  .sio_vohsel(""),
 		  .slew_rate(1'b0),
 		  .spanning(0),
-		  .use_annotation(1'b0),
+		  .use_annotation(1'b1),
 		  .vtrip(2'b10),
 		  .width(1),
 		  .ovt_hyst_trim(1'b0),
@@ -1690,6 +1697,7 @@ module top ;
 		  .io({tmpIO_0__A4_net[0:0]}),
 		  .siovref(tmpSIOVREF__A4_net),
 		  .interrupt({tmpINTERRUPT_0__A4_net[0:0]}),
+		  .annotation({Net_346}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),

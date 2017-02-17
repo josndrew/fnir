@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\fNIR PSoC Central.cyprj
--- Generated: 02/10/2017 10:32:07
+-- Generated: 02/10/2017 12:24:37
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \fNIR PSoC Central\ IS
@@ -386,8 +386,8 @@ BEGIN
             lfclk => ClockBlock_LFCLK,
             wco => ClockBlock_WCO,
             dsi_in_0 => ClockBlock_Routed1,
-            ff_div_6 => \ADC:Net_1845_ff6\,
-            ff_div_1 => \UART:Net_847_ff1\);
+            ff_div_1 => \UART:Net_847_ff1\,
+            ff_div_6 => \ADC:Net_1845_ff6\);
 
     Scan_LED:logicalport
         GENERIC MAP(
@@ -754,7 +754,7 @@ BEGIN
 
     A1:logicalport
         GENERIC MAP(
-            drive_mode => "010",
+            drive_mode => "000",
             ibuf_enabled => "0",
             id => "77715107-f8d5-47e5-a629-0fb83101ac6b",
             init_dr_st => "0",
@@ -806,7 +806,7 @@ BEGIN
             slew_rate => "0",
             spanning => 0,
             sw_only => 0,
-            use_annotation => "0",
+            use_annotation => "1",
             vtrip => "10",
             width => 1,
             in_clk_inv => 0,
@@ -843,7 +843,7 @@ BEGIN
 
     A2:logicalport
         GENERIC MAP(
-            drive_mode => "010",
+            drive_mode => "000",
             ibuf_enabled => "0",
             id => "01790367-ee28-485f-aa54-07fd3ba63dd0",
             init_dr_st => "0",
@@ -895,7 +895,7 @@ BEGIN
             slew_rate => "0",
             spanning => 0,
             sw_only => 0,
-            use_annotation => "0",
+            use_annotation => "1",
             vtrip => "10",
             width => 1,
             in_clk_inv => 0,
@@ -932,7 +932,7 @@ BEGIN
 
     A3:logicalport
         GENERIC MAP(
-            drive_mode => "010",
+            drive_mode => "000",
             ibuf_enabled => "0",
             id => "69bdbe73-96ba-40d5-8fbc-06ec47ac4678",
             init_dr_st => "0",
@@ -984,7 +984,7 @@ BEGIN
             slew_rate => "0",
             spanning => 0,
             sw_only => 0,
-            use_annotation => "0",
+            use_annotation => "1",
             vtrip => "10",
             width => 1,
             in_clk_inv => 0,
@@ -1021,7 +1021,7 @@ BEGIN
 
     A4:logicalport
         GENERIC MAP(
-            drive_mode => "010",
+            drive_mode => "000",
             ibuf_enabled => "0",
             id => "eea9d33e-b27f-4e67-ab4d-1b63422e75ee",
             init_dr_st => "0",
@@ -1073,7 +1073,7 @@ BEGIN
             slew_rate => "0",
             spanning => 0,
             sw_only => 0,
-            use_annotation => "0",
+            use_annotation => "1",
             vtrip => "10",
             width => 1,
             in_clk_inv => 0,

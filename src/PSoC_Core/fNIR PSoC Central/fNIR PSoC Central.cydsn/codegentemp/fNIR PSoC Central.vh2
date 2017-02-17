@@ -2,7 +2,7 @@
 --	Conversion of fNIR PSoC Central.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Feb 10 10:32:05 2017
+--	Fri Feb 10 12:24:34 2017
 --
 
 USE cypress.cypress.all;
@@ -218,21 +218,25 @@ SIGNAL tmpOE__A1_net_0 : bit;
 SIGNAL tmpFB_0__A1_net_0 : bit;
 SIGNAL tmpIO_0__A1_net_0 : bit;
 TERMINAL tmpSIOVREF__A1_net_0 : bit;
+TERMINAL Net_343 : bit;
 SIGNAL tmpINTERRUPT_0__A1_net_0 : bit;
 SIGNAL tmpOE__A2_net_0 : bit;
 SIGNAL tmpFB_0__A2_net_0 : bit;
 SIGNAL tmpIO_0__A2_net_0 : bit;
 TERMINAL tmpSIOVREF__A2_net_0 : bit;
+TERMINAL Net_344 : bit;
 SIGNAL tmpINTERRUPT_0__A2_net_0 : bit;
 SIGNAL tmpOE__A3_net_0 : bit;
 SIGNAL tmpFB_0__A3_net_0 : bit;
 SIGNAL tmpIO_0__A3_net_0 : bit;
 TERMINAL tmpSIOVREF__A3_net_0 : bit;
+TERMINAL Net_345 : bit;
 SIGNAL tmpINTERRUPT_0__A3_net_0 : bit;
 SIGNAL tmpOE__A4_net_0 : bit;
 SIGNAL tmpFB_0__A4_net_0 : bit;
 SIGNAL tmpIO_0__A4_net_0 : bit;
 TERMINAL tmpSIOVREF__A4_net_0 : bit;
+TERMINAL Net_346 : bit;
 SIGNAL tmpINTERRUPT_0__A4_net_0 : bit;
 SIGNAL tmpOE__LED_1_net_0 : bit;
 SIGNAL tmpFB_0__LED_1_net_0 : bit;
@@ -985,7 +989,7 @@ Conn_LED:cy_psoc3_pins_v1_10
 		id=>"42dee392-a108-445c-8a46-7b4a54352ff6/5c71752a-e182-47ca-942c-9cb20adbdf2f",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"125000000",
+		period=>"1000000000",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>\ADC:Net_1845\,
@@ -994,7 +998,7 @@ Conn_LED:cy_psoc3_pins_v1_10
 	PORT MAP(noconnect=>\ADC:Net_3227\);
 A1:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"77715107-f8d5-47e5-a629-0fb83101ac6b",
-		drive_mode=>"010",
+		drive_mode=>"000",
 		ibuf_enabled=>"0",
 		init_dr_st=>"0",
 		input_sync=>"1",
@@ -1037,7 +1041,7 @@ A1:cy_psoc3_pins_v1_10
 		width=>1,
 		port_alias_required=>'0',
 		port_alias_group=>"",
-		use_annotation=>"0",
+		use_annotation=>"1",
 		pa_in_clock=>-1,
 		pa_in_clock_en=>-1,
 		pa_in_reset=>-1,
@@ -1054,7 +1058,7 @@ A1:cy_psoc3_pins_v1_10
 		analog=>Net_56,
 		io=>(tmpIO_0__A1_net_0),
 		siovref=>(tmpSIOVREF__A1_net_0),
-		annotation=>(open),
+		annotation=>Net_343,
 		in_clock=>zero,
 		in_clock_en=>tmpOE__Scan_LED_net_0,
 		in_reset=>zero,
@@ -1064,7 +1068,7 @@ A1:cy_psoc3_pins_v1_10
 		interrupt=>tmpINTERRUPT_0__A1_net_0);
 A2:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"01790367-ee28-485f-aa54-07fd3ba63dd0",
-		drive_mode=>"010",
+		drive_mode=>"000",
 		ibuf_enabled=>"0",
 		init_dr_st=>"0",
 		input_sync=>"1",
@@ -1107,7 +1111,7 @@ A2:cy_psoc3_pins_v1_10
 		width=>1,
 		port_alias_required=>'0',
 		port_alias_group=>"",
-		use_annotation=>"0",
+		use_annotation=>"1",
 		pa_in_clock=>-1,
 		pa_in_clock_en=>-1,
 		pa_in_reset=>-1,
@@ -1124,7 +1128,7 @@ A2:cy_psoc3_pins_v1_10
 		analog=>Net_95,
 		io=>(tmpIO_0__A2_net_0),
 		siovref=>(tmpSIOVREF__A2_net_0),
-		annotation=>(open),
+		annotation=>Net_344,
 		in_clock=>zero,
 		in_clock_en=>tmpOE__Scan_LED_net_0,
 		in_reset=>zero,
@@ -1134,7 +1138,7 @@ A2:cy_psoc3_pins_v1_10
 		interrupt=>tmpINTERRUPT_0__A2_net_0);
 A3:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"69bdbe73-96ba-40d5-8fbc-06ec47ac4678",
-		drive_mode=>"010",
+		drive_mode=>"000",
 		ibuf_enabled=>"0",
 		init_dr_st=>"0",
 		input_sync=>"1",
@@ -1177,7 +1181,7 @@ A3:cy_psoc3_pins_v1_10
 		width=>1,
 		port_alias_required=>'0',
 		port_alias_group=>"",
-		use_annotation=>"0",
+		use_annotation=>"1",
 		pa_in_clock=>-1,
 		pa_in_clock_en=>-1,
 		pa_in_reset=>-1,
@@ -1194,7 +1198,7 @@ A3:cy_psoc3_pins_v1_10
 		analog=>Net_93,
 		io=>(tmpIO_0__A3_net_0),
 		siovref=>(tmpSIOVREF__A3_net_0),
-		annotation=>(open),
+		annotation=>Net_345,
 		in_clock=>zero,
 		in_clock_en=>tmpOE__Scan_LED_net_0,
 		in_reset=>zero,
@@ -1204,7 +1208,7 @@ A3:cy_psoc3_pins_v1_10
 		interrupt=>tmpINTERRUPT_0__A3_net_0);
 A4:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"eea9d33e-b27f-4e67-ab4d-1b63422e75ee",
-		drive_mode=>"010",
+		drive_mode=>"000",
 		ibuf_enabled=>"0",
 		init_dr_st=>"0",
 		input_sync=>"1",
@@ -1247,7 +1251,7 @@ A4:cy_psoc3_pins_v1_10
 		width=>1,
 		port_alias_required=>'0',
 		port_alias_group=>"",
-		use_annotation=>"0",
+		use_annotation=>"1",
 		pa_in_clock=>-1,
 		pa_in_clock_en=>-1,
 		pa_in_reset=>-1,
@@ -1264,7 +1268,7 @@ A4:cy_psoc3_pins_v1_10
 		analog=>Net_91,
 		io=>(tmpIO_0__A4_net_0),
 		siovref=>(tmpSIOVREF__A4_net_0),
-		annotation=>(open),
+		annotation=>Net_346,
 		in_clock=>zero,
 		in_clock_en=>tmpOE__Scan_LED_net_0,
 		in_reset=>zero,

@@ -42,10 +42,12 @@
     void DisableUartRxInt(void);
     void EnableUartRxInt(void);
     void dec_to_str (uint8* str, uint32_t val, size_t digits);
+    void bit_to_str (uint8* str, uint32_t val, size_t digits);
     void sendCommand(uint8 a[]);
     void switchLED(int index);
     void readSensor(int index);
-    void debug(int value);
+    void readSensorBitVal();
+    
     
 #endif
 /* [] END OF FILE */
