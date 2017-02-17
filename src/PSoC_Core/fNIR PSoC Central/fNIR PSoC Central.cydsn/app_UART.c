@@ -61,20 +61,27 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
                 ADC_SetOffset(l,VAL1);
             }
             break;
-            
-        /* The following Case statements go THROUGH default: */
         case '0':
             switchLED(0);
+            readSensorBitVal();
+            break;
         case '1':
             switchLED(1);
+            readSensorBitVal();
+            break;
         case '2':
             switchLED(2);
+            readSensorBitVal();
+            break;
         case '3':
             switchLED(3);
-        case '4':
-            switchLED(4);            
-        default:
             readSensorBitVal();
+            break;
+        case '4':
+            switchLED(4);
+            readSensorBitVal();
+            break;
+        default:
             break;
     }
     

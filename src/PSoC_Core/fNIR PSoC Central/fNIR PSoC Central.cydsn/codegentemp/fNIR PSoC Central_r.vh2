@@ -1,5 +1,5 @@
 -- Project:   fNIR PSoC Central
--- Generated: 02/10/2017 12:24:35
+-- Generated: 02/17/2017 12:25:48
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \fNIR PSoC Central\ IS
@@ -111,9 +111,9 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell6";
     ATTRIBUTE Location OF A2(0) : LABEL IS "P3[3]";
     ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF A3(0) : LABEL IS "P3[6]";
+    ATTRIBUTE Location OF A3(0) : LABEL IS "P3[4]";
     ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell8";
-    ATTRIBUTE Location OF A4(0) : LABEL IS "P3[7]";
+    ATTRIBUTE Location OF A4(0) : LABEL IS "P3[5]";
     ATTRIBUTE lib_model OF LED_1(0) : LABEL IS "iocell9";
     ATTRIBUTE Location OF LED_1(0) : LABEL IS "P1[1]";
     ATTRIBUTE lib_model OF LED_2(0) : LABEL IS "iocell10";

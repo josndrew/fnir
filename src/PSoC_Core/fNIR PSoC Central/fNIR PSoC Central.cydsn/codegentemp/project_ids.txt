@@ -1,6 +1,5 @@
-C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\fNIR PSoC Central.cyprj|e85c5893-5ea2-4f47-bf6d-04457dfcbe2f
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a635fa5d-7935-4ec0-a540-f1a158de80f9
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|03cab3e7-a263-4d16-bf63-6c4556d0fe33
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|6d9a06ea-9a60-4172-8f78-be814f7f0511
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|a3b68be1-ebf8-418f-a918-36f388bfa6d1
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|dcaaee7e-eab8-47a4-a14d-d95ae8957291
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\fNIR PSoC Central.cyprj|7919f39f-5c34-4f6a-9fd8-d36732202a3b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|0ba081a3-b675-4f37-b996-8ae29497e7c4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|15756ff6-19f6-4cb6-ac65-517c6fb31ecf
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|8e7c0854-43a3-406b-9851-7c98a3065cf1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|e7909bcb-6c06-4f84-ba85-aa06cf8965ca
