@@ -139,6 +139,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label9 = new System.Windows.Forms.Label();
+            this.calibrateDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.channel1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -177,6 +178,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectWithAdruinoToolStripMenuItem,
+            this.calibrateDeviceToolStripMenuItem,
             this.uploadDataFileToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -1165,6 +1167,13 @@
             this.label9.Text = "STROKE ALERT - POSSIBLE DEATH!!!";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
+            // calibrateDeviceToolStripMenuItem
+            // 
+            this.calibrateDeviceToolStripMenuItem.Name = "calibrateDeviceToolStripMenuItem";
+            this.calibrateDeviceToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.calibrateDeviceToolStripMenuItem.Text = "Calibrate Device";
+            this.calibrateDeviceToolStripMenuItem.Click += new System.EventHandler(this.calibrateDeviceToolStripMenuItem_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1274,6 +1283,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ToolStripMenuItem calibrateDeviceToolStripMenuItem;
     }
 }
 

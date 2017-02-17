@@ -57,7 +57,7 @@ namespace GUI
             stopToolStripMenuItem.Enabled = false;
             button1.Enabled = false;
             isCollecting = false;
-            
+            textBox2.KeyDown += new KeyEventHandler(OnKeyDownHandler);
             button2.Enabled = false;
             button3.Enabled = false;
             button4.Enabled = false;
@@ -335,10 +335,8 @@ namespace GUI
 
         private void button6_Click(object sender, EventArgs e)
         {
-            thread1.Suspend();
-            adruinoSerial.Write("m"); //Get Data
-            Thread.Sleep(1000);
-            thread1.Resume();
+            adruinoSerial.Write("m");
+            Thread.Sleep(500);
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -348,10 +346,12 @@ namespace GUI
 
         private void button8_Click(object sender, EventArgs e)
         {
-            thread1.Suspend();
-            adruinoSerial.Write(textBox2.Text);
-            Thread.Sleep(300);
-            thread1.Resume();
+            if (adruinoSerial.IsOpen)
+            {
+                adruinoSerial.Write(textBox2.Text);
+                textBox2.Clear();
+            }
+            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -521,9 +521,9 @@ namespace GUI
 
                 case "STOP":
                     isCollecting = false;
-                    startToolStripMenuItem.Enabled = true;
+                    startToolStripMenuItem.Enabled = false;
                     stopToolStripMenuItem.Enabled = false;
-                    button1.Text = "START";
+                    button1.Visible = false;
                     settings_dialog.Visible = true;
                     settings_dialog.Enabled = true;
                     
@@ -561,6 +561,11 @@ namespace GUI
                 button2.Enabled = true;
                 button5.Enabled = true;
                 button6.Enabled = true;
+            }
+
+            catch (System.UnauthorizedAccessException)
+            {
+                MessageBox.Show("UNAUTHORIZED ACCESS: " + adruinoSerial.PortName + " is probably being used in some other application");
             }
 
             catch
@@ -674,12 +679,19 @@ namespace GUI
                     }
                     lineCount++;
                 }
+                else
+                {
+                    if ( (lineCount == textBox1.Lines.Count()-1) && (!isCollecting))
+                    {
+                        return;
+                    }
+                }
             }
         }
 
         private void processData()
         {
-            int lineCount = 0;
+            int lineCount = 1;
 
             while (textBox1.Lines.Count() < 80) { }
 
@@ -712,7 +724,7 @@ namespace GUI
                             }
                         }
                         lineCount += 2;
-                        if ((lineCount % 4) == 0)
+                        if ((lineCount % 5) == 0)
                         {
                             lineCount++;
                         }
@@ -721,6 +733,11 @@ namespace GUI
                 catch (System.IndexOutOfRangeException)
                 {
                     //Thread.Sleep(1000);
+                }
+
+                if ((lineCount == textBox1.Lines.Count()) && (!isCollecting))
+                {
+                    return;
                 }
             }
         }
@@ -820,27 +837,27 @@ namespace GUI
 
         private void updateLED(double index)
         {
-            if(index == 0)
+            if(index == 1)
             {
                 pictureBox1.Image = GUI.Properties.Resources._1194989231691813435led_circle_red_svg_med;
                 pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
             }
-            else if (index == 1)
+            else if (index == 2)
             {
                 pictureBox1.Image = GUI.Properties.Resources._11949892282132520602led_circle_green_svg_med;
                 pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
             }
-            else if (index == 2)
+            else if (index == 3)
             {
                 pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
                 pictureBox3.Image = GUI.Properties.Resources._1194989231691813435led_circle_red_svg_med;
             }
-            else if (index == 3)
+            else if (index == 4)
             {
                 pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
                 pictureBox3.Image = GUI.Properties.Resources._11949892282132520602led_circle_green_svg_med;
             }
-            else if ((index == 4) || (index == 5))
+            else if ((index == 0) || (index == 5))
             {
                 pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
                 pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
@@ -942,8 +959,16 @@ namespace GUI
             Matrix<double> eqn = C.PointwiseMultiply(temp);
             Matrix<double> sol = eqn.Solve(A);
 
+            if ((Double.IsNaN(sol[0,0])) | (Double.IsNaN(sol[1, 0])) | (Double.IsInfinity(sol[0, 0])) | (Double.IsInfinity(sol[1, 0])))
+            {
+                sol[0, 0] = 0;
+                sol[1, 0] = 0;
+            }
+
             yCord1_P = sol[0, 0] * 100;
             yCord2_P = sol[1, 0] * 100;
+
+            
         }
 
         private void updateNumDisplays()
@@ -1033,6 +1058,11 @@ namespace GUI
             }
         }
 
+        private void calibrateDeviceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            adruinoSerial.Write("b");
+            Thread.Sleep(300);
+        }
 
         private void comPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
@@ -1074,6 +1104,14 @@ namespace GUI
         private void label9_Click(object sender, EventArgs e)
         {
             label9.Visible = false;
+        }
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Return)
+            {
+                button8_Click(sender, e);
+            }
         }
 
         public static void ShowFormInContainerControl(Control ctl, Form frm)
