@@ -58,8 +58,7 @@ namespace GUI
             isCollecting = false;
             textBox2.KeyDown += new KeyEventHandler(OnKeyDownHandler);
             button2.Enabled = false;
-            button3.Enabled = false;
-            button4.Enabled = false;
+            
             button5.Enabled = false;
             button6.Enabled = false;
 
@@ -131,8 +130,7 @@ namespace GUI
             settings_dialog.Show();
 
             comboBox1.Visible = false;
-            button3.Visible = false;
-            button4.Visible = false;
+                        
         }
         #endregion
 
@@ -298,40 +296,7 @@ namespace GUI
             changeGraphUpdateStatus();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < NUM_CHANNELS * 2; i++)
-            {
-                Chart chart = channels[i];
-                double newBegin = chart.ChartAreas[0].AxisX.Minimum;
-                double newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
-
-                newBegin = newBegin - INTERVAL;
-                newEnd = newBegin + INTERVAL;
-
-                if (newBegin < 0)
-                {
-                    newBegin = 0;
-                    newEnd = INTERVAL;
-                    button3.Enabled = false;
-                }
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < NUM_CHANNELS * 2; i++)
-            {
-                Chart chart = channels[i];
-                double newBegin = chart.ChartAreas[0].AxisX.Minimum;
-                double newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
-
-                newEnd = newEnd + INTERVAL;
-                newBegin = newEnd - INTERVAL;
-                button3.Enabled = true;
-            }
-        }
-
+       
         private void button6_Click(object sender, EventArgs e)
         {
             comSerial.Write("m");
@@ -466,9 +431,8 @@ namespace GUI
                     settings_dialog.Visible = true;
                     settings_dialog.Enabled = false;
                     button2.Enabled = true;
-                    button3.Enabled = false;
-                    button4.Enabled = false;
-
+                    
+                    
                     try
                     {
                         if (!thread1.IsAlive)
@@ -536,9 +500,8 @@ namespace GUI
                     settings_dialog.Enabled = true;
                     
                     button2.Enabled = false;
-                    button3.Enabled = true;
-                    button4.Enabled = true;
-
+                    
+                    
                     for (int k = 0; k < NUM_CHANNELS; k++)
                     {
                         labels[k].BackColor = Color.Transparent;
@@ -590,16 +553,15 @@ namespace GUI
             {
                 case "Freeze":
                     isFrozen = true;
-                    button3.Enabled = true;
-                    button4.Enabled = true;
+                    
                     button2.Text = "UnFreeze";
                     
                     break;
 
                 case "UnFreeze":
                     isFrozen = false;
-                    button3.Enabled = false;
-                    button4.Enabled = false;
+                    
+                    
                     button2.Text = "Freeze";
                     break;
             }
@@ -741,11 +703,12 @@ namespace GUI
                 catch (System.IndexOutOfRangeException)
                 {
                     //Thread.Sleep(1000);
+                    Console.WriteLine(lineCount + "  " + textBox3.Lines.Count());
                     if ((lineCount == textBox3.Lines.Count() - 1) && (!isCollecting))
                     {
                         return;
                     }
-                    else if (!textBox3.Enabled)
+                    else if ((textBox3.Lines.Count() == 0) && (!isCollecting))
                     {
                         return;
                     }
