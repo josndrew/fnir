@@ -1,5 +1,4 @@
-﻿using LumenWorks.Framework.IO.Csv;
-using MathNet.Numerics.LinearAlgebra;
+﻿using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
 using System;
 using System.Data;
@@ -22,10 +21,10 @@ namespace GUI
 
         //Variables
         private AboutBox1 aboutInfo;
-        private SerialPort adruinoSerial;
+        private SerialPort comSerial;
         public SerialSetup adruino_dialog;
         private SettingsSetup settings_dialog;
-        private Thread thread1, thread2, thread3;
+        private Thread thread1, thread2, thread3, thread4;
         private Chart[] channels;
         private Label[] labels;
         private DataTable foundSessions;
@@ -35,7 +34,7 @@ namespace GUI
         private int sessionsFound = 0;
         private int currentpoint, currentProcpoint;
         private int INTERVAL;
-        private int freq = 28;
+        private int freq = 25;
         const int NUM_CHANNELS = 4;
         private string sessionPath, processedPath, logPath;
         
@@ -51,7 +50,7 @@ namespace GUI
             //Properties.Settings.Default.Reset();
             fullScreenToolStripMenuItem_Click(sender, e);
 
-            adruinoSerial = new SerialPort();
+            comSerial = new SerialPort();
             aboutInfo = new AboutBox1();
             startToolStripMenuItem.Enabled = false;
             stopToolStripMenuItem.Enabled = false;
@@ -75,8 +74,6 @@ namespace GUI
 
                 channels[j].Series[0].IsXValueIndexed = true;
                 channels[j].Series[1].IsXValueIndexed = true;
-                channels[j].Series[2].IsXValueIndexed = true;
-                channels[j].Series[3].IsXValueIndexed = true;
 
                 channels[j].ChartAreas[0].AxisX.Title = "Time (s)";
 
@@ -116,8 +113,8 @@ namespace GUI
             
             folderBrowserDialog1.SelectedPath = GUI.Properties.Settings.Default.workingDirectory;
             ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
-            sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".drexel";
-            processedPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + "_Processed.drexel";
+            sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + (sessionsFound/2).ToString() + ".drexel";
+            processedPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + (sessionsFound/2).ToString() + "_Processed.drexel";
             logPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "log.csv";
             if (File.Exists(logPath))
             {
@@ -129,9 +126,13 @@ namespace GUI
             settings_dialog.TopLevel = false;
             settings_dialog.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             tabPage2.Controls.Add(settings_dialog);
-            settings_dialog.Location = new Point(400, 150);
+            settings_dialog.Location = new Point(450, 150);
             settings_dialog.Visible = true;
             settings_dialog.Show();
+
+            comboBox1.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
         }
         #endregion
 
@@ -206,7 +207,7 @@ namespace GUI
             changeCollectingStatus();
         }
 
-        private void connectWithAdruinoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void connectWithDeviceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //serialDialogOpen();
             connectToDevice();
@@ -223,13 +224,13 @@ namespace GUI
                 {
                     if (!thread2.IsAlive)
                     {
-                        thread2 = new Thread(new ThreadStart(parseData));
+                        thread2 = new Thread(new ThreadStart(parseRawData));
                         thread2.Start();
                     }
                 }
                 catch
                 {
-                    thread2 = new Thread(new ThreadStart(parseData));
+                    thread2 = new Thread(new ThreadStart(parseRawData));
                     thread2.Start();
                 }
             }
@@ -251,9 +252,7 @@ namespace GUI
                 Chart chart = channels[i];
 
                 chart.Series[0].MarkerSize = 10 / (comboBox1.SelectedIndex + 1);
-                chart.Series[2].MarkerSize = 10 / (comboBox1.SelectedIndex + 1);
                 chart.Series[1].MarkerSize = 7 / (comboBox1.SelectedIndex + 1);
-                chart.Series[3].MarkerSize = 7 / (comboBox1.SelectedIndex + 1);
 
                 
                 double newBegin = chart.ChartAreas[0].AxisX.Minimum;
@@ -335,7 +334,7 @@ namespace GUI
 
         private void button6_Click(object sender, EventArgs e)
         {
-            adruinoSerial.Write("m");
+            comSerial.Write("m");
             Thread.Sleep(500);
         }
 
@@ -346,9 +345,9 @@ namespace GUI
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (adruinoSerial.IsOpen)
+            if (comSerial.IsOpen)
             {
-                adruinoSerial.Write(textBox2.Text);
+                comSerial.Write(textBox2.Text);
                 textBox2.Clear();
             }
             
@@ -484,24 +483,19 @@ namespace GUI
                         thread1.Start();
                     }
 
-
-                    Thread.Sleep(1000);
-
                     try
                     {
                         if (!thread2.IsAlive)
                         {
-                            thread2 = new Thread(new ThreadStart(parseData));
+                            thread2 = new Thread(new ThreadStart(parseRawData));
                             thread2.Start();
                         }
                     }
                     catch
                     {
-                        thread2 = new Thread(new ThreadStart(parseData));
+                        thread2 = new Thread(new ThreadStart(parseRawData));
                         thread2.Start();
                     }
-
-                    Thread.Sleep(2000);
 
                     try
                     {
@@ -515,6 +509,20 @@ namespace GUI
                     {
                         thread3 = new Thread(new ThreadStart(processData));
                         thread3.Start();
+                    }
+
+                    try
+                    {
+                        if (!thread4.IsAlive)
+                        {
+                            thread4 = new Thread(new ThreadStart(parseCalcData));
+                            thread4.Start();
+                        }
+                    }
+                    catch
+                    {
+                        thread4 = new Thread(new ThreadStart(parseCalcData));
+                        thread4.Start();
                     }
 
                     break;
@@ -545,15 +553,15 @@ namespace GUI
         {
             try
             {
-                adruinoSerial.PortName = GUI.Properties.Settings.Default.PortName;
-                adruinoSerial.BaudRate = GUI.Properties.Settings.Default.BaudRate;
-                adruinoSerial.Parity = GUI.Properties.Settings.Default.Parity;
-                adruinoSerial.DataBits = GUI.Properties.Settings.Default.DataBits;
-                adruinoSerial.StopBits = GUI.Properties.Settings.Default.StopBits;
-                adruinoSerial.Handshake = GUI.Properties.Settings.Default.Handshake;
+                comSerial.PortName = GUI.Properties.Settings.Default.PortName;
+                comSerial.BaudRate = GUI.Properties.Settings.Default.BaudRate;
+                comSerial.Parity = GUI.Properties.Settings.Default.Parity;
+                comSerial.DataBits = GUI.Properties.Settings.Default.DataBits;
+                comSerial.StopBits = GUI.Properties.Settings.Default.StopBits;
+                comSerial.Handshake = GUI.Properties.Settings.Default.Handshake;
 
-                adruinoSerial.DataReceived += new SerialDataReceivedEventHandler(comPort_DataReceived);
-                adruinoSerial.Open();
+                comSerial.DataReceived += new SerialDataReceivedEventHandler(comPort_DataReceived);
+                comSerial.Open();
 
                 startToolStripMenuItem.Enabled = true;
                 stopToolStripMenuItem.Enabled = false;
@@ -565,7 +573,7 @@ namespace GUI
 
             catch (System.UnauthorizedAccessException)
             {
-                MessageBox.Show("UNAUTHORIZED ACCESS: " + adruinoSerial.PortName + " is probably being used in some other application");
+                MessageBox.Show("UNAUTHORIZED ACCESS: " + comSerial.PortName + " is probably being used in some other application");
             }
 
             catch
@@ -632,25 +640,25 @@ namespace GUI
         {
             try
             {
-                adruinoSerial.Write("s"); //Reset Micro
-                adruinoSerial.DiscardInBuffer();
-                adruinoSerial.DiscardInBuffer();
-                adruinoSerial.DiscardOutBuffer();
-                adruinoSerial.DiscardInBuffer();
-                adruinoSerial.DiscardOutBuffer();          
+                comSerial.Write("s"); //Reset Micro
+                comSerial.DiscardInBuffer();
+                comSerial.DiscardInBuffer();
+                comSerial.DiscardOutBuffer();
+                comSerial.DiscardInBuffer();
+                comSerial.DiscardOutBuffer();          
 
                 while (isCollecting)
                 {
 
-                    if (adruinoSerial.DtrEnable)
+                    if (comSerial.DtrEnable)
                     {
                         
-                        adruinoSerial.Write("r"); //Get Data
+                        comSerial.Write("r"); //Get Data
                         Thread.Sleep(GUI.Properties.Settings.Default.delay);
                     }
                     else
                     {
-                        adruinoSerial.DtrEnable = true;
+                        comSerial.DtrEnable = true;
                     }
                 }
             }
@@ -661,30 +669,91 @@ namespace GUI
         }
 
         
-        private void parseData()
+        private void parseRawData()
         {
             int lineCount = 0;
 
-            while (textBox1.Lines.Count() < 10) { }
-
             while (true)
             {
-                string[] bufferArray = (textBox1.Lines[lineCount]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                if (bufferArray.Length > 0)
+                try
                 {
-                    if (bufferArray.Length == 6)
+                    string[] bufferArray = (textBox1.Lines[lineCount]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    if (bufferArray.Length > 0)
                     {
-                        double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
-                        displayData(fieldArray[0], new double[4] { fieldArray[1], fieldArray[2], fieldArray[3], fieldArray[4] }, fieldArray[5], true);
+                        if (bufferArray.Length == 6)
+                        {
+                            double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
+                            displayRawData(fieldArray[0], new double[4] { fieldArray[1], fieldArray[2], fieldArray[3], fieldArray[4] }, fieldArray[5], true);
+                        }
+                        if ((textBox1.Lines.Count() - lineCount) > 20)
+                        {
+                            lineCount = textBox1.Lines.Count() - 2;
+                        }
+                        else
+                        {
+                            lineCount+=2;
+                        }
                     }
-                    lineCount++;
+                    
                 }
-                else
+                catch (System.IndexOutOfRangeException)
                 {
-                    if ( (lineCount == textBox1.Lines.Count()-1) && (!isCollecting))
+                    //Thread.Sleep(1000);
+                    if ((lineCount >= textBox1.Lines.Count() - 1) && (!isCollecting))
                     {
                         return;
                     }
+                }
+                catch (System.ComponentModel.Win32Exception)
+                {
+                    return;
+                }
+            }
+        }
+
+        private void parseCalcData()
+        {
+            int lineCount = 0;
+
+            while (true)
+            {
+                try
+                {
+                    string[] bufferArray = (textBox3.Lines[lineCount]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    if (bufferArray.Length > 0)
+                    {
+                        if (bufferArray.Length == 9)
+                        {
+                            double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
+                            displayCalcData(fieldArray[0], new double[8] { fieldArray[1], fieldArray[2], fieldArray[3], fieldArray[4], fieldArray[5], fieldArray[6], fieldArray[7], fieldArray[8] }, 0, true);
+                        }
+                        if ((textBox3.Lines.Count() - lineCount) > 10)
+                        {
+                            lineCount = textBox3.Lines.Count() - 2;
+                        }
+                        else
+                        {
+                            lineCount+=2;
+                        }
+                    }
+                    
+                }
+                catch (System.IndexOutOfRangeException)
+                {
+                    //Thread.Sleep(1000);
+                    if ((lineCount == textBox3.Lines.Count() - 1) && (!isCollecting))
+                    {
+                        return;
+                    }
+                    else if (!textBox3.Enabled)
+                    {
+                        return;
+                    }
+                    
+                }
+                catch (System.ComponentModel.Win32Exception)
+                {
+                    return;
                 }
             }
         }
@@ -692,8 +761,6 @@ namespace GUI
         private void processData()
         {
             int lineCount = 1;
-
-            while (textBox1.Lines.Count() < 80) { }
 
             while (true)
             {
@@ -709,20 +776,21 @@ namespace GUI
                             double[] field1 = Array.ConvertAll(buffer1, s => double.Parse(s));
                             double[] field2 = Array.ConvertAll(buffer2, s => double.Parse(s));
 
-                            outBuffer += field1[0];
+                            outBuffer += String.Format("{0:#,0.000}", field1[0]);
                             for (int k = 1; k < 5; k++)
                             {
                                 double yp1 = 0, yp2 = 0;
                                 calcPerData(field1[k], field2[k], out yp1, out yp2);
-                                Invoke((MethodInvoker)delegate { updateChart(field1[0], yp1, yp2, channels[k + 3], k + 3, true, true); });
-                                outBuffer = outBuffer + "," + yp1 + "," + yp2;
+                                outBuffer = outBuffer + "," + String.Format("{0:#,0.000}", yp1) + "," + String.Format("{0:#,0.000}", yp2);
                             }
 
+                            Invoke((MethodInvoker)delegate { textBox3.AppendText(outBuffer + "\n"); });
                             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@processedPath, true))
                             {
                                 file.WriteLine(outBuffer);
                             }
                         }
+
                         lineCount += 2;
                         if ((lineCount % 5) == 0)
                         {
@@ -733,8 +801,12 @@ namespace GUI
                 catch (System.IndexOutOfRangeException)
                 {
                     //Thread.Sleep(1000);
+                  
                 }
-
+                catch (System.ComponentModel.Win32Exception)
+                {
+                    return;
+                }
                 if ((lineCount == textBox1.Lines.Count()) && (!isCollecting))
                 {
                     return;
@@ -742,7 +814,7 @@ namespace GUI
             }
         }
 
-        private void displayData(double timeStamp, double[] dataArray, double ledIndex, bool fromDevice)
+        private void displayRawData(double timeStamp, double[] dataArray, double ledIndex, bool fromDevice)
         {
             currentpoint++;
             Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], dataArray[0], channel1, 0, false, fromDevice); });
@@ -753,6 +825,16 @@ namespace GUI
             Invoke((MethodInvoker)delegate { Update(); });
         }
 
+        private void displayCalcData(double timeStamp, double[] dataArray, double ledIndex, bool fromDevice)
+        {
+            currentProcpoint++;
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[0], dataArray[1], channel1_P, 4, true, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[2], dataArray[3], channel2_P, 5, true, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[4], dataArray[5], channel3_P, 6, true, fromDevice); });
+            Invoke((MethodInvoker)delegate { updateChart(timeStamp, dataArray[6], dataArray[7], channel4_P, 7, true, fromDevice); });
+            Invoke((MethodInvoker)delegate { Update(); });
+        }
+
         private void updateChart(double x, double y1, double y2, Chart chart, int index, bool procData, bool fromDevice)
         {
             if (fromDevice)
@@ -760,15 +842,7 @@ namespace GUI
                 chart.Series["HbO2"].Points.AddXY(x, y1);
                 chart.Series["HbR"].Points.AddXY(x, y2);
 
-                chart.Series["HbR"].Enabled = false;
         
-                if (chart.Series["HbO2"].Points.Count > 4000)
-                {
-                    chart.Series["HbO2"].Points.RemoveAt(0);
-                    chart.Series["HbR"].Points.RemoveAt(0);
-                }
-                labels[index].Text = ((Math.Abs(y1) + Math.Abs(y2))).ToString("N2");
-
                 //if ((Math.Abs(y1) > 70 ) || (Math.Abs(y2) > 70))
                 //{
                 //    label9.Visible = true;
@@ -776,15 +850,20 @@ namespace GUI
             }
 
 
-            if (!isFrozen)
+            if ((!isFrozen) && (chart.Visible))
             {
                 chart.Series["HbO2"].Enabled = true;
-                labels[index].Text = (y1).ToString("N2");
+                
 
                 if (index > 3)
                 {
                     chart.Series["HbR"].Enabled = true;
                     labels[index].Text = ((Math.Abs(y1) + Math.Abs(y2))).ToString("N2");
+                }
+                else
+                {
+                    chart.Series["HbR"].Enabled = false;
+                    labels[index].Text = (y1).ToString("N2");
                 }
 
                 double beg = chart.ChartAreas[0].AxisX.Minimum; 
@@ -797,12 +876,19 @@ namespace GUI
                     
                     if (end > propValue)
                     {
-                        beg = (chart.Series["HbO2"].Points.Count - 1) - (INTERVAL);
+                        beg = (chart.Series["HbO2"].Points.Count - 1) - (INTERVAL/2.0);
                         if (beg < 0)
                         {
                             beg = 0;
                         }
                         end = chart.Series["HbO2"].Points.Count - 1;
+                    }
+
+                    if (chart.Series["HbO2"].Points.Count > 2000)
+                    {
+                        chart.Series["HbO2"].Points.RemoveAt(0);
+                        chart.Series["HbR"].Points.RemoveAt(0);
+                        currentpoint--;
                     }
                 }
                 else
@@ -818,6 +904,13 @@ namespace GUI
                         }
                         end = chart.Series["HbO2"].Points.Count-1;
                     }
+
+                    if (chart.Series["HbO2"].Points.Count > 2000)
+                    {
+                        chart.Series["HbO2"].Points.RemoveAt(0);
+                        chart.Series["HbR"].Points.RemoveAt(0);
+                        currentProcpoint--;
+                    }
                 }
 
                 
@@ -825,11 +918,8 @@ namespace GUI
                 if ((beg >= 0) && (end > 0))
                 {
                     updateXAxis(beg, end, chart);
-                    if (chart.Visible)
-                    {
-                        updateYAxis(beg, end, chart, fromDevice);
-                        chart.Update();
-                    }
+                    updateYAxis(beg, end, chart, fromDevice);
+                    chart.Update();
                 }
 
             }
@@ -837,30 +927,33 @@ namespace GUI
 
         private void updateLED(double index)
         {
-            if(index == 1)
+            if (pictureBox1.Visible)
             {
-                pictureBox1.Image = GUI.Properties.Resources._1194989231691813435led_circle_red_svg_med;
-                pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
-            }
-            else if (index == 2)
-            {
-                pictureBox1.Image = GUI.Properties.Resources._11949892282132520602led_circle_green_svg_med;
-                pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
-            }
-            else if (index == 3)
-            {
-                pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
-                pictureBox3.Image = GUI.Properties.Resources._1194989231691813435led_circle_red_svg_med;
-            }
-            else if (index == 4)
-            {
-                pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
-                pictureBox3.Image = GUI.Properties.Resources._11949892282132520602led_circle_green_svg_med;
-            }
-            else if ((index == 0) || (index == 5))
-            {
-                pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
-                pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                if (index == 1)
+                {
+                    pictureBox1.Image = GUI.Properties.Resources._1194989231691813435led_circle_red_svg_med;
+                    pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                }
+                else if (index == 2)
+                {
+                    pictureBox1.Image = GUI.Properties.Resources._11949892282132520602led_circle_green_svg_med;
+                    pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                }
+                else if (index == 3)
+                {
+                    pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                    pictureBox3.Image = GUI.Properties.Resources._1194989231691813435led_circle_red_svg_med;
+                }
+                else if (index == 4)
+                {
+                    pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                    pictureBox3.Image = GUI.Properties.Resources._11949892282132520602led_circle_green_svg_med;
+                }
+                else if ((index == 0) || (index == 5))
+                {
+                    pictureBox1.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                    pictureBox3.Image = GUI.Properties.Resources._1194989228908147779led_circle_grey_svg_med;
+                }
             }
         }
 
@@ -878,17 +971,10 @@ namespace GUI
             double minX = 3000;
             double minA = 3000;
 
-            Series ser1, ser2;
-            if (fromDevice)
-            {
-                ser1 = chart.Series["HbO2"];
-                ser2 = chart.Series["HbR"];
-            }
-            else
-            {
-                ser1 = chart.Series["HbO2_Freeze"];
-                ser2 = chart.Series["HbR_Freeze"];
-            }
+                      
+            Series ser1 = chart.Series["HbO2"];
+            Series ser2 = chart.Series["HbR"];
+            
 
             if (end > ser1.Points.Count)
             {
@@ -965,10 +1051,10 @@ namespace GUI
                 sol[1, 0] = 0;
             }
 
-            yCord1_P = sol[0, 0] * 100;
-            yCord2_P = sol[1, 0] * 100;
+            yCord1_P = Math.Round(sol[0, 0] * 100, 3, MidpointRounding.AwayFromZero);
+            yCord2_P = Math.Round(sol[1, 0] * 100, 3, MidpointRounding.AwayFromZero);
 
-            
+
         }
 
         private void updateNumDisplays()
@@ -1036,18 +1122,18 @@ namespace GUI
             {
                 try
                 {
-                    adruinoSerial = adruino_dialog.getSerialConfig();
+                    comSerial = adruino_dialog.getSerialConfig();
                     startToolStripMenuItem.Enabled = true;
                     stopToolStripMenuItem.Enabled = false;
                     button1.Enabled = true;
                     button2.Enabled = true;
 
-                    GUI.Properties.Settings.Default.PortName = adruinoSerial.PortName;
-                    GUI.Properties.Settings.Default.BaudRate = adruinoSerial.BaudRate;
-                    GUI.Properties.Settings.Default.Parity = adruinoSerial.Parity;
-                    GUI.Properties.Settings.Default.DataBits = adruinoSerial.DataBits;
-                    GUI.Properties.Settings.Default.StopBits = adruinoSerial.StopBits;
-                    GUI.Properties.Settings.Default.Handshake = adruinoSerial.Handshake;
+                    GUI.Properties.Settings.Default.PortName = comSerial.PortName;
+                    GUI.Properties.Settings.Default.BaudRate = comSerial.BaudRate;
+                    GUI.Properties.Settings.Default.Parity = comSerial.Parity;
+                    GUI.Properties.Settings.Default.DataBits = comSerial.DataBits;
+                    GUI.Properties.Settings.Default.StopBits = comSerial.StopBits;
+                    GUI.Properties.Settings.Default.Handshake = comSerial.Handshake;
                     Properties.Settings.Default.Save();
                 }
 
@@ -1060,14 +1146,26 @@ namespace GUI
 
         private void calibrateDeviceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            adruinoSerial.Write("b");
+            comSerial.Write("b");
             Thread.Sleep(300);
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!checkBox5.Checked)
+            {
+                textBox1.Size = new Size(432, 570);
+            }
+            else
+            {
+                textBox1.Size = new Size(432, 280);
+            }
         }
 
         private void comPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            bool open = adruinoSerial.IsOpen;
-            string buffer = adruinoSerial.ReadLine();
+            bool open = comSerial.IsOpen;
+            string buffer = comSerial.ReadLine();
             buffer = buffer.TrimEnd('\r');
             buffer = buffer.TrimEnd('\0');
             Invoke((MethodInvoker)delegate { textBox1.AppendText(buffer + "\n"); });

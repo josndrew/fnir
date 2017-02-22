@@ -9,9 +9,8 @@ C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\GUI.SerialS
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\gui.csproj.GenerateResource.Cache
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\GUI.exe
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\GUI.pdb
-C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Debug\InTheHand.Net.Personal.xml
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\GUI.mainForm.resources
-C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\gui.csprojResolveAssemblyReference.cache
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\GUI.SettingsSetup.resources
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Debug\MathNet.Numerics.dll
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Debug\MathNet.Numerics.xml
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\gui.csprojResolveAssemblyReference.cache
