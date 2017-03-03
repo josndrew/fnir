@@ -38,6 +38,7 @@
 <v>fNIR PSoC Central\fNIR PSoC Central\Source Files\app_UART.c</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Source Files\main.c</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Source Files\millis.c</v>
+<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A1</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A1\A1.c</v>
@@ -59,6 +60,11 @@
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A4\A4.h</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A4\A4_aliases.h</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A4\A4_PM.c</v>
+<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A5</v>
+<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A5\A5.c</v>
+<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A5\A5.h</v>
+<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A5\A5_aliases.h</v>
+<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\A5\A5_PM.c</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\ADC</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\ADC\ADC.c</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\ADC\ADC.h</v>
@@ -224,6 +230,8 @@
 <v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A3_PM.lst</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A4.lst</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A4_PM.lst</v>
+<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A5.lst</v>
+<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A5_PM.lst</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC.lst</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_INT.lst</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_intClock.lst</v>
@@ -327,8 +335,8 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\fNIR PSoC Central.cydsn\main.c" />
 <name v=".\fNIR PSoC Central.cydsn\app_UART.c" />
-<name v=".\fNIR PSoC Central.cydsn\fNIR PSoC Central.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -336,7 +344,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="753, 423" SelectedTabbedMdiWindow="8e7b5be3-2f71-4f21-b60e-eadc43f964a1"><DocumentWindow Key="bb80cb4d-1f78-4399-b43f-6e0eed4ba344" Guid="8e7b5be3-2f71-4f21-b60e-eadc43f964a1" /><DocumentWindow Key="13af828e-23a9-4ccc-8f76-542862da0169" Guid="04b1c05e-e132-4a4d-8468-5135fcdfa559" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="753, 423" SelectedTabbedMdiWindow="37fa91c5-88a6-4f97-ac84-40db0dee3fa6"><DocumentWindow Key="6a0af878-fa1e-40c2-9e98-bcca9b96e2ce" Guid="60107032-be1d-48c5-94e0-89e1c82c82d9" /><DocumentWindow Key="5bddcc6a-1214-4b0d-8aec-db8f065954f4" Guid="37fa91c5-88a6-4f97-ac84-40db0dee3fa6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

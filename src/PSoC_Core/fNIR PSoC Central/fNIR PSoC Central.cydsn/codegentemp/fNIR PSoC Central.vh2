@@ -2,7 +2,7 @@
 --	Conversion of fNIR PSoC Central.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Feb 17 12:25:47 2017
+--	Fri Mar 03 12:47:59 2017
 --
 
 USE cypress.cypress.all;
@@ -99,10 +99,12 @@ TERMINAL \ADC:Net_3118\ : bit;
 TERMINAL \ADC:Net_3119\ : bit;
 TERMINAL \ADC:Net_3122\ : bit;
 TERMINAL \ADC:Net_2794\ : bit;
+TERMINAL \ADC:mux_bus_plus_4\ : bit;
 TERMINAL \ADC:mux_bus_plus_3\ : bit;
 TERMINAL \ADC:mux_bus_plus_2\ : bit;
 TERMINAL \ADC:mux_bus_plus_1\ : bit;
 TERMINAL \ADC:mux_bus_plus_0\ : bit;
+TERMINAL \ADC:Net_1450_4\ : bit;
 TERMINAL \ADC:Net_1450_3\ : bit;
 TERMINAL \ADC:Net_1450_2\ : bit;
 TERMINAL \ADC:Net_1450_1\ : bit;
@@ -110,7 +112,7 @@ TERMINAL \ADC:Net_1450_0\ : bit;
 TERMINAL \ADC:Net_2793\ : bit;
 TERMINAL \ADC:Net_1851\ : bit;
 TERMINAL \ADC:Net_3016\ : bit;
-TERMINAL \ADC:mux_bus_plus_4\ : bit;
+TERMINAL \ADC:mux_bus_plus_5\ : bit;
 TERMINAL \ADC:Net_3147\ : bit;
 TERMINAL \ADC:Net_3146\ : bit;
 TERMINAL \ADC:Net_3145\ : bit;
@@ -128,7 +130,7 @@ TERMINAL \ADC:Net_3134\ : bit;
 TERMINAL \ADC:Net_3133\ : bit;
 TERMINAL \ADC:Net_3132\ : bit;
 TERMINAL \ADC:Net_3046\ : bit;
-TERMINAL \ADC:mux_bus_minus_4\ : bit;
+TERMINAL \ADC:mux_bus_minus_5\ : bit;
 TERMINAL \ADC:Net_3165\ : bit;
 SIGNAL \ADC:Net_3107\ : bit;
 SIGNAL \ADC:Net_3106\ : bit;
@@ -138,10 +140,12 @@ SIGNAL \ADC:Net_3103\ : bit;
 TERMINAL \ADC:Net_3113\ : bit;
 TERMINAL \ADC:Net_43\ : bit;
 TERMINAL \ADC:Net_3227\ : bit;
+TERMINAL \ADC:mux_bus_minus_4\ : bit;
 TERMINAL \ADC:mux_bus_minus_3\ : bit;
 TERMINAL \ADC:mux_bus_minus_2\ : bit;
 TERMINAL \ADC:mux_bus_minus_1\ : bit;
 TERMINAL \ADC:mux_bus_minus_0\ : bit;
+TERMINAL \ADC:Net_2375_4\ : bit;
 TERMINAL \ADC:Net_2375_3\ : bit;
 TERMINAL \ADC:Net_2375_2\ : bit;
 TERMINAL \ADC:Net_2375_1\ : bit;
@@ -164,7 +168,7 @@ TERMINAL \ADC:Net_3167\ : bit;
 TERMINAL \ADC:Net_3166\ : bit;
 TERMINAL \ADC:Net_8\ : bit;
 SIGNAL \ADC:Net_17\ : bit;
-SIGNAL Net_46 : bit;
+SIGNAL Net_381 : bit;
 SIGNAL \ADC:Net_3108\ : bit;
 SIGNAL \ADC:Net_3109_3\ : bit;
 SIGNAL \ADC:Net_3109_2\ : bit;
@@ -183,7 +187,7 @@ SIGNAL \ADC:Net_3111_3\ : bit;
 SIGNAL \ADC:Net_3111_2\ : bit;
 SIGNAL \ADC:Net_3111_1\ : bit;
 SIGNAL \ADC:Net_3111_0\ : bit;
-SIGNAL Net_47 : bit;
+SIGNAL Net_382 : bit;
 SIGNAL \ADC:Net_3207_1\ : bit;
 SIGNAL \ADC:Net_3207_0\ : bit;
 SIGNAL \ADC:Net_3235\ : bit;
@@ -192,7 +196,7 @@ TERMINAL Net_56 : bit;
 TERMINAL Net_95 : bit;
 TERMINAL Net_93 : bit;
 TERMINAL Net_91 : bit;
-TERMINAL \ADC:mux_bus_plus_5\ : bit;
+TERMINAL Net_386 : bit;
 TERMINAL \ADC:mux_bus_plus_6\ : bit;
 TERMINAL \ADC:mux_bus_plus_7\ : bit;
 TERMINAL \ADC:mux_bus_plus_8\ : bit;
@@ -203,7 +207,6 @@ TERMINAL \ADC:mux_bus_plus_12\ : bit;
 TERMINAL \ADC:mux_bus_plus_13\ : bit;
 TERMINAL \ADC:mux_bus_plus_14\ : bit;
 TERMINAL \ADC:mux_bus_plus_15\ : bit;
-TERMINAL \ADC:mux_bus_minus_5\ : bit;
 TERMINAL \ADC:mux_bus_minus_6\ : bit;
 TERMINAL \ADC:mux_bus_minus_7\ : bit;
 TERMINAL \ADC:mux_bus_minus_8\ : bit;
@@ -262,6 +265,12 @@ SIGNAL tmpIO_0__LED_4_net_0 : bit;
 TERMINAL tmpSIOVREF__LED_4_net_0 : bit;
 TERMINAL Net_306 : bit;
 SIGNAL tmpINTERRUPT_0__LED_4_net_0 : bit;
+SIGNAL tmpOE__A5_net_0 : bit;
+SIGNAL tmpFB_0__A5_net_0 : bit;
+SIGNAL tmpIO_0__A5_net_0 : bit;
+TERMINAL tmpSIOVREF__A5_net_0 : bit;
+TERMINAL Net_387 : bit;
+SIGNAL tmpINTERRUPT_0__A5_net_0 : bit;
 BEGIN
 
 zero <=  ('0') ;
@@ -673,10 +682,12 @@ Conn_LED:cy_psoc3_pins_v1_10
 	PORT MAP(signal1=>\ADC:muxout_plus\,
 		signal2=>\ADC:Net_2794\);
 \ADC:Connect_1:bus_connect\:cy_connect_v1_0
-	GENERIC MAP(sig_width=>4,
+	GENERIC MAP(sig_width=>5,
 		is_net_join=>'0')
-	PORT MAP(signal1=>(\ADC:mux_bus_plus_3\, \ADC:mux_bus_plus_2\, \ADC:mux_bus_plus_1\, \ADC:mux_bus_plus_0\),
-		signal2=>(\ADC:Net_1450_3\, \ADC:Net_1450_2\, \ADC:Net_1450_1\, \ADC:Net_1450_0\));
+	PORT MAP(signal1=>(\ADC:mux_bus_plus_4\, \ADC:mux_bus_plus_3\, \ADC:mux_bus_plus_2\, \ADC:mux_bus_plus_1\,
+			\ADC:mux_bus_plus_0\),
+		signal2=>(\ADC:Net_1450_4\, \ADC:Net_1450_3\, \ADC:Net_1450_2\, \ADC:Net_1450_1\,
+			\ADC:Net_1450_0\));
 \ADC:adc_minus_in_sel_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
@@ -688,7 +699,7 @@ Conn_LED:cy_psoc3_pins_v1_10
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC:Net_3016\,
-		signal2=>\ADC:mux_bus_plus_4\);
+		signal2=>\ADC:mux_bus_plus_5\);
 \ADC:cy_analog_noconnect_21\:cy_analog_noconnect_v1_0
 	PORT MAP(noconnect=>\ADC:Net_3147\);
 \ADC:cy_analog_noconnect_20\:cy_analog_noconnect_v1_0
@@ -725,7 +736,7 @@ Conn_LED:cy_psoc3_pins_v1_10
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC:Net_3046\,
-		signal2=>\ADC:mux_bus_minus_4\);
+		signal2=>\ADC:mux_bus_minus_5\);
 \ADC:cy_analog_noconnect_37\:cy_analog_noconnect_v1_0
 	PORT MAP(noconnect=>\ADC:Net_3165\);
 \ADC:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
@@ -736,10 +747,12 @@ Conn_LED:cy_psoc3_pins_v1_10
 	PORT MAP(signal1=>\ADC:Net_43\,
 		signal2=>\ADC:Net_3227\);
 \ADC:Connect_2:bus_connect\:cy_connect_v1_0
-	GENERIC MAP(sig_width=>4,
+	GENERIC MAP(sig_width=>5,
 		is_net_join=>'0')
-	PORT MAP(signal1=>(\ADC:mux_bus_minus_3\, \ADC:mux_bus_minus_2\, \ADC:mux_bus_minus_1\, \ADC:mux_bus_minus_0\),
-		signal2=>(\ADC:Net_2375_3\, \ADC:Net_2375_2\, \ADC:Net_2375_1\, \ADC:Net_2375_0\));
+	PORT MAP(signal1=>(\ADC:mux_bus_minus_4\, \ADC:mux_bus_minus_3\, \ADC:mux_bus_minus_2\, \ADC:mux_bus_minus_1\,
+			\ADC:mux_bus_minus_0\),
+		signal2=>(\ADC:Net_2375_4\, \ADC:Net_2375_3\, \ADC:Net_2375_2\, \ADC:Net_2375_1\,
+			\ADC:Net_2375_0\));
 \ADC:cy_analog_noconnect_35\:cy_analog_noconnect_v1_0
 	PORT MAP(noconnect=>\ADC:Net_3181\);
 \ADC:cy_analog_noconnect_34\:cy_analog_noconnect_v1_0
@@ -784,14 +797,14 @@ Conn_LED:cy_psoc3_pins_v1_10
 		vref=>\ADC:Net_8\,
 		ext_vref=>\ADC:Net_43\,
 		clock=>\ADC:Net_1845\,
-		sample_done=>Net_46,
+		sample_done=>Net_381,
 		chan_id_valid=>\ADC:Net_3108\,
 		chan_id=>(\ADC:Net_3109_3\, \ADC:Net_3109_2\, \ADC:Net_3109_1\, \ADC:Net_3109_0\),
 		data_valid=>\ADC:Net_3110\,
 		data=>(\ADC:Net_3111_11\, \ADC:Net_3111_10\, \ADC:Net_3111_9\, \ADC:Net_3111_8\,
 			\ADC:Net_3111_7\, \ADC:Net_3111_6\, \ADC:Net_3111_5\, \ADC:Net_3111_4\,
 			\ADC:Net_3111_3\, \ADC:Net_3111_2\, \ADC:Net_3111_1\, \ADC:Net_3111_0\),
-		eos_intr=>Net_47,
+		eos_intr=>Net_382,
 		irq=>\ADC:Net_3112\,
 		sw_negvref=>zero,
 		cfg_st_sel=>(zero, zero),
@@ -807,10 +820,12 @@ Conn_LED:cy_psoc3_pins_v1_10
 		signal2=>\ADC:Net_1851\);
 \ADC:cy_psoc4_sarmux_8\:cy_psoc4_sarmux_v1_0
 	GENERIC MAP(cy_registers=>"",
-		muxin_width=>4,
-		input_mode=>"0000")
-	PORT MAP(muxin_plus=>(\ADC:Net_1450_3\, \ADC:Net_1450_2\, \ADC:Net_1450_1\, \ADC:Net_1450_0\),
-		muxin_minus=>(\ADC:Net_2375_3\, \ADC:Net_2375_2\, \ADC:Net_2375_1\, \ADC:Net_2375_0\),
+		muxin_width=>5,
+		input_mode=>"00000")
+	PORT MAP(muxin_plus=>(\ADC:Net_1450_4\, \ADC:Net_1450_3\, \ADC:Net_1450_2\, \ADC:Net_1450_1\,
+			\ADC:Net_1450_0\),
+		muxin_minus=>(\ADC:Net_2375_4\, \ADC:Net_2375_3\, \ADC:Net_2375_2\, \ADC:Net_2375_1\,
+			\ADC:Net_2375_0\),
 		cmn_neg=>\ADC:Net_2580\,
 		vout_plus=>\ADC:Net_2794\,
 		vout_minus=>\ADC:Net_2793\);
@@ -838,7 +853,7 @@ Conn_LED:cy_psoc3_pins_v1_10
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC:mux_bus_plus_4\,
-		signal2=>\ADC:Net_3135\);
+		signal2=>Net_386);
 \ADC:cy_analog_virtualmux_vplus5_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
@@ -1561,5 +1576,75 @@ R_1:cy_annotation_universal_v1_0
 		port_names=>"T1, T2",
 		width=>2)
 	PORT MAP(connect=>(Net_10, Net_3171));
+A5:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"e3dfa096-a245-44e2-bd4d-7770bdcc38d1",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"A",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"1",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__Scan_LED_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__A5_net_0),
+		analog=>Net_386,
+		io=>(tmpIO_0__A5_net_0),
+		siovref=>(tmpSIOVREF__A5_net_0),
+		annotation=>Net_387,
+		in_clock=>zero,
+		in_clock_en=>tmpOE__Scan_LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__Scan_LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__A5_net_0);
 
 END R_T_L;

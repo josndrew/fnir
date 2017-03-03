@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
   26:Generated_Source\PSoC4/BLE_gatt.c **** #if ((CYBLE_MODE_PROFILE) && (CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES))
   27:Generated_Source\PSoC4/BLE_gatt.c ****     
   28:Generated_Source\PSoC4/BLE_gatt.c **** #if(CYBLE_MODE_PROFILE)
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 2
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 2
 
 
   29:Generated_Source\PSoC4/BLE_gatt.c ****     #if defined(__ARMCC_VERSION)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
   83:Generated_Source\PSoC4/BLE_gatt.c ****         {
   84:Generated_Source\PSoC4/BLE_gatt.c ****             0x00u
   85:Generated_Source\PSoC4/BLE_gatt.c ****         },
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 3
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 3
 
 
   86:Generated_Source\PSoC4/BLE_gatt.c ****         {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  140:Generated_Source\PSoC4/BLE_gatt.c **** *  ------------                          | -----------
  141:Generated_Source\PSoC4/BLE_gatt.c **** *  CYBLE_ERROR_OK						 | GATT database was reinitialized successfully.
  142:Generated_Source\PSoC4/BLE_gatt.c **** *  CYBLE_ERROR_INVALID_STATE             | If the function is called in any state except CYBLE_STAT
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 4
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 4
 
 
  143:Generated_Source\PSoC4/BLE_gatt.c **** *  CYBLE_ERROR_INVALID_PARAMETER         | If the Database has zero entries or is a NULL pointer.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  197:Generated_Source\PSoC4/BLE_gatt.c ****             else
  198:Generated_Source\PSoC4/BLE_gatt.c ****             {
  199:Generated_Source\PSoC4/BLE_gatt.c ****                 CyBle_ApplCallback((uint32)CYBLE_EVT_GATTS_INDICATION_DISABLED, eventParam);
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 5
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 5
 
 
  200:Generated_Source\PSoC4/BLE_gatt.c ****             }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  254:Generated_Source\PSoC4/BLE_gatt.c **** *   </table>
  255:Generated_Source\PSoC4/BLE_gatt.c **** * 
  256:Generated_Source\PSoC4/BLE_gatt.c **** ******************************************************************************/
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 6
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 6
 
 
  257:Generated_Source\PSoC4/BLE_gatt.c **** CYBLE_API_RESULT_T CyBle_GattcStartDiscovery(CYBLE_CONN_HANDLE_T connHandle)
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  270:Generated_Source\PSoC4/BLE_gatt.c ****         /* Clean old discovery information */
  271:Generated_Source\PSoC4/BLE_gatt.c ****         for(j = 0u; j < (uint8) CYBLE_SRVI_COUNT; j++)
   69              		.loc 1 271 0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 7
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 7
 
 
   70 002e 0F23     		mov	r3, #15
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  116 0080 174B     		ldr	r3, .L8+16
  117 0082 0122     		mov	r2, #1
  118 0084 1A80     		strh	r2, [r3]
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 8
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 8
 
 
  278:Generated_Source\PSoC4/BLE_gatt.c ****         cyBle_gattcDiscoveryRange.endHandle = CYBLE_GATT_ATTR_HANDLE_END_RANGE;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  158              		.loc 1 292 0
  159 00c8 181C     		mov	r0, r3
  160 00ca BD46     		mov	sp, r7
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 9
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 9
 
 
  161 00cc 05B0     		add	sp, sp, #20
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  324:Generated_Source\PSoC4/BLE_gatt.c **** *	</tr>
  325:Generated_Source\PSoC4/BLE_gatt.c **** *	<tr>
  326:Generated_Source\PSoC4/BLE_gatt.c **** *	  <td>CYBLE_ERROR_INVALID_PARAMETER</td>
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 10
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 10
 
 
  327:Generated_Source\PSoC4/BLE_gatt.c **** *	  <td>'connHandle' value does not represent any existing entry.</td>
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  350:Generated_Source\PSoC4/BLE_gatt.c ****        ((CyBle_GetClientState() != CYBLE_CLIENT_STATE_CONNECTED) && 
  213              		.loc 1 350 0 discriminator 1
  214 0026 002B     		cmp	r3, #0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 11
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 11
 
 
  215 0028 09D0     		beq	.L12
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  257 006a 131C     		mov	r3, r2
  258 006c 5B00     		lsl	r3, r3, #1
  259 006e 9B18     		add	r3, r3, r2
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 12
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 12
 
 
  260 0070 5B00     		lsl	r3, r3, #1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  305 00be 1A1C     		mov	r2, r3
  306 00c0 FFF7FEFF 		bl	memcpy
  369:Generated_Source\PSoC4/BLE_gatt.c ****         cyBle_gattcDiscoveryRange.startHandle = startHandle;
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 13
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 13
 
 
  307              		.loc 1 369 0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  382:Generated_Source\PSoC4/BLE_gatt.c ****     
  383:Generated_Source\PSoC4/BLE_gatt.c ****     return (apiResult);
  349              		.loc 1 383 0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 14
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 14
 
 
  350 010c 0C23     		mov	r3, #12
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  385 0002 82B0     		sub	sp, sp, #8
  386              		.cfi_def_cfa_offset 16
  387 0004 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 15
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 15
 
 
  388              		.cfi_def_cfa_register 7
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  437              		.align	2
  438              		.global	CyBle_GattcDiscoverCharDescriptorsEventHandler
  439              		.code	16
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 16
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 16
 
 
  440              		.thumb_func
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  472              	.L27:
  473              		.loc 1 429 0 discriminator 2
  474 0024 074B     		ldr	r3, .L28+8
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 17
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 17
 
 
  475 0026 1B68     		ldr	r3, [r3]
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  511 0002 82B0     		sub	sp, sp, #8
  512              		.cfi_def_cfa_offset 16
  513 0004 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 18
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 18
 
 
  514              		.cfi_def_cfa_register 7
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  562              		.file 6 "Generated_Source\\PSoC4\\BLE.h"
  563              		.file 7 "Generated_Source\\PSoC4\\BLE_gatt.h"
  564              		.file 8 "Generated_Source\\PSoC4\\BLE_eventHandler.h"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 19
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 19
 
 
  565              		.section	.debug_info,"",%progbits
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  619 006b 04       		.uleb128 0x4
  620 006c D82D0000 		.4byte	.LASF9
  621 0070 02       		.byte	0x2
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 20
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 20
 
 
  622 0071 B901     		.2byte	0x1b9
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  676 00de 2D270000 		.4byte	.LASF18
  677 00e2 02       		.sleb128 2
  678 00e3 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 21
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 21
 
 
  679 00e4 150C0000 		.4byte	.LASF19
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  733 0150 002E0000 		.4byte	.LASF37
  734 0154 2E       		.sleb128 46
  735 0155 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 22
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 22
 
 
  736 0156 CD070000 		.4byte	.LASF38
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  790 01cc 20100000 		.4byte	.LASF56
  791 01d0 CA00     		.sleb128 74
  792 01d2 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 23
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 23
 
 
  793 01d3 500F0000 		.4byte	.LASF57
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  847 0251 8C230000 		.4byte	.LASF75
  848 0255 F400     		.sleb128 116
  849 0257 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 24
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 24
 
 
  850 0258 841A0000 		.4byte	.LASF76
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  904 02cb 03100000 		.4byte	.LASF92
  905 02cf 07       		.sleb128 7
  906 02d0 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 25
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 25
 
 
  907 02d1 D51E0000 		.4byte	.LASF93
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  961 033d 4E120000 		.4byte	.LASF111
  962 0341 FE01     		.sleb128 254
  963 0343 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 26
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 26
 
 
  964 0344 DA140000 		.4byte	.LASF112
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1018 03ba 04       		.byte	0x4
  1019 03bb 7201     		.2byte	0x172
  1020 03bd DA030000 		.4byte	0x3da
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 27
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 27
 
 
  1021 03c1 11       		.uleb128 0x11
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1075 0437 00       		.byte	0
  1076 0438 12       		.uleb128 0x12
  1077 0439 6C656E00 		.ascii	"len\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 28
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 28
 
 
  1078 043d 04       		.byte	0x4
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1132 04ad E6030000 		.4byte	0x3e6
  1133 04b1 02       		.byte	0x2
  1134 04b2 00       		.byte	0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 29
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 29
 
 
  1135 04b3 04       		.uleb128 0x4
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1189 0521 04       		.byte	0x4
  1190 0522 00       		.byte	0
  1191 0523 15       		.uleb128 0x15
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 30
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 30
 
 
  1192 0524 3A210000 		.4byte	.LASF142
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1246 058d 6B000000 		.4byte	0x6b
  1247 0591 00       		.byte	0
  1248 0592 14       		.uleb128 0x14
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 31
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 31
 
 
  1249 0593 41380000 		.4byte	.LASF145
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1303 05fc 94       		.byte	0x94
  1304 05fd 9F050000 		.4byte	0x59f
  1305 0601 00       		.byte	0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 32
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 32
 
 
  1306 0602 14       		.uleb128 0x14
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1360 0677 681C0000 		.4byte	.LASF166
  1361 067b 8C02     		.sleb128 268
  1362 067d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 33
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 33
 
 
  1363 067e AB250000 		.4byte	.LASF167
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1417 06fc 33150000 		.4byte	.LASF185
  1418 0700 9F02     		.sleb128 287
  1419 0702 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 34
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 34
 
 
  1420 0703 64040000 		.4byte	.LASF186
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1474 0781 EC110000 		.4byte	.LASF204
  1475 0785 B202     		.sleb128 306
  1476 0787 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 35
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 35
 
 
  1477 0788 99210000 		.4byte	.LASF205
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1531 0806 301A0000 		.4byte	.LASF223
  1532 080a C502     		.sleb128 325
  1533 080c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 36
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 36
 
 
  1534 080d B42D0000 		.4byte	.LASF224
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1588 088b 22140000 		.4byte	.LASF242
  1589 088f D802     		.sleb128 344
  1590 0891 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 37
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 37
 
 
  1591 0892 33130000 		.4byte	.LASF243
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1645 0910 17190000 		.4byte	.LASF261
  1646 0914 EB02     		.sleb128 363
  1647 0916 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 38
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 38
 
 
  1648 0917 6A230000 		.4byte	.LASF262
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1702 0995 05020000 		.4byte	.LASF280
  1703 0999 FE02     		.sleb128 382
  1704 099b 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 39
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 39
 
 
  1705 099c 39240000 		.4byte	.LASF281
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1759 0a1a 1B040000 		.4byte	.LASF299
  1760 0a1e 9103     		.sleb128 401
  1761 0a20 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 40
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 40
 
 
  1762 0a21 F81B0000 		.4byte	.LASF300
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1816 0a9f F1300000 		.4byte	.LASF318
  1817 0aa3 A403     		.sleb128 420
  1818 0aa5 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 41
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 41
 
 
  1819 0aa6 3E100000 		.4byte	.LASF319
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1873 0b24 BC130000 		.4byte	.LASF337
  1874 0b28 B703     		.sleb128 439
  1875 0b2a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 42
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 42
 
 
  1876 0b2b 671E0000 		.4byte	.LASF338
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1930 0ba9 B4170000 		.4byte	.LASF356
  1931 0bad CA03     		.sleb128 458
  1932 0baf 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 43
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 43
 
 
  1933 0bb0 F5050000 		.4byte	.LASF357
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  1987 0c2e 7D130000 		.4byte	.LASF375
  1988 0c32 DD03     		.sleb128 477
  1989 0c34 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 44
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 44
 
 
  1990 0c35 D9240000 		.4byte	.LASF376
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2044 0cb3 0F0F0000 		.4byte	.LASF394
  2045 0cb7 F003     		.sleb128 496
  2046 0cb9 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 45
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 45
 
 
  2047 0cba 461C0000 		.4byte	.LASF395
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2101 0d38 C6110000 		.4byte	.LASF413
  2102 0d3c 8304     		.sleb128 515
  2103 0d3e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 46
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 46
 
 
  2104 0d3f 04180000 		.4byte	.LASF414
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2158 0dbe 0A       		.uleb128 0xa
  2159 0dbf 01       		.byte	0x1
  2160 0dc0 08       		.byte	0x8
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 47
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 47
 
 
  2161 0dc1 F607     		.2byte	0x7f6
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2215 0e30 07       		.sleb128 7
  2216 0e31 0B       		.uleb128 0xb
  2217 0e32 C01A0000 		.4byte	.LASF447
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 48
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 48
 
 
  2218 0e36 08       		.sleb128 8
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2272 0ea2 1A       		.uleb128 0x1a
  2273 0ea3 912B0000 		.4byte	.LASF454
  2274 0ea7 01       		.byte	0x1
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 49
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 49
 
 
  2275 0ea8 0401     		.2byte	0x104
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2329 0f13 91       		.byte	0x91
  2330 0f14 6C       		.sleb128 -20
  2331 0f15 00       		.byte	0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 50
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 50
 
 
  2332 0f16 1B       		.uleb128 0x1b
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2386 0f8a BE01     		.2byte	0x1be
  2387 0f8c 940F0000 		.4byte	0xf94
  2388 0f90 02       		.uleb128 0x2
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 51
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 51
 
 
  2389 0f91 91       		.byte	0x91
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2443 1003 23050000 		.4byte	0x523
  2444 1007 12100000 		.4byte	0x1012
  2445 100b 0D       		.uleb128 0xd
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 52
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 52
 
 
  2446 100c A9000000 		.4byte	0xa9
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2500 002b 00       		.byte	0
  2501 002c 03       		.uleb128 0x3
  2502 002d 0E       		.uleb128 0xe
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 53
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 53
 
 
  2503 002e 3A       		.uleb128 0x3a
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2557 0064 3B       		.uleb128 0x3b
  2558 0065 05       		.uleb128 0x5
  2559 0066 01       		.uleb128 0x1
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 54
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 54
 
 
  2560 0067 13       		.uleb128 0x13
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2614 009d 38       		.uleb128 0x38
  2615 009e 0B       		.uleb128 0xb
  2616 009f 00       		.byte	0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 55
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 55
 
 
  2617 00a0 00       		.byte	0
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2671 00d6 00       		.byte	0
  2672 00d7 14       		.uleb128 0x14
  2673 00d8 0D       		.uleb128 0xd
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 56
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 56
 
 
  2674 00d9 00       		.byte	0
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2728 010f 11       		.uleb128 0x11
  2729 0110 01       		.uleb128 0x1
  2730 0111 12       		.uleb128 0x12
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 57
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 57
 
 
  2731 0112 06       		.uleb128 0x6
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2785 0149 1B       		.uleb128 0x1b
  2786 014a 2E       		.uleb128 0x2e
  2787 014b 01       		.byte	0x1
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 58
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 58
 
 
  2788 014c 3F       		.uleb128 0x3f
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2842 0183 00       		.byte	0
  2843 0184 00       		.byte	0
  2844 0185 00       		.byte	0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 59
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 59
 
 
  2845              		.section	.debug_aranges,"",%progbits
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2887 003f 4359424C 		.ascii	"CYBLE_EVT_HTSS_NOTIFICATION_DISABLED\000"
  2887      455F4556 
  2887      545F4854 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 60
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 60
 
 
  2887      53535F4E 
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2906              	.LASF424:
  2907 0179 4359424C 		.ascii	"CYBLE_EVT_WSSS_INDICATION_ENABLED\000"
  2907      455F4556 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 61
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 61
 
 
  2907      545F5753 
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2925      52495445 
  2926              	.LASF151:
  2927 02b4 73657276 		.ascii	"serviceChanged\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 62
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 62
 
 
  2927      69636543 
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2946              	.LASF367:
  2947 03dc 4359424C 		.ascii	"CYBLE_EVT_PLXSC_INDICATION\000"
  2947      455F4556 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 63
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 63
 
 
  2947      545F504C 
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2965      4154455F 
  2965      5343414E 
  2965      4E494E47 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 64
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 64
 
 
  2966              	.LASF163:
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  2985      455F4556 
  2985      545F424C 
  2985      53435F4E 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 65
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 65
 
 
  2985      4F544946 
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3003      4E4F5449 
  3004              	.LASF405:
  3005 0756 4359424C 		.ascii	"CYBLE_EVT_UDSC_INDICATION\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 66
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 66
 
 
  3005      455F4556 
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3024              	.LASF143:
  3025 0876 63686172 		.ascii	"charDeclHandle\000"
  3025      4465636C 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 67
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 67
 
 
  3025      48616E64 
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3044              	.LASF156:
  3045 09a6 4359424C 		.ascii	"CYBLE_LONG_TERM_KEY_REQUEST_REPLY\000"
  3045      455F4C4F 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 68
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 68
 
 
  3045      4E475F54 
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3063      53535F52 
  3063      4541445F 
  3064              	.LASF131:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 69
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 69
 
 
  3065 0ae2 4359424C 		.ascii	"CYBLE_GATT_HANDLE_VALUE_PAIR_T\000"
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3083      545F4241 
  3083      53435F52 
  3083      4541445F 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 70
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 70
 
 
  3084              	.LASF19:
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3103      455F434C 
  3103      49454E54 
  3103      5F535441 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 71
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 71
 
 
  3103      54455F44 
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3123      455F4556 
  3123      545F4950 
  3123      53435F52 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 72
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 72
 
 
  3123      4541445F 
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3143      655F4761 
  3143      74746349 
  3143      6E646963 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 73
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 73
 
 
  3143      6174696F 
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3161      45584543 
  3162              	.LASF426:
  3163 10a3 4359424C 		.ascii	"CYBLE_EVT_WSSS_INDICATION_CONFIRMED\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 74
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 74
 
 
  3163      455F4556 
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3181      545F5750 
  3181      5453535F 
  3181      4E4F5449 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 75
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 75
 
 
  3182              	.LASF204:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3200              	.LASF397:
  3201 130f 4359424C 		.ascii	"CYBLE_EVT_TPSC_WRITE_DESCR_RESPONSE\000"
  3201      455F4556 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 76
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 76
 
 
  3201      545F5450 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3219      74746344 
  3219      6973636F 
  3219      76657279 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 77
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 77
 
 
  3220              	.LASF206:
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3239 157b 4359424C 		.ascii	"CYBLE_EVT_CSCSC_WRITE_DESCR_RESPONSE\000"
  3239      455F4556 
  3239      545F4353 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 78
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 78
 
 
  3239      4353435F 
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3259 168e 4359424C 		.ascii	"CYBLE_EVT_HIDSS_EXIT_SUSPEND\000"
  3259      455F4556 
  3259      545F4849 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 79
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 79
 
 
  3259      4453535F 
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3277      5353435F 
  3277      4E4F5449 
  3278              	.LASF109:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 80
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 80
 
 
  3279 17d1 4359424C 		.ascii	"CYBLE_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER_VALUE\000"
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3297      455F4556 
  3297      545F4241 
  3297      53535F4E 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 81
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 81
 
 
  3297      4F544946 
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3315      455F5555 
  3315      49443136 
  3315      00
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 82
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 82
 
 
  3316              	.LASF251:
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3334              	.LASF334:
  3335 1b88 4359424C 		.ascii	"CYBLE_EVT_IPSC_WRITE_DESCR_RESPONSE\000"
  3335      455F4556 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 83
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 83
 
 
  3335      545F4950 
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3353      53746174 
  3353      6500
  3354              	.LASF304:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 84
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 84
 
 
  3355 1cbf 4359424C 		.ascii	"CYBLE_EVT_HPSC_READ_CHAR_RESPONSE\000"
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3373      5454435F 
  3373      494E434C 
  3374              	.LASF412:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 85
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 85
 
 
  3375 1dfa 4359424C 		.ascii	"CYBLE_EVT_WPTSS_NOTIFICATION_ENABLED\000"
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3393 1f30 666C6F61 		.ascii	"float\000"
  3393      7400
  3394              	.LASF389:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 86
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 86
 
 
  3395 1f36 4359424C 		.ascii	"CYBLE_EVT_SCPSC_NOTIFICATION\000"
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3413      545F5750 
  3413      5453435F 
  3413      57524954 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 87
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 87
 
 
  3414              	.LASF141:
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3433      4C324341 
  3433      505F5053 
  3434              	.LASF205:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 88
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 88
 
 
  3435 2199 4359424C 		.ascii	"CYBLE_EVT_BLSS_NOTIFICATION_DISABLED\000"
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3453      455F4556 
  3453      545F5544 
  3453      53435F57 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 89
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 89
 
 
  3453      52495445 
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3471      52495445 
  3472              	.LASF326:
  3473 23cd 4359424C 		.ascii	"CYBLE_EVT_HTSC_READ_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 90
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 90
 
 
  3473      455F4556 
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3491      455F4556 
  3491      545F5253 
  3491      4353535F 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 91
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 91
 
 
  3491      494E4449 
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3511      455F4556 
  3511      545F5544 
  3511      53535F4E 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 92
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 92
 
 
  3511      4F544946 
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3530              	.LASF259:
  3531 273f 4359424C 		.ascii	"CYBLE_EVT_CTSC_READ_DESCR_RESPONSE\000"
  3531      455F4556 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 93
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 93
 
 
  3531      545F4354 
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3550              	.LASF120:
  3551 2861 75756964 		.ascii	"uuid16\000"
  3551      313600
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 94
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 94
 
 
  3552              	.LASF452:
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3570 297c 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  3570      20726576 
  3570      6973696F 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 95
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 95
 
 
  3570      6E203232 
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3589      56495F47 
  3589      415000
  3590              	.LASF411:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 96
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 96
 
 
  3591 2ac7 4359424C 		.ascii	"CYBLE_EVT_UDSC_ERROR_RESPONSE\000"
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3609      4F544946 
  3610              	.LASF390:
  3611 2bf1 4359424C 		.ascii	"CYBLE_EVT_SCPSC_READ_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 97
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 97
 
 
  3611      455F4556 
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3629      455F4556 
  3629      545F5253 
  3629      4353435F 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 98
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 98
 
 
  3629      4E4F5449 
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3649      655F636F 
  3649      6E6E4861 
  3649      6E646C65 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 99
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 99
 
 
  3649      00
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3669      48414E44 
  3670              	.LASF273:
  3671 2f4c 4359424C 		.ascii	"CYBLE_EVT_ESSC_WRITE_CHAR_RESPONSE\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 100
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 100
 
 
  3671      455F4556 
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3689      455F4556 
  3689      545F4850 
  3689      53435F52 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 101
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 101
 
 
  3689      4541445F 
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3707      4F544946 
  3708              	.LASF388:
  3709 3191 4359424C 		.ascii	"CYBLE_EVT_SCPSS_SCAN_INT_WIN_CHAR_WRITE\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 102
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 102
 
 
  3709      455F4556 
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3727      4D53535F 
  3727      494E4449 
  3728              	.LASF171:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 103
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 103
 
 
  3729 32a9 4359424C 		.ascii	"CYBLE_EVT_GATTC_DISCOVERY_COMPLETE\000"
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3747 33c5 4359424C 		.ascii	"CYBLE_EVT_HTSC_WRITE_DESCR_RESPONSE\000"
  3747      455F4556 
  3747      545F4854 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 104
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 104
 
 
  3747      53435F57 
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3765      434F4E4E 
  3765      45435445 
  3766              	.LASF128:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 105
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 105
 
 
  3767 3503 61637475 		.ascii	"actualLen\000"
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3787      455F4B45 
  3787      595F4558 
  3787      4348414E 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 106
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 106
 
 
  3787      47455F49 
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3805      48414E44 
  3806              	.LASF331:
  3807 373c 4359424C 		.ascii	"CYBLE_EVT_IPSC_READ_MULTIPLE_CHAR_RESPONSE\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 107
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 107
 
 
  3807      455F4556 
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 1
  3827      455F4556 
  3827      545F4849 
  3827      4453535F 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccP9D3ul.s 			page 108
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cck4BTsx.s 			page 108
 
 
  3827      4E4F5449 

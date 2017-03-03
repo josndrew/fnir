@@ -47,6 +47,7 @@
     void switchLED(int index);
     void readSensor(int index);
     void readSensorBitVal();
+    void VersionSW();
     
     
 #endif

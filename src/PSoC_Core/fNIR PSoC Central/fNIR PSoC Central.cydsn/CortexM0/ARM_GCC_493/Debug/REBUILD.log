@@ -1,11 +1,80 @@
---------------- Rebuild Started: 02/03/2017 15:02:20 Project: fNIR PSoC Central, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Rebuild Started: 03/03/2017 12:45:16 Project: fNIR PSoC Central, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\main.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\app_Ble.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\app_UART.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\app_LED.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\millis.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\cymetadata.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\BLE.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\BLE_gatt.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\BLE_eventHandler.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\BLE_HAL_INT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\BLE_HAL_PVT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\BLE_custom.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\Scan_LED.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\Scan_LED_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\Conn_LED.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\Conn_LED_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_SPI_UART.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_SPI_UART_INT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_UART.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_UART_BOOT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\BLE_bless_isr.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_SCBCLK.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_tx.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_tx_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_SCB_IRQ.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_rx.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_rx_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\Cm0Start.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\CyFlash.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\CyLib.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\cyPm.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\cyutils.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\CyLFClk.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\ADC.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\ADC_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\ADC_INT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\ADC_IRQ.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\ADC_intClock.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A1.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A1_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A2.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A2_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A3.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A3_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A4.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A4_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\LED_1.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\LED_1_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\LED_2.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\LED_2_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\LED_3.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\LED_3_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\LED_4.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\LED_4_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A5.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\A5_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.hex"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.elf"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.map"
+Deleting file ".\fNIR PSoC Central.cycdx"
+Deleting file ".\fNIR PSoC Central.svd"
 Deleting file ".\fNIR PSoC Central.rpt"
+Deleting file ".\fNIR PSoC Central_timing.html"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.P"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\.deps\SOURCE_ASM__ARM_GCC_GENERIC.P"
 cydsfit.exe -.appdatapath "C:\Users\Andrew Joseph\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\fNIR PSoC Central.cyprj" -d CYBLE-214009-00 -s "C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
 HDL Generation...
 Synthesis...
 Tech Mapping...
-ADD: pft.M0040: information: The following 8 pin(s) will be assigned a location by the fitter: \UART:rx(0)\, \UART:tx(0)\, A1(0), A2(0), A3(0), A4(0), Conn_LED(0), Scan_LED(0)
+ADD: pft.M0040: information: The following 3 pin(s) will be assigned a location by the fitter: \UART:rx(0)\, \UART:tx(0)\, Conn_LED(0)
 Analog Placement...
 Analog Routing...
 Analog Code Generation...
@@ -21,10 +90,10 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/app_Ble.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c app_Ble.c -o .\CortexM0\ARM_GCC_493\Debug\app_Ble.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/app_UART.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c app_UART.c -o .\CortexM0\ARM_GCC_493\Debug\app_UART.o
 app_UART.c: In function 'HandleUartTxTraffic':
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/app_LED.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c app_LED.c -o .\CortexM0\ARM_GCC_493\Debug\app_LED.o
-app_UART.c:229:17: warning: "/*" within comment [-Wcomment]
+app_UART.c:327:17: warning: "/*" within comment [-Wcomment]
                  /*uartTxDataLength remains unchanged ;
  ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/app_LED.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c app_LED.c -o .\CortexM0\ARM_GCC_493\Debug\app_LED.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/millis.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c millis.c -o .\CortexM0\ARM_GCC_493\Debug\millis.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/cyfitter_cfg.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/cymetadata.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC4\cymetadata.c -o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
@@ -79,12 +148,14 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/LED_3_PM.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC4\LED_3_PM.c -o .\CortexM0\ARM_GCC_493\Debug\LED_3_PM.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/LED_4.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC4\LED_4.c -o .\CortexM0\ARM_GCC_493\Debug\LED_4.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/LED_4_PM.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC4\LED_4_PM.c -o .\CortexM0\ARM_GCC_493\Debug\LED_4_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/A5.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC4\A5.c -o .\CortexM0\ARM_GCC_493\Debug\A5.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/A5_PM.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC4\A5_PM.c -o .\CortexM0\ARM_GCC_493\Debug\A5_PM.o
 arm-none-eabi-as.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=.\CortexM0\ARM_GCC_493\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o Generated_Source\PSoC4\CyBootAsmGnu.s
-arm-none-eabi-ar.exe -rs ".\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.a" .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\BLE.o .\CortexM0\ARM_GCC_493\Debug\BLE_gatt.o .\CortexM0\ARM_GCC_493\Debug\BLE_eventHandler.o .\CortexM0\ARM_GCC_493\Debug\BLE_HAL_INT.o .\CortexM0\ARM_GCC_493\Debug\BLE_HAL_PVT.o .\CortexM0\ARM_GCC_493\Debug\BLE_custom.o .\CortexM0\ARM_GCC_493\Debug\Scan_LED.o .\CortexM0\ARM_GCC_493\Debug\Scan_LED_PM.o .\CortexM0\ARM_GCC_493\Debug\Conn_LED.o .\CortexM0\ARM_GCC_493\Debug\Conn_LED_PM.o .\CortexM0\ARM_GCC_493\Debug\UART.o .\CortexM0\ARM_GCC_493\Debug\UART_SPI_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_SPI_UART_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\UART_UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\BLE_bless_isr.o .\CortexM0\ARM_GCC_493\Debug\UART_SCBCLK.o .\CortexM0\ARM_GCC_493\Debug\UART_tx.o .\CortexM0\ARM_GCC_493\Debug\UART_tx_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_SCB_IRQ.o .\CortexM0\ARM_GCC_493\Debug\UART_rx.o .\CortexM0\ARM_GCC_493\Debug\UART_rx_PM.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\ADC.o .\CortexM0\ARM_GCC_493\Debug\ADC_PM.o .\CortexM0\ARM_GCC_493\Debug\ADC_INT.o .\CortexM0\ARM_GCC_493\Debug\ADC_IRQ.o .\CortexM0\ARM_GCC_493\Debug\ADC_intClock.o .\CortexM0\ARM_GCC_493\Debug\A1.o .\CortexM0\ARM_GCC_493\Debug\A1_PM.o .\CortexM0\ARM_GCC_493\Debug\A2.o .\CortexM0\ARM_GCC_493\Debug\A2_PM.o .\CortexM0\ARM_GCC_493\Debug\A3.o .\CortexM0\ARM_GCC_493\Debug\A3_PM.o .\CortexM0\ARM_GCC_493\Debug\A4.o .\CortexM0\ARM_GCC_493\Debug\A4_PM.o .\CortexM0\ARM_GCC_493\Debug\LED_1.o .\CortexM0\ARM_GCC_493\Debug\LED_1_PM.o .\CortexM0\ARM_GCC_493\Debug\LED_2.o .\CortexM0\ARM_GCC_493\Debug\LED_2_PM.o .\CortexM0\ARM_GCC_493\Debug\LED_3.o .\CortexM0\ARM_GCC_493\Debug\LED_3_PM.o .\CortexM0\ARM_GCC_493\Debug\LED_4.o .\CortexM0\ARM_GCC_493\Debug\LED_4_PM.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe -rs ".\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.a" .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\BLE.o .\CortexM0\ARM_GCC_493\Debug\BLE_gatt.o .\CortexM0\ARM_GCC_493\Debug\BLE_eventHandler.o .\CortexM0\ARM_GCC_493\Debug\BLE_HAL_INT.o .\CortexM0\ARM_GCC_493\Debug\BLE_HAL_PVT.o .\CortexM0\ARM_GCC_493\Debug\BLE_custom.o .\CortexM0\ARM_GCC_493\Debug\Scan_LED.o .\CortexM0\ARM_GCC_493\Debug\Scan_LED_PM.o .\CortexM0\ARM_GCC_493\Debug\Conn_LED.o .\CortexM0\ARM_GCC_493\Debug\Conn_LED_PM.o .\CortexM0\ARM_GCC_493\Debug\UART.o .\CortexM0\ARM_GCC_493\Debug\UART_SPI_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_SPI_UART_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\UART_UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\BLE_bless_isr.o .\CortexM0\ARM_GCC_493\Debug\UART_SCBCLK.o .\CortexM0\ARM_GCC_493\Debug\UART_tx.o .\CortexM0\ARM_GCC_493\Debug\UART_tx_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_SCB_IRQ.o .\CortexM0\ARM_GCC_493\Debug\UART_rx.o .\CortexM0\ARM_GCC_493\Debug\UART_rx_PM.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\ADC.o .\CortexM0\ARM_GCC_493\Debug\ADC_PM.o .\CortexM0\ARM_GCC_493\Debug\ADC_INT.o .\CortexM0\ARM_GCC_493\Debug\ADC_IRQ.o .\CortexM0\ARM_GCC_493\Debug\ADC_intClock.o .\CortexM0\ARM_GCC_493\Debug\A1.o .\CortexM0\ARM_GCC_493\Debug\A1_PM.o .\CortexM0\ARM_GCC_493\Debug\A2.o .\CortexM0\ARM_GCC_493\Debug\A2_PM.o .\CortexM0\ARM_GCC_493\Debug\A3.o .\CortexM0\ARM_GCC_493\Debug\A3_PM.o .\CortexM0\ARM_GCC_493\Debug\A4.o .\CortexM0\ARM_GCC_493\Debug\A4_PM.o .\CortexM0\ARM_GCC_493\Debug\LED_1.o .\CortexM0\ARM_GCC_493\Debug\LED_1_PM.o .\CortexM0\ARM_GCC_493\Debug\LED_2.o .\CortexM0\ARM_GCC_493\Debug\LED_2_PM.o .\CortexM0\ARM_GCC_493\Debug\LED_3.o .\CortexM0\ARM_GCC_493\Debug\LED_3_PM.o .\CortexM0\ARM_GCC_493\Debug\LED_4.o .\CortexM0\ARM_GCC_493\Debug\LED_4_PM.o .\CortexM0\ARM_GCC_493\Debug\A5.o .\CortexM0\ARM_GCC_493\Debug\A5_PM.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o ".\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.elf" .\CortexM0\ARM_GCC_493\Debug\main.o .\CortexM0\ARM_GCC_493\Debug\app_Ble.o .\CortexM0\ARM_GCC_493\Debug\app_UART.o .\CortexM0\ARM_GCC_493\Debug\app_LED.o .\CortexM0\ARM_GCC_493\Debug\millis.o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o ".\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.a" "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\BLE_v3_20\Library\gccCyBLEStack_BLE_SOC_CENTRAL.a" "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -O0 -ffat-lto-objects -L Generated_Source\PSoC4 "-Wl,-Map,.\CortexM0\ARM_GCC_493\Debug/fNIR PSoC Central.map" -T "C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\Generated_Source\PSoC4\cm0gcc.ld" -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C "C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.elf" --flash_row_size 256 --flash_size 262144
 cyelftool.exe -S "C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\CortexM0\ARM_GCC_493\Debug\fNIR PSoC Central.elf"
-Flash used: 94969 of 262144 bytes (36.2 %).
-SRAM used: 14984 of 32768 bytes (45.7 %). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Rebuild Succeeded: 02/03/2017 15:02:44 ---------------
+Flash used: 96009 of 262144 bytes (36.6 %).
+SRAM used: 14992 of 32768 bytes (45.8 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 03/03/2017 12:48:32 ---------------

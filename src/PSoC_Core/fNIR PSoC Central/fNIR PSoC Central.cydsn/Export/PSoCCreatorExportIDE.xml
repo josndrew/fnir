@@ -185,6 +185,10 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED_4.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED_4_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\LED_4_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\A5.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\A5.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\A5_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\A5_PM.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\Export\ARM_GCC_Generic\BLE_v3_20">

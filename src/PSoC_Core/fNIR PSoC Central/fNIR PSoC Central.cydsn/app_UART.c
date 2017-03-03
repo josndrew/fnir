@@ -44,8 +44,10 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
             for (l = 0; l < 5; l++) //Loop Through Light Source
             {                                
                 switchLED(l);
+                CyDelay(10);
                 readSensor(l);                
-            }   
+            }
+            switchLED(0);
             break;
         case 's':
             millis_Reset();
@@ -54,12 +56,15 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
             CySoftwareReset();
             break;
         case 'b':
-            for (l = 0; l < 4; l++) //Loop Through Each Sensor
-            {
-                ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
-                uint16 VAL1 = ADC_GetResult16(l);
-                ADC_SetOffset(l,VAL1);
-            }
+//            for (l = 0; l < 4; l++) //Loop Through Each Sensor
+//            {
+//                ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+//                uint16 VAL1 = ADC_GetResult16(l);
+//                ADC_SetOffset(l,VAL1);
+//            }
+            break;
+        case 'v':
+            VersionSW();
             break;
         case '0':
             switchLED(0);
@@ -86,6 +91,17 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
     }
     
 }
+void VersionSW()
+{
+    
+    uint8 writeBuffer[40]={ 'S', 'W', ' ', 'V', 'e', 'r', 's', 'i', 'o', 'n', 
+         ':', ' ', '0', '.', '1', 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+         0x00, 0x00, 0x00, 0x0D, 0x0A};
+                
+    sendCommand(writeBuffer); 
+}
+
 
 void readSensor(int index)
 {
@@ -147,7 +163,7 @@ void readSensorBitVal()
             VAL1 = ADC_GetResult16(k) - ADC_offset[k];        
         }while (VAL1 > 64000);
         
-        bit_to_str (&writeBuffer[count], VAL1, 30);
+        bit_to_str (&writeBuffer[count], VAL1, 10);
 
         sendCommand(writeBuffer); 
     }
@@ -182,11 +198,13 @@ void switchLED(int index)
             LED_3_Write(1);
             LED_4_Write(0);
             break;
-        default:
+        case 4:
             LED_1_Write(0);
             LED_2_Write(0);
             LED_3_Write(0);
             LED_4_Write(1);
+            break;
+        default:
             break;
     }
 }

@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\fNIR PSoC Central.cyprj
--- Generated: 02/17/2017 12:25:49
+-- Generated: 03/03/2017 12:48:07
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \fNIR PSoC Central\ IS
@@ -30,6 +30,7 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     SIGNAL A2(0)__PA : bit;
     SIGNAL A3(0)__PA : bit;
     SIGNAL A4(0)__PA : bit;
+    SIGNAL A5(0)__PA : bit;
     SIGNAL ClockBlock_ECO : bit;
     SIGNAL ClockBlock_EXTCLK : bit;
     SIGNAL ClockBlock_HFCLK : bit;
@@ -49,8 +50,8 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     SIGNAL Net_14 : bit;
     SIGNAL Net_18 : bit;
     SIGNAL Net_19 : bit;
-    SIGNAL Net_46 : bit;
-    SIGNAL Net_47 : bit;
+    SIGNAL Net_381 : bit;
+    SIGNAL Net_382 : bit;
     SIGNAL Scan_LED(0)__PA : bit;
     SIGNAL \ADC:Net_1845_ff6\ : bit;
     ATTRIBUTE global_signal OF \ADC:Net_1845_ff6\ : SIGNAL IS true;
@@ -99,29 +100,31 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF Scan_LED(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF Scan_LED(0) : LABEL IS "P0[1]";
+    ATTRIBUTE Location OF Scan_LED(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF Conn_LED(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF Conn_LED(0) : LABEL IS "P1[0]";
+    ATTRIBUTE Location OF Conn_LED(0) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF \UART:tx(0)\ : LABEL IS "iocell3";
     ATTRIBUTE Location OF \UART:tx(0)\ : LABEL IS "P0[5]";
     ATTRIBUTE lib_model OF \UART:rx(0)\ : LABEL IS "iocell4";
     ATTRIBUTE Location OF \UART:rx(0)\ : LABEL IS "P0[4]";
     ATTRIBUTE lib_model OF A1(0) : LABEL IS "iocell5";
-    ATTRIBUTE Location OF A1(0) : LABEL IS "P3[2]";
+    ATTRIBUTE Location OF A1(0) : LABEL IS "P3[3]";
     ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell6";
-    ATTRIBUTE Location OF A2(0) : LABEL IS "P3[3]";
+    ATTRIBUTE Location OF A2(0) : LABEL IS "P3[5]";
     ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF A3(0) : LABEL IS "P3[4]";
+    ATTRIBUTE Location OF A3(0) : LABEL IS "P3[7]";
     ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell8";
-    ATTRIBUTE Location OF A4(0) : LABEL IS "P3[5]";
+    ATTRIBUTE Location OF A4(0) : LABEL IS "P3[1]";
     ATTRIBUTE lib_model OF LED_1(0) : LABEL IS "iocell9";
-    ATTRIBUTE Location OF LED_1(0) : LABEL IS "P1[1]";
+    ATTRIBUTE Location OF LED_1(0) : LABEL IS "P1[2]";
     ATTRIBUTE lib_model OF LED_2(0) : LABEL IS "iocell10";
-    ATTRIBUTE Location OF LED_2(0) : LABEL IS "P1[2]";
+    ATTRIBUTE Location OF LED_2(0) : LABEL IS "P1[3]";
     ATTRIBUTE lib_model OF LED_3(0) : LABEL IS "iocell11";
-    ATTRIBUTE Location OF LED_3(0) : LABEL IS "P1[3]";
+    ATTRIBUTE Location OF LED_3(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF LED_4(0) : LABEL IS "iocell12";
-    ATTRIBUTE Location OF LED_4(0) : LABEL IS "P1[4]";
+    ATTRIBUTE Location OF LED_4(0) : LABEL IS "P3[4]";
+    ATTRIBUTE lib_model OF A5(0) : LABEL IS "iocell13";
+    ATTRIBUTE Location OF A5(0) : LABEL IS "P3[6]";
     ATTRIBUTE Location OF \BLE:cy_m0s8_ble\ : LABEL IS "F(BLE,0)";
     ATTRIBUTE Location OF \BLE:bless_isr\ : LABEL IS "[IntrContainer=(0)][IntrId=(12)]";
     ATTRIBUTE Location OF \UART:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(9)]";
@@ -1468,6 +1471,95 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
+    A5:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "e3dfa096-a245-44e2-bd4d-7770bdcc38d1",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "A",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "1",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    A5(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "A5",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
+        PORT MAP(
+            pa_out => A5(0)__PA,
+            oe => open,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
     \BLE:cy_m0s8_ble\:p4blecell
         GENERIC MAP(
             cy_registers => "")
@@ -1529,7 +1621,7 @@ BEGIN
             cy_registers => "")
         PORT MAP(
             clock => \ADC:Net_1845_ff6\,
-            sample_done => Net_46,
+            sample_done => Net_381,
             chan_id_valid => \ADC:Net_3108\,
             chan_id_3 => \ADC:Net_3109_3\,
             chan_id_2 => \ADC:Net_3109_2\,
@@ -1548,7 +1640,7 @@ BEGIN
             data_2 => \ADC:Net_3111_2\,
             data_1 => \ADC:Net_3111_1\,
             data_0 => \ADC:Net_3111_0\,
-            tr_sar_out => Net_47,
+            tr_sar_out => Net_382,
             irq => \ADC:Net_3112\,
             sw_negvref => open,
             cfg_st_sel_1 => open,
@@ -1562,7 +1654,7 @@ BEGIN
     \ADC:cy_psoc4_sarmux_8\:p4sarmuxcell
         GENERIC MAP(
             cy_registers => "",
-            input_mode => "0000",
-            muxin_width => 4);
+            input_mode => "00000",
+            muxin_width => 5);
 
 END __DEFAULT__;

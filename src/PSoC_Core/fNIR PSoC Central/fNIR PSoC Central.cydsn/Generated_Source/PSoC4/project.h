@@ -59,6 +59,8 @@
 #include "LED_3_aliases.h"
 #include "LED_4.h"
 #include "LED_4_aliases.h"
+#include "A5.h"
+#include "A5_aliases.h"
 #include "BLE_bless_isr.h"
 #include "UART_SCBCLK.h"
 #include "UART_tx.h"
