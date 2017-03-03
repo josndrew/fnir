@@ -13,4 +13,5 @@ C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\GUI.mainFor
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\GUI.SettingsSetup.resources
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Debug\MathNet.Numerics.dll
 C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Debug\MathNet.Numerics.xml
-C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Debug\gui.csprojResolveAssemblyReference.cache
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Debug\GUI.exe.CodeAnalysisLog.xml
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Debug\GUI.exe.lastcodeanalysissucceeded

@@ -127,7 +127,7 @@ namespace GUI
             tabPage2.Controls.Add(settings_dialog);
             settings_dialog.Location = new Point(450, 150);
             settings_dialog.Visible = true;
-            settings_dialog.Show();
+            
 
             comboBox1.Visible = false;
                         
@@ -155,7 +155,7 @@ namespace GUI
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(Environment.ExitCode);
-            Close();
+            this.BeginInvoke(new MethodInvoker(Close));
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -499,15 +499,7 @@ namespace GUI
                     settings_dialog.Visible = true;
                     settings_dialog.Enabled = true;
                     
-                    button2.Enabled = false;
-                    
-                    
-                    for (int k = 0; k < NUM_CHANNELS; k++)
-                    {
-                        labels[k].BackColor = Color.Transparent;
-                        labels[k + NUM_CHANNELS].BackColor = Color.Transparent;
-                    }
-                    
+                    button2.Enabled = false;                    
                     break;
             }
         }
@@ -703,7 +695,6 @@ namespace GUI
                 catch (System.IndexOutOfRangeException)
                 {
                     //Thread.Sleep(1000);
-                    Console.WriteLine(lineCount + "  " + textBox3.Lines.Count());
                     if ((lineCount == textBox3.Lines.Count() - 1) && (!isCollecting))
                     {
                         return;
@@ -1016,8 +1007,6 @@ namespace GUI
 
             yCord1_P = Math.Round(sol[0, 0] * 100, 3, MidpointRounding.AwayFromZero);
             yCord2_P = Math.Round(sol[1, 0] * 100, 3, MidpointRounding.AwayFromZero);
-
-
         }
 
         private void updateNumDisplays()
