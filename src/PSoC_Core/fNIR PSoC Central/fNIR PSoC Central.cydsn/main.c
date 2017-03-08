@@ -76,6 +76,10 @@ int main()
     CyBle_ProcessEvents();
     ADC_Start();
     ADC_StartConvert();
+    PWM_1_Start();
+    PWM_2_Start();
+    PWM_3_Start();
+    PWM_4_Start();
     
     millis_Start();
     /***************************************************************************

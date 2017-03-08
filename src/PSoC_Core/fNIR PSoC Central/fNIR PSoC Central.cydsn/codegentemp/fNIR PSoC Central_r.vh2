@@ -1,5 +1,5 @@
 -- Project:   fNIR PSoC Central
--- Generated: 03/03/2017 12:48:05
+-- Generated: 03/08/2017 13:50:47
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \fNIR PSoC Central\ IS
@@ -52,6 +52,38 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     SIGNAL Net_19 : bit;
     SIGNAL Net_381 : bit;
     SIGNAL Net_382 : bit;
+    SIGNAL Net_393 : bit;
+    SIGNAL Net_394 : bit;
+    SIGNAL Net_395 : bit;
+    SIGNAL Net_396 : bit;
+    SIGNAL Net_398 : bit;
+    SIGNAL Net_399_ff10 : bit;
+    ATTRIBUTE global_signal OF Net_399_ff10 : SIGNAL IS true;
+    SIGNAL Net_399_ff7 : bit;
+    ATTRIBUTE global_signal OF Net_399_ff7 : SIGNAL IS true;
+    SIGNAL Net_399_ff8 : bit;
+    ATTRIBUTE global_signal OF Net_399_ff8 : SIGNAL IS true;
+    SIGNAL Net_399_ff9 : bit;
+    ATTRIBUTE global_signal OF Net_399_ff9 : SIGNAL IS true;
+    SIGNAL Net_403 : bit;
+    SIGNAL Net_410 : bit;
+    SIGNAL Net_411 : bit;
+    SIGNAL Net_412 : bit;
+    SIGNAL Net_413 : bit;
+    SIGNAL Net_414 : bit;
+    SIGNAL Net_415 : bit;
+    SIGNAL Net_428 : bit;
+    SIGNAL Net_438 : bit;
+    SIGNAL Net_439 : bit;
+    SIGNAL Net_440 : bit;
+    SIGNAL Net_441 : bit;
+    SIGNAL Net_442 : bit;
+    SIGNAL Net_443 : bit;
+    SIGNAL Net_471 : bit;
+    SIGNAL Net_472 : bit;
+    SIGNAL Net_473 : bit;
+    SIGNAL Net_474 : bit;
+    SIGNAL Net_475 : bit;
     SIGNAL Scan_LED(0)__PA : bit;
     SIGNAL \ADC:Net_1845_ff6\ : bit;
     ATTRIBUTE global_signal OF \ADC:Net_1845_ff6\ : SIGNAL IS true;
@@ -100,9 +132,9 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF Scan_LED(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF Scan_LED(0) : LABEL IS "P3[2]";
+    ATTRIBUTE Location OF Scan_LED(0) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF Conn_LED(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF Conn_LED(0) : LABEL IS "P0[1]";
+    ATTRIBUTE Location OF Conn_LED(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF \UART:tx(0)\ : LABEL IS "iocell3";
     ATTRIBUTE Location OF \UART:tx(0)\ : LABEL IS "P0[5]";
     ATTRIBUTE lib_model OF \UART:rx(0)\ : LABEL IS "iocell4";
@@ -131,6 +163,10 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     ATTRIBUTE Location OF \UART:SCB\ : LABEL IS "F(SCB,0)";
     ATTRIBUTE Location OF \ADC:IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(15)]";
     ATTRIBUTE Location OF \ADC:cy_psoc4_sar\ : LABEL IS "F(SARADC,0)";
+    ATTRIBUTE Location OF \PWM_1:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,0)";
+    ATTRIBUTE Location OF \PWM_2:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,3)";
+    ATTRIBUTE Location OF \PWM_3:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,2)";
+    ATTRIBUTE Location OF \PWM_4:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,1)";
     COMPONENT interrupt
         PORT (
             interrupt : IN std_ulogic;
@@ -314,6 +350,21 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
             rx_req : OUT std_ulogic;
             tx_req : OUT std_ulogic);
     END COMPONENT;
+    COMPONENT m0s8tcpwmcell
+        PORT (
+            clock : IN std_ulogic;
+            capture : IN std_ulogic;
+            count : IN std_ulogic;
+            reload : IN std_ulogic;
+            stop : IN std_ulogic;
+            start : IN std_ulogic;
+            tr_underflow : OUT std_ulogic;
+            tr_overflow : OUT std_ulogic;
+            tr_compare_match : OUT std_ulogic;
+            line_out : OUT std_ulogic;
+            line_out_compl : OUT std_ulogic;
+            interrupt : OUT std_ulogic);
+    END COMPONENT;
     COMPONENT p4blecell
         PORT (
             interrupt : OUT std_ulogic;
@@ -389,6 +440,10 @@ BEGIN
             lfclk => ClockBlock_LFCLK,
             wco => ClockBlock_WCO,
             dsi_in_0 => ClockBlock_Routed1,
+            ff_div_7 => Net_399_ff7,
+            ff_div_8 => Net_399_ff10,
+            ff_div_9 => Net_399_ff9,
+            ff_div_10 => Net_399_ff8,
             ff_div_1 => \UART:Net_847_ff1\,
             ff_div_6 => \ADC:Net_1845_ff6\);
 
@@ -1116,7 +1171,7 @@ BEGIN
             drive_mode => "110",
             ibuf_enabled => "1",
             id => "bee1badf-060f-4d34-9b56-a28b67e7d11f",
-            init_dr_st => "0",
+            init_dr_st => "1",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -1135,7 +1190,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "0",
+            output_conn => "1",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -1193,6 +1248,8 @@ BEGIN
         PORT MAP(
             pa_out => LED_1(0)__PA,
             oe => open,
+            pin_input => Net_403,
+            pad_out => LED_1(0)_PAD,
             pad_in => LED_1(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1206,7 +1263,7 @@ BEGIN
             drive_mode => "110",
             ibuf_enabled => "1",
             id => "0b8d8601-5724-4e52-ba11-539f2628f14d",
-            init_dr_st => "0",
+            init_dr_st => "1",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -1225,7 +1282,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "0",
+            output_conn => "1",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -1283,6 +1340,8 @@ BEGIN
         PORT MAP(
             pa_out => LED_2(0)__PA,
             oe => open,
+            pin_input => Net_414,
+            pad_out => LED_2(0)_PAD,
             pad_in => LED_2(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1296,7 +1355,7 @@ BEGIN
             drive_mode => "110",
             ibuf_enabled => "1",
             id => "372d46e3-67e4-4f6b-80c0-efb83b8b6673",
-            init_dr_st => "0",
+            init_dr_st => "1",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -1315,7 +1374,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "0",
+            output_conn => "1",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -1373,6 +1432,8 @@ BEGIN
         PORT MAP(
             pa_out => LED_3(0)__PA,
             oe => open,
+            pin_input => Net_428,
+            pad_out => LED_3(0)_PAD,
             pad_in => LED_3(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1386,7 +1447,7 @@ BEGIN
             drive_mode => "110",
             ibuf_enabled => "1",
             id => "d1379db7-e0cc-49b5-97d2-59e5a6ae1f50",
-            init_dr_st => "0",
+            init_dr_st => "1",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -1405,7 +1466,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "0",
+            output_conn => "1",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -1463,6 +1524,8 @@ BEGIN
         PORT MAP(
             pa_out => LED_4(0)__PA,
             oe => open,
+            pin_input => Net_442,
+            pad_out => LED_4(0)_PAD,
             pad_in => LED_4(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1656,5 +1719,73 @@ BEGIN
             cy_registers => "",
             input_mode => "00000",
             muxin_width => 5);
+
+    \PWM_1:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => Net_399_ff7,
+            capture => '0',
+            count => '1',
+            reload => '0',
+            stop => '0',
+            start => '0',
+            tr_underflow => Net_395,
+            tr_overflow => Net_394,
+            tr_compare_match => Net_396,
+            line_out => Net_403,
+            line_out_compl => Net_398,
+            interrupt => Net_393);
+
+    \PWM_2:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => Net_399_ff8,
+            capture => '0',
+            count => '1',
+            reload => '0',
+            stop => '0',
+            start => '0',
+            tr_underflow => Net_412,
+            tr_overflow => Net_411,
+            tr_compare_match => Net_413,
+            line_out => Net_414,
+            line_out_compl => Net_415,
+            interrupt => Net_410);
+
+    \PWM_3:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => Net_399_ff9,
+            capture => '0',
+            count => '1',
+            reload => '0',
+            stop => '0',
+            start => '0',
+            tr_underflow => Net_473,
+            tr_overflow => Net_472,
+            tr_compare_match => Net_474,
+            line_out => Net_428,
+            line_out_compl => Net_475,
+            interrupt => Net_471);
+
+    \PWM_4:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => Net_399_ff10,
+            capture => '0',
+            count => '1',
+            reload => '0',
+            stop => '0',
+            start => '0',
+            tr_underflow => Net_440,
+            tr_overflow => Net_439,
+            tr_compare_match => Net_441,
+            line_out => Net_442,
+            line_out_compl => Net_443,
+            interrupt => Net_438);
 
 END __DEFAULT__;

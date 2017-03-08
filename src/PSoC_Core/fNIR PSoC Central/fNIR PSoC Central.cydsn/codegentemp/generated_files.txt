@@ -95,6 +95,20 @@
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\A5.h" value="HEADER;;;;;A5" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\A5_aliases.h" value="HEADER;;;;;A5" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\A5_PM.c" value="SOURCE_C;CortexM0;;;;A5" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_1.c" value="SOURCE_C;CortexM0;;;;PWM_1" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_1.h" value="HEADER;;;;;PWM_1" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_1_PM.c" value="SOURCE_C;CortexM0;;;;PWM_1" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\Clock_1.c" value="SOURCE_C;CortexM0;;;;Clock_1" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\Clock_1.h" value="HEADER;;;;;Clock_1" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_2.c" value="SOURCE_C;CortexM0;;;;PWM_2" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_2.h" value="HEADER;;;;;PWM_2" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_2_PM.c" value="SOURCE_C;CortexM0;;;;PWM_2" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_3.c" value="SOURCE_C;CortexM0;;;;PWM_3" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_3.h" value="HEADER;;;;;PWM_3" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_3_PM.c" value="SOURCE_C;CortexM0;;;;PWM_3" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_4.c" value="SOURCE_C;CortexM0;;;;PWM_4" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_4.h" value="HEADER;;;;;PWM_4" />
+  <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\PWM_4_PM.c" value="SOURCE_C;CortexM0;;;;PWM_4" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\BLE_bless_isr.c" value="SOURCE_C;CortexM0;;;;BLE_bless_isr" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\BLE_bless_isr.h" value="HEADER;;;;;BLE_bless_isr" />
   <file name="C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\codegentemp\UART_SCBCLK.c" value="SOURCE_C;CortexM0;;;;UART_SCBCLK" />

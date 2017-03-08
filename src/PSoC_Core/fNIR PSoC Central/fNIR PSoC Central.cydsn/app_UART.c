@@ -12,7 +12,7 @@
 *******************************************************************************/
 
 #include "app_UART.h"
-
+#define BRIGHTNESS         (12000u)
 
 /*******************************************************************************
 * Function Name: HandleUartRxTraffic
@@ -174,35 +174,35 @@ void switchLED(int index)
 {
     switch (index)
     {
-        case 0: 
-            LED_1_Write(0);
-            LED_2_Write(0);
-            LED_3_Write(0);
-            LED_4_Write(0);
+        case 0:
+            PWM_1_WriteCompare(0u);
+            PWM_2_WriteCompare(0u);
+            PWM_3_WriteCompare(0u);
+            PWM_4_WriteCompare(0u);
             break;
         case 1: 
-            LED_1_Write(1);
-            LED_2_Write(0);
-            LED_3_Write(0);
-            LED_4_Write(0);
+            PWM_1_WriteCompare(BRIGHTNESS);
+            PWM_2_WriteCompare(0u);
+            PWM_3_WriteCompare(0u);
+            PWM_4_WriteCompare(0u);
             break;
         case 2: 
-            LED_1_Write(0);
-            LED_2_Write(1);
-            LED_3_Write(0);
-            LED_4_Write(0);
+            PWM_1_WriteCompare(0u);
+            PWM_2_WriteCompare(BRIGHTNESS);
+            PWM_3_WriteCompare(0u);
+            PWM_4_WriteCompare(0u);
             break;
         case 3: 
-            LED_1_Write(0);
-            LED_2_Write(0);
-            LED_3_Write(1);
-            LED_4_Write(0);
+            PWM_1_WriteCompare(0u);
+            PWM_2_WriteCompare(0u);
+            PWM_3_WriteCompare(BRIGHTNESS);
+            PWM_4_WriteCompare(0u);
             break;
         case 4:
-            LED_1_Write(0);
-            LED_2_Write(0);
-            LED_3_Write(0);
-            LED_4_Write(1);
+            PWM_1_WriteCompare(0u);
+            PWM_2_WriteCompare(0u);
+            PWM_3_WriteCompare(0u);
+            PWM_4_WriteCompare(BRIGHTNESS);
             break;
         default:
             break;
