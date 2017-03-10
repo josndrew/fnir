@@ -124,8 +124,10 @@ namespace GUI
             settings_dialog = new SettingsSetup();
             settings_dialog.TopLevel = false;
             settings_dialog.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            tabPage2.Controls.Add(settings_dialog);
-            settings_dialog.Location = new Point(450, 150);
+            groupBox3.Controls.Add(settings_dialog);
+
+            //tabPage2.Controls.Add(settings_dialog);
+            settings_dialog.Location = new Point(5, 50);
             settings_dialog.Visible = true;
             
 
@@ -734,7 +736,7 @@ namespace GUI
                             for (int k = 1; k < 5; k++)
                             {
                                 double yp1 = 0, yp2 = 0;
-                                calcPerData(field1[k], field2[k], out yp1, out yp2);
+                                calcPerData(field1[k], field2[k], out yp1, out yp2, k-1, (int) field1[5]);
                                 outBuffer = outBuffer + "," + String.Format("{0:#,0.000}", yp1) + "," + String.Format("{0:#,0.000}", yp2);
                             }
 
@@ -984,8 +986,15 @@ namespace GUI
             chart.Update();
         }
 
-        private void calcPerData(double yCord1, double yCord2, out double yCord1_P, out double yCord2_P)
+        private void calcPerData(double yCord1, double yCord2, out double yCord1_P, out double yCord2_P, int senIndex, int lightIndex)
         {
+            double[][] distances = {
+                                        new double[] {0, 3.2, 3.2, 5, 5}, //Sensor 1
+                                        new double[] {0, 5.2, 5.2, 7, 7}, //Sensor 2
+                                        new double[] {0, 5, 5, 3.2, 3.2}, //Sensor 3
+                                        new double[] {0, 7, 7, 5.2, 5.2}, //Sensor 4
+                                    };
+
             Matrix<double> C = DenseMatrix.OfArray(new double[,] {{ GUI.Properties.Settings.Default.c_1, GUI.Properties.Settings.Default.c_2 },
                                                                   { GUI.Properties.Settings.Default.c_3, GUI.Properties.Settings.Default.c_4 }});
 
@@ -995,7 +1004,7 @@ namespace GUI
             Matrix<double> DPF = DenseMatrix.OfArray(new double[,] {{ GUI.Properties.Settings.Default.DPF_1, GUI.Properties.Settings.Default.DPF_2 },
                                                                     { GUI.Properties.Settings.Default.DPF_1, GUI.Properties.Settings.Default.DPF_2 }});
 
-            Matrix<double> temp = DPF.Multiply(GUI.Properties.Settings.Default.dist);
+            Matrix<double> temp = DPF.Multiply(distances[senIndex][lightIndex]);
             Matrix<double> eqn = C.PointwiseMultiply(temp);
             Matrix<double> sol = eqn.Solve(A);
 

@@ -124,6 +124,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.channel1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -323,6 +324,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.checkBox5);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.button8);
@@ -360,7 +362,7 @@
             this.groupBox2.Controls.Add(this.checkBox4);
             this.groupBox2.Controls.Add(this.checkBox3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(1082, 83);
+            this.groupBox2.Location = new System.Drawing.Point(1082, 108);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(235, 114);
             this.groupBox2.TabIndex = 13;
@@ -414,9 +416,9 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(1176, 567);
+            this.button8.Location = new System.Drawing.Point(1082, 572);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(135, 35);
+            this.button8.Size = new System.Drawing.Size(235, 30);
             this.button8.TabIndex = 10;
             this.button8.Text = "Send";
             this.button8.UseVisualStyleBackColor = true;
@@ -425,9 +427,9 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(445, 572);
+            this.textBox2.Location = new System.Drawing.Point(465, 572);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(725, 24);
+            this.textBox2.Size = new System.Drawing.Size(575, 24);
             this.textBox2.TabIndex = 9;
             this.textBox2.WordWrap = false;
             // 
@@ -436,7 +438,7 @@
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1082, 237);
+            this.groupBox1.Location = new System.Drawing.Point(1082, 255);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(235, 137);
             this.groupBox1.TabIndex = 8;
@@ -999,6 +1001,17 @@
             this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(465, 143);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(575, 409);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Settings";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1107,6 +1120,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 

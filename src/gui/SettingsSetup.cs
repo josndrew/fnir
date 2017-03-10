@@ -11,6 +11,9 @@ namespace GUI
         {
             InitializeComponent();
             saveButton.Visible = false;
+            textBox8.Visible = false;
+            textBox9.Visible = false;
+            totalDistance.Visible = false;
         }
 
         
