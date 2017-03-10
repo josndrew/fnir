@@ -1,6 +1,6 @@
 // ======================================================================
 // fNIR PSoC Central.v generated from TopDesign.cysch
-// 03/08/2017 at 13:50
+// 03/10/2017 at 09:17
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -2501,7 +2501,7 @@ module top ;
 		#(.id("ddf3b2cf-e434-4622-963a-58a16e9a41bc"),
 		  .source_clock_id(""),
 		  .divisor(0),
-		  .period("100000000"),
+		  .period("104166666.666667"),
 		  .is_direct(0),
 		  .is_digital(0))
 		Clock_1
