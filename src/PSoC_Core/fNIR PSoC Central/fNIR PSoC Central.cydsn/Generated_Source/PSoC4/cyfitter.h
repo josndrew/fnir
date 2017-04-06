@@ -8,13 +8,13 @@
 #define A1__0__DR_INV CYREG_GPIO_PRT3_DR_INV
 #define A1__0__DR_SET CYREG_GPIO_PRT3_DR_SET
 #define A1__0__HSIOM CYREG_HSIOM_PORT_SEL3
-#define A1__0__HSIOM_MASK 0x0000F000u
-#define A1__0__HSIOM_SHIFT 12u
+#define A1__0__HSIOM_MASK 0x000000F0u
+#define A1__0__HSIOM_SHIFT 4u
 #define A1__0__INTCFG CYREG_GPIO_PRT3_INTR_CFG
 #define A1__0__INTR CYREG_GPIO_PRT3_INTR
 #define A1__0__INTR_CFG CYREG_GPIO_PRT3_INTR_CFG
 #define A1__0__INTSTAT CYREG_GPIO_PRT3_INTR
-#define A1__0__MASK 0x08u
+#define A1__0__MASK 0x02u
 #define A1__0__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define A1__0__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define A1__0__PA__CFG10 CYREG_UDB_PA3_CFG10
@@ -34,7 +34,7 @@
 #define A1__0__PC2 CYREG_GPIO_PRT3_PC2
 #define A1__0__PORT 3u
 #define A1__0__PS CYREG_GPIO_PRT3_PS
-#define A1__0__SHIFT 3u
+#define A1__0__SHIFT 1u
 #define A1__DR CYREG_GPIO_PRT3_DR
 #define A1__DR_CLR CYREG_GPIO_PRT3_DR_CLR
 #define A1__DR_INV CYREG_GPIO_PRT3_DR_INV
@@ -43,7 +43,7 @@
 #define A1__INTR CYREG_GPIO_PRT3_INTR
 #define A1__INTR_CFG CYREG_GPIO_PRT3_INTR_CFG
 #define A1__INTSTAT CYREG_GPIO_PRT3_INTR
-#define A1__MASK 0x08u
+#define A1__MASK 0x02u
 #define A1__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define A1__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define A1__PA__CFG10 CYREG_UDB_PA3_CFG10
@@ -63,7 +63,7 @@
 #define A1__PC2 CYREG_GPIO_PRT3_PC2
 #define A1__PORT 3u
 #define A1__PS CYREG_GPIO_PRT3_PS
-#define A1__SHIFT 3u
+#define A1__SHIFT 1u
 
 /* A2 */
 #define A2__0__DR CYREG_GPIO_PRT3_DR
@@ -71,13 +71,13 @@
 #define A2__0__DR_INV CYREG_GPIO_PRT3_DR_INV
 #define A2__0__DR_SET CYREG_GPIO_PRT3_DR_SET
 #define A2__0__HSIOM CYREG_HSIOM_PORT_SEL3
-#define A2__0__HSIOM_MASK 0x00F00000u
-#define A2__0__HSIOM_SHIFT 20u
+#define A2__0__HSIOM_MASK 0xF0000000u
+#define A2__0__HSIOM_SHIFT 28u
 #define A2__0__INTCFG CYREG_GPIO_PRT3_INTR_CFG
 #define A2__0__INTR CYREG_GPIO_PRT3_INTR
 #define A2__0__INTR_CFG CYREG_GPIO_PRT3_INTR_CFG
 #define A2__0__INTSTAT CYREG_GPIO_PRT3_INTR
-#define A2__0__MASK 0x20u
+#define A2__0__MASK 0x80u
 #define A2__0__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define A2__0__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define A2__0__PA__CFG10 CYREG_UDB_PA3_CFG10
@@ -97,7 +97,7 @@
 #define A2__0__PC2 CYREG_GPIO_PRT3_PC2
 #define A2__0__PORT 3u
 #define A2__0__PS CYREG_GPIO_PRT3_PS
-#define A2__0__SHIFT 5u
+#define A2__0__SHIFT 7u
 #define A2__DR CYREG_GPIO_PRT3_DR
 #define A2__DR_CLR CYREG_GPIO_PRT3_DR_CLR
 #define A2__DR_INV CYREG_GPIO_PRT3_DR_INV
@@ -106,7 +106,7 @@
 #define A2__INTR CYREG_GPIO_PRT3_INTR
 #define A2__INTR_CFG CYREG_GPIO_PRT3_INTR_CFG
 #define A2__INTSTAT CYREG_GPIO_PRT3_INTR
-#define A2__MASK 0x20u
+#define A2__MASK 0x80u
 #define A2__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define A2__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define A2__PA__CFG10 CYREG_UDB_PA3_CFG10
@@ -126,7 +126,7 @@
 #define A2__PC2 CYREG_GPIO_PRT3_PC2
 #define A2__PORT 3u
 #define A2__PS CYREG_GPIO_PRT3_PS
-#define A2__SHIFT 5u
+#define A2__SHIFT 7u
 
 /* A3 */
 #define A3__0__DR CYREG_GPIO_PRT3_DR
@@ -134,13 +134,13 @@
 #define A3__0__DR_INV CYREG_GPIO_PRT3_DR_INV
 #define A3__0__DR_SET CYREG_GPIO_PRT3_DR_SET
 #define A3__0__HSIOM CYREG_HSIOM_PORT_SEL3
-#define A3__0__HSIOM_MASK 0xF0000000u
-#define A3__0__HSIOM_SHIFT 28u
+#define A3__0__HSIOM_MASK 0x0000F000u
+#define A3__0__HSIOM_SHIFT 12u
 #define A3__0__INTCFG CYREG_GPIO_PRT3_INTR_CFG
 #define A3__0__INTR CYREG_GPIO_PRT3_INTR
 #define A3__0__INTR_CFG CYREG_GPIO_PRT3_INTR_CFG
 #define A3__0__INTSTAT CYREG_GPIO_PRT3_INTR
-#define A3__0__MASK 0x80u
+#define A3__0__MASK 0x08u
 #define A3__0__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define A3__0__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define A3__0__PA__CFG10 CYREG_UDB_PA3_CFG10
@@ -160,7 +160,7 @@
 #define A3__0__PC2 CYREG_GPIO_PRT3_PC2
 #define A3__0__PORT 3u
 #define A3__0__PS CYREG_GPIO_PRT3_PS
-#define A3__0__SHIFT 7u
+#define A3__0__SHIFT 3u
 #define A3__DR CYREG_GPIO_PRT3_DR
 #define A3__DR_CLR CYREG_GPIO_PRT3_DR_CLR
 #define A3__DR_INV CYREG_GPIO_PRT3_DR_INV
@@ -169,7 +169,7 @@
 #define A3__INTR CYREG_GPIO_PRT3_INTR
 #define A3__INTR_CFG CYREG_GPIO_PRT3_INTR_CFG
 #define A3__INTSTAT CYREG_GPIO_PRT3_INTR
-#define A3__MASK 0x80u
+#define A3__MASK 0x08u
 #define A3__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define A3__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define A3__PA__CFG10 CYREG_UDB_PA3_CFG10
@@ -189,7 +189,7 @@
 #define A3__PC2 CYREG_GPIO_PRT3_PC2
 #define A3__PORT 3u
 #define A3__PS CYREG_GPIO_PRT3_PS
-#define A3__SHIFT 7u
+#define A3__SHIFT 3u
 
 /* A4 */
 #define A4__0__DR CYREG_GPIO_PRT3_DR
@@ -197,13 +197,13 @@
 #define A4__0__DR_INV CYREG_GPIO_PRT3_DR_INV
 #define A4__0__DR_SET CYREG_GPIO_PRT3_DR_SET
 #define A4__0__HSIOM CYREG_HSIOM_PORT_SEL3
-#define A4__0__HSIOM_MASK 0x000000F0u
-#define A4__0__HSIOM_SHIFT 4u
+#define A4__0__HSIOM_MASK 0x00F00000u
+#define A4__0__HSIOM_SHIFT 20u
 #define A4__0__INTCFG CYREG_GPIO_PRT3_INTR_CFG
 #define A4__0__INTR CYREG_GPIO_PRT3_INTR
 #define A4__0__INTR_CFG CYREG_GPIO_PRT3_INTR_CFG
 #define A4__0__INTSTAT CYREG_GPIO_PRT3_INTR
-#define A4__0__MASK 0x02u
+#define A4__0__MASK 0x20u
 #define A4__0__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define A4__0__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define A4__0__PA__CFG10 CYREG_UDB_PA3_CFG10
@@ -223,7 +223,7 @@
 #define A4__0__PC2 CYREG_GPIO_PRT3_PC2
 #define A4__0__PORT 3u
 #define A4__0__PS CYREG_GPIO_PRT3_PS
-#define A4__0__SHIFT 1u
+#define A4__0__SHIFT 5u
 #define A4__DR CYREG_GPIO_PRT3_DR
 #define A4__DR_CLR CYREG_GPIO_PRT3_DR_CLR
 #define A4__DR_INV CYREG_GPIO_PRT3_DR_INV
@@ -232,7 +232,7 @@
 #define A4__INTR CYREG_GPIO_PRT3_INTR
 #define A4__INTR_CFG CYREG_GPIO_PRT3_INTR_CFG
 #define A4__INTSTAT CYREG_GPIO_PRT3_INTR
-#define A4__MASK 0x02u
+#define A4__MASK 0x20u
 #define A4__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define A4__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define A4__PA__CFG10 CYREG_UDB_PA3_CFG10
@@ -252,7 +252,7 @@
 #define A4__PC2 CYREG_GPIO_PRT3_PC2
 #define A4__PORT 3u
 #define A4__PS CYREG_GPIO_PRT3_PS
-#define A4__SHIFT 1u
+#define A4__SHIFT 5u
 
 /* A5 */
 #define A5__0__DR CYREG_GPIO_PRT3_DR
@@ -399,13 +399,13 @@
 #define ADC_cy_psoc4_sar__SAR_WOUNDING CYREG_SAR_WOUNDING
 
 /* ADC_cy_psoc4_sarmux_8 */
-#define ADC_cy_psoc4_sarmux_8__CH_0_PIN 3
+#define ADC_cy_psoc4_sarmux_8__CH_0_PIN 1
 #define ADC_cy_psoc4_sarmux_8__CH_0_PORT 0
-#define ADC_cy_psoc4_sarmux_8__CH_1_PIN 5
+#define ADC_cy_psoc4_sarmux_8__CH_1_PIN 7
 #define ADC_cy_psoc4_sarmux_8__CH_1_PORT 0
-#define ADC_cy_psoc4_sarmux_8__CH_2_PIN 7
+#define ADC_cy_psoc4_sarmux_8__CH_2_PIN 3
 #define ADC_cy_psoc4_sarmux_8__CH_2_PORT 0
-#define ADC_cy_psoc4_sarmux_8__CH_3_PIN 1
+#define ADC_cy_psoc4_sarmux_8__CH_3_PIN 5
 #define ADC_cy_psoc4_sarmux_8__CH_3_PORT 0
 #define ADC_cy_psoc4_sarmux_8__CH_4_PIN 6
 #define ADC_cy_psoc4_sarmux_8__CH_4_PORT 0

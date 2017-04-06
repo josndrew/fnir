@@ -21,10 +21,10 @@ set_io "LED_3(0)" iocell 3 0
 set_io "\UART:rx(0)\" iocell 0 4
 set_io "Scan_LED(0)" iocell 0 1
 set_io "Conn_LED(0)" iocell 3 2
-set_io "A1(0)" iocell 3 3
-set_io "A2(0)" iocell 3 5
-set_io "A3(0)" iocell 3 7
-set_io "A4(0)" iocell 3 1
+set_io "A1(0)" iocell 3 1
+set_io "A2(0)" iocell 3 7
+set_io "A3(0)" iocell 3 3
+set_io "A4(0)" iocell 3 5
 set_io "A5(0)" iocell 3 6
 set_location "\PWM_3:cy_m0s8_tcpwm_1\" m0s8tcpwmcell -1 -1 2
 set_location "\PWM_2:cy_m0s8_tcpwm_1\" m0s8tcpwmcell -1 -1 3

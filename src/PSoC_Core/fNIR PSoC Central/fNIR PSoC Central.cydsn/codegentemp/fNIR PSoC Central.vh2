@@ -2,7 +2,7 @@
 --	Conversion of fNIR PSoC Central.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Mar 10 09:18:01 2017
+--	Fri Mar 10 12:12:36 2017
 --
 
 USE cypress.cypress.all;
@@ -168,7 +168,7 @@ TERMINAL \ADC:Net_3167\ : bit;
 TERMINAL \ADC:Net_3166\ : bit;
 TERMINAL \ADC:Net_8\ : bit;
 SIGNAL \ADC:Net_17\ : bit;
-SIGNAL Net_381 : bit;
+SIGNAL Net_770 : bit;
 SIGNAL \ADC:Net_3108\ : bit;
 SIGNAL \ADC:Net_3109_3\ : bit;
 SIGNAL \ADC:Net_3109_2\ : bit;
@@ -187,16 +187,16 @@ SIGNAL \ADC:Net_3111_3\ : bit;
 SIGNAL \ADC:Net_3111_2\ : bit;
 SIGNAL \ADC:Net_3111_1\ : bit;
 SIGNAL \ADC:Net_3111_0\ : bit;
-SIGNAL Net_382 : bit;
+SIGNAL Net_771 : bit;
 SIGNAL \ADC:Net_3207_1\ : bit;
 SIGNAL \ADC:Net_3207_0\ : bit;
 SIGNAL \ADC:Net_3235\ : bit;
 TERMINAL \ADC:Net_2580\ : bit;
-TERMINAL Net_56 : bit;
-TERMINAL Net_95 : bit;
-TERMINAL Net_93 : bit;
-TERMINAL Net_91 : bit;
-TERMINAL Net_386 : bit;
+TERMINAL Net_562 : bit;
+TERMINAL Net_561 : bit;
+TERMINAL Net_560 : bit;
+TERMINAL Net_559 : bit;
+TERMINAL Net_558 : bit;
 TERMINAL \ADC:mux_bus_plus_6\ : bit;
 TERMINAL \ADC:mux_bus_plus_7\ : bit;
 TERMINAL \ADC:mux_bus_plus_8\ : bit;
@@ -846,14 +846,14 @@ Conn_LED:cy_psoc3_pins_v1_10
 		vref=>\ADC:Net_8\,
 		ext_vref=>\ADC:Net_43\,
 		clock=>\ADC:Net_1845\,
-		sample_done=>Net_381,
+		sample_done=>Net_770,
 		chan_id_valid=>\ADC:Net_3108\,
 		chan_id=>(\ADC:Net_3109_3\, \ADC:Net_3109_2\, \ADC:Net_3109_1\, \ADC:Net_3109_0\),
 		data_valid=>\ADC:Net_3110\,
 		data=>(\ADC:Net_3111_11\, \ADC:Net_3111_10\, \ADC:Net_3111_9\, \ADC:Net_3111_8\,
 			\ADC:Net_3111_7\, \ADC:Net_3111_6\, \ADC:Net_3111_5\, \ADC:Net_3111_4\,
 			\ADC:Net_3111_3\, \ADC:Net_3111_2\, \ADC:Net_3111_1\, \ADC:Net_3111_0\),
-		eos_intr=>Net_382,
+		eos_intr=>Net_771,
 		irq=>\ADC:Net_3112\,
 		sw_negvref=>zero,
 		cfg_st_sel=>(zero, zero),
@@ -882,27 +882,27 @@ Conn_LED:cy_psoc3_pins_v1_10
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC:mux_bus_plus_0\,
-		signal2=>Net_56);
+		signal2=>Net_562);
 \ADC:cy_analog_virtualmux_vplus1_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC:mux_bus_plus_1\,
-		signal2=>Net_95);
+		signal2=>Net_561);
 \ADC:cy_analog_virtualmux_vplus2_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC:mux_bus_plus_2\,
-		signal2=>Net_93);
+		signal2=>Net_560);
 \ADC:cy_analog_virtualmux_vplus3_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC:mux_bus_plus_3\,
-		signal2=>Net_91);
+		signal2=>Net_559);
 \ADC:cy_analog_virtualmux_vplus4_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC:mux_bus_plus_4\,
-		signal2=>Net_386);
+		signal2=>Net_558);
 \ADC:cy_analog_virtualmux_vplus5_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
@@ -1119,7 +1119,7 @@ A1:cy_psoc3_pins_v1_10
 	PORT MAP(oe=>(tmpOE__Scan_LED_net_0),
 		y=>(zero),
 		fb=>(tmpFB_0__A1_net_0),
-		analog=>Net_56,
+		analog=>Net_562,
 		io=>(tmpIO_0__A1_net_0),
 		siovref=>(tmpSIOVREF__A1_net_0),
 		annotation=>Net_343,
@@ -1189,7 +1189,7 @@ A2:cy_psoc3_pins_v1_10
 	PORT MAP(oe=>(tmpOE__Scan_LED_net_0),
 		y=>(zero),
 		fb=>(tmpFB_0__A2_net_0),
-		analog=>Net_95,
+		analog=>Net_561,
 		io=>(tmpIO_0__A2_net_0),
 		siovref=>(tmpSIOVREF__A2_net_0),
 		annotation=>Net_344,
@@ -1259,7 +1259,7 @@ A3:cy_psoc3_pins_v1_10
 	PORT MAP(oe=>(tmpOE__Scan_LED_net_0),
 		y=>(zero),
 		fb=>(tmpFB_0__A3_net_0),
-		analog=>Net_93,
+		analog=>Net_560,
 		io=>(tmpIO_0__A3_net_0),
 		siovref=>(tmpSIOVREF__A3_net_0),
 		annotation=>Net_345,
@@ -1329,7 +1329,7 @@ A4:cy_psoc3_pins_v1_10
 	PORT MAP(oe=>(tmpOE__Scan_LED_net_0),
 		y=>(zero),
 		fb=>(tmpFB_0__A4_net_0),
-		analog=>Net_91,
+		analog=>Net_559,
 		io=>(tmpIO_0__A4_net_0),
 		siovref=>(tmpSIOVREF__A4_net_0),
 		annotation=>Net_346,
@@ -1684,7 +1684,7 @@ A5:cy_psoc3_pins_v1_10
 	PORT MAP(oe=>(tmpOE__Scan_LED_net_0),
 		y=>(zero),
 		fb=>(tmpFB_0__A5_net_0),
-		analog=>Net_386,
+		analog=>Net_558,
 		io=>(tmpIO_0__A5_net_0),
 		siovref=>(tmpSIOVREF__A5_net_0),
 		annotation=>Net_387,

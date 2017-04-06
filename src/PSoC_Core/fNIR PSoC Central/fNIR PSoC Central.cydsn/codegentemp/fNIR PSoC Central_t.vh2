@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\fNIR PSoC Central.cyprj
--- Generated: 03/10/2017 09:18:10
+-- Generated: 03/10/2017 12:12:39
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \fNIR PSoC Central\ IS
@@ -50,8 +50,6 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     SIGNAL Net_14 : bit;
     SIGNAL Net_18 : bit;
     SIGNAL Net_19 : bit;
-    SIGNAL Net_381 : bit;
-    SIGNAL Net_382 : bit;
     SIGNAL Net_393 : bit;
     SIGNAL Net_394 : bit;
     SIGNAL Net_395 : bit;
@@ -84,6 +82,8 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     SIGNAL Net_473 : bit;
     SIGNAL Net_474 : bit;
     SIGNAL Net_475 : bit;
+    SIGNAL Net_770 : bit;
+    SIGNAL Net_771 : bit;
     SIGNAL Scan_LED(0)__PA : bit;
     SIGNAL \ADC:Net_1845_ff6\ : bit;
     ATTRIBUTE global_signal OF \ADC:Net_1845_ff6\ : SIGNAL IS true;
@@ -140,13 +140,13 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     ATTRIBUTE lib_model OF \UART:rx(0)\ : LABEL IS "iocell4";
     ATTRIBUTE Location OF \UART:rx(0)\ : LABEL IS "P0[4]";
     ATTRIBUTE lib_model OF A1(0) : LABEL IS "iocell5";
-    ATTRIBUTE Location OF A1(0) : LABEL IS "P3[3]";
+    ATTRIBUTE Location OF A1(0) : LABEL IS "P3[1]";
     ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell6";
-    ATTRIBUTE Location OF A2(0) : LABEL IS "P3[5]";
+    ATTRIBUTE Location OF A2(0) : LABEL IS "P3[7]";
     ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF A3(0) : LABEL IS "P3[7]";
+    ATTRIBUTE Location OF A3(0) : LABEL IS "P3[3]";
     ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell8";
-    ATTRIBUTE Location OF A4(0) : LABEL IS "P3[1]";
+    ATTRIBUTE Location OF A4(0) : LABEL IS "P3[5]";
     ATTRIBUTE lib_model OF LED_1(0) : LABEL IS "iocell9";
     ATTRIBUTE Location OF LED_1(0) : LABEL IS "P1[2]";
     ATTRIBUTE lib_model OF LED_2(0) : LABEL IS "iocell10";
@@ -1684,7 +1684,7 @@ BEGIN
             cy_registers => "")
         PORT MAP(
             clock => \ADC:Net_1845_ff6\,
-            sample_done => Net_381,
+            sample_done => Net_770,
             chan_id_valid => \ADC:Net_3108\,
             chan_id_3 => \ADC:Net_3109_3\,
             chan_id_2 => \ADC:Net_3109_2\,
@@ -1703,7 +1703,7 @@ BEGIN
             data_2 => \ADC:Net_3111_2\,
             data_1 => \ADC:Net_3111_1\,
             data_0 => \ADC:Net_3111_0\,
-            tr_sar_out => Net_382,
+            tr_sar_out => Net_771,
             irq => \ADC:Net_3112\,
             sw_negvref => open,
             cfg_st_sel_1 => open,

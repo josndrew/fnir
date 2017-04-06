@@ -12,7 +12,8 @@
 *******************************************************************************/
 
 #include "app_UART.h"
-#define BRIGHTNESS         (12000u)
+//#define BRIGHTNESS         (39000u)
+int BRIGHTNESS = 39000u;      
 
 /*******************************************************************************
 * Function Name: HandleUartRxTraffic
@@ -34,7 +35,7 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
 {    
     unsigned char *x =  uartRxDataNotification->handleValPair.value.val;
               
-            
+        
     int l; //Variable for Loop Through Light Source           
     
     
@@ -56,12 +57,12 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
             CySoftwareReset();
             break;
         case 'b':
-//            for (l = 0; l < 4; l++) //Loop Through Each Sensor
-//            {
-//                ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
-//                uint16 VAL1 = ADC_GetResult16(l);
-//                ADC_SetOffset(l,VAL1);
-//            }
+            for (l = 0; l < 4; l++) //Loop Through Each Sensor
+            {
+                ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+                uint16 VAL1 = ADC_GetResult16(l);
+                ADC_SetOffset(l,VAL1);
+            }
             break;
         case 'v':
             VersionSW();
@@ -86,6 +87,16 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
             switchLED(4);
             readSensorBitVal();
             break;
+//        case 't':
+//            for (l = 0; l < 14; l+=2) //Loop Through Each Sensor
+//            {                
+//                BRIGHTNESS = l;
+//                switchLED(1);
+//                CyDelay(1500);
+//                readSensor(l); 
+//                CyDelay(500);
+//            }
+//            break;
         default:
             break;
     }
@@ -127,10 +138,10 @@ void readSensor(int index)
         {
             VAL1 = 0;
             ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
-            VAL1 = ADC_GetResult16(k) - ADC_offset[k];        
+            VAL1 = ADC_GetResult16(k) - ADC_offset[k];       
         }while (VAL1 > 64000);
         
-        uint16 AV1 = ADC_CountsTo_mVolts(k, VAL1+ADC_offset[k]);
+        uint16 AV1 = ADC_CountsTo_mVolts(k, VAL1 + ADC_offset[k]);
         
         dec_to_str (&writeBuffer[count], AV1, 4);
         writeBuffer[count + 5] = ',';

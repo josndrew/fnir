@@ -1,6 +1,6 @@
 // ======================================================================
 // fNIR PSoC Central.v generated from TopDesign.cysch
-// 03/10/2017 at 09:17
+// 03/10/2017 at 12:12
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1475,16 +1475,11 @@ module top ;
     electrical  Net_345;
     electrical  Net_344;
     electrical  Net_343;
-          wire  Net_384;
-    electrical  Net_56;
-    electrical  Net_95;
-    electrical  Net_93;
-    electrical  Net_91;
-    electrical  Net_386;
-          wire  Net_383;
-          wire  Net_382;
-          wire  Net_381;
-    electrical  Net_380;
+          wire  Net_773;
+          wire  Net_772;
+          wire  Net_771;
+          wire  Net_770;
+    electrical  Net_769;
           wire  Net_31;
           wire  Net_30;
           wire  Net_29;
@@ -1508,6 +1503,11 @@ module top ;
     electrical  Net_8;
           wire  Net_14;
           wire  Net_13;
+    electrical  Net_559;
+    electrical  Net_558;
+    electrical  Net_560;
+    electrical  Net_561;
+    electrical  Net_562;
           wire  Net_399;
     electrical  Net_3170;
     electrical  Net_10;
@@ -1772,15 +1772,15 @@ module top ;
         .rx_in(1'b0));
 
     ADC_SAR_SEQ_P4_v2_40_2 ADC (
-        .Vref(Net_380),
-        .sdone(Net_381),
-        .eoc(Net_382),
+        .Vref(Net_769),
+        .sdone(Net_770),
+        .eoc(Net_771),
         .aclk(1'b0),
-        .vinPlus4(Net_386),
-        .vinPlus3(Net_91),
-        .vinPlus2(Net_93),
-        .vinPlus1(Net_95),
-        .vinPlus0(Net_56),
+        .vinPlus4(Net_558),
+        .vinPlus3(Net_559),
+        .vinPlus2(Net_560),
+        .vinPlus1(Net_561),
+        .vinPlus0(Net_562),
         .soc(1'b0));
 
 	wire [0:0] tmpOE__A1_net;
@@ -1846,7 +1846,7 @@ module top ;
 		 (.oe(tmpOE__A1_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__A1_net[0:0]}),
-		  .analog({Net_56}),
+		  .analog({Net_562}),
 		  .io({tmpIO_0__A1_net[0:0]}),
 		  .siovref(tmpSIOVREF__A1_net),
 		  .interrupt({tmpINTERRUPT_0__A1_net[0:0]}),
@@ -1923,7 +1923,7 @@ module top ;
 		 (.oe(tmpOE__A2_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__A2_net[0:0]}),
-		  .analog({Net_95}),
+		  .analog({Net_561}),
 		  .io({tmpIO_0__A2_net[0:0]}),
 		  .siovref(tmpSIOVREF__A2_net),
 		  .interrupt({tmpINTERRUPT_0__A2_net[0:0]}),
@@ -2000,7 +2000,7 @@ module top ;
 		 (.oe(tmpOE__A3_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__A3_net[0:0]}),
-		  .analog({Net_93}),
+		  .analog({Net_560}),
 		  .io({tmpIO_0__A3_net[0:0]}),
 		  .siovref(tmpSIOVREF__A3_net),
 		  .interrupt({tmpINTERRUPT_0__A3_net[0:0]}),
@@ -2077,7 +2077,7 @@ module top ;
 		 (.oe(tmpOE__A4_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__A4_net[0:0]}),
-		  .analog({Net_91}),
+		  .analog({Net_559}),
 		  .io({tmpIO_0__A4_net[0:0]}),
 		  .siovref(tmpSIOVREF__A4_net),
 		  .interrupt({tmpINTERRUPT_0__A4_net[0:0]}),
@@ -2468,7 +2468,7 @@ module top ;
 		 (.oe(tmpOE__A5_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__A5_net[0:0]}),
-		  .analog({Net_386}),
+		  .analog({Net_558}),
 		  .io({tmpIO_0__A5_net[0:0]}),
 		  .siovref(tmpSIOVREF__A5_net),
 		  .interrupt({tmpINTERRUPT_0__A5_net[0:0]}),

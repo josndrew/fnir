@@ -9990,13 +9990,13 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
    8              	.set A1__0__DR_INV, CYREG_GPIO_PRT3_DR_INV
    9              	.set A1__0__DR_SET, CYREG_GPIO_PRT3_DR_SET
   10              	.set A1__0__HSIOM, CYREG_HSIOM_PORT_SEL3
-  11              	.set A1__0__HSIOM_MASK, 0x0000F000
-  12              	.set A1__0__HSIOM_SHIFT, 12
+  11              	.set A1__0__HSIOM_MASK, 0x000000F0
+  12              	.set A1__0__HSIOM_SHIFT, 4
   13              	.set A1__0__INTCFG, CYREG_GPIO_PRT3_INTR_CFG
   14              	.set A1__0__INTR, CYREG_GPIO_PRT3_INTR
   15              	.set A1__0__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
   16              	.set A1__0__INTSTAT, CYREG_GPIO_PRT3_INTR
-  17              	.set A1__0__MASK, 0x08
+  17              	.set A1__0__MASK, 0x02
   18              	.set A1__0__PA__CFG0, CYREG_UDB_PA3_CFG0
   19              	.set A1__0__PA__CFG1, CYREG_UDB_PA3_CFG1
   20              	.set A1__0__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -10016,7 +10016,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   34              	.set A1__0__PC2, CYREG_GPIO_PRT3_PC2
   35              	.set A1__0__PORT, 3
   36              	.set A1__0__PS, CYREG_GPIO_PRT3_PS
-  37              	.set A1__0__SHIFT, 3
+  37              	.set A1__0__SHIFT, 1
   38              	.set A1__DR, CYREG_GPIO_PRT3_DR
 ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 168
 
@@ -10028,7 +10028,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   43              	.set A1__INTR, CYREG_GPIO_PRT3_INTR
   44              	.set A1__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
   45              	.set A1__INTSTAT, CYREG_GPIO_PRT3_INTR
-  46              	.set A1__MASK, 0x08
+  46              	.set A1__MASK, 0x02
   47              	.set A1__PA__CFG0, CYREG_UDB_PA3_CFG0
   48              	.set A1__PA__CFG1, CYREG_UDB_PA3_CFG1
   49              	.set A1__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -10048,7 +10048,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   63              	.set A1__PC2, CYREG_GPIO_PRT3_PC2
   64              	.set A1__PORT, 3
   65              	.set A1__PS, CYREG_GPIO_PRT3_PS
-  66              	.set A1__SHIFT, 3
+  66              	.set A1__SHIFT, 1
   67              	
   68              	/* A2 */
   69              	.set A2__0__DR, CYREG_GPIO_PRT3_DR
@@ -10056,13 +10056,13 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   71              	.set A2__0__DR_INV, CYREG_GPIO_PRT3_DR_INV
   72              	.set A2__0__DR_SET, CYREG_GPIO_PRT3_DR_SET
   73              	.set A2__0__HSIOM, CYREG_HSIOM_PORT_SEL3
-  74              	.set A2__0__HSIOM_MASK, 0x00F00000
-  75              	.set A2__0__HSIOM_SHIFT, 20
+  74              	.set A2__0__HSIOM_MASK, 0xF0000000
+  75              	.set A2__0__HSIOM_SHIFT, 28
   76              	.set A2__0__INTCFG, CYREG_GPIO_PRT3_INTR_CFG
   77              	.set A2__0__INTR, CYREG_GPIO_PRT3_INTR
   78              	.set A2__0__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
   79              	.set A2__0__INTSTAT, CYREG_GPIO_PRT3_INTR
-  80              	.set A2__0__MASK, 0x20
+  80              	.set A2__0__MASK, 0x80
   81              	.set A2__0__PA__CFG0, CYREG_UDB_PA3_CFG0
   82              	.set A2__0__PA__CFG1, CYREG_UDB_PA3_CFG1
   83              	.set A2__0__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -10085,7 +10085,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   97              	.set A2__0__PC2, CYREG_GPIO_PRT3_PC2
   98              	.set A2__0__PORT, 3
   99              	.set A2__0__PS, CYREG_GPIO_PRT3_PS
- 100              	.set A2__0__SHIFT, 5
+ 100              	.set A2__0__SHIFT, 7
  101              	.set A2__DR, CYREG_GPIO_PRT3_DR
  102              	.set A2__DR_CLR, CYREG_GPIO_PRT3_DR_CLR
  103              	.set A2__DR_INV, CYREG_GPIO_PRT3_DR_INV
@@ -10094,7 +10094,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  106              	.set A2__INTR, CYREG_GPIO_PRT3_INTR
  107              	.set A2__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
  108              	.set A2__INTSTAT, CYREG_GPIO_PRT3_INTR
- 109              	.set A2__MASK, 0x20
+ 109              	.set A2__MASK, 0x80
  110              	.set A2__PA__CFG0, CYREG_UDB_PA3_CFG0
  111              	.set A2__PA__CFG1, CYREG_UDB_PA3_CFG1
  112              	.set A2__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -10114,7 +10114,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  126              	.set A2__PC2, CYREG_GPIO_PRT3_PC2
  127              	.set A2__PORT, 3
  128              	.set A2__PS, CYREG_GPIO_PRT3_PS
- 129              	.set A2__SHIFT, 5
+ 129              	.set A2__SHIFT, 7
  130              	
  131              	/* A3 */
  132              	.set A3__0__DR, CYREG_GPIO_PRT3_DR
@@ -10122,13 +10122,13 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  134              	.set A3__0__DR_INV, CYREG_GPIO_PRT3_DR_INV
  135              	.set A3__0__DR_SET, CYREG_GPIO_PRT3_DR_SET
  136              	.set A3__0__HSIOM, CYREG_HSIOM_PORT_SEL3
- 137              	.set A3__0__HSIOM_MASK, 0xF0000000
- 138              	.set A3__0__HSIOM_SHIFT, 28
+ 137              	.set A3__0__HSIOM_MASK, 0x0000F000
+ 138              	.set A3__0__HSIOM_SHIFT, 12
  139              	.set A3__0__INTCFG, CYREG_GPIO_PRT3_INTR_CFG
  140              	.set A3__0__INTR, CYREG_GPIO_PRT3_INTR
  141              	.set A3__0__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
  142              	.set A3__0__INTSTAT, CYREG_GPIO_PRT3_INTR
- 143              	.set A3__0__MASK, 0x80
+ 143              	.set A3__0__MASK, 0x08
  144              	.set A3__0__PA__CFG0, CYREG_UDB_PA3_CFG0
  145              	.set A3__0__PA__CFG1, CYREG_UDB_PA3_CFG1
  146              	.set A3__0__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -10151,7 +10151,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  160              	.set A3__0__PC2, CYREG_GPIO_PRT3_PC2
  161              	.set A3__0__PORT, 3
  162              	.set A3__0__PS, CYREG_GPIO_PRT3_PS
- 163              	.set A3__0__SHIFT, 7
+ 163              	.set A3__0__SHIFT, 3
  164              	.set A3__DR, CYREG_GPIO_PRT3_DR
  165              	.set A3__DR_CLR, CYREG_GPIO_PRT3_DR_CLR
  166              	.set A3__DR_INV, CYREG_GPIO_PRT3_DR_INV
@@ -10160,7 +10160,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  169              	.set A3__INTR, CYREG_GPIO_PRT3_INTR
  170              	.set A3__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
  171              	.set A3__INTSTAT, CYREG_GPIO_PRT3_INTR
- 172              	.set A3__MASK, 0x80
+ 172              	.set A3__MASK, 0x08
  173              	.set A3__PA__CFG0, CYREG_UDB_PA3_CFG0
  174              	.set A3__PA__CFG1, CYREG_UDB_PA3_CFG1
  175              	.set A3__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -10180,7 +10180,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  189              	.set A3__PC2, CYREG_GPIO_PRT3_PC2
  190              	.set A3__PORT, 3
  191              	.set A3__PS, CYREG_GPIO_PRT3_PS
- 192              	.set A3__SHIFT, 7
+ 192              	.set A3__SHIFT, 3
  193              	
  194              	/* A4 */
  195              	.set A4__0__DR, CYREG_GPIO_PRT3_DR
@@ -10188,13 +10188,13 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  197              	.set A4__0__DR_INV, CYREG_GPIO_PRT3_DR_INV
  198              	.set A4__0__DR_SET, CYREG_GPIO_PRT3_DR_SET
  199              	.set A4__0__HSIOM, CYREG_HSIOM_PORT_SEL3
- 200              	.set A4__0__HSIOM_MASK, 0x000000F0
- 201              	.set A4__0__HSIOM_SHIFT, 4
+ 200              	.set A4__0__HSIOM_MASK, 0x00F00000
+ 201              	.set A4__0__HSIOM_SHIFT, 20
  202              	.set A4__0__INTCFG, CYREG_GPIO_PRT3_INTR_CFG
  203              	.set A4__0__INTR, CYREG_GPIO_PRT3_INTR
  204              	.set A4__0__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
  205              	.set A4__0__INTSTAT, CYREG_GPIO_PRT3_INTR
- 206              	.set A4__0__MASK, 0x02
+ 206              	.set A4__0__MASK, 0x20
  207              	.set A4__0__PA__CFG0, CYREG_UDB_PA3_CFG0
  208              	.set A4__0__PA__CFG1, CYREG_UDB_PA3_CFG1
  209              	.set A4__0__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -10217,7 +10217,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  223              	.set A4__0__PC2, CYREG_GPIO_PRT3_PC2
  224              	.set A4__0__PORT, 3
  225              	.set A4__0__PS, CYREG_GPIO_PRT3_PS
- 226              	.set A4__0__SHIFT, 1
+ 226              	.set A4__0__SHIFT, 5
  227              	.set A4__DR, CYREG_GPIO_PRT3_DR
  228              	.set A4__DR_CLR, CYREG_GPIO_PRT3_DR_CLR
  229              	.set A4__DR_INV, CYREG_GPIO_PRT3_DR_INV
@@ -10226,7 +10226,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  232              	.set A4__INTR, CYREG_GPIO_PRT3_INTR
  233              	.set A4__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
  234              	.set A4__INTSTAT, CYREG_GPIO_PRT3_INTR
- 235              	.set A4__MASK, 0x02
+ 235              	.set A4__MASK, 0x20
  236              	.set A4__PA__CFG0, CYREG_UDB_PA3_CFG0
  237              	.set A4__PA__CFG1, CYREG_UDB_PA3_CFG1
  238              	.set A4__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -10246,7 +10246,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  252              	.set A4__PC2, CYREG_GPIO_PRT3_PC2
  253              	.set A4__PORT, 3
  254              	.set A4__PS, CYREG_GPIO_PRT3_PS
- 255              	.set A4__SHIFT, 1
+ 255              	.set A4__SHIFT, 5
  256              	
  257              	/* A5 */
  258              	.set A5__0__DR, CYREG_GPIO_PRT3_DR
@@ -10402,13 +10402,13 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  399              	.set ADC_cy_psoc4_sar__SAR_WOUNDING, CYREG_SAR_WOUNDING
  400              	
  401              	/* ADC_cy_psoc4_sarmux_8 */
- 402              	.set ADC_cy_psoc4_sarmux_8__CH_0_PIN, 3
+ 402              	.set ADC_cy_psoc4_sarmux_8__CH_0_PIN, 1
  403              	.set ADC_cy_psoc4_sarmux_8__CH_0_PORT, 0
- 404              	.set ADC_cy_psoc4_sarmux_8__CH_1_PIN, 5
+ 404              	.set ADC_cy_psoc4_sarmux_8__CH_1_PIN, 7
  405              	.set ADC_cy_psoc4_sarmux_8__CH_1_PORT, 0
- 406              	.set ADC_cy_psoc4_sarmux_8__CH_2_PIN, 7
+ 406              	.set ADC_cy_psoc4_sarmux_8__CH_2_PIN, 3
  407              	.set ADC_cy_psoc4_sarmux_8__CH_2_PORT, 0
- 408              	.set ADC_cy_psoc4_sarmux_8__CH_3_PIN, 1
+ 408              	.set ADC_cy_psoc4_sarmux_8__CH_3_PIN, 5
  409              	.set ADC_cy_psoc4_sarmux_8__CH_3_PORT, 0
  410              	.set ADC_cy_psoc4_sarmux_8__CH_4_PIN, 6
  411              	.set ADC_cy_psoc4_sarmux_8__CH_4_PORT, 0
