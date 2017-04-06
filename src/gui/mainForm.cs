@@ -596,9 +596,13 @@ namespace GUI
         {
             try
             {
+                comSerial.Write("b"); //Reset Micro
+                Thread.Sleep(20);
                 comSerial.Write("s"); //Reset Micro
-                comSerial.DiscardInBuffer();
-                comSerial.DiscardInBuffer();
+                Thread.Sleep(5);
+
+                comSerial.DiscardOutBuffer();
+                comSerial.DiscardOutBuffer();
                 comSerial.DiscardOutBuffer();
                 comSerial.DiscardInBuffer();
                 comSerial.DiscardOutBuffer();          
@@ -633,7 +637,10 @@ namespace GUI
             {
                 try
                 {
-                    string[] bufferArray = (textBox1.Lines[lineCount]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+
+                    string buffer = textBox1.Lines[lineCount];
+
+                    string[] bufferArray = (buffer).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                     if (bufferArray.Length > 0)
                     {
                         if (bufferArray.Length == 6)
@@ -649,6 +656,8 @@ namespace GUI
                         {
                             lineCount+=2;
                         }
+
+
                     }
                     
                 }
@@ -1129,12 +1138,14 @@ namespace GUI
             string buffer = comSerial.ReadLine();
             buffer = buffer.TrimEnd('\r');
             buffer = buffer.TrimEnd('\0');
-            Invoke((MethodInvoker)delegate { textBox1.AppendText(buffer + "\n"); });
-            
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
+            BeginInvoke((MethodInvoker)delegate { textBox1.AppendText(buffer + "\n"); });
+            BeginInvoke((MethodInvoker)delegate
             {
-                file.WriteLine(buffer);
-            }
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
+                {
+                    file.WriteLine(buffer);
+                }
+            });
         }
 
 

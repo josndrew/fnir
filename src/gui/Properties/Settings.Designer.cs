@@ -97,7 +97,7 @@ namespace GUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#NOT_SET")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Temp")]
         public string workingDirectory {
             get {
                 return ((string)(this["workingDirectory"]));
