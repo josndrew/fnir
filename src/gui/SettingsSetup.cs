@@ -22,7 +22,6 @@ namespace GUI
             connectPressed = true;
 
             GUI.Properties.Settings.Default.delay = (int) numericUpDown9.Value;
-            GUI.Properties.Settings.Default.dist = (double) totalDistance.Value;
             GUI.Properties.Settings.Default.DPF_1 = (double) numericUpDown5.Value;
             GUI.Properties.Settings.Default.DPF_2 = (double) numericUpDown4.Value;
 
@@ -30,10 +29,6 @@ namespace GUI
             GUI.Properties.Settings.Default.c_2 = (double) numericUpDown7.Value;
             GUI.Properties.Settings.Default.c_3 = (double) numericUpDown6.Value;
             GUI.Properties.Settings.Default.c_4 = (double) numericUpDown3.Value;
-
-            GUI.Properties.Settings.Default.I0_1 = (double) numericUpDown1.Value;
-            GUI.Properties.Settings.Default.I0_2 = (double) numericUpDown8.Value;
-
             
             Properties.Settings.Default.Save();
 
@@ -42,8 +37,6 @@ namespace GUI
 
         private void SettingsSetup_Load(object sender, EventArgs e)
         {
-            
-            totalDistance.Value = (decimal) GUI.Properties.Settings.Default.dist;
             numericUpDown5.Value = (decimal) GUI.Properties.Settings.Default.DPF_1;
             numericUpDown4.Value = (decimal) GUI.Properties.Settings.Default.DPF_2;
 
@@ -52,9 +45,6 @@ namespace GUI
             numericUpDown6.Value = (decimal) GUI.Properties.Settings.Default.c_3;
             numericUpDown3.Value = (decimal) GUI.Properties.Settings.Default.c_4;
             numericUpDown9.Value = (decimal)GUI.Properties.Settings.Default.delay;
-
-            numericUpDown1.Value = (decimal) GUI.Properties.Settings.Default.I0_1;
-            numericUpDown8.Value = (decimal) GUI.Properties.Settings.Default.I0_2; 
         }
 
 

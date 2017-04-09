@@ -27,6 +27,7 @@ namespace GUI
         private Thread thread1, thread2, thread3, thread4;
         private Chart[] channels;
         private Label[] labels;
+        private Label[] baselineTable;
         private DataTable foundSessions;
         private bool isCollecting;
         private bool isFrozen = false;
@@ -37,7 +38,13 @@ namespace GUI
         private int freq = 25;
         const int NUM_CHANNELS = 4;
         private string sessionPath, processedPath, logPath;
-        
+        private double[][] baseline = {
+                                        new double[] {0,0,0,0,0}, //Sensor 1
+                                        new double[] {0,0,0,0,0}, //Sensor 2
+                                        new double[] {0,0,0,0,0}, //Sensor 3
+                                        new double[] {0,0,0,0,0}, //Sensor 4
+                                        };
+
 
         public mainForm()
         {
@@ -58,7 +65,7 @@ namespace GUI
             isCollecting = false;
             textBox2.KeyDown += new KeyEventHandler(OnKeyDownHandler);
             button2.Enabled = false;
-            
+
             button5.Enabled = false;
             button6.Enabled = false;
 
@@ -66,7 +73,12 @@ namespace GUI
             currentProcpoint = 0;
             channels = new Chart[NUM_CHANNELS * 2] { channel1, channel2, channel3, channel4, channel1_P, channel2_P, channel3_P, channel4_P };
             labels = new Label[NUM_CHANNELS * 2] { label1, label2, label3, label4, label5, label6, label7, label8 };
-
+            baselineTable = new Label[NUM_CHANNELS * 5] { label11, label12, label13, label14, label15,
+                                                          label16, label17, label18, label19, label20,
+                                                          label21, label22, label23, label24, label25,
+                                                          label26, label27, label28, label29, label30,
+                                                        };
+            updateBaseline();
             for (int j = 0; j < NUM_CHANNELS * 2; j++)
             {
                 channels[j].Visible = false;
@@ -102,25 +114,25 @@ namespace GUI
             foundSessions.Columns.Add("File Path:", typeof(string));
             foundSessions.Columns.Add("File Attribute:", typeof(string));
 
-            
+
 
             dataGridView1.DataSource = foundSessions;
             DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
             chk.HeaderText = "Select";
             dataGridView1.Columns.Add(chk);
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+
             folderBrowserDialog1.SelectedPath = GUI.Properties.Settings.Default.workingDirectory;
             ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
-            sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + (sessionsFound/2).ToString() + ".drexel";
-            processedPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + (sessionsFound/2).ToString() + "_Processed.drexel";
+            sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + (sessionsFound / 2).ToString() + ".drexel";
+            processedPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + (sessionsFound / 2).ToString() + "_Processed.drexel";
             logPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "log.csv";
             if (File.Exists(logPath))
             {
                 File.Delete(logPath);
             }
 
-            
+
             settings_dialog = new SettingsSetup();
             settings_dialog.TopLevel = false;
             settings_dialog.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -129,10 +141,10 @@ namespace GUI
             //tabPage2.Controls.Add(settings_dialog);
             settings_dialog.Location = new Point(5, 50);
             settings_dialog.Visible = true;
-            
+
 
             comboBox1.Visible = false;
-                        
+
         }
         #endregion
 
@@ -171,7 +183,7 @@ namespace GUI
             settings_dialog.ShowDialog();
             if (settings_dialog.btnPressed())
             {
-                changeInterval();   
+                changeInterval();
             }
         }
 
@@ -187,7 +199,7 @@ namespace GUI
                 ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
 
                 sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".drexel";
-                
+
                 if (File.Exists(sessionPath))
                 {
                     //File.Delete(sessionPath);
@@ -234,7 +246,7 @@ namespace GUI
                     thread2.Start();
                 }
             }
-            
+
         }
 
         private void exportDataToCSVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -254,7 +266,7 @@ namespace GUI
                 chart.Series[0].MarkerSize = 10 / (comboBox1.SelectedIndex + 1);
                 chart.Series[1].MarkerSize = 7 / (comboBox1.SelectedIndex + 1);
 
-                
+
                 double newBegin = chart.ChartAreas[0].AxisX.Minimum;
                 double newEnd = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
 
@@ -298,7 +310,7 @@ namespace GUI
             changeGraphUpdateStatus();
         }
 
-       
+
         private void button6_Click(object sender, EventArgs e)
         {
             comSerial.Write("m");
@@ -317,7 +329,7 @@ namespace GUI
                 comSerial.Write(textBox2.Text);
                 textBox2.Clear();
             }
-            
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -422,7 +434,7 @@ namespace GUI
         private void changeCollectingStatus()
         {
             string status = button1.Text;
-            
+
             switch (status)
             {
                 case "START":
@@ -433,8 +445,8 @@ namespace GUI
                     settings_dialog.Visible = true;
                     settings_dialog.Enabled = false;
                     button2.Enabled = true;
-                    
-                    
+
+
                     try
                     {
                         if (!thread1.IsAlive)
@@ -500,8 +512,8 @@ namespace GUI
                     button1.Visible = false;
                     settings_dialog.Visible = true;
                     settings_dialog.Enabled = true;
-                    
-                    button2.Enabled = false;                    
+
+                    button2.Enabled = false;
                     break;
             }
         }
@@ -538,7 +550,7 @@ namespace GUI
                 serialDialogOpen();
             }
         }
-     
+
         private void changeGraphUpdateStatus()
         {
             string status = button2.Text;
@@ -547,15 +559,15 @@ namespace GUI
             {
                 case "Freeze":
                     isFrozen = true;
-                    
+
                     button2.Text = "UnFreeze";
-                    
+
                     break;
 
                 case "UnFreeze":
                     isFrozen = false;
-                    
-                    
+
+
                     button2.Text = "Freeze";
                     break;
             }
@@ -590,29 +602,26 @@ namespace GUI
             else if (comboBox1.SelectedItem.Equals("30 min"))
                 INTERVAL = 1800 * freq;
         }
-        
+
 
         private void get_bufferData()
         {
             try
             {
-                comSerial.Write("b"); //Reset Micro
-                Thread.Sleep(20);
                 comSerial.Write("s"); //Reset Micro
-                Thread.Sleep(5);
 
                 comSerial.DiscardOutBuffer();
                 comSerial.DiscardOutBuffer();
                 comSerial.DiscardOutBuffer();
                 comSerial.DiscardInBuffer();
-                comSerial.DiscardOutBuffer();          
+                comSerial.DiscardOutBuffer();
 
                 while (isCollecting)
                 {
 
                     if (comSerial.DtrEnable)
                     {
-                        
+
                         comSerial.Write("r"); //Get Data
                         Thread.Sleep(GUI.Properties.Settings.Default.delay);
                     }
@@ -628,7 +637,7 @@ namespace GUI
             }
         }
 
-        
+
         private void parseRawData()
         {
             int lineCount = 0;
@@ -654,12 +663,12 @@ namespace GUI
                         }
                         else
                         {
-                            lineCount+=2;
+                            lineCount += 2;
                         }
 
 
                     }
-                    
+
                 }
                 catch (System.IndexOutOfRangeException)
                 {
@@ -698,10 +707,10 @@ namespace GUI
                         }
                         else
                         {
-                            lineCount+=2;
+                            lineCount += 2;
                         }
                     }
-                    
+
                 }
                 catch (System.IndexOutOfRangeException)
                 {
@@ -714,7 +723,7 @@ namespace GUI
                     {
                         return;
                     }
-                    
+
                 }
                 catch (System.ComponentModel.Win32Exception)
                 {
@@ -733,6 +742,10 @@ namespace GUI
                 {
                     string[] buffer1 = (textBox1.Lines[lineCount]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                     string[] buffer2 = (textBox1.Lines[lineCount + 1]).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+
+                    textBox1.Lines[lineCount].Replace("*", "");
+                    textBox1.Lines[lineCount + 1].Replace("*", "");
+
                     string outBuffer = "";
                     if ((buffer1.Length > 0) && (buffer2.Length > 0))
                     {
@@ -745,15 +758,17 @@ namespace GUI
                             for (int k = 1; k < 5; k++)
                             {
                                 double yp1 = 0, yp2 = 0;
-                                calcPerData(field1[k], field2[k], out yp1, out yp2, k-1, (int) field1[5]);
+                                calcPerData(field1[k], field2[k], out yp1, out yp2, k - 1, (int)field1[5]);
                                 outBuffer = outBuffer + "," + String.Format("{0:#,0.000}", yp1) + "," + String.Format("{0:#,0.000}", yp2);
                             }
 
-                            Invoke((MethodInvoker)delegate { textBox3.AppendText(outBuffer + "\n"); });
-                            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@processedPath, true))
-                            {
-                                file.WriteLine(outBuffer);
-                            }
+                            BeginInvoke((MethodInvoker)delegate { textBox3.AppendText(outBuffer + "\n"); });
+                            BeginInvoke((MethodInvoker)delegate {
+                                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@processedPath, true))
+                                {
+                                    file.WriteLine(outBuffer);
+                                }
+                            });
                         }
 
                         lineCount += 2;
@@ -766,7 +781,7 @@ namespace GUI
                 catch (System.IndexOutOfRangeException)
                 {
                     //Thread.Sleep(1000);
-                  
+
                 }
                 catch (System.ComponentModel.Win32Exception)
                 {
@@ -807,7 +822,7 @@ namespace GUI
                 chart.Series["HbO2"].Points.AddXY(x, y1);
                 chart.Series["HbR"].Points.AddXY(x, y2);
 
-        
+
                 //if ((Math.Abs(y1) > 70 ) || (Math.Abs(y2) > 70))
                 //{
                 //    label9.Visible = true;
@@ -818,7 +833,7 @@ namespace GUI
             if ((!isFrozen) && (chart.Visible))
             {
                 chart.Series["HbO2"].Enabled = true;
-                
+
 
                 if (index > 3)
                 {
@@ -831,29 +846,22 @@ namespace GUI
                     labels[index].Text = (y1).ToString("N2");
                 }
 
-                double beg = chart.ChartAreas[0].AxisX.Minimum; 
+                double beg = chart.ChartAreas[0].AxisX.Minimum;
                 double end = chart.ChartAreas[0].AxisX.Maximum + INTERVAL;
                 int propValue = 0;
 
                 if (index < 4)
                 {
                     propValue = currentpoint;
-                    
+
                     if (end > propValue)
                     {
-                        beg = (chart.Series["HbO2"].Points.Count - 1) - (INTERVAL/2.0);
+                        beg = (chart.Series["HbO2"].Points.Count - 1) - (INTERVAL / 2.0);
                         if (beg < 0)
                         {
                             beg = 0;
                         }
                         end = chart.Series["HbO2"].Points.Count - 1;
-                    }
-
-                    if (chart.Series["HbO2"].Points.Count > 2000)
-                    {
-                        chart.Series["HbO2"].Points.RemoveAt(0);
-                        chart.Series["HbR"].Points.RemoveAt(0);
-                        currentpoint--;
                     }
                 }
                 else
@@ -862,23 +870,14 @@ namespace GUI
 
                     if (end > propValue)
                     {
-                        beg = (chart.Series["HbO2"].Points.Count-1) - (INTERVAL/2.0);
+                        beg = (chart.Series["HbO2"].Points.Count - 1) - (INTERVAL / 2.0);
                         if (beg < 0)
                         {
                             beg = 0;
                         }
-                        end = chart.Series["HbO2"].Points.Count-1;
-                    }
-
-                    if (chart.Series["HbO2"].Points.Count > 2000)
-                    {
-                        chart.Series["HbO2"].Points.RemoveAt(0);
-                        chart.Series["HbR"].Points.RemoveAt(0);
-                        currentProcpoint--;
+                        end = chart.Series["HbO2"].Points.Count - 1;
                     }
                 }
-
-                
 
                 if ((beg >= 0) && (end > 0))
                 {
@@ -886,8 +885,26 @@ namespace GUI
                     updateYAxis(beg, end, chart, fromDevice);
                     chart.Update();
                 }
-
             }
+
+
+
+            if (chart.Series["HbO2"].Points.Count > 200)
+            {
+                chart.Series["HbO2"].Points.RemoveAt(0);
+                chart.Series["HbR"].Points.RemoveAt(0);
+                if (index < 4)
+                {
+                    currentpoint--;
+                }
+                else
+                {
+                    currentProcpoint--;
+                }
+            }
+            
+            
+
         }
 
         private void updateLED(double index)
@@ -936,10 +953,10 @@ namespace GUI
             double minX = 3000;
             double minA = 3000;
 
-                      
+
             Series ser1 = chart.Series["HbO2"];
             Series ser2 = chart.Series["HbR"];
-            
+
 
             if (end > ser1.Points.Count)
             {
@@ -967,7 +984,7 @@ namespace GUI
                 if (aa < minA) { minA = aa; }
             });
 
-            double[] limits = { maxX, minX, maxA, minA};
+            double[] limits = { maxX, minX, maxA, minA };
 
             chart.ChartAreas[0].AxisY.Maximum = Math.Round(limits.Max(), 3, MidpointRounding.AwayFromZero) + .4;
             chart.ChartAreas[0].AxisY.Minimum = Math.Round(limits.Min(), 3, MidpointRounding.AwayFromZero) - .4;
@@ -984,7 +1001,7 @@ namespace GUI
             if (comboBox1.SelectedIndex > 1)
             {
                 chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-                chart.ChartAreas[0].AxisX.MajorTickMark.Enabled = false;    
+                chart.ChartAreas[0].AxisX.MajorTickMark.Enabled = false;
             }
             else
             {
@@ -997,6 +1014,8 @@ namespace GUI
 
         private void calcPerData(double yCord1, double yCord2, out double yCord1_P, out double yCord2_P, int senIndex, int lightIndex)
         {
+            double Vmax = 3.3;
+            double Vmin = 0;
             double[][] distances = {
                                         new double[] {0, 3.2, 3.2, 5, 5}, //Sensor 1
                                         new double[] {0, 5.2, 5.2, 7, 7}, //Sensor 2
@@ -1006,9 +1025,10 @@ namespace GUI
 
             Matrix<double> C = DenseMatrix.OfArray(new double[,] {{ GUI.Properties.Settings.Default.c_1, GUI.Properties.Settings.Default.c_2 },
                                                                   { GUI.Properties.Settings.Default.c_3, GUI.Properties.Settings.Default.c_4 }});
-
-            Matrix<double> A = DenseMatrix.OfArray(new double[,] {{ Math.Log10(GUI.Properties.Settings.Default.I0_1/yCord1) },
-                                                                  { Math.Log10(GUI.Properties.Settings.Default.I0_2/yCord2) }});
+            // T^-1 = (Vmax - Vmin)/(V - Vmin)
+            // A= log10(T^-1)
+            Matrix<double> A = DenseMatrix.OfArray(new double[,] {{ Math.Log10((Vmax - Vmin)/(yCord1 - Vmin)) - Math.Log10((Vmax - Vmin)/(baseline[senIndex][lightIndex] - Vmin)) },
+                                                                  { Math.Log10((Vmax - Vmin)/(yCord2 - Vmin)) - Math.Log10((Vmax - Vmin)/(baseline[senIndex][lightIndex+1] - Vmin)) }});
 
             Matrix<double> DPF = DenseMatrix.OfArray(new double[,] {{ GUI.Properties.Settings.Default.DPF_1, GUI.Properties.Settings.Default.DPF_2 },
                                                                     { GUI.Properties.Settings.Default.DPF_1, GUI.Properties.Settings.Default.DPF_2 }});
@@ -1017,7 +1037,7 @@ namespace GUI
             Matrix<double> eqn = C.PointwiseMultiply(temp);
             Matrix<double> sol = eqn.Solve(A);
 
-            if ((Double.IsNaN(sol[0,0])) | (Double.IsNaN(sol[1, 0])) | (Double.IsInfinity(sol[0, 0])) | (Double.IsInfinity(sol[1, 0])))
+            if ((Double.IsNaN(sol[0, 0])) | (Double.IsNaN(sol[1, 0])) | (Double.IsInfinity(sol[0, 0])) | (Double.IsInfinity(sol[1, 0])))
             {
                 sol[0, 0] = 0;
                 sol[1, 0] = 0;
@@ -1081,7 +1101,7 @@ namespace GUI
             }
         }
 
-        
+
 
         private void serialDialogOpen()
         {
@@ -1116,13 +1136,20 @@ namespace GUI
 
         private void calibrateDeviceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            comSerial.Write("b");
-            Thread.Sleep(300);
+            if (comSerial.IsOpen)
+            {
+                comSerial.Write("c");
+                Thread.Sleep(300);
+            }
+            else
+            {
+                MessageBox.Show("COM Port Not Open");
+            }
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
-            if(!checkBox5.Checked)
+            if (!checkBox5.Checked)
             {
                 textBox1.Size = new Size(432, 570);
             }
@@ -1131,6 +1158,78 @@ namespace GUI
                 textBox1.Size = new Size(432, 280);
             }
         }
+
+        void updateBaseline()
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    baselineTable[(5*j)+i].Text = baseline[j][i].ToString();
+                }
+            }
+        }
+
+        private void baselineMenuItem_Click(object sender, EventArgs e)
+        {
+            if (comSerial.IsOpen)
+            {
+
+                Invoke((MethodInvoker)delegate
+                {
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
+                    {
+                        file.WriteLine("BASELINE");
+                    }
+                });
+                comSerial.Write("r");
+                Thread.Sleep(2000);
+                Invoke((MethodInvoker)delegate
+                {
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
+                    {
+                        file.WriteLine(" ");
+                        file.WriteLine(" ");
+                    }
+                });
+
+                Thread.Sleep(1000);
+
+                try
+                {
+                    for (int l = 0; l < 6; l++)
+                    {
+                        string buffer = textBox1.Lines[l];
+
+                        string[] bufferArray = (buffer).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        if (bufferArray.Length > 0)
+                        {
+                            if (bufferArray.Length == 6)
+                            {
+                                double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
+                                for (int j = 0; j < 4; j++)
+                                {
+                                    baseline[j][l] = fieldArray[j + 1];
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (System.ComponentModel.Win32Exception)
+                {
+
+                }
+                updateBaseline();
+                textBox1.Clear();
+                return;
+            }
+            else
+            {
+                MessageBox.Show("COM Port Not Open");
+                return;
+            }
+        }
+
 
         private void comPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {

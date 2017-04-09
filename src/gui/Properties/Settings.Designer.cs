@@ -110,30 +110,6 @@ namespace GUI.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public double I0_1 {
-            get {
-                return ((double)(this["I0_1"]));
-            }
-            set {
-                this["I0_1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public double I0_2 {
-            get {
-                return ((double)(this["I0_2"]));
-            }
-            set {
-                this["I0_2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double c_1 {
             get {
                 return ((double)(this["c_1"]));
@@ -164,18 +140,6 @@ namespace GUI.Properties {
             }
             set {
                 this["DPF_1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public double dist {
-            get {
-                return ((double)(this["dist"]));
-            }
-            set {
-                this["dist"] = value;
             }
         }
         
