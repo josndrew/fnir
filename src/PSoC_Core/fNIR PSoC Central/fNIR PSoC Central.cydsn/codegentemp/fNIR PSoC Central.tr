@@ -66,10 +66,10 @@ Port Name  Setup to Clk  Clock Name:Phase
 
 Port Name     Clock to Out  Clock Name:Phase  
 ------------  ------------  ----------------  
-LED_1(0)_PAD  21916         Clock_1(FFB):R    
+LED_1(0)_PAD  21915         Clock_1(FFB):R    
 LED_2(0)_PAD  21245         Clock_1(FFB):R    
-LED_3(0)_PAD  18073         Clock_1(FFB):R    
-LED_4(0)_PAD  18244         Clock_1(FFB):R    
+LED_3(0)_PAD  14632         Clock_1(FFB):R    
+LED_4(0)_PAD  18078         Clock_1(FFB):R    
 
 
                          3.3::Pad to Pad

@@ -11145,16 +11145,16 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  1106              	.set LED_3__0__DR_INV, CYREG_GPIO_PRT3_DR_INV
  1107              	.set LED_3__0__DR_SET, CYREG_GPIO_PRT3_DR_SET
  1108              	.set LED_3__0__HSIOM, CYREG_HSIOM_PORT_SEL3
- 1109              	.set LED_3__0__HSIOM_MASK, 0x0000000F
- 1110              	.set LED_3__0__HSIOM_SHIFT, 0
+ 1109              	.set LED_3__0__HSIOM_MASK, 0x000F0000
+ 1110              	.set LED_3__0__HSIOM_SHIFT, 16
  1111              	.set LED_3__0__INTCFG, CYREG_GPIO_PRT3_INTR_CFG
  1112              	.set LED_3__0__INTR, CYREG_GPIO_PRT3_INTR
  1113              	.set LED_3__0__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
  1114              	.set LED_3__0__INTSTAT, CYREG_GPIO_PRT3_INTR
- 1115              	.set LED_3__0__MASK, 0x01
+ 1115              	.set LED_3__0__MASK, 0x10
  1116              	.set LED_3__0__OUT_SEL, CYREG_UDB_PA3_CFG10
- 1117              	.set LED_3__0__OUT_SEL_SHIFT, 0
- 1118              	.set LED_3__0__OUT_SEL_VAL, 3
+ 1117              	.set LED_3__0__OUT_SEL_SHIFT, 8
+ 1118              	.set LED_3__0__OUT_SEL_VAL, -1
  1119              	.set LED_3__0__PA__CFG0, CYREG_UDB_PA3_CFG0
  1120              	.set LED_3__0__PA__CFG1, CYREG_UDB_PA3_CFG1
  1121              	.set LED_3__0__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -11177,7 +11177,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  1135              	.set LED_3__0__PC2, CYREG_GPIO_PRT3_PC2
  1136              	.set LED_3__0__PORT, 3
  1137              	.set LED_3__0__PS, CYREG_GPIO_PRT3_PS
- 1138              	.set LED_3__0__SHIFT, 0
+ 1138              	.set LED_3__0__SHIFT, 4
  1139              	.set LED_3__DR, CYREG_GPIO_PRT3_DR
  1140              	.set LED_3__DR_CLR, CYREG_GPIO_PRT3_DR_CLR
  1141              	.set LED_3__DR_INV, CYREG_GPIO_PRT3_DR_INV
@@ -11186,7 +11186,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  1144              	.set LED_3__INTR, CYREG_GPIO_PRT3_INTR
  1145              	.set LED_3__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
  1146              	.set LED_3__INTSTAT, CYREG_GPIO_PRT3_INTR
- 1147              	.set LED_3__MASK, 0x01
+ 1147              	.set LED_3__MASK, 0x10
  1148              	.set LED_3__PA__CFG0, CYREG_UDB_PA3_CFG0
  1149              	.set LED_3__PA__CFG1, CYREG_UDB_PA3_CFG1
  1150              	.set LED_3__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -11206,7 +11206,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  1164              	.set LED_3__PC2, CYREG_GPIO_PRT3_PC2
  1165              	.set LED_3__PORT, 3
  1166              	.set LED_3__PS, CYREG_GPIO_PRT3_PS
- 1167              	.set LED_3__SHIFT, 0
+ 1167              	.set LED_3__SHIFT, 4
  1168              	
  1169              	/* LED_4 */
  1170              	.set LED_4__0__DR, CYREG_GPIO_PRT3_DR
@@ -11214,8 +11214,8 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  1172              	.set LED_4__0__DR_INV, CYREG_GPIO_PRT3_DR_INV
  1173              	.set LED_4__0__DR_SET, CYREG_GPIO_PRT3_DR_SET
  1174              	.set LED_4__0__HSIOM, CYREG_HSIOM_PORT_SEL3
- 1175              	.set LED_4__0__HSIOM_MASK, 0x000F0000
- 1176              	.set LED_4__0__HSIOM_SHIFT, 16
+ 1175              	.set LED_4__0__HSIOM_MASK, 0x0000000F
+ 1176              	.set LED_4__0__HSIOM_SHIFT, 0
  1177              	.set LED_4__0__INTCFG, CYREG_GPIO_PRT3_INTR_CFG
  1178              	.set LED_4__0__INTR, CYREG_GPIO_PRT3_INTR
 ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 188
@@ -11223,9 +11223,9 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
 
  1179              	.set LED_4__0__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
  1180              	.set LED_4__0__INTSTAT, CYREG_GPIO_PRT3_INTR
- 1181              	.set LED_4__0__MASK, 0x10
+ 1181              	.set LED_4__0__MASK, 0x01
  1182              	.set LED_4__0__OUT_SEL, CYREG_UDB_PA3_CFG10
- 1183              	.set LED_4__0__OUT_SEL_SHIFT, 8
+ 1183              	.set LED_4__0__OUT_SEL_SHIFT, 0
  1184              	.set LED_4__0__OUT_SEL_VAL, 3
  1185              	.set LED_4__0__PA__CFG0, CYREG_UDB_PA3_CFG0
  1186              	.set LED_4__0__PA__CFG1, CYREG_UDB_PA3_CFG1
@@ -11246,7 +11246,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  1201              	.set LED_4__0__PC2, CYREG_GPIO_PRT3_PC2
  1202              	.set LED_4__0__PORT, 3
  1203              	.set LED_4__0__PS, CYREG_GPIO_PRT3_PS
- 1204              	.set LED_4__0__SHIFT, 4
+ 1204              	.set LED_4__0__SHIFT, 0
  1205              	.set LED_4__DR, CYREG_GPIO_PRT3_DR
  1206              	.set LED_4__DR_CLR, CYREG_GPIO_PRT3_DR_CLR
  1207              	.set LED_4__DR_INV, CYREG_GPIO_PRT3_DR_INV
@@ -11255,7 +11255,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  1210              	.set LED_4__INTR, CYREG_GPIO_PRT3_INTR
  1211              	.set LED_4__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
  1212              	.set LED_4__INTSTAT, CYREG_GPIO_PRT3_INTR
- 1213              	.set LED_4__MASK, 0x10
+ 1213              	.set LED_4__MASK, 0x01
  1214              	.set LED_4__PA__CFG0, CYREG_UDB_PA3_CFG0
  1215              	.set LED_4__PA__CFG1, CYREG_UDB_PA3_CFG1
  1216              	.set LED_4__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -11275,7 +11275,7 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  1230              	.set LED_4__PC2, CYREG_GPIO_PRT3_PC2
  1231              	.set LED_4__PORT, 3
  1232              	.set LED_4__PS, CYREG_GPIO_PRT3_PS
- 1233              	.set LED_4__SHIFT, 4
+ 1233              	.set LED_4__SHIFT, 0
  1234              	
  1235              	/* PWM_1_cy_m0s8_tcpwm_1 */
 ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 189

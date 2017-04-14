@@ -56,7 +56,7 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
         case 'm':
             CySoftwareReset();
             break;
-        case 'b':
+        case 'c':
             for (l = 0; l < 4; l++) //Loop Through Each Sensor
             {
                 ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
@@ -87,16 +87,9 @@ void HandleUartRxTraffic(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *uartRxDataNotific
             switchLED(4);
             readSensorBitVal();
             break;
-//        case 't':
-//            for (l = 0; l < 14; l+=2) //Loop Through Each Sensor
-//            {                
-//                BRIGHTNESS = l;
-//                switchLED(1);
-//                CyDelay(1500);
-//                readSensor(l); 
-//                CyDelay(500);
-//            }
-//            break;
+        case 't':
+            BRIGHTNESS +=1000;
+            break;
         default:
             break;
     }

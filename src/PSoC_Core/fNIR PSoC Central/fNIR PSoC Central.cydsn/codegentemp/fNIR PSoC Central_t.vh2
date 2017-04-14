@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\PSoC_Core\fNIR PSoC Central\fNIR PSoC Central.cydsn\fNIR PSoC Central.cyprj
--- Generated: 03/10/2017 12:12:39
+-- Generated: 04/12/2017 15:04:43
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \fNIR PSoC Central\ IS
@@ -152,9 +152,9 @@ ARCHITECTURE __DEFAULT__ OF \fNIR PSoC Central\ IS
     ATTRIBUTE lib_model OF LED_2(0) : LABEL IS "iocell10";
     ATTRIBUTE Location OF LED_2(0) : LABEL IS "P1[3]";
     ATTRIBUTE lib_model OF LED_3(0) : LABEL IS "iocell11";
-    ATTRIBUTE Location OF LED_3(0) : LABEL IS "P3[0]";
+    ATTRIBUTE Location OF LED_3(0) : LABEL IS "P3[4]";
     ATTRIBUTE lib_model OF LED_4(0) : LABEL IS "iocell12";
-    ATTRIBUTE Location OF LED_4(0) : LABEL IS "P3[4]";
+    ATTRIBUTE Location OF LED_4(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF A5(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF A5(0) : LABEL IS "P3[6]";
     ATTRIBUTE Location OF \BLE:cy_m0s8_ble\ : LABEL IS "F(BLE,0)";

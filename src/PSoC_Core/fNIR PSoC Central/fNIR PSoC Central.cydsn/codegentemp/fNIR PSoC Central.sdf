@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2017-03-10T17:12:39Z")
+ (DATE "2017-04-12T19:04:43Z")
  (DESIGN "fNIR PSoC Central")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -26,8 +26,8 @@
     (INTERCONNECT ClockBlock.ff_div_9 \\PWM_3\:cy_m0s8_tcpwm_1\\.clock (0.000:0.000:0.000))
     (INTERCONNECT \\PWM_1\:cy_m0s8_tcpwm_1\\.line_out LED_1\(0\).pin_input (6.485:6.485:6.485))
     (INTERCONNECT \\PWM_2\:cy_m0s8_tcpwm_1\\.line_out LED_2\(0\).pin_input (6.454:6.454:6.454))
-    (INTERCONNECT \\PWM_3\:cy_m0s8_tcpwm_1\\.line_out LED_3\(0\).pin_input (2.918:2.918:2.918))
-    (INTERCONNECT \\PWM_4\:cy_m0s8_tcpwm_1\\.line_out LED_4\(0\).pin_input (2.911:2.911:2.911))
+    (INTERCONNECT \\PWM_3\:cy_m0s8_tcpwm_1\\.line_out LED_3\(0\).pin_input (1.000:1.000:1.000))
+    (INTERCONNECT \\PWM_4\:cy_m0s8_tcpwm_1\\.line_out LED_4\(0\).pin_input (2.920:2.920:2.920))
     (INTERCONNECT ClockBlock.ff_div_6 \\ADC\:cy_psoc4_sar\\.clock (0.000:0.000:0.000))
     (INTERCONNECT \\ADC\:cy_psoc4_sar\\.irq \\ADC\:IRQ\\.interrupt (1.000:1.000:1.000))
     (INTERCONNECT \\BLE\:cy_m0s8_ble\\.interrupt \\BLE\:bless_isr\\.interrupt (1.000:1.000:1.000))

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
   24:Generated_Source\PSoC4/PWM_4.c **** /*******************************************************************************
   25:Generated_Source\PSoC4/PWM_4.c **** * Function Name: PWM_4_Init
   26:Generated_Source\PSoC4/PWM_4.c **** ********************************************************************************
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 2
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 2
 
 
   27:Generated_Source\PSoC4/PWM_4.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
   73:Generated_Source\PSoC4/PWM_4.c ****                 PWM_4_SetCompareSwap(1u);
   74:Generated_Source\PSoC4/PWM_4.c ****                 PWM_4_WriteCompareBuf(PWM_4_TC_COMPARE_BUF_VALUE);
   75:Generated_Source\PSoC4/PWM_4.c ****             #endif  /* (1u == PWM_4_TC_COMPARE_SWAP) */
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 3
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 3
 
 
   76:Generated_Source\PSoC4/PWM_4.c ****         #endif  /* (PWM_4__COMPARE == PWM_4_TC_COMP_CAP_MODE) */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
   57 0020 1A60     		str	r2, [r3]
  113:Generated_Source\PSoC4/PWM_4.c ****         #endif  /* (PWM_4__PWM == PWM_4_PWM_MODE) */
  114:Generated_Source\PSoC4/PWM_4.c **** 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 4
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 4
 
 
  115:Generated_Source\PSoC4/PWM_4.c ****         /* Set values from customizer to CTRL1 */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  151:Generated_Source\PSoC4/PWM_4.c ****             PWM_4_WriteCompareBuf(PWM_4_PWM_COMPARE_BUF_VALUE);
  152:Generated_Source\PSoC4/PWM_4.c ****         #endif  /* (1u == PWM_4_PWM_COMPARE_SWAP) */
  153:Generated_Source\PSoC4/PWM_4.c **** 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 5
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 5
 
 
  154:Generated_Source\PSoC4/PWM_4.c ****         #if (1u == PWM_4_PWM_PERIOD_SWAP)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  105 0002 83B0     		sub	sp, sp, #12
  106              		.cfi_def_cfa_offset 24
  107 0004 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 6
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 6
 
 
  108              		.cfi_def_cfa_register 7
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  137              	.L5:
  138 0034 00002040 		.word	1075838976
  139              		.cfi_endproc
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 7
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 7
 
 
  140              	.LFE3:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  163              		.loc 1 234 0
  164 000c FFF7FEFF 		bl	PWM_4_Init
  235:Generated_Source\PSoC4/PWM_4.c ****         PWM_4_initVar = 1u;
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 8
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 8
 
 
  165              		.loc 1 235 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  197              		.cfi_offset 14, -4
  198 0002 83B0     		sub	sp, sp, #12
  199              		.cfi_def_cfa_offset 24
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 9
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 9
 
 
  200 0004 00AF     		add	r7, sp, #0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  273:Generated_Source\PSoC4/PWM_4.c **** *  Sets the operation mode of the PWM_4. This function is used when
  274:Generated_Source\PSoC4/PWM_4.c **** *  configured as a generic PWM_4 and the actual mode of operation is
  275:Generated_Source\PSoC4/PWM_4.c **** *  set at runtime. The mode must be set while the component is disabled.
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 10
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 10
 
 
  276:Generated_Source\PSoC4/PWM_4.c **** *
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  268 0026 7A68     		ldr	r2, [r7, #4]
  269 0028 0A43     		orr	r2, r1
  270 002a 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 11
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 11
 
 
  301:Generated_Source\PSoC4/PWM_4.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  298              		.loc 1 327 0
  299              		.cfi_startproc
  300 0000 90B5     		push	{r4, r7, lr}
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 12
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 12
 
 
  301              		.cfi_def_cfa_offset 12
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  346              		.cfi_endproc
  347              	.LFE7:
  348              		.size	PWM_4_SetQDMode, .-PWM_4_SetQDMode
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 13
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 13
 
 
  349              		.section	.text.PWM_4_SetPrescaler,"ax",%progbits
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  372 000c FFF7FEFF 		bl	CyEnterCriticalSection
  373 0010 031C     		mov	r3, r0
  374 0012 2370     		strb	r3, [r4]
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 14
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 14
 
 
  368:Generated_Source\PSoC4/PWM_4.c **** 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  381:Generated_Source\PSoC4/PWM_4.c **** *  Writes the register that controls whether the PWM_4 runs
  382:Generated_Source\PSoC4/PWM_4.c **** *  continuously or stops when terminal count is reached.  By default the
  383:Generated_Source\PSoC4/PWM_4.c **** *  PWM_4 operates in the continuous mode.
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 15
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 15
 
 
  384:Generated_Source\PSoC4/PWM_4.c **** *
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  403:Generated_Source\PSoC4/PWM_4.c ****                                                                PWM_4_ONESHOT_SHIFT));
  404:Generated_Source\PSoC4/PWM_4.c **** 
  405:Generated_Source\PSoC4/PWM_4.c ****     CyExitCriticalSection(enableInterrupts);
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 16
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 16
 
 
  451              		.loc 1 405 0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  433:Generated_Source\PSoC4/PWM_4.c **** *     - UNDERFLOW_CLEAR     - Clear on underflow
  434:Generated_Source\PSoC4/PWM_4.c **** *     - UNDERFLOW_INVERT    - Invert on underflow
  435:Generated_Source\PSoC4/PWM_4.c **** *     - UNDERFLOW_NO_CHANGE - No change on underflow
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 17
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 17
 
 
  436:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_MODE_LEFT       - Setting for left aligned PWM.  Should be combined
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  453:Generated_Source\PSoC4/PWM_4.c **** 
  454:Generated_Source\PSoC4/PWM_4.c **** 
  455:Generated_Source\PSoC4/PWM_4.c **** 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 18
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 18
 
 
  456:Generated_Source\PSoC4/PWM_4.c **** /*******************************************************************************
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  533              		.loc 1 491 0
  534 0014 0B4B     		ldr	r3, .L30
  535 0016 0B4A     		ldr	r2, .L30
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 19
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 19
 
 
  536 0018 1268     		ldr	r2, [r2]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  506:Generated_Source\PSoC4/PWM_4.c **** *  the counter.  This functionality is only applicable to the three PWM modes.
  507:Generated_Source\PSoC4/PWM_4.c **** *
  508:Generated_Source\PSoC4/PWM_4.c **** *
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 20
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 20
 
 
  509:Generated_Source\PSoC4/PWM_4.c **** * Parameters:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  528:Generated_Source\PSoC4/PWM_4.c **** 
  529:Generated_Source\PSoC4/PWM_4.c ****     CyExitCriticalSection(enableInterrupts);
  611              		.loc 1 529 0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 21
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 21
 
 
  612 0032 0F23     		mov	r3, #15
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  642              		.cfi_offset 7, -8
  643              		.cfi_offset 14, -4
  644 0002 85B0     		sub	sp, sp, #20
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 22
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 22
 
 
  645              		.cfi_def_cfa_offset 32
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  689              	.LFE13:
  690              		.size	PWM_4_SetPWMDeadTime, .-PWM_4_SetPWMDeadTime
  691              		.section	.text.PWM_4_SetPWMInvert,"ax",%progbits
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 23
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 23
 
 
  692              		.align	2
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  718 0014 0A4B     		ldr	r3, .L39
  719 0016 0A4A     		ldr	r2, .L39
  720 0018 1268     		ldr	r2, [r2]
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 24
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 24
 
 
  721 001a 0A49     		ldr	r1, .L39+4
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  609:Generated_Source\PSoC4/PWM_4.c **** *  count: value to write
  610:Generated_Source\PSoC4/PWM_4.c **** *
  611:Generated_Source\PSoC4/PWM_4.c **** * Return:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 25
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 25
 
 
  612:Generated_Source\PSoC4/PWM_4.c **** *  None
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  629:Generated_Source\PSoC4/PWM_4.c **** *  None
  630:Generated_Source\PSoC4/PWM_4.c **** *
  631:Generated_Source\PSoC4/PWM_4.c **** * Return:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 26
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 26
 
 
  632:Generated_Source\PSoC4/PWM_4.c **** *  Current counter value
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  653:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_4_COUNT_DOWN     - Counts down
  654:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_4_COUNT_UPDOWN0  - Counts up and down. Terminal count
  655:Generated_Source\PSoC4/PWM_4.c **** *                                         generated when counter reaches 0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 27
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 27
 
 
  656:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_4_COUNT_UPDOWN1  - Counts up and down. Terminal count
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  864 0032 181C     		mov	r0, r3
  865 0034 FFF7FEFF 		bl	CyExitCriticalSection
  674:Generated_Source\PSoC4/PWM_4.c **** }
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 28
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 28
 
 
  866              		.loc 1 674 0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  899 0008 034B     		ldr	r3, .L52
  900 000a 7A68     		ldr	r2, [r7, #4]
  901 000c 1204     		lsl	r2, r2, #16
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 29
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 29
 
 
  902 000e 120C     		lsr	r2, r2, #16
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  936 000a 1B0C     		lsr	r3, r3, #16
  716:Generated_Source\PSoC4/PWM_4.c **** }
  937              		.loc 1 716 0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 30
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 30
 
 
  938 000c 181C     		mov	r0, r3
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  968 0006 7860     		str	r0, [r7, #4]
  741:Generated_Source\PSoC4/PWM_4.c ****     uint8 enableInterrupts;
  742:Generated_Source\PSoC4/PWM_4.c **** 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 31
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 31
 
 
  743:Generated_Source\PSoC4/PWM_4.c ****     enableInterrupts = CyEnterCriticalSection();
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1016              	.LFB21:
  750:Generated_Source\PSoC4/PWM_4.c **** 
  751:Generated_Source\PSoC4/PWM_4.c **** 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 32
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 32
 
 
  752:Generated_Source\PSoC4/PWM_4.c **** /*******************************************************************************
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1053              	.LFB22:
  770:Generated_Source\PSoC4/PWM_4.c **** 
  771:Generated_Source\PSoC4/PWM_4.c **** 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 33
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 33
 
 
  772:Generated_Source\PSoC4/PWM_4.c **** /*******************************************************************************
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  793:Generated_Source\PSoC4/PWM_4.c **** * Function Name: PWM_4_SetPeriodSwap
  794:Generated_Source\PSoC4/PWM_4.c **** ********************************************************************************
  795:Generated_Source\PSoC4/PWM_4.c **** *
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 34
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 34
 
 
  796:Generated_Source\PSoC4/PWM_4.c **** * Summary:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1117 0028 0120     		mov	r0, #1
  1118 002a 0240     		and	r2, r0
  1119 002c 5200     		lsl	r2, r2, #1
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 35
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 35
 
 
  1120 002e 0A43     		orr	r2, r1
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  846:Generated_Source\PSoC4/PWM_4.c **** *  compare value in the Down counting mode (except 0xFFFFu).
  847:Generated_Source\PSoC4/PWM_4.c **** *
  848:Generated_Source\PSoC4/PWM_4.c **** *******************************************************************************/
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 36
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 36
 
 
  849:Generated_Source\PSoC4/PWM_4.c **** void PWM_4_WriteCompare(uint32 compare)
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1176              		.size	PWM_4_WriteCompare, .-PWM_4_WriteCompare
  1177              		.section	.text.PWM_4_ReadCompare,"ax",%progbits
  1178              		.align	2
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 37
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 37
 
 
  1179              		.global	PWM_4_ReadCompare
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  915:Generated_Source\PSoC4/PWM_4.c ****         }
  916:Generated_Source\PSoC4/PWM_4.c ****         else if (((uint32)PWM_4__COUNT_UP == currentMode) && (0xFFFFu != regVal))
  917:Generated_Source\PSoC4/PWM_4.c ****         {
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 38
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 38
 
 
  918:Generated_Source\PSoC4/PWM_4.c ****             regVal++;
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  947:Generated_Source\PSoC4/PWM_4.c **** *  "period value" in Center or Asymmetric align PWM modes on the 
  948:Generated_Source\PSoC4/PWM_4.c **** *  PSoC 4100/PSoC 4200 devices.
  949:Generated_Source\PSoC4/PWM_4.c **** *  PSoC 4000 devices write the 16 bit compare register with the decremented 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 39
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 39
 
 
  950:Generated_Source\PSoC4/PWM_4.c **** *  compare value in the Up counting mode (except 0x0u), and the incremented 
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1244              		.cfi_endproc
  1245              	.LFE26:
  1246              		.size	PWM_4_WriteCompareBuf, .-PWM_4_WriteCompareBuf
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 40
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 40
 
 
  1247              		.section	.text.PWM_4_ReadCompareBuf,"ax",%progbits
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
 1016:Generated_Source\PSoC4/PWM_4.c ****         else if (((uint32)PWM_4__COUNT_UP == currentMode) && (0xFFFFu != regVal))
 1017:Generated_Source\PSoC4/PWM_4.c ****         {
 1018:Generated_Source\PSoC4/PWM_4.c ****             regVal++;
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 41
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 41
 
 
 1019:Generated_Source\PSoC4/PWM_4.c ****         }
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1288              		.loc 1 1047 0
  1289              		.cfi_startproc
  1290 0000 80B5     		push	{r7, lr}
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 42
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 42
 
 
  1291              		.cfi_def_cfa_offset 8
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1324              		.cfi_def_cfa_offset 8
  1325              		.cfi_offset 7, -8
  1326              		.cfi_offset 14, -4
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 43
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 43
 
 
  1327 0002 00AF     		add	r7, sp, #0
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1354              		.loc 1 1095 0
  1355              		.cfi_startproc
  1356 0000 90B5     		push	{r4, r7, lr}
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 44
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 44
 
 
  1357              		.cfi_def_cfa_offset 12
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1402              	.LFE30:
  1403              		.size	PWM_4_SetCaptureMode, .-PWM_4_SetCaptureMode
  1404              		.section	.text.PWM_4_SetReloadMode,"ax",%progbits
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 45
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 45
 
 
  1405              		.align	2
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1430              		.loc 1 1133 0
  1431 0014 0A4B     		ldr	r3, .L97
  1432 0016 0A4A     		ldr	r2, .L97
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 46
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 46
 
 
  1433 0018 1268     		ldr	r2, [r2]
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
 1150:Generated_Source\PSoC4/PWM_4.c **** *   Values:
 1151:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_4_TRIG_LEVEL     - Level
 1152:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_4_TRIG_RISING    - Rising edge
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 47
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 47
 
 
 1153:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_4_TRIG_FALLING   - Falling edge
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1508 0034 181C     		mov	r0, r3
  1509 0036 FFF7FEFF 		bl	CyExitCriticalSection
 1170:Generated_Source\PSoC4/PWM_4.c **** }
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 48
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 48
 
 
  1510              		.loc 1 1170 0
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1541              		.cfi_def_cfa_register 7
  1542 0006 7860     		str	r0, [r7, #4]
 1194:Generated_Source\PSoC4/PWM_4.c ****     uint8 enableInterrupts;
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 49
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 49
 
 
 1195:Generated_Source\PSoC4/PWM_4.c **** 
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1589              	.LFB34:
 1203:Generated_Source\PSoC4/PWM_4.c **** 
 1204:Generated_Source\PSoC4/PWM_4.c **** 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 50
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 50
 
 
 1205:Generated_Source\PSoC4/PWM_4.c **** /*******************************************************************************
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1616 0020 074B     		ldr	r3, .L106
  1617 0022 074A     		ldr	r2, .L106
  1618 0024 1168     		ldr	r1, [r2]
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 51
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 51
 
 
  1619 0026 7A68     		ldr	r2, [r7, #4]
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
 1257:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_4_CMD_RELOAD     - Trigger Reload/Index command
 1258:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_4_CMD_STOP       - Trigger Stop/Kill command
 1259:Generated_Source\PSoC4/PWM_4.c **** *     - PWM_4_CMD_START      - Trigger Start/phiB command
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 52
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 52
 
 
 1260:Generated_Source\PSoC4/PWM_4.c **** *
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1688              	.L109:
  1689 0034 08002040 		.word	1075838984
  1690              		.cfi_endproc
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 53
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 53
 
 
  1691              	.LFE35:
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1720              		.loc 1 1298 0
  1721 0014 181C     		mov	r0, r3
  1722 0016 BD46     		mov	sp, r7
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 54
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 54
 
 
  1723              		@ sp needed
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1754 000c 1A60     		str	r2, [r3]
 1322:Generated_Source\PSoC4/PWM_4.c **** }
  1755              		.loc 1 1322 0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 55
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 55
 
 
  1756 000e BD46     		mov	sp, r7
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1787 0008 181C     		mov	r0, r3
  1788 000a BD46     		mov	sp, r7
  1789              		@ sp needed
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 56
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 56
 
 
  1790 000c 80BD     		pop	{r7, pc}
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1821 000c 80BD     		pop	{r7, pc}
  1822              	.L125:
  1823 000e C046     		.align	2
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 57
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 57
 
 
  1824              	.L124:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1855              		@ sp needed
  1856 0012 80BD     		pop	{r7, pc}
  1857              	.L128:
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 58
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 58
 
 
  1858              		.align	2
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1889 0010 02B0     		add	sp, sp, #8
  1890              		@ sp needed
  1891 0012 80BD     		pop	{r7, pc}
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 59
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 59
 
 
  1892              	.L131:
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  1946 0058 07       		.byte	0x7
  1947 0059 FF000000 		.4byte	.LASF7
  1948 005d 03       		.uleb128 0x3
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 60
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 60
 
 
  1949 005e 04       		.byte	0x4
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2003 00d0 01       		.uleb128 0x1
  2004 00d1 9C       		.byte	0x9c
  2005 00d2 E5000000 		.4byte	0xe5
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 61
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 61
 
 
  2006 00d6 08       		.uleb128 0x8
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2060 0146 01       		.byte	0x1
  2061 0147 2701     		.2byte	0x127
  2062 0149 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 62
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 62
 
 
  2063 014d 02       		.uleb128 0x2
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2117 01b9 6F       		.sleb128 -17
  2118 01ba 00       		.byte	0
  2119 01bb 09       		.uleb128 0x9
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 63
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 63
 
 
  2120 01bc C3040000 		.4byte	.LASF27
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2174 0231 01       		.byte	0x1
  2175 0232 E501     		.2byte	0x1e5
  2176 0234 77000000 		.4byte	0x77
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 64
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 64
 
 
  2177 0238 02       		.uleb128 0x2
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2231 02a4 64       		.sleb128 -28
  2232 02a5 0A       		.uleb128 0xa
  2233 02a6 77040000 		.4byte	.LASF20
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 65
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 65
 
 
  2234 02aa 01       		.byte	0x1
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2288 0316 7B02     		.2byte	0x27b
  2289 0318 77000000 		.4byte	0x77
  2290 031c 00000000 		.4byte	.LFB16
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 66
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 66
 
 
  2291 0320 18000000 		.4byte	.LFE16-.LFB16
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2345 0395 01       		.uleb128 0x1
  2346 0396 9C       		.byte	0x9c
  2347 0397 09       		.uleb128 0x9
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 67
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 67
 
 
  2348 0398 CB010000 		.4byte	.LASF47
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2402 040d 01       		.byte	0x1
  2403 040e 2C03     		.2byte	0x32c
  2404 0410 00000000 		.4byte	.LFB23
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 68
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 68
 
 
  2405 0414 48000000 		.4byte	.LFE23-.LFB23
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2459 0489 01       		.uleb128 0x1
  2460 048a 9C       		.byte	0x9c
  2461 048b 9F040000 		.4byte	0x49f
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 69
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 69
 
 
  2462 048f 0B       		.uleb128 0xb
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2516 0507 77040000 		.4byte	.LASF20
  2517 050b 01       		.byte	0x1
  2518 050c 4804     		.2byte	0x448
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 70
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 70
 
 
  2519 050e 6B000000 		.4byte	0x6b
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2573 057d 91       		.byte	0x91
  2574 057e 6F       		.sleb128 -17
  2575 057f 00       		.byte	0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 71
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 71
 
 
  2576 0580 09       		.uleb128 0x9
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2630 05ef 01       		.byte	0x1
  2631 05f0 F104     		.2byte	0x4f1
  2632 05f2 00000000 		.4byte	.LFB35
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 72
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 72
 
 
  2633 05f6 38000000 		.4byte	.LFE35-.LFB35
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2687 0668 74       		.sleb128 -12
  2688 0669 00       		.byte	0
  2689 066a 0D       		.uleb128 0xd
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 73
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 73
 
 
  2690 066b C3000000 		.4byte	.LASF72
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2744 06e3 4E030000 		.4byte	.LASF79
  2745 06e7 01       		.byte	0x1
  2746 06e8 15       		.byte	0x15
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 74
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 74
 
 
  2747 06e9 6B000000 		.4byte	0x6b
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2801 002f 0B       		.uleb128 0xb
  2802 0030 3B       		.uleb128 0x3b
  2803 0031 05       		.uleb128 0x5
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 75
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 75
 
 
  2804 0032 49       		.uleb128 0x49
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2858 006a 19       		.uleb128 0x19
  2859 006b 01       		.uleb128 0x1
  2860 006c 13       		.uleb128 0x13
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 76
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 76
 
 
  2861 006d 00       		.byte	0
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2915 00a4 18       		.uleb128 0x18
  2916 00a5 00       		.byte	0
  2917 00a6 00       		.byte	0
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 77
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 77
 
 
  2918 00a7 0B       		.uleb128 0xb
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  2972 00de 13       		.uleb128 0x13
  2973 00df 11       		.uleb128 0x11
  2974 00e0 01       		.uleb128 0x1
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 78
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 78
 
 
  2975 00e1 12       		.uleb128 0x12
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3029 0060 00000000 		.4byte	.LFB12
  3030 0064 48000000 		.4byte	.LFE12-.LFB12
  3031 0068 00000000 		.4byte	.LFB13
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 79
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 79
 
 
  3032 006c 4C000000 		.4byte	.LFE13-.LFB13
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3086 0144 18000000 		.4byte	.LFE40-.LFB40
  3087 0148 00000000 		.4byte	.LFB41
  3088 014c 18000000 		.4byte	.LFE41-.LFB41
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 80
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 80
 
 
  3089 0150 00000000 		.4byte	0
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3143 00c8 00000000 		.4byte	.LFB27
  3144 00cc 18000000 		.4byte	.LFE27
  3145 00d0 00000000 		.4byte	.LFB28
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 81
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 81
 
 
  3146 00d4 18000000 		.4byte	.LFE28
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3184              	.LASF41:
  3185 0071 50574D5F 		.ascii	"PWM_4_SetCounterMode\000"
  3185      345F5365 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 82
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 82
 
 
  3185      74436F75 
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3205      4D6F6465 
  3206              	.LASF6:
  3207 013d 6C6F6E67 		.ascii	"long long int\000"
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 83
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 83
 
 
  3207      206C6F6E 
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3230              	.LASF38:
  3231 01e0 6D61736B 		.ascii	"mask\000"
  3231      00
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 84
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 84
 
 
  3232              	.LASF36:
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3253 0286 50574D5F 		.ascii	"PWM_4_ReadPeriodBuf\000"
  3253      345F5265 
  3253      61645065 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 85
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 85
 
 
  3253      72696F64 
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3275      345F5365 
  3275      7451444D 
  3275      6F646500 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 86
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 86
 
 
  3276              	.LASF79:
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3298              	.LASF33:
  3299 03ea 50574D5F 		.ascii	"PWM_4_SetPWMStopOnKill\000"
  3299      345F5365 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 87
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 87
 
 
  3299      7450574D 
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3323      345F5365 
  3323      74537461 
  3323      72744D6F 
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 88
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 88
 
 
  3323      646500
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 1
  3341 0597 70657269 		.ascii	"periodBuf\000"
  3341      6F644275 
  3341      6600
-ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\cc2rtP5u.s 			page 89
+ARM GAS  C:\Users\ANDREW~1\AppData\Local\Temp\ccj32AbB.s 			page 89
 
 
  3342              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

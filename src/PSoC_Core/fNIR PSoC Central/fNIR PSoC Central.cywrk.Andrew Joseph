@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="fNIR PSoC Central\fNIR PSoC Central\Source Files\app_UART.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>fNIR PSoC Central</v>
 <v>fNIR PSoC Central\fNIR PSoC Central</v>
@@ -221,32 +221,7 @@
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\cymetadata.c</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source\PSoC4\project.h</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>fNIR PSoC Central</v>
-<v>fNIR PSoC Central\fNIR PSoC Central</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\TopDesign</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central.cydwr</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central.cydwr\Pins</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central.cydwr\Analog</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central.cydwr\Clocks</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central.cydwr\Interrupts</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central.cydwr\System</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central.cydwr\Directives</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central.cydwr\Flash Security</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Header Files</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Header Files\app_Ble.h</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Header Files\app_LED.h</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Header Files\app_UART.h</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Header Files\main.h</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Header Files\millis.h</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Source Files</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Source Files\app_Ble.c</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Source Files\app_LED.c</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Source Files\app_UART.c</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Source Files\main.c</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Source Files\millis.c</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Generated_Source</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -255,12 +230,7 @@
 <v>fNIR PSoC Central\fNIR PSoC Central\TopDesign</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\TopDesign\TopDesign.cysch</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>fNIR PSoC Central</v>
-<v>fNIR PSoC Central\fNIR PSoC Central</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\TopDesign</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\TopDesign\TopDesign.cysch</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -347,38 +317,7 @@
 <v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central.rpt</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\fNIR PSoC Central_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>fNIR PSoC Central</v>
-<v>fNIR PSoC Central\fNIR PSoC Central</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A1.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A1_PM.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A2.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A2_PM.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A3.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A3_PM.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A4.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A4_PM.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A5.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\A5_PM.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_INT.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_intClock.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_IRQ.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_PM.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\app_Ble.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\app_LED.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\app_UART.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_bless_isr.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_custom.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_eventHandler.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_gatt.lst</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_INT.lst</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -412,32 +351,7 @@
 <v>fNIR PSoC Central\fNIR PSoC Central\TCPWM_P4_v2_10</v>
 <v>fNIR PSoC Central\fNIR PSoC Central\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>fNIR PSoC Central</v>
-<v>fNIR PSoC Central\fNIR PSoC Central</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\PSoC 4 Architecture TRM</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\PSoC 4200 BLE Family Datasheet</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\System Reference Guides</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\System Reference Guides\cy_boot_v5_50</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\System Reference Guides\cy_lfclk_v1_10</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\ADC_SAR_SEQ_P4_v2_40.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\BLE_v3_20.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Capacitor_v1_0.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\cy_clock_v2_20.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\cy_pins_v2_20</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Gnd_v1_0.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Inductor_v1_0.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\LED_v1_0</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\LED_v1_0\LED_v1_0.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Power_v1_0</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Power_v1_0\Power_v1_0.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Resistor_v1_0</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\Resistor_v1_0\Resistor_v1_0.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\SCB_P4_v3_20.pdf</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\TCPWM_P4_v2_10</v>
-<v>fNIR PSoC Central\fNIR PSoC Central\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
@@ -451,11 +365,8 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\fNIR PSoC Central.cydsn\main.h" />
 <name v=".\fNIR PSoC Central.cydsn\app_UART.c" />
-<name v=".\fNIR PSoC Central.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\fNIR PSoC Central.cydsn\main.c" />
-<name v=".\fNIR PSoC Central.cydsn\app_LED.c" />
+<name v=".\fNIR PSoC Central.cydsn\fNIR PSoC Central.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -463,7 +374,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="753, 423" SelectedTabbedMdiWindow="983a4f58-eb85-4f2c-949a-426638946638"><DocumentWindow Key="6ac2f726-f263-402a-9e5c-558005da19a0" Guid="f4541908-ba5c-4f6d-88c5-cf804c228ec0" /><DocumentWindow Key="e73ad76f-d965-4676-b350-73839823d0f3" Guid="983a4f58-eb85-4f2c-949a-426638946638" /><DocumentWindow Key="204afd89-09d8-49ac-b826-3f97f06abc51" Guid="50bed26c-e6f2-480c-ba24-254e9e26a396" /><DocumentWindow Key="22a9caa6-b5df-499d-b2a5-2d2580ea73ed" Guid="9ceb3ebf-2680-4cd4-954a-1caa01376cad" /><DocumentWindow Key="bbdb95d9-1e15-4aad-8e84-52b339aed952" Guid="cc3927b8-72c8-46fb-856b-3397185ec724" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1050, 423" SelectedTabbedMdiWindow="56214fb7-193d-4fd3-af11-c58cc2ca6c93"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="965ca48f-fa5b-47e2-b506-07b2c80ff5ff" /><DocumentWindow Key="6ebd156e-6800-459d-9393-95ab984789d3" Guid="8fd9711e-b0bd-44c7-bd04-83be1547ad0f" /><DocumentWindow Key="11413ab6-831a-461e-a5ea-59ee8bc05d82" Guid="56214fb7-193d-4fd3-af11-c58cc2ca6c93" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

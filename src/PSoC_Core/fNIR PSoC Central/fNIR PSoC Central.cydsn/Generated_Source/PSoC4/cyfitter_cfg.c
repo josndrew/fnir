@@ -351,8 +351,8 @@ void cyfitter_cfg(void)
 		static const uint32 CYCODE cy_cfg_addr_table[] = {
 			0x400F3301u, /* Base address: 0x400F3300 Count: 1 */
 			0x400F4106u, /* Base address: 0x400F4100 Count: 6 */
-			0x400F4204u, /* Base address: 0x400F4200 Count: 4 */
-			0x400F4309u, /* Base address: 0x400F4300 Count: 9 */
+			0x400F4203u, /* Base address: 0x400F4200 Count: 3 */
+			0x400F4305u, /* Base address: 0x400F4300 Count: 5 */
 		};
 
 		static const cy_cfg_addrvalue_t CYCODE cy_cfg_data_table[] = {
@@ -363,19 +363,14 @@ void cyfitter_cfg(void)
 			{0x84u, 0x10u},
 			{0xD4u, 0xA0u},
 			{0xE6u, 0xC0u},
-			{0x10u, 0x02u},
-			{0x11u, 0x04u},
-			{0x14u, 0x12u},
-			{0xC4u, 0x0Fu},
-			{0x54u, 0x02u},
-			{0x64u, 0x10u},
+			{0x10u, 0x10u},
+			{0x14u, 0x22u},
+			{0xC4u, 0x0Du},
+			{0x5Cu, 0x20u},
 			{0x80u, 0x02u},
-			{0x85u, 0x04u},
-			{0x91u, 0x04u},
-			{0x98u, 0x12u},
-			{0xA0u, 0x02u},
+			{0x84u, 0x10u},
+			{0x98u, 0x32u},
 			{0xD6u, 0x04u},
-			{0xD8u, 0x01u},
 		};
 
 
@@ -405,7 +400,7 @@ void cyfitter_cfg(void)
 		/* HSIOM Starting address: CYDEV_HSIOM_BASE */
 		CY_SET_XTND_REG32((void CYFAR *)(CYDEV_HSIOM_BASE), 0xEE990000u);
 		CY_SET_XTND_REG32((void CYFAR *)(CYREG_HSIOM_PORT_SEL1), 0x00003300u);
-		CY_SET_XTND_REG32((void CYFAR *)(CYREG_HSIOM_PORT_SEL3), 0x00030003u);
+		CY_SET_XTND_REG32((void CYFAR *)(CYREG_HSIOM_PORT_SEL3), 0x00080003u);
 
 		/* UDB_PA_0 Starting address: CYDEV_UDB_PA0_BASE */
 		CY_SET_XTND_REG32((void CYFAR *)(CYDEV_UDB_PA0_BASE), 0x00990000u);
@@ -416,7 +411,7 @@ void cyfitter_cfg(void)
 
 		/* UDB_PA_3 Starting address: CYDEV_UDB_PA3_BASE */
 		CY_SET_XTND_REG32((void CYFAR *)(CYDEV_UDB_PA3_BASE), 0x00990000u);
-		CY_SET_XTND_REG32((void CYFAR *)(CYREG_UDB_PA3_CFG8), 0x03030000u);
+		CY_SET_XTND_REG32((void CYFAR *)(CYREG_UDB_PA3_CFG8), 0x00030000u);
 
 		/* Enable digital routing */
 		CY_SET_XTND_REG8((void *)CYREG_UDB_UDBIF_BANK_CTL, CY_GET_XTND_REG8((void *)CYREG_UDB_UDBIF_BANK_CTL) | 0x02u);
