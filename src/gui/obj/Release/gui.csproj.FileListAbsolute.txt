@@ -1,0 +1,15 @@
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Release\GUI.exe
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Release\GUI.exe.config
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Release\LumenWorks.Framework.IO.dll
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Release\MathNet.Numerics.dll
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\bin\Release\MathNet.Numerics.xml
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\Interop.MLApp.dll
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\gui.csproj.ResolveComReference.cache
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\GUI.AboutBox1.resources
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\GUI.mainForm.resources
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\GUI.Properties.Resources.resources
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\GUI.SerialSetup.resources
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\GUI.SettingsSetup.resources
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\gui.csproj.GenerateResource.Cache
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\GUI.exe
+C:\Users\Andrew Joseph\Desktop\Senior Design\trunk\src\gui\obj\Release\GUI.pdb

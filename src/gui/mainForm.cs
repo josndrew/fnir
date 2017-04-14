@@ -199,6 +199,8 @@ namespace GUI
                 ProcessDirectory(GUI.Properties.Settings.Default.workingDirectory);
 
                 sessionPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + ".drexel";
+                processedPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "\\session_" + sessionsFound.ToString() + "_Processed.drexel";
+                logPath = GUI.Properties.Settings.Default.workingDirectory.ToString() + "log.csv";
 
                 if (File.Exists(sessionPath))
                 {
@@ -461,19 +463,19 @@ namespace GUI
                         thread1.Start();
                     }
 
-                    try
-                    {
-                        if (!thread2.IsAlive)
-                        {
-                            thread2 = new Thread(new ThreadStart(parseRawData));
-                            thread2.Start();
-                        }
-                    }
-                    catch
-                    {
-                        thread2 = new Thread(new ThreadStart(parseRawData));
-                        thread2.Start();
-                    }
+                    //try
+                    //{
+                    //    if (!thread2.IsAlive)
+                    //    {
+                    //        thread2 = new Thread(new ThreadStart(parseRawData));
+                    //        thread2.Start();
+                    //    }
+                    //}
+                    //catch
+                    //{
+                    //    thread2 = new Thread(new ThreadStart(parseRawData));
+                    //    thread2.Start();
+                    //}
 
                     try
                     {
@@ -489,19 +491,19 @@ namespace GUI
                         thread3.Start();
                     }
 
-                    try
-                    {
-                        if (!thread4.IsAlive)
-                        {
-                            thread4 = new Thread(new ThreadStart(parseCalcData));
-                            thread4.Start();
-                        }
-                    }
-                    catch
-                    {
-                        thread4 = new Thread(new ThreadStart(parseCalcData));
-                        thread4.Start();
-                    }
+                    //try
+                    //{
+                    //    if (!thread4.IsAlive)
+                    //    {
+                    //        thread4 = new Thread(new ThreadStart(parseCalcData));
+                    //        thread4.Start();
+                    //    }
+                    //}
+                    //catch
+                    //{
+                    //    thread4 = new Thread(new ThreadStart(parseCalcData));
+                    //    thread4.Start();
+                    //}
 
                     break;
 
@@ -1181,23 +1183,30 @@ namespace GUI
                     {
                         file.WriteLine("BASELINE");
                     }
-                });
-                comSerial.Write("r");
-                Thread.Sleep(2000);
-                Invoke((MethodInvoker)delegate
-                {
-                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(@processedPath, true))
                     {
-                        file.WriteLine(" ");
-                        file.WriteLine(" ");
+                        file.WriteLine("BASELINE");
                     }
                 });
 
-                Thread.Sleep(1000);
+                for (int k = 0; k < 6; k++)
+                {
+                    comSerial.Write("r");
+                    Thread.Sleep(500);
+                }
+                    
+
+TRYAGAIN:
+                    if (textBox1.Lines.Count() != 31)
+                    {
+                        Thread.Sleep(50);
+                        Invoke((MethodInvoker)delegate { textBox1.Update(); Update(); });
+                        goto TRYAGAIN;
+                    }
 
                 try
                 {
-                    for (int l = 0; l < 6; l++)
+                    for (int l = 0; l < 31; l++)
                     {
                         string buffer = textBox1.Lines[l];
 
@@ -1209,7 +1218,7 @@ namespace GUI
                                 double[] fieldArray = Array.ConvertAll(bufferArray, s => double.Parse(s));
                                 for (int j = 0; j < 4; j++)
                                 {
-                                    baseline[j][l] = fieldArray[j + 1];
+                                    baseline[j][l%5] = baseline[j][l%5] + fieldArray[j + 1];
                                 }
                             }
                         }
@@ -1217,11 +1226,18 @@ namespace GUI
                 }
                 catch (System.ComponentModel.Win32Exception)
                 {
+                    return;
+                }      
 
+                for (int l = 0; l < 5; l++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        baseline[j][l] = baseline[j][l]/5.0;
+                    }
                 }
+
                 updateBaseline();
-                textBox1.Clear();
-                return;
             }
             else
             {
@@ -1237,8 +1253,8 @@ namespace GUI
             string buffer = comSerial.ReadLine();
             buffer = buffer.TrimEnd('\r');
             buffer = buffer.TrimEnd('\0');
-            BeginInvoke((MethodInvoker)delegate { textBox1.AppendText(buffer + "\n"); });
-            BeginInvoke((MethodInvoker)delegate
+            Invoke((MethodInvoker)delegate { textBox1.AppendText(buffer + "\n"); });
+            Invoke((MethodInvoker)delegate
             {
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(@sessionPath, true))
                 {
