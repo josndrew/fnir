@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="fNIR PSoC Central\fNIR PSoC Central\Source Files\app_UART.c">
 <ExpandedNodeIds>
 <v>fNIR PSoC Central</v>
 <v>fNIR PSoC Central\fNIR PSoC Central</v>
@@ -366,7 +366,6 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\fNIR PSoC Central.cydsn\app_UART.c" />
-<name v=".\fNIR PSoC Central.cydsn\fNIR PSoC Central.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -374,7 +373,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1050, 423" SelectedTabbedMdiWindow="56214fb7-193d-4fd3-af11-c58cc2ca6c93"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="965ca48f-fa5b-47e2-b506-07b2c80ff5ff" /><DocumentWindow Key="6ebd156e-6800-459d-9393-95ab984789d3" Guid="8fd9711e-b0bd-44c7-bd04-83be1547ad0f" /><DocumentWindow Key="11413ab6-831a-461e-a5ea-59ee8bc05d82" Guid="56214fb7-193d-4fd3-af11-c58cc2ca6c93" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1050, 423" SelectedTabbedMdiWindow="965ca48f-fa5b-47e2-b506-07b2c80ff5ff"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="965ca48f-fa5b-47e2-b506-07b2c80ff5ff" /><DocumentWindow Key="01cea57c-5de7-423e-ac30-1ed66d20f4b1" Guid="6f8cdeb8-8924-4b46-968f-0bfeefe2c10a" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

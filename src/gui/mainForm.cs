@@ -1019,10 +1019,10 @@ namespace GUI
             double Vmax = 3.3;
             double Vmin = 0;
             double[][] distances = {
-                                        new double[] {0, 3.2, 3.2, 5, 5}, //Sensor 1
-                                        new double[] {0, 5.2, 5.2, 7, 7}, //Sensor 2
-                                        new double[] {0, 5, 5, 3.2, 3.2}, //Sensor 3
-                                        new double[] {0, 7, 7, 5.2, 5.2}, //Sensor 4
+                                        new double[] {0, 5.2, 5.2, 7, 7}, //Sensor 1
+                                        new double[] {0, 3.2, 3.2, 5, 5}, //Sensor 2
+                                        new double[] {0, 7, 7, 5.2, 5.2}, //Sensor 3
+                                        new double[] {0, 5, 5, 3.2, 3.2}, //Sensor 4
                                     };
 
             Matrix<double> C = DenseMatrix.OfArray(new double[,] {{ GUI.Properties.Settings.Default.c_1, GUI.Properties.Settings.Default.c_2 },
